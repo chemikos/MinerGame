@@ -40,7 +40,7 @@ namespace CheckingApp
                 Console.WriteLine("Nie działa");
             }
             */
-
+            Console.WriteLine("Zmiany dla testu gita.");
 
         }
     }
