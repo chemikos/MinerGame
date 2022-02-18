@@ -10,7 +10,7 @@ namespace OgameData
         public static int GameSpeed = 1;
 
         [JsonProperty("Researches")]
-        public static Dictionary<Item, Research> Researches = new()
+        public static Dictionary<Item, Upgradeable> Researches = new()
         {
             { Item.COMBUSTION_DRIVE, new Research() },
             { Item.IMPULSE_DRIVE, new Research() },
@@ -41,7 +41,7 @@ namespace OgameData
         public DateTime GameStart { get; set; }
         public DateTime LastUpdate { get; set; }
         public List<Planet> Planets { get; set; }
-        public bool ResearchInProgress { get; set; }
+        public bool IsResearchInProgress { get; set; }
         public OGame(string name)
         {
             GameName = name;
@@ -49,11 +49,11 @@ namespace OgameData
             Planets = new List<Planet>()
             {
                 new Planet("Planeta matka"),
-                new Planet("Nowa planeta"),
                 new Planet(),
-                new Planet("Dziura")
+                new Planet(),
+                new Planet()
             };
-            ResearchInProgress = false;
+            IsResearchInProgress = false;
         }
 
         #region Private methods

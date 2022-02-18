@@ -339,10 +339,10 @@ namespace MinerGame
             this.lblEspionageTechnology = new System.Windows.Forms.Label();
             this.tpShipyard = new System.Windows.Forms.TabPage();
             this.pSmallCargo = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSmallCargoCount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblSmallCargoDuration = new System.Windows.Forms.Label();
+            this.btnSmallCargoConstruct = new System.Windows.Forms.Button();
             this.lblSmallCargoDeuteriumCost = new System.Windows.Forms.Label();
             this.lblSmallCargoCrystalCost = new System.Windows.Forms.Label();
             this.lblSmallCargoMetalCost = new System.Windows.Forms.Label();
@@ -352,12 +352,10 @@ namespace MinerGame
             this.tpRequirements = new System.Windows.Forms.TabPage();
             this.tpFleet = new System.Windows.Forms.TabPage();
             this.pInfo = new System.Windows.Forms.Panel();
-            this.gbPlanetNumber = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.gbPlanetFieldsInfo = new System.Windows.Forms.GroupBox();
-            this.lblPlanetFieldsOverValue = new System.Windows.Forms.Label();
-            this.lblPlanetFieldsAvailableValue = new System.Windows.Forms.Label();
-            this.lblPlanetFieldsDemandValue = new System.Windows.Forms.Label();
+            this.gbPlanetCountInfo = new System.Windows.Forms.GroupBox();
+            this.btnDeletePlanet = new System.Windows.Forms.Button();
+            this.btnNewPlanet = new System.Windows.Forms.Button();
+            this.lblPlanetCount = new System.Windows.Forms.Label();
             this.gbEnergyInfo = new System.Windows.Forms.GroupBox();
             this.lblEnergyOverValue = new System.Windows.Forms.Label();
             this.lblEnergyAvailableValue = new System.Windows.Forms.Label();
@@ -379,6 +377,7 @@ namespace MinerGame
             this.lblMetalPlanetValue = new System.Windows.Forms.Label();
             this.lblCrystalPlanetValue = new System.Windows.Forms.Label();
             this.gbPlanetInfo = new System.Windows.Forms.GroupBox();
+            this.lblPlanetFields = new System.Windows.Forms.Label();
             this.lblDiameterValue = new System.Windows.Forms.Label();
             this.lblTemperatureValue = new System.Windows.Forms.Label();
             this.lblPlanetNameValue = new System.Windows.Forms.Label();
@@ -431,8 +430,7 @@ namespace MinerGame
             this.tpShipyard.SuspendLayout();
             this.pSmallCargo.SuspendLayout();
             this.pInfo.SuspendLayout();
-            this.gbPlanetNumber.SuspendLayout();
-            this.gbPlanetFieldsInfo.SuspendLayout();
+            this.gbPlanetCountInfo.SuspendLayout();
             this.gbEnergyInfo.SuspendLayout();
             this.gbGameInfo.SuspendLayout();
             this.gbStorageTotal.SuspendLayout();
@@ -460,7 +458,7 @@ namespace MinerGame
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 25);
             this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "Aktualizuj";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
@@ -680,7 +678,7 @@ namespace MinerGame
             this.lblDeuteriumTankNewStorage.Name = "lblDeuteriumTankNewStorage";
             this.lblDeuteriumTankNewStorage.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumTankNewStorage.TabIndex = 14;
-            this.lblDeuteriumTankNewStorage.Text = "0";
+            this.lblDeuteriumTankNewStorage.Text = "nowa pojemność";
             this.lblDeuteriumTankNewStorage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumTankDuration
@@ -692,7 +690,7 @@ namespace MinerGame
             this.lblDeuteriumTankDuration.Name = "lblDeuteriumTankDuration";
             this.lblDeuteriumTankDuration.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumTankDuration.TabIndex = 13;
-            this.lblDeuteriumTankDuration.Text = "00:00:00";
+            this.lblDeuteriumTankDuration.Text = "czas";
             this.lblDeuteriumTankDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDeuteriumTankUpgrade
@@ -717,7 +715,7 @@ namespace MinerGame
             this.lblDeuteriumTankDeuteriumCost.Name = "lblDeuteriumTankDeuteriumCost";
             this.lblDeuteriumTankDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumTankDeuteriumCost.TabIndex = 11;
-            this.lblDeuteriumTankDeuteriumCost.Text = "0";
+            this.lblDeuteriumTankDeuteriumCost.Text = "deuter";
             this.lblDeuteriumTankDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumTankCrystalCost
@@ -730,7 +728,7 @@ namespace MinerGame
             this.lblDeuteriumTankCrystalCost.Name = "lblDeuteriumTankCrystalCost";
             this.lblDeuteriumTankCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumTankCrystalCost.TabIndex = 10;
-            this.lblDeuteriumTankCrystalCost.Text = "0";
+            this.lblDeuteriumTankCrystalCost.Text = "kryształ";
             this.lblDeuteriumTankCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumTankMetalCost
@@ -743,7 +741,7 @@ namespace MinerGame
             this.lblDeuteriumTankMetalCost.Name = "lblDeuteriumTankMetalCost";
             this.lblDeuteriumTankMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumTankMetalCost.TabIndex = 9;
-            this.lblDeuteriumTankMetalCost.Text = "0";
+            this.lblDeuteriumTankMetalCost.Text = "metal";
             this.lblDeuteriumTankMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumTankLevel
@@ -755,7 +753,7 @@ namespace MinerGame
             this.lblDeuteriumTankLevel.Name = "lblDeuteriumTankLevel";
             this.lblDeuteriumTankLevel.Size = new System.Drawing.Size(50, 30);
             this.lblDeuteriumTankLevel.TabIndex = 8;
-            this.lblDeuteriumTankLevel.Text = "0";
+            this.lblDeuteriumTankLevel.Text = "level";
             this.lblDeuteriumTankLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumTank
@@ -797,7 +795,7 @@ namespace MinerGame
             this.lblCrystalStorageNewStorage.Name = "lblCrystalStorageNewStorage";
             this.lblCrystalStorageNewStorage.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalStorageNewStorage.TabIndex = 14;
-            this.lblCrystalStorageNewStorage.Text = "0";
+            this.lblCrystalStorageNewStorage.Text = "nowa pojemność";
             this.lblCrystalStorageNewStorage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalStorageDuration
@@ -809,7 +807,7 @@ namespace MinerGame
             this.lblCrystalStorageDuration.Name = "lblCrystalStorageDuration";
             this.lblCrystalStorageDuration.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalStorageDuration.TabIndex = 13;
-            this.lblCrystalStorageDuration.Text = "00:00:00";
+            this.lblCrystalStorageDuration.Text = "czas";
             this.lblCrystalStorageDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCrystalStorageUpgrade
@@ -834,7 +832,7 @@ namespace MinerGame
             this.lblCrystalStorageDeuteriumCost.Name = "lblCrystalStorageDeuteriumCost";
             this.lblCrystalStorageDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalStorageDeuteriumCost.TabIndex = 11;
-            this.lblCrystalStorageDeuteriumCost.Text = "0";
+            this.lblCrystalStorageDeuteriumCost.Text = "deuter";
             this.lblCrystalStorageDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalStorageCrystalCost
@@ -847,7 +845,7 @@ namespace MinerGame
             this.lblCrystalStorageCrystalCost.Name = "lblCrystalStorageCrystalCost";
             this.lblCrystalStorageCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalStorageCrystalCost.TabIndex = 10;
-            this.lblCrystalStorageCrystalCost.Text = "0";
+            this.lblCrystalStorageCrystalCost.Text = "kryształ";
             this.lblCrystalStorageCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalStorageMetalCost
@@ -860,7 +858,7 @@ namespace MinerGame
             this.lblCrystalStorageMetalCost.Name = "lblCrystalStorageMetalCost";
             this.lblCrystalStorageMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalStorageMetalCost.TabIndex = 9;
-            this.lblCrystalStorageMetalCost.Text = "0";
+            this.lblCrystalStorageMetalCost.Text = "metal";
             this.lblCrystalStorageMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalStorageLevel
@@ -872,7 +870,7 @@ namespace MinerGame
             this.lblCrystalStorageLevel.Name = "lblCrystalStorageLevel";
             this.lblCrystalStorageLevel.Size = new System.Drawing.Size(50, 30);
             this.lblCrystalStorageLevel.TabIndex = 8;
-            this.lblCrystalStorageLevel.Text = "0";
+            this.lblCrystalStorageLevel.Text = "level";
             this.lblCrystalStorageLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalStorage
@@ -914,7 +912,7 @@ namespace MinerGame
             this.lblMetalStorageNewStorage.Name = "lblMetalStorageNewStorage";
             this.lblMetalStorageNewStorage.Size = new System.Drawing.Size(130, 30);
             this.lblMetalStorageNewStorage.TabIndex = 14;
-            this.lblMetalStorageNewStorage.Text = "0";
+            this.lblMetalStorageNewStorage.Text = "nowa pojemność";
             this.lblMetalStorageNewStorage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalStorageDuration
@@ -926,7 +924,7 @@ namespace MinerGame
             this.lblMetalStorageDuration.Name = "lblMetalStorageDuration";
             this.lblMetalStorageDuration.Size = new System.Drawing.Size(130, 30);
             this.lblMetalStorageDuration.TabIndex = 13;
-            this.lblMetalStorageDuration.Text = "00:00:00";
+            this.lblMetalStorageDuration.Text = "czas";
             this.lblMetalStorageDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnMetalStorageUpgrade
@@ -951,7 +949,7 @@ namespace MinerGame
             this.lblMetalStorageDeuteriumCost.Name = "lblMetalStorageDeuteriumCost";
             this.lblMetalStorageDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblMetalStorageDeuteriumCost.TabIndex = 11;
-            this.lblMetalStorageDeuteriumCost.Text = "0";
+            this.lblMetalStorageDeuteriumCost.Text = "deuter";
             this.lblMetalStorageDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalStorageCrystalCost
@@ -964,7 +962,7 @@ namespace MinerGame
             this.lblMetalStorageCrystalCost.Name = "lblMetalStorageCrystalCost";
             this.lblMetalStorageCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblMetalStorageCrystalCost.TabIndex = 10;
-            this.lblMetalStorageCrystalCost.Text = "0";
+            this.lblMetalStorageCrystalCost.Text = "kryształ";
             this.lblMetalStorageCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalStorageMetalCost
@@ -977,7 +975,7 @@ namespace MinerGame
             this.lblMetalStorageMetalCost.Name = "lblMetalStorageMetalCost";
             this.lblMetalStorageMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblMetalStorageMetalCost.TabIndex = 9;
-            this.lblMetalStorageMetalCost.Text = "0";
+            this.lblMetalStorageMetalCost.Text = "metal";
             this.lblMetalStorageMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalStorageLevel
@@ -989,7 +987,7 @@ namespace MinerGame
             this.lblMetalStorageLevel.Name = "lblMetalStorageLevel";
             this.lblMetalStorageLevel.Size = new System.Drawing.Size(50, 30);
             this.lblMetalStorageLevel.TabIndex = 8;
-            this.lblMetalStorageLevel.Text = "0";
+            this.lblMetalStorageLevel.Text = "level";
             this.lblMetalStorageLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalStorage
@@ -1032,7 +1030,7 @@ namespace MinerGame
             this.lblFusionReactorProductionIncrease.Name = "lblFusionReactorProductionIncrease";
             this.lblFusionReactorProductionIncrease.Size = new System.Drawing.Size(130, 30);
             this.lblFusionReactorProductionIncrease.TabIndex = 15;
-            this.lblFusionReactorProductionIncrease.Text = "0";
+            this.lblFusionReactorProductionIncrease.Text = "+energia";
             this.lblFusionReactorProductionIncrease.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactorDeuteriumDemand
@@ -1045,7 +1043,7 @@ namespace MinerGame
             this.lblFusionReactorDeuteriumDemand.Name = "lblFusionReactorDeuteriumDemand";
             this.lblFusionReactorDeuteriumDemand.Size = new System.Drawing.Size(130, 30);
             this.lblFusionReactorDeuteriumDemand.TabIndex = 14;
-            this.lblFusionReactorDeuteriumDemand.Text = "0";
+            this.lblFusionReactorDeuteriumDemand.Text = "-deuter";
             this.lblFusionReactorDeuteriumDemand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactorDuration
@@ -1057,7 +1055,7 @@ namespace MinerGame
             this.lblFusionReactorDuration.Name = "lblFusionReactorDuration";
             this.lblFusionReactorDuration.Size = new System.Drawing.Size(130, 30);
             this.lblFusionReactorDuration.TabIndex = 13;
-            this.lblFusionReactorDuration.Text = "00:00:00";
+            this.lblFusionReactorDuration.Text = "czas";
             this.lblFusionReactorDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnFusionReactorUpgrade
@@ -1082,7 +1080,7 @@ namespace MinerGame
             this.lblFusionReactorDeuteriumCost.Name = "lblFusionReactorDeuteriumCost";
             this.lblFusionReactorDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblFusionReactorDeuteriumCost.TabIndex = 11;
-            this.lblFusionReactorDeuteriumCost.Text = "0";
+            this.lblFusionReactorDeuteriumCost.Text = "deuter";
             this.lblFusionReactorDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactorCrystalCost
@@ -1095,7 +1093,7 @@ namespace MinerGame
             this.lblFusionReactorCrystalCost.Name = "lblFusionReactorCrystalCost";
             this.lblFusionReactorCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblFusionReactorCrystalCost.TabIndex = 10;
-            this.lblFusionReactorCrystalCost.Text = "0";
+            this.lblFusionReactorCrystalCost.Text = "kryształ";
             this.lblFusionReactorCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactorMetalCost
@@ -1108,7 +1106,7 @@ namespace MinerGame
             this.lblFusionReactorMetalCost.Name = "lblFusionReactorMetalCost";
             this.lblFusionReactorMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblFusionReactorMetalCost.TabIndex = 9;
-            this.lblFusionReactorMetalCost.Text = "0";
+            this.lblFusionReactorMetalCost.Text = "metal";
             this.lblFusionReactorMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactorLevel
@@ -1120,7 +1118,7 @@ namespace MinerGame
             this.lblFusionReactorLevel.Name = "lblFusionReactorLevel";
             this.lblFusionReactorLevel.Size = new System.Drawing.Size(50, 30);
             this.lblFusionReactorLevel.TabIndex = 8;
-            this.lblFusionReactorLevel.Text = "0";
+            this.lblFusionReactorLevel.Text = "level";
             this.lblFusionReactorLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactor
@@ -1162,7 +1160,7 @@ namespace MinerGame
             this.lblSolarPlantProductionIncrease.Name = "lblSolarPlantProductionIncrease";
             this.lblSolarPlantProductionIncrease.Size = new System.Drawing.Size(130, 30);
             this.lblSolarPlantProductionIncrease.TabIndex = 15;
-            this.lblSolarPlantProductionIncrease.Text = "0";
+            this.lblSolarPlantProductionIncrease.Text = "+energia";
             this.lblSolarPlantProductionIncrease.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSolarPlantDuration
@@ -1174,7 +1172,7 @@ namespace MinerGame
             this.lblSolarPlantDuration.Name = "lblSolarPlantDuration";
             this.lblSolarPlantDuration.Size = new System.Drawing.Size(130, 30);
             this.lblSolarPlantDuration.TabIndex = 13;
-            this.lblSolarPlantDuration.Text = "00:00:00";
+            this.lblSolarPlantDuration.Text = "czas";
             this.lblSolarPlantDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSolarPlantUpgrade
@@ -1199,7 +1197,7 @@ namespace MinerGame
             this.lblSolarPlantDeuteriumCost.Name = "lblSolarPlantDeuteriumCost";
             this.lblSolarPlantDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblSolarPlantDeuteriumCost.TabIndex = 11;
-            this.lblSolarPlantDeuteriumCost.Text = "0";
+            this.lblSolarPlantDeuteriumCost.Text = "deuter";
             this.lblSolarPlantDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSolarPlantCrystalCost
@@ -1212,7 +1210,7 @@ namespace MinerGame
             this.lblSolarPlantCrystalCost.Name = "lblSolarPlantCrystalCost";
             this.lblSolarPlantCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblSolarPlantCrystalCost.TabIndex = 10;
-            this.lblSolarPlantCrystalCost.Text = "0";
+            this.lblSolarPlantCrystalCost.Text = "kryształ";
             this.lblSolarPlantCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSolarPlantMetalCost
@@ -1225,7 +1223,7 @@ namespace MinerGame
             this.lblSolarPlantMetalCost.Name = "lblSolarPlantMetalCost";
             this.lblSolarPlantMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblSolarPlantMetalCost.TabIndex = 9;
-            this.lblSolarPlantMetalCost.Text = "0";
+            this.lblSolarPlantMetalCost.Text = "metal";
             this.lblSolarPlantMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSolarPlantLevel
@@ -1237,7 +1235,7 @@ namespace MinerGame
             this.lblSolarPlantLevel.Name = "lblSolarPlantLevel";
             this.lblSolarPlantLevel.Size = new System.Drawing.Size(50, 30);
             this.lblSolarPlantLevel.TabIndex = 8;
-            this.lblSolarPlantLevel.Text = "0";
+            this.lblSolarPlantLevel.Text = "level";
             this.lblSolarPlantLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSolarPlant
@@ -1280,7 +1278,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerProductionIncrease.Name = "lblDeuteriumSynthesizerProductionIncrease";
             this.lblDeuteriumSynthesizerProductionIncrease.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumSynthesizerProductionIncrease.TabIndex = 15;
-            this.lblDeuteriumSynthesizerProductionIncrease.Text = "0";
+            this.lblDeuteriumSynthesizerProductionIncrease.Text = "+deuter";
             this.lblDeuteriumSynthesizerProductionIncrease.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizerEnergyDemand
@@ -1293,7 +1291,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerEnergyDemand.Name = "lblDeuteriumSynthesizerEnergyDemand";
             this.lblDeuteriumSynthesizerEnergyDemand.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumSynthesizerEnergyDemand.TabIndex = 14;
-            this.lblDeuteriumSynthesizerEnergyDemand.Text = "0";
+            this.lblDeuteriumSynthesizerEnergyDemand.Text = "-energia";
             this.lblDeuteriumSynthesizerEnergyDemand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizerDuration
@@ -1305,7 +1303,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerDuration.Name = "lblDeuteriumSynthesizerDuration";
             this.lblDeuteriumSynthesizerDuration.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumSynthesizerDuration.TabIndex = 13;
-            this.lblDeuteriumSynthesizerDuration.Text = "00:00:00";
+            this.lblDeuteriumSynthesizerDuration.Text = "czas";
             this.lblDeuteriumSynthesizerDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDeuteriumSynthesizerUpgrade
@@ -1330,7 +1328,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerDeuteriumCost.Name = "lblDeuteriumSynthesizerDeuteriumCost";
             this.lblDeuteriumSynthesizerDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumSynthesizerDeuteriumCost.TabIndex = 11;
-            this.lblDeuteriumSynthesizerDeuteriumCost.Text = "0";
+            this.lblDeuteriumSynthesizerDeuteriumCost.Text = "deuter";
             this.lblDeuteriumSynthesizerDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizerCrystalCost
@@ -1343,7 +1341,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerCrystalCost.Name = "lblDeuteriumSynthesizerCrystalCost";
             this.lblDeuteriumSynthesizerCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumSynthesizerCrystalCost.TabIndex = 10;
-            this.lblDeuteriumSynthesizerCrystalCost.Text = "0";
+            this.lblDeuteriumSynthesizerCrystalCost.Text = "kryształ";
             this.lblDeuteriumSynthesizerCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizerMetalCost
@@ -1356,7 +1354,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerMetalCost.Name = "lblDeuteriumSynthesizerMetalCost";
             this.lblDeuteriumSynthesizerMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblDeuteriumSynthesizerMetalCost.TabIndex = 9;
-            this.lblDeuteriumSynthesizerMetalCost.Text = "0";
+            this.lblDeuteriumSynthesizerMetalCost.Text = "metal";
             this.lblDeuteriumSynthesizerMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizerLevel
@@ -1368,7 +1366,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerLevel.Name = "lblDeuteriumSynthesizerLevel";
             this.lblDeuteriumSynthesizerLevel.Size = new System.Drawing.Size(50, 30);
             this.lblDeuteriumSynthesizerLevel.TabIndex = 8;
-            this.lblDeuteriumSynthesizerLevel.Text = "0";
+            this.lblDeuteriumSynthesizerLevel.Text = "level";
             this.lblDeuteriumSynthesizerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizer
@@ -1411,7 +1409,7 @@ namespace MinerGame
             this.lblCrystalMineProductionIncrease.Name = "lblCrystalMineProductionIncrease";
             this.lblCrystalMineProductionIncrease.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalMineProductionIncrease.TabIndex = 15;
-            this.lblCrystalMineProductionIncrease.Text = "0";
+            this.lblCrystalMineProductionIncrease.Text = "+kryształ";
             this.lblCrystalMineProductionIncrease.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMineEnergyDemand
@@ -1424,7 +1422,7 @@ namespace MinerGame
             this.lblCrystalMineEnergyDemand.Name = "lblCrystalMineEnergyDemand";
             this.lblCrystalMineEnergyDemand.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalMineEnergyDemand.TabIndex = 14;
-            this.lblCrystalMineEnergyDemand.Text = "0";
+            this.lblCrystalMineEnergyDemand.Text = "-energia";
             this.lblCrystalMineEnergyDemand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMineDuration
@@ -1436,7 +1434,7 @@ namespace MinerGame
             this.lblCrystalMineDuration.Name = "lblCrystalMineDuration";
             this.lblCrystalMineDuration.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalMineDuration.TabIndex = 13;
-            this.lblCrystalMineDuration.Text = "00:00:00";
+            this.lblCrystalMineDuration.Text = "czas";
             this.lblCrystalMineDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCrystalMineUpgrade
@@ -1461,7 +1459,7 @@ namespace MinerGame
             this.lblCrystalMineDeuteriumCost.Name = "lblCrystalMineDeuteriumCost";
             this.lblCrystalMineDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalMineDeuteriumCost.TabIndex = 11;
-            this.lblCrystalMineDeuteriumCost.Text = "0";
+            this.lblCrystalMineDeuteriumCost.Text = "deuter";
             this.lblCrystalMineDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMineCrystalCost
@@ -1474,7 +1472,7 @@ namespace MinerGame
             this.lblCrystalMineCrystalCost.Name = "lblCrystalMineCrystalCost";
             this.lblCrystalMineCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalMineCrystalCost.TabIndex = 10;
-            this.lblCrystalMineCrystalCost.Text = "0";
+            this.lblCrystalMineCrystalCost.Text = "kryształ";
             this.lblCrystalMineCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMineMetalCost
@@ -1487,7 +1485,7 @@ namespace MinerGame
             this.lblCrystalMineMetalCost.Name = "lblCrystalMineMetalCost";
             this.lblCrystalMineMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblCrystalMineMetalCost.TabIndex = 9;
-            this.lblCrystalMineMetalCost.Text = "0";
+            this.lblCrystalMineMetalCost.Text = "metal";
             this.lblCrystalMineMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMineLevel
@@ -1499,7 +1497,7 @@ namespace MinerGame
             this.lblCrystalMineLevel.Name = "lblCrystalMineLevel";
             this.lblCrystalMineLevel.Size = new System.Drawing.Size(50, 30);
             this.lblCrystalMineLevel.TabIndex = 8;
-            this.lblCrystalMineLevel.Text = "0";
+            this.lblCrystalMineLevel.Text = "level";
             this.lblCrystalMineLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMine
@@ -1542,7 +1540,7 @@ namespace MinerGame
             this.lblMetalMineProductionIncrease.Name = "lblMetalMineProductionIncrease";
             this.lblMetalMineProductionIncrease.Size = new System.Drawing.Size(130, 30);
             this.lblMetalMineProductionIncrease.TabIndex = 15;
-            this.lblMetalMineProductionIncrease.Text = "0";
+            this.lblMetalMineProductionIncrease.Text = "+metal";
             this.lblMetalMineProductionIncrease.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineEnergyDemand
@@ -1555,7 +1553,7 @@ namespace MinerGame
             this.lblMetalMineEnergyDemand.Name = "lblMetalMineEnergyDemand";
             this.lblMetalMineEnergyDemand.Size = new System.Drawing.Size(130, 30);
             this.lblMetalMineEnergyDemand.TabIndex = 14;
-            this.lblMetalMineEnergyDemand.Text = "0";
+            this.lblMetalMineEnergyDemand.Text = "-energia";
             this.lblMetalMineEnergyDemand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineDuration
@@ -1567,7 +1565,7 @@ namespace MinerGame
             this.lblMetalMineDuration.Name = "lblMetalMineDuration";
             this.lblMetalMineDuration.Size = new System.Drawing.Size(130, 30);
             this.lblMetalMineDuration.TabIndex = 13;
-            this.lblMetalMineDuration.Text = "00:00:00";
+            this.lblMetalMineDuration.Text = "czas";
             this.lblMetalMineDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnMetalMineUpgrade
@@ -1592,7 +1590,7 @@ namespace MinerGame
             this.lblMetalMineDeuteriumCost.Name = "lblMetalMineDeuteriumCost";
             this.lblMetalMineDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblMetalMineDeuteriumCost.TabIndex = 11;
-            this.lblMetalMineDeuteriumCost.Text = "0";
+            this.lblMetalMineDeuteriumCost.Text = "deuter";
             this.lblMetalMineDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineCrystalCost
@@ -1605,7 +1603,7 @@ namespace MinerGame
             this.lblMetalMineCrystalCost.Name = "lblMetalMineCrystalCost";
             this.lblMetalMineCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblMetalMineCrystalCost.TabIndex = 10;
-            this.lblMetalMineCrystalCost.Text = "0";
+            this.lblMetalMineCrystalCost.Text = "kryształ";
             this.lblMetalMineCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineMetalCost
@@ -1618,7 +1616,7 @@ namespace MinerGame
             this.lblMetalMineMetalCost.Name = "lblMetalMineMetalCost";
             this.lblMetalMineMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblMetalMineMetalCost.TabIndex = 9;
-            this.lblMetalMineMetalCost.Text = "0";
+            this.lblMetalMineMetalCost.Text = "metal";
             this.lblMetalMineMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineLevel
@@ -1630,7 +1628,7 @@ namespace MinerGame
             this.lblMetalMineLevel.Name = "lblMetalMineLevel";
             this.lblMetalMineLevel.Size = new System.Drawing.Size(50, 30);
             this.lblMetalMineLevel.TabIndex = 8;
-            this.lblMetalMineLevel.Text = "0";
+            this.lblMetalMineLevel.Text = "level";
             this.lblMetalMineLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMine
@@ -2785,7 +2783,7 @@ namespace MinerGame
             this.lblGravitonTechnologyEnergyCost.Name = "lblGravitonTechnologyEnergyCost";
             this.lblGravitonTechnologyEnergyCost.Size = new System.Drawing.Size(130, 30);
             this.lblGravitonTechnologyEnergyCost.TabIndex = 14;
-            this.lblGravitonTechnologyEnergyCost.Text = "0";
+            this.lblGravitonTechnologyEnergyCost.Text = "energia";
             this.lblGravitonTechnologyEnergyCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblGravitonTechnologyDuration
@@ -2798,7 +2796,7 @@ namespace MinerGame
             this.lblGravitonTechnologyDuration.Name = "lblGravitonTechnologyDuration";
             this.lblGravitonTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblGravitonTechnologyDuration.TabIndex = 13;
-            this.lblGravitonTechnologyDuration.Text = "00:00:00";
+            this.lblGravitonTechnologyDuration.Text = "czas";
             this.lblGravitonTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGravitonTechnologyUpgrade
@@ -2824,7 +2822,7 @@ namespace MinerGame
             this.lblGravitonTechnologyDeuteriumCost.Name = "lblGravitonTechnologyDeuteriumCost";
             this.lblGravitonTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblGravitonTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblGravitonTechnologyDeuteriumCost.Text = "0";
+            this.lblGravitonTechnologyDeuteriumCost.Text = "deuter";
             this.lblGravitonTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblGravitonTechnologyCrystalCost
@@ -2837,7 +2835,7 @@ namespace MinerGame
             this.lblGravitonTechnologyCrystalCost.Name = "lblGravitonTechnologyCrystalCost";
             this.lblGravitonTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblGravitonTechnologyCrystalCost.TabIndex = 10;
-            this.lblGravitonTechnologyCrystalCost.Text = "0";
+            this.lblGravitonTechnologyCrystalCost.Text = "kryształ";
             this.lblGravitonTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblGravitonTechnologyMetalCost
@@ -2850,7 +2848,7 @@ namespace MinerGame
             this.lblGravitonTechnologyMetalCost.Name = "lblGravitonTechnologyMetalCost";
             this.lblGravitonTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblGravitonTechnologyMetalCost.TabIndex = 9;
-            this.lblGravitonTechnologyMetalCost.Text = "0";
+            this.lblGravitonTechnologyMetalCost.Text = "metal";
             this.lblGravitonTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblGravitonTechnologyLevel
@@ -2863,7 +2861,7 @@ namespace MinerGame
             this.lblGravitonTechnologyLevel.Name = "lblGravitonTechnologyLevel";
             this.lblGravitonTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblGravitonTechnologyLevel.TabIndex = 8;
-            this.lblGravitonTechnologyLevel.Text = "0";
+            this.lblGravitonTechnologyLevel.Text = "level";
             this.lblGravitonTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblGravitonTechnology
@@ -2904,7 +2902,7 @@ namespace MinerGame
             this.lblAstrophisicsDuration.Name = "lblAstrophisicsDuration";
             this.lblAstrophisicsDuration.Size = new System.Drawing.Size(130, 30);
             this.lblAstrophisicsDuration.TabIndex = 13;
-            this.lblAstrophisicsDuration.Text = "00:00:00";
+            this.lblAstrophisicsDuration.Text = "czas";
             this.lblAstrophisicsDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAstrophisicsUpgrade
@@ -2929,7 +2927,7 @@ namespace MinerGame
             this.lblAstrophisicsDeuteriumCost.Name = "lblAstrophisicsDeuteriumCost";
             this.lblAstrophisicsDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblAstrophisicsDeuteriumCost.TabIndex = 11;
-            this.lblAstrophisicsDeuteriumCost.Text = "0";
+            this.lblAstrophisicsDeuteriumCost.Text = "deuter";
             this.lblAstrophisicsDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAstrophisicsCrystalCost
@@ -2942,7 +2940,7 @@ namespace MinerGame
             this.lblAstrophisicsCrystalCost.Name = "lblAstrophisicsCrystalCost";
             this.lblAstrophisicsCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblAstrophisicsCrystalCost.TabIndex = 10;
-            this.lblAstrophisicsCrystalCost.Text = "0";
+            this.lblAstrophisicsCrystalCost.Text = "kryształ";
             this.lblAstrophisicsCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAstrophisicsMetalCost
@@ -2955,7 +2953,7 @@ namespace MinerGame
             this.lblAstrophisicsMetalCost.Name = "lblAstrophisicsMetalCost";
             this.lblAstrophisicsMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblAstrophisicsMetalCost.TabIndex = 9;
-            this.lblAstrophisicsMetalCost.Text = "0";
+            this.lblAstrophisicsMetalCost.Text = "metal";
             this.lblAstrophisicsMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAstrophisicsLevel
@@ -2967,7 +2965,7 @@ namespace MinerGame
             this.lblAstrophisicsLevel.Name = "lblAstrophisicsLevel";
             this.lblAstrophisicsLevel.Size = new System.Drawing.Size(50, 30);
             this.lblAstrophisicsLevel.TabIndex = 8;
-            this.lblAstrophisicsLevel.Text = "0";
+            this.lblAstrophisicsLevel.Text = "level";
             this.lblAstrophisicsLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAstrophisics
@@ -3009,7 +3007,7 @@ namespace MinerGame
             this.lblIrnDuration.Name = "lblIrnDuration";
             this.lblIrnDuration.Size = new System.Drawing.Size(130, 30);
             this.lblIrnDuration.TabIndex = 13;
-            this.lblIrnDuration.Text = "00:00:00";
+            this.lblIrnDuration.Text = "czas";
             this.lblIrnDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnIrnUpgrade
@@ -3035,7 +3033,7 @@ namespace MinerGame
             this.lblIrnDeuteriumCost.Name = "lblIrnDeuteriumCost";
             this.lblIrnDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblIrnDeuteriumCost.TabIndex = 11;
-            this.lblIrnDeuteriumCost.Text = "0";
+            this.lblIrnDeuteriumCost.Text = "deuter";
             this.lblIrnDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIrnCrystalCost
@@ -3048,7 +3046,7 @@ namespace MinerGame
             this.lblIrnCrystalCost.Name = "lblIrnCrystalCost";
             this.lblIrnCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblIrnCrystalCost.TabIndex = 10;
-            this.lblIrnCrystalCost.Text = "0";
+            this.lblIrnCrystalCost.Text = "kryształ";
             this.lblIrnCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIrnMetalCost
@@ -3061,7 +3059,7 @@ namespace MinerGame
             this.lblIrnMetalCost.Name = "lblIrnMetalCost";
             this.lblIrnMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblIrnMetalCost.TabIndex = 9;
-            this.lblIrnMetalCost.Text = "0";
+            this.lblIrnMetalCost.Text = "metal";
             this.lblIrnMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIrnLevel
@@ -3074,7 +3072,7 @@ namespace MinerGame
             this.lblIrnLevel.Name = "lblIrnLevel";
             this.lblIrnLevel.Size = new System.Drawing.Size(50, 30);
             this.lblIrnLevel.TabIndex = 8;
-            this.lblIrnLevel.Text = "0";
+            this.lblIrnLevel.Text = "level";
             this.lblIrnLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIrn
@@ -3115,7 +3113,7 @@ namespace MinerGame
             this.lblPlasmaTechnologyDuration.Name = "lblPlasmaTechnologyDuration";
             this.lblPlasmaTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblPlasmaTechnologyDuration.TabIndex = 13;
-            this.lblPlasmaTechnologyDuration.Text = "00:00:00";
+            this.lblPlasmaTechnologyDuration.Text = "czas";
             this.lblPlasmaTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnPlasmaTechnologyUpgrade
@@ -3140,7 +3138,7 @@ namespace MinerGame
             this.lblPlasmaTechnologyDeuteriumCost.Name = "lblPlasmaTechnologyDeuteriumCost";
             this.lblPlasmaTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblPlasmaTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblPlasmaTechnologyDeuteriumCost.Text = "0";
+            this.lblPlasmaTechnologyDeuteriumCost.Text = "deuter";
             this.lblPlasmaTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlasmaTechnologyCrystalCost
@@ -3153,7 +3151,7 @@ namespace MinerGame
             this.lblPlasmaTechnologyCrystalCost.Name = "lblPlasmaTechnologyCrystalCost";
             this.lblPlasmaTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblPlasmaTechnologyCrystalCost.TabIndex = 10;
-            this.lblPlasmaTechnologyCrystalCost.Text = "0";
+            this.lblPlasmaTechnologyCrystalCost.Text = "kryształ";
             this.lblPlasmaTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlasmaTechnologyMetalCost
@@ -3166,7 +3164,7 @@ namespace MinerGame
             this.lblPlasmaTechnologyMetalCost.Name = "lblPlasmaTechnologyMetalCost";
             this.lblPlasmaTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblPlasmaTechnologyMetalCost.TabIndex = 9;
-            this.lblPlasmaTechnologyMetalCost.Text = "0";
+            this.lblPlasmaTechnologyMetalCost.Text = "metal";
             this.lblPlasmaTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlasmaTechnologyLevel
@@ -3178,7 +3176,7 @@ namespace MinerGame
             this.lblPlasmaTechnologyLevel.Name = "lblPlasmaTechnologyLevel";
             this.lblPlasmaTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblPlasmaTechnologyLevel.TabIndex = 8;
-            this.lblPlasmaTechnologyLevel.Text = "0";
+            this.lblPlasmaTechnologyLevel.Text = "level";
             this.lblPlasmaTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlasmaTechnology
@@ -3220,7 +3218,7 @@ namespace MinerGame
             this.lblIonTechnologyDuration.Name = "lblIonTechnologyDuration";
             this.lblIonTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblIonTechnologyDuration.TabIndex = 13;
-            this.lblIonTechnologyDuration.Text = "00:00:00";
+            this.lblIonTechnologyDuration.Text = "czas";
             this.lblIonTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnIonTechnologyUpgrade
@@ -3246,7 +3244,7 @@ namespace MinerGame
             this.lblIonTechnologyDeuteriumCost.Name = "lblIonTechnologyDeuteriumCost";
             this.lblIonTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblIonTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblIonTechnologyDeuteriumCost.Text = "0";
+            this.lblIonTechnologyDeuteriumCost.Text = "deuter";
             this.lblIonTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIonTechnologyCrystalCost
@@ -3259,7 +3257,7 @@ namespace MinerGame
             this.lblIonTechnologyCrystalCost.Name = "lblIonTechnologyCrystalCost";
             this.lblIonTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblIonTechnologyCrystalCost.TabIndex = 10;
-            this.lblIonTechnologyCrystalCost.Text = "0";
+            this.lblIonTechnologyCrystalCost.Text = "kryształ";
             this.lblIonTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIonTechnologyMetalCost
@@ -3272,7 +3270,7 @@ namespace MinerGame
             this.lblIonTechnologyMetalCost.Name = "lblIonTechnologyMetalCost";
             this.lblIonTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblIonTechnologyMetalCost.TabIndex = 9;
-            this.lblIonTechnologyMetalCost.Text = "0";
+            this.lblIonTechnologyMetalCost.Text = "metal";
             this.lblIonTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIonTechnologyLevel
@@ -3285,7 +3283,7 @@ namespace MinerGame
             this.lblIonTechnologyLevel.Name = "lblIonTechnologyLevel";
             this.lblIonTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblIonTechnologyLevel.TabIndex = 8;
-            this.lblIonTechnologyLevel.Text = "0";
+            this.lblIonTechnologyLevel.Text = "level";
             this.lblIonTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIonTechnology
@@ -3326,7 +3324,7 @@ namespace MinerGame
             this.lblLaserTechnologyDuration.Name = "lblLaserTechnologyDuration";
             this.lblLaserTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblLaserTechnologyDuration.TabIndex = 13;
-            this.lblLaserTechnologyDuration.Text = "00:00:00";
+            this.lblLaserTechnologyDuration.Text = "czas";
             this.lblLaserTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLaserTechnologyUpgrade
@@ -3351,7 +3349,7 @@ namespace MinerGame
             this.lblLaserTechnologyDeuteriumCost.Name = "lblLaserTechnologyDeuteriumCost";
             this.lblLaserTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblLaserTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblLaserTechnologyDeuteriumCost.Text = "0";
+            this.lblLaserTechnologyDeuteriumCost.Text = "deuter";
             this.lblLaserTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLaserTechnologyCrystalCost
@@ -3364,7 +3362,7 @@ namespace MinerGame
             this.lblLaserTechnologyCrystalCost.Name = "lblLaserTechnologyCrystalCost";
             this.lblLaserTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblLaserTechnologyCrystalCost.TabIndex = 10;
-            this.lblLaserTechnologyCrystalCost.Text = "0";
+            this.lblLaserTechnologyCrystalCost.Text = "kryształ";
             this.lblLaserTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLaserTechnologyMetalCost
@@ -3377,7 +3375,7 @@ namespace MinerGame
             this.lblLaserTechnologyMetalCost.Name = "lblLaserTechnologyMetalCost";
             this.lblLaserTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblLaserTechnologyMetalCost.TabIndex = 9;
-            this.lblLaserTechnologyMetalCost.Text = "0";
+            this.lblLaserTechnologyMetalCost.Text = "metal";
             this.lblLaserTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLaserTechnologyLevel
@@ -3389,7 +3387,7 @@ namespace MinerGame
             this.lblLaserTechnologyLevel.Name = "lblLaserTechnologyLevel";
             this.lblLaserTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblLaserTechnologyLevel.TabIndex = 8;
-            this.lblLaserTechnologyLevel.Text = "0";
+            this.lblLaserTechnologyLevel.Text = "level";
             this.lblLaserTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLaserTechnology
@@ -3431,7 +3429,7 @@ namespace MinerGame
             this.lblHyperspaceTechnologyDuration.Name = "lblHyperspaceTechnologyDuration";
             this.lblHyperspaceTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceTechnologyDuration.TabIndex = 13;
-            this.lblHyperspaceTechnologyDuration.Text = "00:00:00";
+            this.lblHyperspaceTechnologyDuration.Text = "czas";
             this.lblHyperspaceTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnHyperspaceTechnologyUpgrade
@@ -3457,7 +3455,7 @@ namespace MinerGame
             this.lblHyperspaceTechnologyDeuteriumCost.Name = "lblHyperspaceTechnologyDeuteriumCost";
             this.lblHyperspaceTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblHyperspaceTechnologyDeuteriumCost.Text = "0";
+            this.lblHyperspaceTechnologyDeuteriumCost.Text = "deuter";
             this.lblHyperspaceTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceTechnologyCrystalCost
@@ -3470,7 +3468,7 @@ namespace MinerGame
             this.lblHyperspaceTechnologyCrystalCost.Name = "lblHyperspaceTechnologyCrystalCost";
             this.lblHyperspaceTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceTechnologyCrystalCost.TabIndex = 10;
-            this.lblHyperspaceTechnologyCrystalCost.Text = "0";
+            this.lblHyperspaceTechnologyCrystalCost.Text = "kryształ";
             this.lblHyperspaceTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceTechnologyMetalCost
@@ -3483,7 +3481,7 @@ namespace MinerGame
             this.lblHyperspaceTechnologyMetalCost.Name = "lblHyperspaceTechnologyMetalCost";
             this.lblHyperspaceTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceTechnologyMetalCost.TabIndex = 9;
-            this.lblHyperspaceTechnologyMetalCost.Text = "0";
+            this.lblHyperspaceTechnologyMetalCost.Text = "metal";
             this.lblHyperspaceTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceTechnologyLevel
@@ -3496,7 +3494,7 @@ namespace MinerGame
             this.lblHyperspaceTechnologyLevel.Name = "lblHyperspaceTechnologyLevel";
             this.lblHyperspaceTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblHyperspaceTechnologyLevel.TabIndex = 8;
-            this.lblHyperspaceTechnologyLevel.Text = "0";
+            this.lblHyperspaceTechnologyLevel.Text = "level";
             this.lblHyperspaceTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceTechnology
@@ -3537,7 +3535,7 @@ namespace MinerGame
             this.lblEnergyTechnologyDuration.Name = "lblEnergyTechnologyDuration";
             this.lblEnergyTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblEnergyTechnologyDuration.TabIndex = 13;
-            this.lblEnergyTechnologyDuration.Text = "00:00:00";
+            this.lblEnergyTechnologyDuration.Text = "czas";
             this.lblEnergyTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnEnergyTechnologyUpgrade
@@ -3562,7 +3560,7 @@ namespace MinerGame
             this.lblEnergyTechnologyDeuteriumCost.Name = "lblEnergyTechnologyDeuteriumCost";
             this.lblEnergyTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblEnergyTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblEnergyTechnologyDeuteriumCost.Text = "0";
+            this.lblEnergyTechnologyDeuteriumCost.Text = "deuter";
             this.lblEnergyTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEnergyTechnologyCrystalCost
@@ -3575,7 +3573,7 @@ namespace MinerGame
             this.lblEnergyTechnologyCrystalCost.Name = "lblEnergyTechnologyCrystalCost";
             this.lblEnergyTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblEnergyTechnologyCrystalCost.TabIndex = 10;
-            this.lblEnergyTechnologyCrystalCost.Text = "0";
+            this.lblEnergyTechnologyCrystalCost.Text = "kryształ";
             this.lblEnergyTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEnergyTechnologyMetalCost
@@ -3588,7 +3586,7 @@ namespace MinerGame
             this.lblEnergyTechnologyMetalCost.Name = "lblEnergyTechnologyMetalCost";
             this.lblEnergyTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblEnergyTechnologyMetalCost.TabIndex = 9;
-            this.lblEnergyTechnologyMetalCost.Text = "0";
+            this.lblEnergyTechnologyMetalCost.Text = "metal";
             this.lblEnergyTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEnergyTechnologyLevel
@@ -3600,7 +3598,7 @@ namespace MinerGame
             this.lblEnergyTechnologyLevel.Name = "lblEnergyTechnologyLevel";
             this.lblEnergyTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblEnergyTechnologyLevel.TabIndex = 8;
-            this.lblEnergyTechnologyLevel.Text = "0";
+            this.lblEnergyTechnologyLevel.Text = "level";
             this.lblEnergyTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEnergyTechnology
@@ -3642,7 +3640,7 @@ namespace MinerGame
             this.lblArmourTechnologyDuration.Name = "lblArmourTechnologyDuration";
             this.lblArmourTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblArmourTechnologyDuration.TabIndex = 13;
-            this.lblArmourTechnologyDuration.Text = "00:00:00";
+            this.lblArmourTechnologyDuration.Text = "czas";
             this.lblArmourTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnArmourTechnologyUpgrade
@@ -3668,7 +3666,7 @@ namespace MinerGame
             this.lblArmourTechnologyDeuteriumCost.Name = "lblArmourTechnologyDeuteriumCost";
             this.lblArmourTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblArmourTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblArmourTechnologyDeuteriumCost.Text = "0";
+            this.lblArmourTechnologyDeuteriumCost.Text = "deuter";
             this.lblArmourTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArmourTechnologyCrystalCost
@@ -3681,7 +3679,7 @@ namespace MinerGame
             this.lblArmourTechnologyCrystalCost.Name = "lblArmourTechnologyCrystalCost";
             this.lblArmourTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblArmourTechnologyCrystalCost.TabIndex = 10;
-            this.lblArmourTechnologyCrystalCost.Text = "0";
+            this.lblArmourTechnologyCrystalCost.Text = "kryształ";
             this.lblArmourTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArmourTechnologyMetalCost
@@ -3694,7 +3692,7 @@ namespace MinerGame
             this.lblArmourTechnologyMetalCost.Name = "lblArmourTechnologyMetalCost";
             this.lblArmourTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblArmourTechnologyMetalCost.TabIndex = 9;
-            this.lblArmourTechnologyMetalCost.Text = "0";
+            this.lblArmourTechnologyMetalCost.Text = "metal";
             this.lblArmourTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArmourTechnologyLevel
@@ -3707,7 +3705,7 @@ namespace MinerGame
             this.lblArmourTechnologyLevel.Name = "lblArmourTechnologyLevel";
             this.lblArmourTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblArmourTechnologyLevel.TabIndex = 8;
-            this.lblArmourTechnologyLevel.Text = "0";
+            this.lblArmourTechnologyLevel.Text = "level";
             this.lblArmourTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArmourTechnology
@@ -3748,7 +3746,7 @@ namespace MinerGame
             this.lblShieldingTechnologyDuration.Name = "lblShieldingTechnologyDuration";
             this.lblShieldingTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblShieldingTechnologyDuration.TabIndex = 13;
-            this.lblShieldingTechnologyDuration.Text = "00:00:00";
+            this.lblShieldingTechnologyDuration.Text = "czas";
             this.lblShieldingTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnShieldingTechnologyUpgrade
@@ -3773,7 +3771,7 @@ namespace MinerGame
             this.lblShieldingTechnologyDeuteriumCost.Name = "lblShieldingTechnologyDeuteriumCost";
             this.lblShieldingTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblShieldingTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblShieldingTechnologyDeuteriumCost.Text = "0";
+            this.lblShieldingTechnologyDeuteriumCost.Text = "deuter";
             this.lblShieldingTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblShieldingTechnologyCrystalCost
@@ -3786,7 +3784,7 @@ namespace MinerGame
             this.lblShieldingTechnologyCrystalCost.Name = "lblShieldingTechnologyCrystalCost";
             this.lblShieldingTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblShieldingTechnologyCrystalCost.TabIndex = 10;
-            this.lblShieldingTechnologyCrystalCost.Text = "0";
+            this.lblShieldingTechnologyCrystalCost.Text = "kryształ";
             this.lblShieldingTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblShieldingTechnologyMetalCost
@@ -3799,7 +3797,7 @@ namespace MinerGame
             this.lblShieldingTechnologyMetalCost.Name = "lblShieldingTechnologyMetalCost";
             this.lblShieldingTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblShieldingTechnologyMetalCost.TabIndex = 9;
-            this.lblShieldingTechnologyMetalCost.Text = "0";
+            this.lblShieldingTechnologyMetalCost.Text = "metal";
             this.lblShieldingTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblShieldingTechnologyLevel
@@ -3811,7 +3809,7 @@ namespace MinerGame
             this.lblShieldingTechnologyLevel.Name = "lblShieldingTechnologyLevel";
             this.lblShieldingTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblShieldingTechnologyLevel.TabIndex = 8;
-            this.lblShieldingTechnologyLevel.Text = "0";
+            this.lblShieldingTechnologyLevel.Text = "level";
             this.lblShieldingTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblShieldingTechnology
@@ -3853,7 +3851,7 @@ namespace MinerGame
             this.lblWeapeonsTechnologyDuration.Name = "lblWeapeonsTechnologyDuration";
             this.lblWeapeonsTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblWeapeonsTechnologyDuration.TabIndex = 13;
-            this.lblWeapeonsTechnologyDuration.Text = "00:00:00";
+            this.lblWeapeonsTechnologyDuration.Text = "czas";
             this.lblWeapeonsTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnWeapeonsTechnologyUpgrade
@@ -3879,7 +3877,7 @@ namespace MinerGame
             this.lblWeapeonsTechnologyDeuteriumCost.Name = "lblWeapeonsTechnologyDeuteriumCost";
             this.lblWeapeonsTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblWeapeonsTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblWeapeonsTechnologyDeuteriumCost.Text = "0";
+            this.lblWeapeonsTechnologyDeuteriumCost.Text = "deuter";
             this.lblWeapeonsTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWeapeonsTechnologyCrystalCost
@@ -3892,7 +3890,7 @@ namespace MinerGame
             this.lblWeapeonsTechnologyCrystalCost.Name = "lblWeapeonsTechnologyCrystalCost";
             this.lblWeapeonsTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblWeapeonsTechnologyCrystalCost.TabIndex = 10;
-            this.lblWeapeonsTechnologyCrystalCost.Text = "0";
+            this.lblWeapeonsTechnologyCrystalCost.Text = "kryształ";
             this.lblWeapeonsTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWeapeonsTechnologyMetalCost
@@ -3905,7 +3903,7 @@ namespace MinerGame
             this.lblWeapeonsTechnologyMetalCost.Name = "lblWeapeonsTechnologyMetalCost";
             this.lblWeapeonsTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblWeapeonsTechnologyMetalCost.TabIndex = 9;
-            this.lblWeapeonsTechnologyMetalCost.Text = "0";
+            this.lblWeapeonsTechnologyMetalCost.Text = "metal";
             this.lblWeapeonsTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWeapeonsTechnologyLevel
@@ -3918,7 +3916,7 @@ namespace MinerGame
             this.lblWeapeonsTechnologyLevel.Name = "lblWeapeonsTechnologyLevel";
             this.lblWeapeonsTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblWeapeonsTechnologyLevel.TabIndex = 8;
-            this.lblWeapeonsTechnologyLevel.Text = "0";
+            this.lblWeapeonsTechnologyLevel.Text = "level";
             this.lblWeapeonsTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWeapeonsTechnology
@@ -3959,7 +3957,7 @@ namespace MinerGame
             this.lblHyperspaceDriveDuration.Name = "lblHyperspaceDriveDuration";
             this.lblHyperspaceDriveDuration.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceDriveDuration.TabIndex = 13;
-            this.lblHyperspaceDriveDuration.Text = "00:00:00";
+            this.lblHyperspaceDriveDuration.Text = "czas";
             this.lblHyperspaceDriveDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnHyperspaceDriveUpgrade
@@ -3984,7 +3982,7 @@ namespace MinerGame
             this.lblHyperspaceDriveDeuteriumCost.Name = "lblHyperspaceDriveDeuteriumCost";
             this.lblHyperspaceDriveDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceDriveDeuteriumCost.TabIndex = 11;
-            this.lblHyperspaceDriveDeuteriumCost.Text = "0";
+            this.lblHyperspaceDriveDeuteriumCost.Text = "deuter";
             this.lblHyperspaceDriveDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceDriveCrystalCost
@@ -3997,7 +3995,7 @@ namespace MinerGame
             this.lblHyperspaceDriveCrystalCost.Name = "lblHyperspaceDriveCrystalCost";
             this.lblHyperspaceDriveCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceDriveCrystalCost.TabIndex = 10;
-            this.lblHyperspaceDriveCrystalCost.Text = "0";
+            this.lblHyperspaceDriveCrystalCost.Text = "kryształ";
             this.lblHyperspaceDriveCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceDriveMetalCost
@@ -4010,7 +4008,7 @@ namespace MinerGame
             this.lblHyperspaceDriveMetalCost.Name = "lblHyperspaceDriveMetalCost";
             this.lblHyperspaceDriveMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblHyperspaceDriveMetalCost.TabIndex = 9;
-            this.lblHyperspaceDriveMetalCost.Text = "0";
+            this.lblHyperspaceDriveMetalCost.Text = "metal";
             this.lblHyperspaceDriveMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceDriveLevel
@@ -4022,7 +4020,7 @@ namespace MinerGame
             this.lblHyperspaceDriveLevel.Name = "lblHyperspaceDriveLevel";
             this.lblHyperspaceDriveLevel.Size = new System.Drawing.Size(50, 30);
             this.lblHyperspaceDriveLevel.TabIndex = 8;
-            this.lblHyperspaceDriveLevel.Text = "0";
+            this.lblHyperspaceDriveLevel.Text = "level";
             this.lblHyperspaceDriveLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceDrive
@@ -4064,7 +4062,7 @@ namespace MinerGame
             this.lblImpulseDriveDuration.Name = "lblImpulseDriveDuration";
             this.lblImpulseDriveDuration.Size = new System.Drawing.Size(130, 30);
             this.lblImpulseDriveDuration.TabIndex = 13;
-            this.lblImpulseDriveDuration.Text = "00:00:00";
+            this.lblImpulseDriveDuration.Text = "czas";
             this.lblImpulseDriveDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnImpulseDriveUpgrade
@@ -4090,7 +4088,7 @@ namespace MinerGame
             this.lblImpulseDriveDeuteriumCost.Name = "lblImpulseDriveDeuteriumCost";
             this.lblImpulseDriveDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblImpulseDriveDeuteriumCost.TabIndex = 11;
-            this.lblImpulseDriveDeuteriumCost.Text = "0";
+            this.lblImpulseDriveDeuteriumCost.Text = "deuter";
             this.lblImpulseDriveDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblImpulseDriveCrystalCost
@@ -4103,7 +4101,7 @@ namespace MinerGame
             this.lblImpulseDriveCrystalCost.Name = "lblImpulseDriveCrystalCost";
             this.lblImpulseDriveCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblImpulseDriveCrystalCost.TabIndex = 10;
-            this.lblImpulseDriveCrystalCost.Text = "0";
+            this.lblImpulseDriveCrystalCost.Text = "kryształ";
             this.lblImpulseDriveCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblImpulseDriveMetalCost
@@ -4116,7 +4114,7 @@ namespace MinerGame
             this.lblImpulseDriveMetalCost.Name = "lblImpulseDriveMetalCost";
             this.lblImpulseDriveMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblImpulseDriveMetalCost.TabIndex = 9;
-            this.lblImpulseDriveMetalCost.Text = "0";
+            this.lblImpulseDriveMetalCost.Text = "metal";
             this.lblImpulseDriveMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblImpulseDriveLevel
@@ -4129,7 +4127,7 @@ namespace MinerGame
             this.lblImpulseDriveLevel.Name = "lblImpulseDriveLevel";
             this.lblImpulseDriveLevel.Size = new System.Drawing.Size(50, 30);
             this.lblImpulseDriveLevel.TabIndex = 8;
-            this.lblImpulseDriveLevel.Text = "0";
+            this.lblImpulseDriveLevel.Text = "level";
             this.lblImpulseDriveLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblImpulseDrive
@@ -4170,7 +4168,7 @@ namespace MinerGame
             this.lblCombustionDriveDuration.Name = "lblCombustionDriveDuration";
             this.lblCombustionDriveDuration.Size = new System.Drawing.Size(130, 30);
             this.lblCombustionDriveDuration.TabIndex = 13;
-            this.lblCombustionDriveDuration.Text = "00:00:00";
+            this.lblCombustionDriveDuration.Text = "czas";
             this.lblCombustionDriveDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCombustionDriveUpgrade
@@ -4195,7 +4193,7 @@ namespace MinerGame
             this.lblCombustionDriveDeuteriumCost.Name = "lblCombustionDriveDeuteriumCost";
             this.lblCombustionDriveDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblCombustionDriveDeuteriumCost.TabIndex = 11;
-            this.lblCombustionDriveDeuteriumCost.Text = "0";
+            this.lblCombustionDriveDeuteriumCost.Text = "deuter";
             this.lblCombustionDriveDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCombustionDriveCrystalCost
@@ -4208,7 +4206,7 @@ namespace MinerGame
             this.lblCombustionDriveCrystalCost.Name = "lblCombustionDriveCrystalCost";
             this.lblCombustionDriveCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblCombustionDriveCrystalCost.TabIndex = 10;
-            this.lblCombustionDriveCrystalCost.Text = "0";
+            this.lblCombustionDriveCrystalCost.Text = "kryształ";
             this.lblCombustionDriveCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCombustionDriveMetalCost
@@ -4221,7 +4219,7 @@ namespace MinerGame
             this.lblCombustionDriveMetalCost.Name = "lblCombustionDriveMetalCost";
             this.lblCombustionDriveMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblCombustionDriveMetalCost.TabIndex = 9;
-            this.lblCombustionDriveMetalCost.Text = "0";
+            this.lblCombustionDriveMetalCost.Text = "metal";
             this.lblCombustionDriveMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCombustionDriveLevel
@@ -4233,7 +4231,7 @@ namespace MinerGame
             this.lblCombustionDriveLevel.Name = "lblCombustionDriveLevel";
             this.lblCombustionDriveLevel.Size = new System.Drawing.Size(50, 30);
             this.lblCombustionDriveLevel.TabIndex = 8;
-            this.lblCombustionDriveLevel.Text = "0";
+            this.lblCombustionDriveLevel.Text = "level";
             this.lblCombustionDriveLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCombustionDrive
@@ -4275,7 +4273,7 @@ namespace MinerGame
             this.lblComputerTechnologyDuration.Name = "lblComputerTechnologyDuration";
             this.lblComputerTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblComputerTechnologyDuration.TabIndex = 13;
-            this.lblComputerTechnologyDuration.Text = "00:00:00";
+            this.lblComputerTechnologyDuration.Text = "czas";
             this.lblComputerTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnComputerTechnologyUpgrade
@@ -4301,7 +4299,7 @@ namespace MinerGame
             this.lblComputerTechnologyDeuteriumCost.Name = "lblComputerTechnologyDeuteriumCost";
             this.lblComputerTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblComputerTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblComputerTechnologyDeuteriumCost.Text = "0";
+            this.lblComputerTechnologyDeuteriumCost.Text = "deuter";
             this.lblComputerTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblComputerTechnologyCrystalCost
@@ -4314,7 +4312,7 @@ namespace MinerGame
             this.lblComputerTechnologyCrystalCost.Name = "lblComputerTechnologyCrystalCost";
             this.lblComputerTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblComputerTechnologyCrystalCost.TabIndex = 10;
-            this.lblComputerTechnologyCrystalCost.Text = "0";
+            this.lblComputerTechnologyCrystalCost.Text = "kryształ";
             this.lblComputerTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblComputerTechnologyMetalCost
@@ -4327,7 +4325,7 @@ namespace MinerGame
             this.lblComputerTechnologyMetalCost.Name = "lblComputerTechnologyMetalCost";
             this.lblComputerTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblComputerTechnologyMetalCost.TabIndex = 9;
-            this.lblComputerTechnologyMetalCost.Text = "0";
+            this.lblComputerTechnologyMetalCost.Text = "metal";
             this.lblComputerTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblComputerTechnologyLevel
@@ -4340,7 +4338,7 @@ namespace MinerGame
             this.lblComputerTechnologyLevel.Name = "lblComputerTechnologyLevel";
             this.lblComputerTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblComputerTechnologyLevel.TabIndex = 8;
-            this.lblComputerTechnologyLevel.Text = "0";
+            this.lblComputerTechnologyLevel.Text = "level";
             this.lblComputerTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblComputerTechnology
@@ -4381,7 +4379,7 @@ namespace MinerGame
             this.lblEspionageTechnologyDuration.Name = "lblEspionageTechnologyDuration";
             this.lblEspionageTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblEspionageTechnologyDuration.TabIndex = 13;
-            this.lblEspionageTechnologyDuration.Text = "00:00:00";
+            this.lblEspionageTechnologyDuration.Text = "czas";
             this.lblEspionageTechnologyDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnEspionageTechnologyUpgrade
@@ -4406,7 +4404,7 @@ namespace MinerGame
             this.lblEspionageTechnologyDeuteriumCost.Name = "lblEspionageTechnologyDeuteriumCost";
             this.lblEspionageTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblEspionageTechnologyDeuteriumCost.TabIndex = 11;
-            this.lblEspionageTechnologyDeuteriumCost.Text = "0";
+            this.lblEspionageTechnologyDeuteriumCost.Text = "deuter";
             this.lblEspionageTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEspionageTechnologyCrystalCost
@@ -4419,7 +4417,7 @@ namespace MinerGame
             this.lblEspionageTechnologyCrystalCost.Name = "lblEspionageTechnologyCrystalCost";
             this.lblEspionageTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblEspionageTechnologyCrystalCost.TabIndex = 10;
-            this.lblEspionageTechnologyCrystalCost.Text = "0";
+            this.lblEspionageTechnologyCrystalCost.Text = "kryształ";
             this.lblEspionageTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEspionageTechnologyMetalCost
@@ -4432,7 +4430,7 @@ namespace MinerGame
             this.lblEspionageTechnologyMetalCost.Name = "lblEspionageTechnologyMetalCost";
             this.lblEspionageTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblEspionageTechnologyMetalCost.TabIndex = 9;
-            this.lblEspionageTechnologyMetalCost.Text = "0";
+            this.lblEspionageTechnologyMetalCost.Text = "metal";
             this.lblEspionageTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEspionageTechnologyLevel
@@ -4444,7 +4442,7 @@ namespace MinerGame
             this.lblEspionageTechnologyLevel.Name = "lblEspionageTechnologyLevel";
             this.lblEspionageTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblEspionageTechnologyLevel.TabIndex = 8;
-            this.lblEspionageTechnologyLevel.Text = "0";
+            this.lblEspionageTechnologyLevel.Text = "level";
             this.lblEspionageTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEspionageTechnology
@@ -4473,10 +4471,10 @@ namespace MinerGame
             // pSmallCargo
             // 
             this.pSmallCargo.BackColor = System.Drawing.Color.Gold;
-            this.pSmallCargo.Controls.Add(this.textBox1);
+            this.pSmallCargo.Controls.Add(this.tbSmallCargoCount);
             this.pSmallCargo.Controls.Add(this.label7);
-            this.pSmallCargo.Controls.Add(this.label1);
-            this.pSmallCargo.Controls.Add(this.button1);
+            this.pSmallCargo.Controls.Add(this.lblSmallCargoDuration);
+            this.pSmallCargo.Controls.Add(this.btnSmallCargoConstruct);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoDeuteriumCost);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoCrystalCost);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoMetalCost);
@@ -4488,14 +4486,14 @@ namespace MinerGame
             this.pSmallCargo.Size = new System.Drawing.Size(1765, 50);
             this.pSmallCargo.TabIndex = 3;
             // 
-            // textBox1
+            // tbSmallCargoCount
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Silver;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(881, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 16);
-            this.textBox1.TabIndex = 4;
+            this.tbSmallCargoCount.BackColor = System.Drawing.Color.Silver;
+            this.tbSmallCargoCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbSmallCargoCount.Location = new System.Drawing.Point(881, 17);
+            this.tbSmallCargoCount.Name = "tbSmallCargoCount";
+            this.tbSmallCargoCount.Size = new System.Drawing.Size(129, 16);
+            this.tbSmallCargoCount.TabIndex = 4;
             // 
             // label7
             // 
@@ -4509,29 +4507,29 @@ namespace MinerGame
             this.label7.TabIndex = 14;
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblSmallCargoDuration
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1160, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 30);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "00:00:00";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSmallCargoDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallCargoDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallCargoDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallCargoDuration.Location = new System.Drawing.Point(1160, 10);
+            this.lblSmallCargoDuration.Name = "lblSmallCargoDuration";
+            this.lblSmallCargoDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallCargoDuration.TabIndex = 13;
+            this.lblSmallCargoDuration.Text = "czas";
+            this.lblSmallCargoDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnSmallCargoConstruct
             // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(1020, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Zbuduj";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSmallCargoConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnSmallCargoConstruct.Enabled = false;
+            this.btnSmallCargoConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSmallCargoConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnSmallCargoConstruct.Name = "btnSmallCargoConstruct";
+            this.btnSmallCargoConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnSmallCargoConstruct.TabIndex = 12;
+            this.btnSmallCargoConstruct.Text = "Zbuduj";
+            this.btnSmallCargoConstruct.UseVisualStyleBackColor = false;
             // 
             // lblSmallCargoDeuteriumCost
             // 
@@ -4543,7 +4541,7 @@ namespace MinerGame
             this.lblSmallCargoDeuteriumCost.Name = "lblSmallCargoDeuteriumCost";
             this.lblSmallCargoDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblSmallCargoDeuteriumCost.TabIndex = 11;
-            this.lblSmallCargoDeuteriumCost.Text = "0";
+            this.lblSmallCargoDeuteriumCost.Text = "deuter";
             this.lblSmallCargoDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSmallCargoCrystalCost
@@ -4556,7 +4554,7 @@ namespace MinerGame
             this.lblSmallCargoCrystalCost.Name = "lblSmallCargoCrystalCost";
             this.lblSmallCargoCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblSmallCargoCrystalCost.TabIndex = 10;
-            this.lblSmallCargoCrystalCost.Text = "0";
+            this.lblSmallCargoCrystalCost.Text = "kryształ";
             this.lblSmallCargoCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSmallCargoMetalCost
@@ -4569,7 +4567,7 @@ namespace MinerGame
             this.lblSmallCargoMetalCost.Name = "lblSmallCargoMetalCost";
             this.lblSmallCargoMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblSmallCargoMetalCost.TabIndex = 9;
-            this.lblSmallCargoMetalCost.Text = "0";
+            this.lblSmallCargoMetalCost.Text = "metal";
             this.lblSmallCargoMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSmallCargoCount
@@ -4581,7 +4579,7 @@ namespace MinerGame
             this.lblSmallCargoCount.Name = "lblSmallCargoCount";
             this.lblSmallCargoCount.Size = new System.Drawing.Size(130, 30);
             this.lblSmallCargoCount.TabIndex = 8;
-            this.lblSmallCargoCount.Text = "0";
+            this.lblSmallCargoCount.Text = "Ilość";
             this.lblSmallCargoCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSmallCargo
@@ -4629,8 +4627,7 @@ namespace MinerGame
             // pInfo
             // 
             this.pInfo.BackColor = System.Drawing.Color.Silver;
-            this.pInfo.Controls.Add(this.gbPlanetNumber);
-            this.pInfo.Controls.Add(this.gbPlanetFieldsInfo);
+            this.pInfo.Controls.Add(this.gbPlanetCountInfo);
             this.pInfo.Controls.Add(this.gbEnergyInfo);
             this.pInfo.Controls.Add(this.gbGameInfo);
             this.pInfo.Controls.Add(this.gbStorageTotal);
@@ -4644,77 +4641,55 @@ namespace MinerGame
             this.pInfo.Size = new System.Drawing.Size(1779, 140);
             this.pInfo.TabIndex = 1;
             // 
-            // gbPlanetNumber
+            // gbPlanetCountInfo
             // 
-            this.gbPlanetNumber.Controls.Add(this.label2);
-            this.gbPlanetNumber.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbPlanetNumber.Location = new System.Drawing.Point(1020, 0);
-            this.gbPlanetNumber.Name = "gbPlanetNumber";
-            this.gbPlanetNumber.Size = new System.Drawing.Size(120, 140);
-            this.gbPlanetNumber.TabIndex = 11;
-            this.gbPlanetNumber.TabStop = false;
-            this.gbPlanetNumber.Text = "Ilość planet";
+            this.gbPlanetCountInfo.Controls.Add(this.btnDeletePlanet);
+            this.gbPlanetCountInfo.Controls.Add(this.btnNewPlanet);
+            this.gbPlanetCountInfo.Controls.Add(this.lblPlanetCount);
+            this.gbPlanetCountInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbPlanetCountInfo.Location = new System.Drawing.Point(900, 0);
+            this.gbPlanetCountInfo.Name = "gbPlanetCountInfo";
+            this.gbPlanetCountInfo.Size = new System.Drawing.Size(150, 140);
+            this.gbPlanetCountInfo.TabIndex = 11;
+            this.gbPlanetCountInfo.TabStop = false;
+            this.gbPlanetCountInfo.Text = "Ilość planet";
             // 
-            // label2
+            // btnDeletePlanet
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(10, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 30);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "1 / 1";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDeletePlanet.BackColor = System.Drawing.Color.Silver;
+            this.btnDeletePlanet.Enabled = false;
+            this.btnDeletePlanet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeletePlanet.Location = new System.Drawing.Point(10, 100);
+            this.btnDeletePlanet.Name = "btnDeletePlanet";
+            this.btnDeletePlanet.Size = new System.Drawing.Size(130, 30);
+            this.btnDeletePlanet.TabIndex = 21;
+            this.btnDeletePlanet.Text = "Usuń planetę";
+            this.btnDeletePlanet.UseVisualStyleBackColor = false;
+            this.btnDeletePlanet.Click += new System.EventHandler(this.BtnDeletePlanet_Click);
             // 
-            // gbPlanetFieldsInfo
+            // btnNewPlanet
             // 
-            this.gbPlanetFieldsInfo.Controls.Add(this.lblPlanetFieldsOverValue);
-            this.gbPlanetFieldsInfo.Controls.Add(this.lblPlanetFieldsAvailableValue);
-            this.gbPlanetFieldsInfo.Controls.Add(this.lblPlanetFieldsDemandValue);
-            this.gbPlanetFieldsInfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbPlanetFieldsInfo.Location = new System.Drawing.Point(900, 0);
-            this.gbPlanetFieldsInfo.Name = "gbPlanetFieldsInfo";
-            this.gbPlanetFieldsInfo.Size = new System.Drawing.Size(120, 140);
-            this.gbPlanetFieldsInfo.TabIndex = 10;
-            this.gbPlanetFieldsInfo.TabStop = false;
-            this.gbPlanetFieldsInfo.Text = "Pola na planecie";
+            this.btnNewPlanet.BackColor = System.Drawing.Color.Silver;
+            this.btnNewPlanet.Enabled = false;
+            this.btnNewPlanet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNewPlanet.Location = new System.Drawing.Point(10, 60);
+            this.btnNewPlanet.Name = "btnNewPlanet";
+            this.btnNewPlanet.Size = new System.Drawing.Size(130, 30);
+            this.btnNewPlanet.TabIndex = 20;
+            this.btnNewPlanet.Text = "Nowa planeta";
+            this.btnNewPlanet.UseVisualStyleBackColor = false;
             // 
-            // lblPlanetFieldsOverValue
+            // lblPlanetCount
             // 
-            this.lblPlanetFieldsOverValue.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPlanetFieldsOverValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPlanetFieldsOverValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlanetFieldsOverValue.Location = new System.Drawing.Point(10, 100);
-            this.lblPlanetFieldsOverValue.Name = "lblPlanetFieldsOverValue";
-            this.lblPlanetFieldsOverValue.Size = new System.Drawing.Size(100, 30);
-            this.lblPlanetFieldsOverValue.TabIndex = 23;
-            this.lblPlanetFieldsOverValue.Text = "0";
-            this.lblPlanetFieldsOverValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPlanetFieldsAvailableValue
-            // 
-            this.lblPlanetFieldsAvailableValue.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPlanetFieldsAvailableValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPlanetFieldsAvailableValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlanetFieldsAvailableValue.Location = new System.Drawing.Point(10, 20);
-            this.lblPlanetFieldsAvailableValue.Name = "lblPlanetFieldsAvailableValue";
-            this.lblPlanetFieldsAvailableValue.Size = new System.Drawing.Size(100, 30);
-            this.lblPlanetFieldsAvailableValue.TabIndex = 19;
-            this.lblPlanetFieldsAvailableValue.Text = "0";
-            this.lblPlanetFieldsAvailableValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPlanetFieldsDemandValue
-            // 
-            this.lblPlanetFieldsDemandValue.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPlanetFieldsDemandValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPlanetFieldsDemandValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlanetFieldsDemandValue.Location = new System.Drawing.Point(10, 60);
-            this.lblPlanetFieldsDemandValue.Name = "lblPlanetFieldsDemandValue";
-            this.lblPlanetFieldsDemandValue.Size = new System.Drawing.Size(100, 30);
-            this.lblPlanetFieldsDemandValue.TabIndex = 21;
-            this.lblPlanetFieldsDemandValue.Text = "0";
-            this.lblPlanetFieldsDemandValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPlanetCount.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPlanetCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlanetCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlanetCount.Location = new System.Drawing.Point(10, 20);
+            this.lblPlanetCount.Name = "lblPlanetCount";
+            this.lblPlanetCount.Size = new System.Drawing.Size(130, 30);
+            this.lblPlanetCount.TabIndex = 19;
+            this.lblPlanetCount.Text = "1 / 1";
+            this.lblPlanetCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbEnergyInfo
             // 
@@ -4969,6 +4944,7 @@ namespace MinerGame
             // gbPlanetInfo
             // 
             this.gbPlanetInfo.BackColor = System.Drawing.Color.Silver;
+            this.gbPlanetInfo.Controls.Add(this.lblPlanetFields);
             this.gbPlanetInfo.Controls.Add(this.lblDiameterValue);
             this.gbPlanetInfo.Controls.Add(this.lblTemperatureValue);
             this.gbPlanetInfo.Controls.Add(this.lblPlanetNameValue);
@@ -4980,6 +4956,18 @@ namespace MinerGame
             this.gbPlanetInfo.TabStop = false;
             this.gbPlanetInfo.Text = "Informacje o planecie";
             // 
+            // lblPlanetFields
+            // 
+            this.lblPlanetFields.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPlanetFields.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlanetFields.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlanetFields.Location = new System.Drawing.Point(70, 60);
+            this.lblPlanetFields.Name = "lblPlanetFields";
+            this.lblPlanetFields.Size = new System.Drawing.Size(70, 30);
+            this.lblPlanetFields.TabIndex = 8;
+            this.lblPlanetFields.Text = "Pola";
+            this.lblPlanetFields.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblDiameterValue
             // 
             this.lblDiameterValue.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -4989,7 +4977,7 @@ namespace MinerGame
             this.lblDiameterValue.Name = "lblDiameterValue";
             this.lblDiameterValue.Size = new System.Drawing.Size(130, 30);
             this.lblDiameterValue.TabIndex = 7;
-            this.lblDiameterValue.Text = "20 000 km";
+            this.lblDiameterValue.Text = "Średnica [km]";
             this.lblDiameterValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTemperatureValue
@@ -4999,9 +4987,9 @@ namespace MinerGame
             this.lblTemperatureValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTemperatureValue.Location = new System.Drawing.Point(10, 60);
             this.lblTemperatureValue.Name = "lblTemperatureValue";
-            this.lblTemperatureValue.Size = new System.Drawing.Size(130, 30);
+            this.lblTemperatureValue.Size = new System.Drawing.Size(55, 30);
             this.lblTemperatureValue.TabIndex = 5;
-            this.lblTemperatureValue.Text = "0 ℃";
+            this.lblTemperatureValue.Text = "T [℃]";
             this.lblTemperatureValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlanetNameValue
@@ -5097,8 +5085,7 @@ namespace MinerGame
             this.pSmallCargo.ResumeLayout(false);
             this.pSmallCargo.PerformLayout();
             this.pInfo.ResumeLayout(false);
-            this.gbPlanetNumber.ResumeLayout(false);
-            this.gbPlanetFieldsInfo.ResumeLayout(false);
+            this.gbPlanetCountInfo.ResumeLayout(false);
             this.gbEnergyInfo.ResumeLayout(false);
             this.gbGameInfo.ResumeLayout(false);
             this.gbStorageTotal.ResumeLayout(false);
@@ -5364,20 +5351,16 @@ namespace MinerGame
         private System.Windows.Forms.Label lblMetalStorageLevel;
         private System.Windows.Forms.Label lblMetalStorage;
         private System.Windows.Forms.Panel pSmallCargo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblSmallCargoDuration;
+        private System.Windows.Forms.Button btnSmallCargoConstruct;
         private System.Windows.Forms.Label lblSmallCargoDeuteriumCost;
         private System.Windows.Forms.Label lblSmallCargoCrystalCost;
         private System.Windows.Forms.Label lblSmallCargoMetalCost;
         private System.Windows.Forms.Label lblSmallCargoCount;
         private System.Windows.Forms.Label lblSmallCargo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSmallCargoCount;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox gbPlanetNumber;
-        private System.Windows.Forms.GroupBox gbPlanetFieldsInfo;
-        private System.Windows.Forms.Label lblPlanetFieldsOverValue;
-        private System.Windows.Forms.Label lblPlanetFieldsAvailableValue;
-        private System.Windows.Forms.Label lblPlanetFieldsDemandValue;
+        private System.Windows.Forms.GroupBox gbPlanetCountInfo;
         private System.Windows.Forms.GroupBox gbEnergyInfo;
         private System.Windows.Forms.Label lblEnergyOverValue;
         private System.Windows.Forms.Label lblEnergyAvailableValue;
@@ -5385,7 +5368,7 @@ namespace MinerGame
         private System.Windows.Forms.TabPage tpProduction;
         private System.Windows.Forms.TabPage tpRequirements;
         private System.Windows.Forms.TabPage tpFleet;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPlanetCount;
         private System.Windows.Forms.TabPage tpStation;
         private System.Windows.Forms.Panel pJumpGate;
         private System.Windows.Forms.Panel pSensorPhalanx;
@@ -5469,6 +5452,9 @@ namespace MinerGame
         private System.Windows.Forms.Label lblJumpGateDeuteriumCost;
         private System.Windows.Forms.Button btnJumpGateUpgrade;
         private System.Windows.Forms.Label lblJumpGateDuration;
+        private System.Windows.Forms.Label lblPlanetFields;
+        private System.Windows.Forms.Button btnDeletePlanet;
+        private System.Windows.Forms.Button btnNewPlanet;
     }
 }
 

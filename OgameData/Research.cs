@@ -2,15 +2,8 @@
 
 namespace OgameData
 {
-    public class Research
+    public class Research : Upgradeable
     {
-        public int Level { get; set; }
-        public Resources TotalCost { get; set; }
-        
-        public Research()
-        {
-            Level = 0;
-            TotalCost = new Resources();
-        }
+
     }
 }

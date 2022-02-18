@@ -10,10 +10,10 @@ namespace OgameData
         public int Temperature { get; set; }
         public int Diameter { get; set; }
         public Resources Resources { get; set; }
-        public Dictionary<Item, Building> Buildings { get; set; }
+        public Dictionary<Item, Upgradeable> Buildings { get; set; }
         public Dictionary<Item, int> Fleet { get; set; }
         public Dictionary<Item, int> Defences { get; set; }
-        public bool BuildingInProgress { get; set; }
+        public bool IsBuildingInProgress { get; set; }
         #endregion
 
         public Planet(string name = "Kolonia")
@@ -24,7 +24,7 @@ namespace OgameData
             Diameter = GameHandler.RandomPlanetSize();
             Resources = new Resources(500.0, 500.0, 0.0);
 
-            Buildings = new Dictionary<Item, Building>()
+            Buildings = new Dictionary<Item, Upgradeable>()
             {
                 { Item.METAL_MINE, new Building() },
                 { Item.CRYSTAL_MINE, new Building() },
@@ -83,7 +83,7 @@ namespace OgameData
                 { Item.SOLAR_SATELLITE, 0 },
                 { Item.CRAWLER, 0 }
             };
-            BuildingInProgress = false;
+            IsBuildingInProgress = false;
         }
 
         #region Methods

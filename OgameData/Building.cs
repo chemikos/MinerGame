@@ -2,15 +2,8 @@
 
 namespace OgameData
 {
-    public class Building
+    public class Building : Upgradeable
     {
-        public int Level { get; set; }
-        public Resources TotalCost { get; set; }
-        
-        public Building()
-        {
-            Level = 0;
-            TotalCost = new Resources();
-        }
+
     }
 }
