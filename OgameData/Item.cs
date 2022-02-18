@@ -2,6 +2,16 @@
 {
     public enum Item
     {
+        #region Resources
+        METAL,
+        CRYSTAL,
+        DEUTERIUM,
+        FACTOR,
+        ENERGY,
+        ENERGY_FACTOR,
+        CRAWLER_FACTOR,
+        #endregion
+
         #region Buildings
         METAL_MINE,
         CRYSTAL_MINE,
@@ -76,16 +86,6 @@
         LARGE_SHIELD_DOME,
         ANTI_BALLISTIC_MISSILE,
         INTERPLANETARY_MISSILE,
-        #endregion
-
-        #region Resources
-        METAL,
-        CRYSTAL,
-        DEUTERIUM,
-        FACTOR,
-        ENERGY,
-        ENERGY_FACTOR,
-        CRAWLER_FACTOR,
         #endregion
 
         #region Technical data

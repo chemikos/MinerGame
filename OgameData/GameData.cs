@@ -9,8 +9,7 @@ namespace OgameData
         {
             #region Buildings
             {
-                Item.METAL_MINE,
-                new()
+                Item.METAL_MINE, new()
                 {
                     { Item.METAL, 60.0 },
                     { Item.CRYSTAL, 15.0 },
@@ -19,8 +18,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRYSTAL_MINE,
-                new()
+                Item.CRYSTAL_MINE, new()
                 {
                     { Item.METAL, 48.0 },
                     { Item.CRYSTAL, 24.0 },
@@ -29,8 +27,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DEUTERIUM_SYNTHESIZER,
-                new()
+                Item.DEUTERIUM_SYNTHESIZER, new()
                 {
                     { Item.METAL, 225.0 },
                     { Item.CRYSTAL, 75.0 },
@@ -39,8 +36,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SOLAR_PLANT,
-                new()
+                Item.SOLAR_PLANT, new()
                 {
                     { Item.METAL, 75.0 },
                     { Item.CRYSTAL, 30.0 },
@@ -49,8 +45,7 @@ namespace OgameData
                 }
             },
             {
-                Item.FUSION_REACTOR,
-                new()
+                Item.FUSION_REACTOR, new()
                 {
                     { Item.METAL, 900.0 },
                     { Item.CRYSTAL, 360.0 },
@@ -59,8 +54,7 @@ namespace OgameData
                 }
             },
             {
-                Item.METAL_STORAGE,
-                new()
+                Item.METAL_STORAGE, new()
                 {
                     { Item.METAL, 1_000.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -69,8 +63,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRYSTAL_STORAGE,
-                new()
+                Item.CRYSTAL_STORAGE, new()
                 {
                     { Item.METAL, 1_000.0 },
                     { Item.CRYSTAL, 500.0 },
@@ -79,8 +72,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DEUTERIUM_TANK,
-                new()
+                Item.DEUTERIUM_TANK, new()
                 {
                     { Item.METAL, 1_000.0 },
                     { Item.CRYSTAL, 1_000.0 },
@@ -89,8 +81,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ROBOTICS_FACTORY,
-                new()
+                Item.ROBOTICS_FACTORY, new()
                 {
                     { Item.METAL, 400.0 },
                     { Item.CRYSTAL, 120.0 },
@@ -99,8 +90,7 @@ namespace OgameData
                 }
             },
             {
-                Item.NANITE_FACTORY,
-                new()
+                Item.NANITE_FACTORY, new()
                 {
                     { Item.METAL, 1_000_000.0 },
                     { Item.CRYSTAL, 500_000.0 },
@@ -109,8 +99,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SHIPYARD,
-                new()
+                Item.SHIPYARD, new()
                 {
                     { Item.METAL, 400.0 },
                     { Item.CRYSTAL, 120.0 },
@@ -119,8 +108,7 @@ namespace OgameData
                 }
             },
             {
-                Item.RESEARCH_LAB,
-                new()
+                Item.RESEARCH_LAB, new()
                 {
                     { Item.METAL, 200.0 },
                     { Item.CRYSTAL, 400.0 },
@@ -129,8 +117,7 @@ namespace OgameData
                 }
             },
             {
-                Item.TERRAFORMER,
-                new()
+                Item.TERRAFORMER, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 50_000.0 },
@@ -141,8 +128,7 @@ namespace OgameData
                 }
             },
             {
-                Item.MISSILE_SILO,
-                new()
+                Item.MISSILE_SILO, new()
                 {
                     { Item.METAL, 20_000.0 },
                     { Item.CRYSTAL, 20_000.0 },
@@ -151,8 +137,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SPACE_DOCK,
-                new()
+                Item.SPACE_DOCK, new()
                 {
                     { Item.METAL, 200.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -163,8 +148,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LUNAR_BASE,
-                new()
+                Item.LUNAR_BASE, new()
                 {
                     { Item.METAL, 20_000.0 },
                     { Item.CRYSTAL, 40_000.0 },
@@ -173,8 +157,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SENSOR_PHALANX,
-                new()
+                Item.SENSOR_PHALANX, new()
                 {
                     { Item.METAL, 20_000.0 },
                     { Item.CRYSTAL, 40_000.0 },
@@ -183,8 +166,7 @@ namespace OgameData
                 }
             },
             {
-                Item.JUMP_GATE,
-                new()
+                Item.JUMP_GATE, new()
                 {
                     { Item.METAL, 2_000_000.0 },
                     { Item.CRYSTAL, 4_000_000.0 },
@@ -196,8 +178,7 @@ namespace OgameData
 
             #region Research
             {
-                Item.ESPIONAGE_TECHNOLOGY,
-                new()
+                Item.ESPIONAGE_TECHNOLOGY, new()
                 {
                     { Item.METAL, 200.0 },
                     { Item.CRYSTAL, 1_000.0 },
@@ -206,8 +187,7 @@ namespace OgameData
                 }
             },
             {
-                Item.COMPUTER_TECHNOLOGY,
-                new()
+                Item.COMPUTER_TECHNOLOGY, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 400.0 },
@@ -216,8 +196,7 @@ namespace OgameData
                 }
             },
             {
-                Item.WEAPONS_TECHNOLOGY,
-                new()
+                Item.WEAPONS_TECHNOLOGY, new()
                 {
                     { Item.METAL, 800.0 },
                     { Item.CRYSTAL, 200.0 },
@@ -226,8 +205,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SHIELDING_TECHNOLOGY,
-                new()
+                Item.SHIELDING_TECHNOLOGY, new()
                 {
                     { Item.METAL, 200.0 },
                     { Item.CRYSTAL, 600.0 },
@@ -236,8 +214,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ARMOUR_TECHNOLOGY,
-                new()
+                Item.ARMOUR_TECHNOLOGY, new()
                 {
                     { Item.METAL, 1_000.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -246,8 +223,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ENERGY_TECHNOLOGY,
-                new()
+                Item.ENERGY_TECHNOLOGY, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 800.0 },
@@ -256,8 +232,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HYPERSPACE_TECHNOLOGY,
-                new()
+                Item.HYPERSPACE_TECHNOLOGY, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 4_000.0 },
@@ -266,8 +241,7 @@ namespace OgameData
                 }
             },
             {
-                Item.COMBUSTION_DRIVE,
-                new()
+                Item.COMBUSTION_DRIVE, new()
                 {
                     { Item.METAL, 400.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -276,8 +250,7 @@ namespace OgameData
                 }
             },
             {
-                Item.IMPULSE_DRIVE,
-                new()
+                Item.IMPULSE_DRIVE, new()
                 {
                     { Item.METAL, 2_000.0 },
                     { Item.CRYSTAL, 4_000.0 },
@@ -286,8 +259,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HYPERSPACE_DRIVE,
-                new()
+                Item.HYPERSPACE_DRIVE, new()
                 {
                     { Item.METAL, 10_000.0 },
                     { Item.CRYSTAL, 20_000.0 },
@@ -296,8 +268,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LASER_TECHNOLOGY,
-                new()
+                Item.LASER_TECHNOLOGY, new()
                 {
                     { Item.METAL, 200.0 },
                     { Item.CRYSTAL, 100.0 },
@@ -306,8 +277,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ION_TECHNOLOGY,
-                new()
+                Item.ION_TECHNOLOGY, new()
                 {
                     { Item.METAL, 1_000.0 },
                     { Item.CRYSTAL, 300.0 },
@@ -316,8 +286,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PLASMA_TECHNOLOGY,
-                new()
+                Item.PLASMA_TECHNOLOGY, new()
                 {
                     { Item.METAL, 2_000.0 },
                     { Item.CRYSTAL, 4_000.0 },
@@ -326,8 +295,7 @@ namespace OgameData
                 }
             },
             {
-                Item.IRN,
-                new()
+                Item.IRN, new()
                 {
                     { Item.METAL, 240_000.0 },
                     { Item.CRYSTAL, 400_000.0 },
@@ -336,8 +304,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ASTROPHISICS,
-                new()
+                Item.ASTROPHISICS, new()
                 {
                     { Item.METAL, 4_000.0 },
                     { Item.CRYSTAL, 8_000.0 },
@@ -346,8 +313,7 @@ namespace OgameData
                 }
             },
             {
-                Item.GRAVITON_TECHNOLOGY,
-                new()
+                Item.GRAVITON_TECHNOLOGY, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -361,8 +327,7 @@ namespace OgameData
 
             #region Ships
             {
-                Item.SMALL_CARGO,
-                new()
+                Item.SMALL_CARGO, new()
                 {
                     { Item.METAL, 2_000.0 },
                     { Item.CRYSTAL, 2_000.0 },
@@ -370,8 +335,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LARGE_CARGO,
-                new()
+                Item.LARGE_CARGO, new()
                 {
                     { Item.METAL, 6_000.0 },
                     { Item.CRYSTAL, 6_000.0 },
@@ -379,8 +343,7 @@ namespace OgameData
                 }
             },
             {
-                Item.COLONY_SHIP,
-                new()
+                Item.COLONY_SHIP, new()
                 {
                     { Item.METAL, 10_000.0 },
                     { Item.CRYSTAL, 20_000.0 },
@@ -388,8 +351,7 @@ namespace OgameData
                 }
             },
             {
-                Item.RECYCLER,
-                new()
+                Item.RECYCLER, new()
                 {
                     { Item.METAL, 10_000.0 },
                     { Item.CRYSTAL, 6_000.0 },
@@ -397,8 +359,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ESPIONAGE_PROBE,
-                new()
+                Item.ESPIONAGE_PROBE, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 1_000.0 },
@@ -406,8 +367,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LIGHT_FIGHTER,
-                new()
+                Item.LIGHT_FIGHTER, new()
                 {
                     { Item.METAL, 3_000.0 },
                     { Item.CRYSTAL, 1_000.0 },
@@ -415,8 +375,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HEAVY_FIGHTER,
-                new()
+                Item.HEAVY_FIGHTER, new()
                 {
                     { Item.METAL, 6_000.0 },
                     { Item.CRYSTAL, 4_000.0 },
@@ -424,8 +383,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRUISER,
-                new()
+                Item.CRUISER, new()
                 {
                     { Item.METAL, 20_000.0 },
                     { Item.CRYSTAL, 7_000.0 },
@@ -433,8 +391,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLESHIP,
-                new()
+                Item.BATTLESHIP, new()
                 {
                     { Item.METAL, 45_000.0 },
                     { Item.CRYSTAL, 15_000.0 },
@@ -442,8 +399,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLECRUISER,
-                new()
+                Item.BATTLECRUISER, new()
                 {
                     { Item.METAL, 30_000.0 },
                     { Item.CRYSTAL, 40_000.0 },
@@ -451,8 +407,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BOMBER,
-                new()
+                Item.BOMBER, new()
                 {
                     { Item.METAL, 50_000.0 },
                     { Item.CRYSTAL, 25_000.0 },
@@ -460,8 +415,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DESTROYER,
-                new()
+                Item.DESTROYER, new()
                 {
                     { Item.METAL, 60_000.0 },
                     { Item.CRYSTAL, 50_000.0 },
@@ -469,8 +423,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DEATHSTAR,
-                new()
+                Item.DEATHSTAR, new()
                 {
                     { Item.METAL, 5_000_000.0 },
                     { Item.CRYSTAL, 4_000_000.0 },
@@ -478,8 +431,7 @@ namespace OgameData
                 }
             },
             {
-                Item.REAPER,
-                new()
+                Item.REAPER, new()
                 {
                     { Item.METAL, 85_000.0 },
                     { Item.CRYSTAL, 55_000.0 },
@@ -487,8 +439,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PATHFINDER,
-                new()
+                Item.PATHFINDER, new()
                 {
                     { Item.METAL, 8_000.0 },
                     { Item.CRYSTAL, 15_000.0 },
@@ -499,8 +450,7 @@ namespace OgameData
 
             #region Fleet but Defence
             {
-                Item.SOLAR_SATELLITE,
-                new()
+                Item.SOLAR_SATELLITE, new()
                 {
                     { Item.METAL, 0.0 },
                     { Item.CRYSTAL, 2_000.0 },
@@ -508,8 +458,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRAWLER,
-                new()
+                Item.CRAWLER, new()
                 {
                     { Item.METAL, 2_000.0 },
                     { Item.CRYSTAL, 2_000.0 },
@@ -523,8 +472,7 @@ namespace OgameData
 
             #region Defence
             {
-                Item.ROCKER_LAUNCHER,
-                new()
+                Item.ROCKER_LAUNCHER, new()
                 {
                     { Item.METAL, 2_000.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -532,8 +480,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LIGHT_LASER,
-                new()
+                Item.LIGHT_LASER, new()
                 {
                     { Item.METAL, 1_500.0 },
                     { Item.CRYSTAL, 500.0 },
@@ -541,8 +488,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HEAVY_LASER,
-                new()
+                Item.HEAVY_LASER, new()
                 {
                     { Item.METAL, 6_000.0 },
                     { Item.CRYSTAL, 2_000.0 },
@@ -550,8 +496,7 @@ namespace OgameData
                 }
             },
             {
-                Item.GAUSS_CANNON,
-                new()
+                Item.GAUSS_CANNON, new()
                 {
                     { Item.METAL, 20_000.0 },
                     { Item.CRYSTAL, 15_000.0 },
@@ -559,8 +504,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ION_CANNON,
-                new()
+                Item.ION_CANNON, new()
                 {
                     { Item.METAL, 2_000.0 },
                     { Item.CRYSTAL, 6_000.0 },
@@ -568,8 +512,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PLASMA_TURRET,
-                new()
+                Item.PLASMA_TURRET, new()
                 {
                     { Item.METAL, 50_000.0 },
                     { Item.CRYSTAL, 50_000.0 },
@@ -577,8 +520,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SMALL_SHIELD_DOME,
-                new()
+                Item.SMALL_SHIELD_DOME, new()
                 {
                     { Item.METAL, 10_000.0 },
                     { Item.CRYSTAL, 10_000.0 },
@@ -586,8 +528,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LARGE_SHIELD_DOME,
-                new()
+                Item.LARGE_SHIELD_DOME, new()
                 {
                     { Item.METAL, 50_000.0 },
                     { Item.CRYSTAL, 50_000.0 },
@@ -595,8 +536,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ANTI_BALLISTIC_MISSILE,
-                new()
+                Item.ANTI_BALLISTIC_MISSILE, new()
                 {
                     { Item.METAL, 8_000.0 },
                     { Item.CRYSTAL, 0.0 },
@@ -604,8 +544,7 @@ namespace OgameData
                 }
             },
             {
-                Item.INTERPLANETARY_MISSILE,
-                new()
+                Item.INTERPLANETARY_MISSILE, new()
                 {
                     { Item.METAL, 12_500.0 },
                     { Item.CRYSTAL, 2_500.0 },
@@ -627,7 +566,7 @@ namespace OgameData
             { Item.CRYSTAL_STORAGE, "Magazyn kryształu" },
             { Item.DEUTERIUM_TANK, "Zbiornik deuteru" },
             { Item.ROBOTICS_FACTORY, "Fabryka robotów"},
-            { Item.NANITE_FACTORY, "Fabryka nianitów" },
+            { Item.NANITE_FACTORY, "Fabryka nanitów" },
             { Item.SHIPYARD, "Stocznia orbitalna" },
             { Item.RESEARCH_LAB, "Laboratorium badawcze" },
             { Item.TERRAFORMER, "Terraformer" },
@@ -715,7 +654,7 @@ namespace OgameData
             #endregion
         };
         
-        public static readonly Dictionary<Item, double> BASIS_PRODUCTION = new()
+        public static readonly Dictionary<Item, double> BASIC_PRODUCTION = new()
         {
             { Item.METAL, 30.0 },
             { Item.CRYSTAL, 15.0 },
@@ -726,8 +665,7 @@ namespace OgameData
         {
             #region Fleet
             {
-                Item.SMALL_CARGO,
-                new()
+                Item.SMALL_CARGO, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.SMALL_CARGO][Item.METAL] + COST[Item.SMALL_CARGO][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 10.0 },
@@ -740,8 +678,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LARGE_CARGO,
-                new()
+                Item.LARGE_CARGO, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.LARGE_CARGO][Item.METAL] + COST[Item.LARGE_CARGO][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 25.0 },
@@ -752,8 +689,7 @@ namespace OgameData
                 }
             },
             {
-                Item.COLONY_SHIP,
-                new()
+                Item.COLONY_SHIP, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.COLONY_SHIP][Item.METAL] + COST[Item.COLONY_SHIP][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 100.0 },
@@ -764,8 +700,7 @@ namespace OgameData
                 }
             },
             {
-                Item.RECYCLER,
-                new()
+                Item.RECYCLER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.RECYCLER][Item.METAL] + COST[Item.RECYCLER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 10.0 },
@@ -780,8 +715,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ESPIONAGE_PROBE,
-                new()
+                Item.ESPIONAGE_PROBE, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.ESPIONAGE_PROBE][Item.METAL] + COST[Item.ESPIONAGE_PROBE][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 0.0 },
@@ -792,8 +726,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LIGHT_FIGHTER,
-                new()
+                Item.LIGHT_FIGHTER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.LIGHT_FIGHTER][Item.METAL] + COST[Item.LIGHT_FIGHTER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 10.0 },
@@ -804,8 +737,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HEAVY_FIGHTER,
-                new()
+                Item.HEAVY_FIGHTER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.HEAVY_FIGHTER][Item.METAL] + COST[Item.HEAVY_FIGHTER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 25.0 },
@@ -816,8 +748,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRUISER,
-                new()
+                Item.CRUISER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.CRUISER][Item.METAL] + COST[Item.CRUISER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 50.0 },
@@ -828,8 +759,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLESHIP,
-                new()
+                Item.BATTLESHIP, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.BATTLESHIP][Item.METAL] + COST[Item.BATTLESHIP][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 200.0 },
@@ -840,8 +770,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLECRUISER,
-                new()
+                Item.BATTLECRUISER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.BATTLECRUISER][Item.METAL] + COST[Item.BATTLECRUISER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 400.0 },
@@ -852,8 +781,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BOMBER,
-                new()
+                Item.BOMBER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.BOMBER][Item.METAL] + COST[Item.BOMBER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 500.0 },
@@ -866,8 +794,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DESTROYER,
-                new()
+                Item.DESTROYER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.DESTROYER][Item.METAL] + COST[Item.DESTROYER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 500.0 },
@@ -878,8 +805,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DEATHSTAR,
-                new()
+                Item.DEATHSTAR, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.DEATHSTAR][Item.METAL] + COST[Item.DEATHSTAR][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 50_000.0 },
@@ -890,8 +816,7 @@ namespace OgameData
                 }
             },
             {
-                Item.REAPER,
-                new()
+                Item.REAPER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.REAPER][Item.METAL] + COST[Item.REAPER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 700.0 },
@@ -902,8 +827,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PATHFINDER,
-                new()
+                Item.PATHFINDER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.PATHFINDER][Item.METAL] + COST[Item.PATHFINDER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 100.0 },
@@ -917,8 +841,7 @@ namespace OgameData
 
             #region Fleet but Defence
             {
-                Item.SOLAR_SATELLITE,
-                new()
+                Item.SOLAR_SATELLITE, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.SOLAR_SATELLITE][Item.METAL] + COST[Item.SOLAR_SATELLITE][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 1.0 },
@@ -926,8 +849,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRAWLER,
-                new()
+                Item.CRAWLER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.CRAWLER][Item.METAL] + COST[Item.CRAWLER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 1.0 },
@@ -938,8 +860,7 @@ namespace OgameData
 
             #region Defences
             {
-                Item.ROCKER_LAUNCHER,
-                new()
+                Item.ROCKER_LAUNCHER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.ROCKER_LAUNCHER][Item.METAL] + COST[Item.ROCKER_LAUNCHER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 20.0 },
@@ -947,8 +868,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LIGHT_LASER,
-                new()
+                Item.LIGHT_LASER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.LIGHT_LASER][Item.METAL] + COST[Item.LIGHT_LASER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 25.0 },
@@ -956,8 +876,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HEAVY_LASER,
-                new()
+                Item.HEAVY_LASER, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.HEAVY_LASER][Item.METAL] + COST[Item.HEAVY_LASER][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 100.0 },
@@ -965,8 +884,7 @@ namespace OgameData
                 }
             },
             {
-                Item.GAUSS_CANNON,
-                new()
+                Item.GAUSS_CANNON, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.GAUSS_CANNON][Item.METAL] + COST[Item.GAUSS_CANNON][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 200.0 },
@@ -974,8 +892,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ION_CANNON,
-                new()
+                Item.ION_CANNON, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.ION_CANNON][Item.METAL] + COST[Item.ION_CANNON][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 500.0 },
@@ -983,8 +900,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PLASMA_TURRET,
-                new()
+                Item.PLASMA_TURRET, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.PLASMA_TURRET][Item.METAL] + COST[Item.PLASMA_TURRET][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 300.0 },
@@ -992,8 +908,7 @@ namespace OgameData
                 }
             },
             {
-                Item.SMALL_SHIELD_DOME,
-                new()
+                Item.SMALL_SHIELD_DOME, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.SMALL_SHIELD_DOME][Item.METAL] + COST[Item.SMALL_SHIELD_DOME][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 2_000.0 },
@@ -1001,8 +916,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LARGE_SHIELD_DOME,
-                new()
+                Item.LARGE_SHIELD_DOME, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.LARGE_SHIELD_DOME][Item.METAL] + COST[Item.LARGE_SHIELD_DOME][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 10_000.0 },
@@ -1010,8 +924,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ANTI_BALLISTIC_MISSILE,
-                new()
+                Item.ANTI_BALLISTIC_MISSILE, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.ANTI_BALLISTIC_MISSILE][Item.METAL] + COST[Item.ANTI_BALLISTIC_MISSILE][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 1.0 },
@@ -1019,8 +932,7 @@ namespace OgameData
                 }
             },
             {
-                Item.INTERPLANETARY_MISSILE,
-                new()
+                Item.INTERPLANETARY_MISSILE, new()
                 {
                     { Item.STRUCTURAL_INTEGRITY, COST[Item.INTERPLANETARY_MISSILE][Item.METAL] + COST[Item.INTERPLANETARY_MISSILE][Item.CRYSTAL] },
                     { Item.SHIELD_STRENGTH, 1.0 },
@@ -1044,8 +956,7 @@ namespace OgameData
         public static readonly Dictionary<Item, Dictionary<Item, int>> RAPIDFIRE = new()
         {
             {
-                Item.SMALL_CARGO,
-                new()
+                Item.SMALL_CARGO, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1053,8 +964,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LARGE_CARGO,
-                new()
+                Item.LARGE_CARGO, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1062,8 +972,7 @@ namespace OgameData
                 }
             },
             {
-                Item.COLONY_SHIP,
-                new()
+                Item.COLONY_SHIP, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1071,8 +980,7 @@ namespace OgameData
                 }
             },
             {
-                Item.RECYCLER,
-                new()
+                Item.RECYCLER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1080,8 +988,7 @@ namespace OgameData
                 }
             },
             {
-                Item.LIGHT_FIGHTER,
-                new()
+                Item.LIGHT_FIGHTER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1089,8 +996,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HEAVY_FIGHTER,
-                new()
+                Item.HEAVY_FIGHTER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1099,8 +1005,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRUISER,
-                new()
+                Item.CRUISER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1110,8 +1015,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLESHIP,
-                new()
+                Item.BATTLESHIP, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1120,8 +1024,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLECRUISER,
-                new()
+                Item.BATTLECRUISER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1134,8 +1037,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BOMBER,
-                new()
+                Item.BOMBER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1149,8 +1051,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DESTROYER,
-                new()
+                Item.DESTROYER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1160,8 +1061,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DEATHSTAR,
-                new()
+                Item.DEATHSTAR, new()
                 {
                     { Item.ESPIONAGE_PROBE, 1250 },
                     { Item.SOLAR_SATELLITE, 1250 },
@@ -1187,8 +1087,7 @@ namespace OgameData
                 }
             },
             {
-                Item.REAPER,
-                new()
+                Item.REAPER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1199,8 +1098,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PATHFINDER,
-                new()
+                Item.PATHFINDER, new()
                 {
                     { Item.ESPIONAGE_PROBE, 5 },
                     { Item.SOLAR_SATELLITE, 5 },
@@ -1211,8 +1109,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ION_CANNON,
-                new()
+                Item.ION_CANNON, new()
                 {
                     { Item.REAPER, 2 }
                 }
@@ -1237,68 +1134,59 @@ namespace OgameData
         {
             #region Buildings
             {
-                Item.FUSION_REACTOR,
-                new()
+                Item.FUSION_REACTOR, new()
                 {
                     { Item.DEUTERIUM_SYNTHESIZER, 5 },
                     { Item.ENERGY_TECHNOLOGY, 3 }
                 }
             },
             {
-                Item.NANITE_FACTORY,
-                new()
+                Item.NANITE_FACTORY, new()
                 {
                     { Item.ROBOTICS_FACTORY, 10 },
                     { Item.COMPUTER_TECHNOLOGY, 10 }
                 }
             },
             {
-                Item.SHIPYARD,
-                new()
+                Item.SHIPYARD, new()
                 {
                     { Item.ROBOTICS_FACTORY, 2 }
                 }
             },
             {
-                Item.SPACE_DOCK,
-                new()
+                Item.SPACE_DOCK, new()
                 {
                     { Item.SHIPYARD, 2 }
                 }
             },
             {
-                Item.MISSILE_SILO,
-                new()
+                Item.MISSILE_SILO, new()
                 {
                     { Item.SHIPYARD, 1 }
                 }
             },
             {
-                Item.TERRAFORMER,
-                new()
+                Item.TERRAFORMER, new()
                 {
                     { Item.NANITE_FACTORY, 1 },
                     { Item.ENERGY_TECHNOLOGY, 12 }
                 }
             },
             {
-                Item.LUNAR_BASE,
-                new()
+                Item.LUNAR_BASE, new()
                 {
                     { Item.NANITE_FACTORY, 2 },
                     { Item.ENERGY_TECHNOLOGY, 14 }
                 }
             },
             {
-                Item.SENSOR_PHALANX,
-                new()
+                Item.SENSOR_PHALANX, new()
                 {
                     { Item.LUNAR_BASE, 1 }
                 }
             },
             {
-                Item.JUMP_GATE,
-                new()
+                Item.JUMP_GATE, new()
                 {
                     { Item.LUNAR_BASE, 1 },
                     { Item.HYPERSPACE_TECHNOLOGY, 7 }
@@ -1308,23 +1196,20 @@ namespace OgameData
 
             #region Researches
             {
-                Item.ENERGY_TECHNOLOGY,
-                new()
+                Item.ENERGY_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 1 }
                 }
             },
             {
-                Item.LASER_TECHNOLOGY,
-                new()
+                Item.LASER_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 1 },
                     { Item.ENERGY_TECHNOLOGY, 2 }
                 }
             },
             {
-                Item.ION_TECHNOLOGY,
-                new()
+                Item.ION_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 4 },
                     { Item.ENERGY_TECHNOLOGY, 4 },
@@ -1332,8 +1217,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HYPERSPACE_TECHNOLOGY,
-                new()
+                Item.HYPERSPACE_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 7 },
                     { Item.ENERGY_TECHNOLOGY, 5 },
@@ -1341,8 +1225,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PLASMA_TECHNOLOGY,
-                new()
+                Item.PLASMA_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 4 },
                     { Item.ENERGY_TECHNOLOGY, 8 },
@@ -1351,22 +1234,19 @@ namespace OgameData
                 }
             },
             {
-                Item.ESPIONAGE_TECHNOLOGY,
-                new()
+                Item.ESPIONAGE_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 3 }
                 }
             },
             {
-                Item.COMPUTER_TECHNOLOGY,
-                new()
+                Item.COMPUTER_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 1 }
                 }
             },
             {
-                Item.ASTROPHISICS,
-                new()
+                Item.ASTROPHISICS, new()
                 {
                     { Item.RESEARCH_LAB, 3 },
                     { Item.ESPIONAGE_TECHNOLOGY, 4 },
@@ -1374,8 +1254,7 @@ namespace OgameData
                 }
             },
             {
-                Item.IRN,
-                new()
+                Item.IRN, new()
                 {
                     { Item.RESEARCH_LAB, 10 },
                     { Item.COMPUTER_TECHNOLOGY, 8 },
@@ -1383,54 +1262,47 @@ namespace OgameData
                 }
             },
             {
-                Item.GRAVITON_TECHNOLOGY,
-                new()
+                Item.GRAVITON_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 12 }
                 }
             },
             {
-                Item.COMBUSTION_DRIVE,
-                new()
+                Item.COMBUSTION_DRIVE, new()
                 {
                     { Item.RESEARCH_LAB, 1 },
                     { Item.ENERGY_TECHNOLOGY, 1 }
                 }
             },
             {
-                Item.IMPULSE_DRIVE,
-                new()
+                Item.IMPULSE_DRIVE, new()
                 {
                     { Item.RESEARCH_LAB, 2 },
                     { Item.ENERGY_TECHNOLOGY, 1 }
                 }
             },
             {
-                Item.HYPERSPACE_DRIVE,
-                new()
+                Item.HYPERSPACE_DRIVE, new()
                 {
                     { Item.RESEARCH_LAB, 7 },
                     { Item.HYPERSPACE_TECHNOLOGY, 3 }
                 }
             },
             {
-                Item.WEAPONS_TECHNOLOGY,
-                new()
+                Item.WEAPONS_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 4 }
                 }
             },
             {
-                Item.SHIELDING_TECHNOLOGY,
-                new()
+                Item.SHIELDING_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 6 },
                     { Item.ENERGY_TECHNOLOGY, 3 }
                 }
             },
             {
-                Item.ARMOUR_TECHNOLOGY,
-                new()
+                Item.ARMOUR_TECHNOLOGY, new()
                 {
                     { Item.RESEARCH_LAB, 2 }
                 }
@@ -1439,16 +1311,14 @@ namespace OgameData
 
             #region Fleet
             {
-                Item.LIGHT_FIGHTER,
-                new()
+                Item.LIGHT_FIGHTER, new()
                 {
                     { Item.SHIPYARD, 1 },
                     { Item.COMBUSTION_DRIVE, 1}
                 }
             },
             {
-                Item.HEAVY_FIGHTER,
-                new()
+                Item.HEAVY_FIGHTER, new()
                 {
                     { Item.SHIPYARD, 3 },
                     { Item.ARMOUR_TECHNOLOGY, 2 },
@@ -1456,8 +1326,7 @@ namespace OgameData
                 }
             },
             {
-                Item.CRUISER,
-                new()
+                Item.CRUISER, new()
                 {
                     { Item.SHIPYARD, 5 },
                     { Item.IMPULSE_DRIVE, 4 },
@@ -1465,16 +1334,14 @@ namespace OgameData
                 }
             },
             {
-                Item.BATTLESHIP,
-                new()
+                Item.BATTLESHIP, new()
                 {
                     { Item.SHIPYARD, 7 },
                     { Item.HYPERSPACE_DRIVE, 4 }
                 }
             },
             {
-                Item.BATTLECRUISER,
-                new()
+                Item.BATTLECRUISER, new()
                 {
                     { Item.SHIPYARD, 8 },
                     { Item.HYPERSPACE_TECHNOLOGY, 5 },
@@ -1483,8 +1350,7 @@ namespace OgameData
                 }
             },
             {
-                Item.BOMBER,
-                new()
+                Item.BOMBER, new()
                 {
                     { Item.SHIPYARD, 8 },
                     { Item.IMPULSE_DRIVE, 6 },
@@ -1492,8 +1358,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DESTROYER,
-                new()
+                Item.DESTROYER, new()
                 {
                     { Item.SHIPYARD, 9 },
                     { Item.HYPERSPACE_TECHNOLOGY, 5 },
@@ -1501,8 +1366,7 @@ namespace OgameData
                 }
             },
             {
-                Item.DEATHSTAR,
-                new()
+                Item.DEATHSTAR, new()
                 {
                     { Item.SHIPYARD, 12 },
                     { Item.HYPERSPACE_TECHNOLOGY, 6 },
@@ -1511,8 +1375,7 @@ namespace OgameData
                 }
             },
             {
-                Item.REAPER,
-                new()
+                Item.REAPER, new()
                 {
                     { Item.SHIPYARD, 10 },
                     { Item.HYPERSPACE_TECHNOLOGY, 6 },
@@ -1521,8 +1384,7 @@ namespace OgameData
                 }
             },
             {
-                Item.PATHFINDER,
-                new()
+                Item.PATHFINDER, new()
                 {
                     { Item.SHIPYARD, 5 },
                     { Item.HYPERSPACE_DRIVE, 2 },
@@ -1530,32 +1392,28 @@ namespace OgameData
                 }
             },
             {
-                Item.SMALL_CARGO,
-                new()
+                Item.SMALL_CARGO, new()
                 {
                     { Item.SHIPYARD, 2 },
                     { Item.COMBUSTION_DRIVE, 2 }
                 }
             },
             {
-                Item.LARGE_CARGO,
-                new()
+                Item.LARGE_CARGO, new()
                 {
                     { Item.SHIPYARD, 4 },
                     { Item.COMBUSTION_DRIVE, 6 }
                 }
             },
             {
-                Item.COLONY_SHIP,
-                new()
+                Item.COLONY_SHIP, new()
                 {
                     { Item.SHIPYARD, 4 },
                     { Item.IMPULSE_DRIVE, 3 }
                 }
             },
             {
-                Item.RECYCLER,
-                new()
+                Item.RECYCLER, new()
                 {
                     { Item.SHIPYARD, 4 },
                     { Item.COMBUSTION_DRIVE, 6 },
@@ -1563,8 +1421,7 @@ namespace OgameData
                 }
             },
             {
-                Item.ESPIONAGE_PROBE,
-                new()
+                Item.ESPIONAGE_PROBE, new()
                 {
                     { Item.SHIPYARD, 3 },
                     { Item.COMBUSTION_DRIVE, 3 },
@@ -1575,15 +1432,13 @@ namespace OgameData
 
             #region Fleebt but Defences
             {
-                Item.SOLAR_SATELLITE,
-                new()
+                Item.SOLAR_SATELLITE, new()
                 {
                     { Item.SHIPYARD, 1 }
                 }
             },
             {
-                Item.CRAWLER,
-                new()
+                Item.CRAWLER, new()
                 {
                     { Item.SHIPYARD, 5 },
                     { Item.COMBUSTION_DRIVE, 4 },
@@ -1595,15 +1450,13 @@ namespace OgameData
 
             #region Defences
             {
-                Item.ROCKER_LAUNCHER,
-                new()
+                Item.ROCKER_LAUNCHER, new()
                 {
                     { Item.SHIPYARD, 1 }
                 }
             },
             {
-                Item.LIGHT_LASER,
-                new()
+                Item.LIGHT_LASER, new()
                 {
                     { Item.SHIPYARD, 2 },
                     { Item.ENERGY_TECHNOLOGY, 1 },
@@ -1611,8 +1464,7 @@ namespace OgameData
                 }
             },
             {
-                Item.HEAVY_LASER,
-                new()
+                Item.HEAVY_LASER, new()
                 {
                     { Item.SHIPYARD, 4 },
                     { Item.ENERGY_TECHNOLOGY, 3 },
@@ -1620,8 +1472,7 @@ namespace OgameData
                 }
             },
             {
-                Item.GAUSS_CANNON,
-                new()
+                Item.GAUSS_CANNON, new()
                 {
                     { Item.SHIPYARD, 6 },
                     { Item.ENERGY_TECHNOLOGY, 6 },
@@ -1630,48 +1481,42 @@ namespace OgameData
                 }
             },
             {
-                Item.ION_CANNON,
-                new()
+                Item.ION_CANNON, new()
                 {
                     { Item.SHIPYARD, 4 },
                     { Item.ION_TECHNOLOGY, 4 }
                 }
             },
             {
-                Item.PLASMA_TURRET,
-                new()
+                Item.PLASMA_TURRET, new()
                 {
                     { Item.SHIPYARD, 8 },
                     { Item.PLASMA_TECHNOLOGY, 7 }
                 }
             },
             {
-                Item.SMALL_SHIELD_DOME,
-                new()
+                Item.SMALL_SHIELD_DOME, new()
                 {
                     { Item.SHIPYARD, 1 },
                     { Item.SHIELDING_TECHNOLOGY, 2 }
                 }
             },
             {
-                Item.LARGE_SHIELD_DOME,
-                new()
+                Item.LARGE_SHIELD_DOME, new()
                 {
                     { Item.SHIPYARD, 6 },
                     { Item.SHIELDING_TECHNOLOGY, 6 }
                 }
             },
             {
-                Item.ANTI_BALLISTIC_MISSILE,
-                new()
+                Item.ANTI_BALLISTIC_MISSILE, new()
                 {
                     { Item.SHIPYARD, 1 },
                     { Item.MISSILE_SILO, 2 }
                 }
             },
             {
-                Item.INTERPLANETARY_MISSILE,
-                new()
+                Item.INTERPLANETARY_MISSILE, new()
                 {
                     { Item.SHIPYARD, 1 },
                     { Item.MISSILE_SILO, 4 },

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Threading;
-using Newtonsoft.Json;
+using OgameData;
 
 namespace CheckingApp
 {
@@ -40,7 +36,9 @@ namespace CheckingApp
                 Console.WriteLine("Nie działa");
             }
             */
-            Console.WriteLine("Zmiany dla testu gita.");
+            Console.WriteLine("Wyswietl 1:2:3 " + OGame.Positions[1,2,3]);
+            Console.WriteLine("Wymar: " + OGame.Positions.Rank);
+
 
         }
     }

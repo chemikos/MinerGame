@@ -6,37 +6,70 @@ namespace OgameData
 {
     public static class GameHandler
     {
-        #region Miner byc moze
-        //Funkcje dla Miner, nie dla OGame - hipotetyczny XD
-        public static long MineProduction(Dictionary<string, double> mine, int level, int technology)
+        # region Production
+        public static Resources PlanetProduction(Planet p)
         {
-            double production = mine["Production"] * level * Math.Pow(mine["ProductionFactor"] + 0.05 * technology, level);
-            return (long) production;
+            return PlanetProduction(p.Buildings[Item.METAL_MINE].Level, p.Buildings[Item.CRYSTAL_MINE].Level,
+                                    p.Buildings[Item.DEUTERIUM_SYNTHESIZER].Level, p.Defences[Item.CRAWLER],
+                                    p.Temperature, p.Buildings[Item.FUSION_REACTOR].Level);
         }
-        public static long MineConsumption(Dictionary<string, double> mine, int level)
+        
+        public static Resources PlanetProduction(int metalMineLevel, int crystalMineLevel, int deuteriumSynthesizerLevel,
+                                                 int crawlers, int temperature, int fusionReactorLevel)
         {
-            double consumption = mine["Consumption"] * level * Math.Pow(mine["ConsumptionFactor"], level);
-            return (long) Math.Ceiling(consumption);
-        }
-        #endregion
+            double metal = MetalProduction(metalMineLevel, crawlers);
+            double crystal = CrystalProduction(crystalMineLevel, crawlers);
+            double deuterium = DeuteriumProduction(deuteriumSynthesizerLevel, crawlers, temperature, fusionReactorLevel);
 
-        #region Ogame
-        //production
+            return new Resources(metal, crystal, deuterium);
+        }
+
+        public static double MetalProduction(int level, int crawlers)
+        {
+            double mineProduction = MetalMineProduction(level);
+            double plasmaProduction = PlasmaProduction(mineProduction, Item.METAL, OGame.Researches[Item.PLASMA_TECHNOLOGY].Level);
+            double crawlersProduction = CrawlersProduction(mineProduction, Item.METAL, crawlers);
+            double basicProduction = OGame.GameSpeed * GameData.BASIC_PRODUCTION[Item.METAL];
+
+            return mineProduction + plasmaProduction + crawlersProduction + basicProduction;
+        }
+
+        public static double CrystalProduction(int level, int crawlers)
+        {
+            double mineProduction = CrystalMineProduction(level);
+            double plasmaProduction = PlasmaProduction(mineProduction, Item.CRYSTAL, OGame.Researches[Item.PLASMA_TECHNOLOGY].Level);
+            double crawlersProduction = CrawlersProduction(mineProduction, Item.CRYSTAL, crawlers);
+            double basicProduction = OGame.GameSpeed * GameData.BASIC_PRODUCTION[Item.CRYSTAL];
+
+            return mineProduction + plasmaProduction + crawlersProduction + basicProduction;
+        }
+
+        public static double DeuteriumProduction(int level, int crawlers, int temperature, int fusionReactor)
+        {
+            double mineProduction = DeuteriumSynthesizerProduction(level, temperature);
+            double plasmaProduction = PlasmaProduction(mineProduction, Item.DEUTERIUM, OGame.Researches[Item.PLASMA_TECHNOLOGY].Level);
+            double crawlersProduction = CrawlersProduction(mineProduction, Item.DEUTERIUM, crawlers);
+            double fusionReactorDemand = FusionReactorDeuteriumDemand(fusionReactor);
+            double basicProduction = OGame.GameSpeed * GameData.BASIC_PRODUCTION[Item.DEUTERIUM];
+
+            return mineProduction + plasmaProduction + crawlersProduction - fusionReactorDemand + basicProduction;
+        }
+
         public static double PlasmaProduction(double mineProduction, Item resource, int plasma)
         {
             return Math.Floor(mineProduction * plasma * GameData.PLASMA_FACTOR[resource]);
         }
         
-        public static double CrawlersProduction(double production, Item resource, int crawlers)
+        public static double CrawlersProduction(double mineProduction, Item resource, int crawlers)
         {
-            return Math.Floor(production * crawlers * GameData.CRAWLER_FACTOR[resource]);
+            return Math.Floor(mineProduction * crawlers * GameData.CRAWLER_FACTOR[resource]);
         }
         
-        public static double MetalMineProduction(int level, int speed)
+        public static double MetalMineProduction(int level)
         {
             const double PRODUCTION = 30.0;
             const double PRODUCTION_FACTOR = 1.1;
-            return speed * Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR, level));
+            return OGame.GameSpeed * Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR, level));
         }
         
         public static double MetalMineEnergyDemand(int level)
@@ -46,11 +79,11 @@ namespace OgameData
             return Math.Ceiling(DEMAND * level * Math.Pow(DEMAND_FACTOR, level));
         }
         
-        public static double CrystalMineProduction(int level, int speed)
+        public static double CrystalMineProduction(int level)
         {
             const double PRODUCTION = 20.0;
             const double PRODUCTION_FACTOR = 1.1;
-            return speed * Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR, level));
+            return OGame.GameSpeed * Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR, level));
         }
         
         public static double CrystalMineEnergyDemand(int level)
@@ -60,11 +93,11 @@ namespace OgameData
             return Math.Ceiling(DEMAND * level * Math.Pow(DEMAND_FACTOR, level));
         }
         
-        public static double DeuteriumSynthesizerProduction(int level, int temperature, int speed)
+        public static double DeuteriumSynthesizerProduction(int level, int temperature)
         {
             const double PRODUCTION = 10.0;
             const double PRODUCTION_FACTOR = 1.1;
-            return speed * Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR, level) * (1.44 - 0.004 * temperature));
+            return OGame.GameSpeed * Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR, level) * (1.44 - 0.004 * temperature));
         }
         
         public static double DeuteriumSynthesizerEnergyDemand(int level)
@@ -100,10 +133,12 @@ namespace OgameData
         {
             return (duration.TotalSeconds * production) / 3600;
         }
-        public static double EnergyDemand(Item item, int level)
+        
+        public static double EnergyCost(Item item, int level)
         {
             return Math.Ceiling(GameData.COST[item][Item.ENERGY] * Math.Pow(GameData.COST[item][Item.ENERGY_FACTOR], level - 1));
         }
+        #endregion
         
         //upgrade cost
         public static Resources UpgradeCost(Item item, int level)
@@ -115,65 +150,61 @@ namespace OgameData
         }
         
         //storage
-        public static double StorageCapacity(int level, double basis = Math.E)
+        public static double StorageCapacity(int level, double basis = Math.PI)
         {
             return Math.Truncate(2.5 * Math.Pow(basis, 20.0 * level / 33)) * 5000;
-            //need to change 'basis' value into 4 or 5
+            // original basis is Math.E
+            // maybe change 'basis' into 4
         }
 
-        //construct time
-        public static TimeSpan BuildingTime(Resources cost, int robotics, int nanite, int speed)
+        #region Time
+        public static TimeSpan BuildingTime(Resources cost, int robotics, int nanite)
         {
-            //double seconds = Math.Ceiling(1.44 * (cost.Metal + cost.Crystal) / (speed * (robotics + 1) * Math.Pow(2, nanite)));
-            //return TimeSpan.FromSeconds(seconds);
-            return BuildingTime(cost.Metal, cost.Crystal, robotics, nanite, speed);
+            return BuildingTime(cost.Metal, cost.Crystal, robotics, nanite);
         }
         
-        public static TimeSpan BuildingTime(double metal, double crystal, int robotics, int nanite, int speed)
+        public static TimeSpan BuildingTime(double metal, double crystal, int robotics, int nanite)
         {
-            double seconds = Math.Ceiling(1.44 * (metal + crystal) / (speed * (robotics + 1) * Math.Pow(2, nanite)));
+            double seconds = Math.Ceiling(1.44 * (metal + crystal) / (OGame.GameSpeed * (robotics + 1) * Math.Pow(2, nanite)));
             return TimeSpan.FromSeconds(seconds);
         }
         
-        public static TimeSpan ConstructTime(Resources cost, int shipyard, int nanite, int speed)
+        public static TimeSpan ConstructTime(Resources cost, int shipyard, int nanite)
         {
-            //double seconds = Math.Ceiling(1.44 * (cost.Metal + cost.Crystal) / (speed * (shipyard + 1) * Math.Pow(2, nanite)));
-            //return TimeSpan.FromSeconds(seconds);
-            return ConstructTime(cost.Metal, cost.Crystal, shipyard, nanite, speed);
+            return ConstructTime(cost.Metal, cost.Crystal, shipyard, nanite);
         }
         
-        public static TimeSpan ConstructTime(double metal, double crystal, int shipyard, int nanite, int speed)
+        public static TimeSpan ConstructTime(double metal, double crystal, int shipyard, int nanite)
         {
-            double seconds = Math.Ceiling(1.44 * (metal + crystal) / (speed * (shipyard + 1) * Math.Pow(2, nanite)));
+            double seconds = Math.Ceiling(1.44 * (metal + crystal) / (OGame.GameSpeed * (shipyard + 1) * Math.Pow(2, nanite)));
             return TimeSpan.FromSeconds(seconds);
         }
         
-        public static TimeSpan ResearchTime(Resources cost, int lablvl, int graviton, int speed)
+        public static TimeSpan ResearchTime(Resources cost, int lablvl, int graviton)
         {
-            //double seconds = Math.Ceiling(3.6 * (cost.Metal + cost.Crystal) / (speed * (lab + 1) * Math.Pow(2, technology)));
-            //return TimeSpan.FromSeconds(seconds);
-            return ResearchTime(cost.Metal, cost.Crystal, lablvl, graviton, speed);
+            return ResearchTime(cost.Metal, cost.Crystal, lablvl, graviton);
         }
         
-        public static TimeSpan ResearchTime(double metal, double crystal, int lablvl, int graviton, int speed)
+        public static TimeSpan ResearchTime(double metal, double crystal, int lablvl, int graviton)
         {
-            double seconds = Math.Ceiling(3.6 * (metal + crystal) / (speed * (lablvl + 1) * Math.Pow(2, graviton)));
+            double seconds = Math.Ceiling(3.6 * (metal + crystal) / (OGame.GameSpeed * (lablvl + 1) * Math.Pow(2, graviton)));
             return TimeSpan.FromSeconds(seconds);
         }
+        #endregion
         
         //lab level
         public static int LabLevel(Planet planet, List<Planet> planets, int irn, int minLab)
         {
-            int level = planet.Buildings.ResearchLab.Level;
+            int level = planet.Buildings[Item.RESEARCH_LAB].Level;
             if (irn == 0)
             {
                 return level;
             }
 
             var labs = planets  .Where(pl => !pl.Equals(planet))
-                                .Where(pl => pl.Buildings.ResearchLab.Level >= minLab)
-                                .OrderByDescending(pl => pl.Buildings.ResearchLab.Level)
-                                .Select(pl => pl.Buildings.ResearchLab.Level)
+                                .Where(pl => pl.Buildings[Item.RESEARCH_LAB].Level >= minLab)
+                                .OrderByDescending(pl => pl.Buildings[Item.RESEARCH_LAB].Level)
+                                .Select(pl => pl.Buildings[Item.RESEARCH_LAB].Level)
                                 .ToList();
             for(int i=0; i<irn && i<labs.Count; i++)
             {
@@ -181,18 +212,18 @@ namespace OgameData
             }
             return level;
         }
-        
 
-        //planet fields
+        #region PlanetFields
         public static int PlanetFields(Planet planet)
         {
-            return (int)Math.Floor(Math.Pow(planet.Diameter / 1000.0, 2)) + (int)(5.5 * planet.Buildings.Terraformer.Level);
+            return (int)Math.Floor(Math.Pow(planet.Diameter / 1000.0, 2)) + (int)(5.5 * planet.Buildings[Item.TERRAFORMER].Level);
         }
         
         public static int PlanetFields(int diameter, int terraformer)
         {
             return (int)Math.Floor(Math.Pow(diameter / 1000.0, 2)) + (int)(5.5 * terraformer);
         }
+        #endregion
 
         //temperature
         public static int RandomTemperature()
@@ -205,6 +236,23 @@ namespace OgameData
         {
             return new Random().Next(14500, 16001);
         }
-        #endregion
+
+        //position
+        public static int[] GeneratePosition()
+        {
+            int solar;
+            int planet;
+            int galaxy;
+
+            do {
+                galaxy = new Random().Next(0, 9);
+                solar = new Random().Next(0, 99);
+                planet = new Random().Next(0, 9);
+            } while (OGame.Positions[galaxy, solar, planet]);
+
+            OGame.Positions[galaxy, solar, planet] = true;
+
+            return new int[] { galaxy, solar, planet };
+        }
     }
 }
