@@ -11,6 +11,8 @@
             Galaxy = position[0];
             SolarSystem = position[1];
             PlanetNumber = position[2];
+
+            OGame.Positions.Add(this);
         }
         public Position()
         {

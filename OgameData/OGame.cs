@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OgameData
 {
@@ -10,7 +11,7 @@ namespace OgameData
         public static int GameSpeed = 1;
 
         [JsonProperty("Researches")]
-        public static Dictionary<Item, Upgradeable> Researches = new()
+        public static Dictionary<Item, Research> Researches = new()
         {
             { Item.COMBUSTION_DRIVE, new Research() },
             { Item.IMPULSE_DRIVE, new Research() },
@@ -35,25 +36,24 @@ namespace OgameData
         };
 
         [JsonProperty("Positions")]
-        public static bool[,,] Positions = new bool[9, 99, 9];
+        public static List<Position> Positions = new();
+
+        [JsonProperty("TimeEvents")]
+        public static List<TimeEvent> TimeEvents = new();
 
         public string GameName { get; set; }
         public DateTime GameStart { get; set; }
         public DateTime LastUpdate { get; set; }
         public List<Planet> Planets { get; set; }
-        public bool IsResearchInProgress { get; set; }
+        
         public OGame(string name)
         {
             GameName = name;
             GameStart = LastUpdate = DateTime.Now;
             Planets = new List<Planet>()
             {
-                new Planet("Planeta matka"),
-                new Planet(),
-                new Planet(),
-                new Planet()
+                new Planet(1, "Planeta matka")
             };
-            IsResearchInProgress = false;
         }
 
         #region Private methods
@@ -63,6 +63,7 @@ namespace OgameData
             Researches[item].Level++;
             Researches[item].TotalCost.Add(nextLevel);
         }
+
         #endregion
 
         #region Resource Update
@@ -77,6 +78,8 @@ namespace OgameData
 
                 p.Resources.Add(production);
             }
+
+            LastUpdate = newLastUpdate;
         }
         #endregion
 

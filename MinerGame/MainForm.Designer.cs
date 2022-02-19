@@ -48,6 +48,7 @@ namespace MinerGame
             this.tcStructures = new System.Windows.Forms.TabControl();
             this.tpResources = new System.Windows.Forms.TabPage();
             this.pDeuteriumTank = new System.Windows.Forms.Panel();
+            this.lblDeuteriumTanlTimeRemain = new System.Windows.Forms.Label();
             this.lblDeuteriumTankNewStorage = new System.Windows.Forms.Label();
             this.lblDeuteriumTankDuration = new System.Windows.Forms.Label();
             this.btnDeuteriumTankUpgrade = new System.Windows.Forms.Button();
@@ -57,6 +58,7 @@ namespace MinerGame
             this.lblDeuteriumTankLevel = new System.Windows.Forms.Label();
             this.lblDeuteriumTank = new System.Windows.Forms.Label();
             this.pCrystalStorage = new System.Windows.Forms.Panel();
+            this.lblCrystalStorageTimeRemain = new System.Windows.Forms.Label();
             this.lblCrystalStorageNewStorage = new System.Windows.Forms.Label();
             this.lblCrystalStorageDuration = new System.Windows.Forms.Label();
             this.btnCrystalStorageUpgrade = new System.Windows.Forms.Button();
@@ -66,6 +68,7 @@ namespace MinerGame
             this.lblCrystalStorageLevel = new System.Windows.Forms.Label();
             this.lblCrystalStorage = new System.Windows.Forms.Label();
             this.pMetalStorage = new System.Windows.Forms.Panel();
+            this.lblMetalStorageTimeRemain = new System.Windows.Forms.Label();
             this.lblMetalStorageNewStorage = new System.Windows.Forms.Label();
             this.lblMetalStorageDuration = new System.Windows.Forms.Label();
             this.btnMetalStorageUpgrade = new System.Windows.Forms.Button();
@@ -75,6 +78,7 @@ namespace MinerGame
             this.lblMetalStorageLevel = new System.Windows.Forms.Label();
             this.lblMetalStorage = new System.Windows.Forms.Label();
             this.pFusionReactor = new System.Windows.Forms.Panel();
+            this.lblFusionReactorTimeRemain = new System.Windows.Forms.Label();
             this.lblFusionReactorProductionIncrease = new System.Windows.Forms.Label();
             this.lblFusionReactorDeuteriumDemand = new System.Windows.Forms.Label();
             this.lblFusionReactorDuration = new System.Windows.Forms.Label();
@@ -85,6 +89,7 @@ namespace MinerGame
             this.lblFusionReactorLevel = new System.Windows.Forms.Label();
             this.lblFusionReactor = new System.Windows.Forms.Label();
             this.pSolarPlant = new System.Windows.Forms.Panel();
+            this.lblSolarPlantTimeRemain = new System.Windows.Forms.Label();
             this.lblSolarPlantProductionIncrease = new System.Windows.Forms.Label();
             this.lblSolarPlantDuration = new System.Windows.Forms.Label();
             this.btnSolarPlantUpgrade = new System.Windows.Forms.Button();
@@ -94,6 +99,7 @@ namespace MinerGame
             this.lblSolarPlantLevel = new System.Windows.Forms.Label();
             this.lblSolarPlant = new System.Windows.Forms.Label();
             this.pDeuteriumSynthesizer = new System.Windows.Forms.Panel();
+            this.lblDeuteriumSynthesizerTimeRemain = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizerProductionIncrease = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizerEnergyDemand = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizerDuration = new System.Windows.Forms.Label();
@@ -104,6 +110,7 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerLevel = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizer = new System.Windows.Forms.Label();
             this.pCrystalMine = new System.Windows.Forms.Panel();
+            this.lblCrystalMineTimeRemain = new System.Windows.Forms.Label();
             this.lblCrystalMineProductionIncrease = new System.Windows.Forms.Label();
             this.lblCrystalMineEnergyDemand = new System.Windows.Forms.Label();
             this.lblCrystalMineDuration = new System.Windows.Forms.Label();
@@ -114,6 +121,7 @@ namespace MinerGame
             this.lblCrystalMineLevel = new System.Windows.Forms.Label();
             this.lblCrystalMine = new System.Windows.Forms.Label();
             this.pMetalMine = new System.Windows.Forms.Panel();
+            this.lblMetalMineTimeRemain = new System.Windows.Forms.Label();
             this.lblMetalMineProductionIncrease = new System.Windows.Forms.Label();
             this.lblMetalMineEnergyDemand = new System.Windows.Forms.Label();
             this.lblMetalMineDuration = new System.Windows.Forms.Label();
@@ -126,6 +134,7 @@ namespace MinerGame
             this.tpProduction = new System.Windows.Forms.TabPage();
             this.tpStation = new System.Windows.Forms.TabPage();
             this.pJumpGate = new System.Windows.Forms.Panel();
+            this.lblJumpGateTimeRemain = new System.Windows.Forms.Label();
             this.lblJumpGateDuration = new System.Windows.Forms.Label();
             this.btnJumpGateUpgrade = new System.Windows.Forms.Button();
             this.lblJumpGateDeuteriumCost = new System.Windows.Forms.Label();
@@ -134,6 +143,7 @@ namespace MinerGame
             this.lblJumpGateLevel = new System.Windows.Forms.Label();
             this.lblJumpGate = new System.Windows.Forms.Label();
             this.pSensorPhalanx = new System.Windows.Forms.Panel();
+            this.lblSensorPhalanxTimeRemain = new System.Windows.Forms.Label();
             this.lblSensorPhalanxDuration = new System.Windows.Forms.Label();
             this.btnSensorPhalanxUpgrade = new System.Windows.Forms.Button();
             this.lblSensorPhalanxDeuteriumCost = new System.Windows.Forms.Label();
@@ -142,6 +152,7 @@ namespace MinerGame
             this.lblSensorPhalanxLevel = new System.Windows.Forms.Label();
             this.lblSensorPhalanx = new System.Windows.Forms.Label();
             this.pLunarBase = new System.Windows.Forms.Panel();
+            this.lblLunarBaseTimeRemain = new System.Windows.Forms.Label();
             this.lblLunarBaseDuration = new System.Windows.Forms.Label();
             this.btnLunarBaseUpgrade = new System.Windows.Forms.Button();
             this.lblLunarBaseDeuteriumCost = new System.Windows.Forms.Label();
@@ -150,6 +161,7 @@ namespace MinerGame
             this.lblLunarBaseLevel = new System.Windows.Forms.Label();
             this.lblLunarBase = new System.Windows.Forms.Label();
             this.pSpaceDock = new System.Windows.Forms.Panel();
+            this.lblSpaceDockTimeRemain = new System.Windows.Forms.Label();
             this.lblSpaceDockEnergyCost = new System.Windows.Forms.Label();
             this.lblSpaceDockDuration = new System.Windows.Forms.Label();
             this.btnSpaceDockUpgrade = new System.Windows.Forms.Button();
@@ -159,6 +171,7 @@ namespace MinerGame
             this.lblSpaceDockLevel = new System.Windows.Forms.Label();
             this.lblSpaceDock = new System.Windows.Forms.Label();
             this.pTerraformer = new System.Windows.Forms.Panel();
+            this.lblTerraformerTimeRemain = new System.Windows.Forms.Label();
             this.lblTerraformerEnergyCost = new System.Windows.Forms.Label();
             this.lblTerraformerDuration = new System.Windows.Forms.Label();
             this.btnTerraformerUpgrade = new System.Windows.Forms.Button();
@@ -168,6 +181,7 @@ namespace MinerGame
             this.lblTerraformerLevel = new System.Windows.Forms.Label();
             this.lblTerraformer = new System.Windows.Forms.Label();
             this.pMissileSilo = new System.Windows.Forms.Panel();
+            this.lblMissileSiloTimeRemain = new System.Windows.Forms.Label();
             this.lblMissileSiloDuration = new System.Windows.Forms.Label();
             this.btnMissileSiloUpgrade = new System.Windows.Forms.Button();
             this.lblMissileSiloDeuteriumCost = new System.Windows.Forms.Label();
@@ -176,6 +190,7 @@ namespace MinerGame
             this.lblMissileSiloLevel = new System.Windows.Forms.Label();
             this.lblMissileSilo = new System.Windows.Forms.Label();
             this.pResearchLab = new System.Windows.Forms.Panel();
+            this.lblResearchLabTimeRemain = new System.Windows.Forms.Label();
             this.lblResearchLabDuration = new System.Windows.Forms.Label();
             this.btnResearchLabUpgrade = new System.Windows.Forms.Button();
             this.lblResearchLabDeuteriumCost = new System.Windows.Forms.Label();
@@ -184,6 +199,7 @@ namespace MinerGame
             this.lblResearchLabLevel = new System.Windows.Forms.Label();
             this.lblResearchLab = new System.Windows.Forms.Label();
             this.pShipyard = new System.Windows.Forms.Panel();
+            this.lblShipyardTimeRemain = new System.Windows.Forms.Label();
             this.lblShipyardDuration = new System.Windows.Forms.Label();
             this.btnShipyardUpgrade = new System.Windows.Forms.Button();
             this.lblShipyardDeuteriumCost = new System.Windows.Forms.Label();
@@ -192,6 +208,7 @@ namespace MinerGame
             this.lblShipyardLevel = new System.Windows.Forms.Label();
             this.lblShipyard = new System.Windows.Forms.Label();
             this.pNaniteFactory = new System.Windows.Forms.Panel();
+            this.lblNaniteFactoryTimeRemain = new System.Windows.Forms.Label();
             this.lblNaniteFactoryDuration = new System.Windows.Forms.Label();
             this.btnNaniteFactoryUpgrade = new System.Windows.Forms.Button();
             this.lblNaniteFactoryDeuteriumCost = new System.Windows.Forms.Label();
@@ -200,6 +217,7 @@ namespace MinerGame
             this.lblNaniteFactoryLevel = new System.Windows.Forms.Label();
             this.lblNaniteFactory = new System.Windows.Forms.Label();
             this.pRoboticsFactory = new System.Windows.Forms.Panel();
+            this.lblRoboticsFactoryTimeRemain = new System.Windows.Forms.Label();
             this.lblRoboticsFactoryDuration = new System.Windows.Forms.Label();
             this.btnRoboticsFactoryUpgrade = new System.Windows.Forms.Button();
             this.lblRoboticsFactoryDeuteriumCost = new System.Windows.Forms.Label();
@@ -218,6 +236,7 @@ namespace MinerGame
             this.lblGravitonTechnologyLevel = new System.Windows.Forms.Label();
             this.lblGravitonTechnology = new System.Windows.Forms.Label();
             this.pAstrophisics = new System.Windows.Forms.Panel();
+            this.lblAstrophisicsTimeRemain = new System.Windows.Forms.Label();
             this.lblAstrophisicsDuration = new System.Windows.Forms.Label();
             this.btnAstrophisicsUpgrade = new System.Windows.Forms.Button();
             this.lblAstrophisicsDeuteriumCost = new System.Windows.Forms.Label();
@@ -226,6 +245,7 @@ namespace MinerGame
             this.lblAstrophisicsLevel = new System.Windows.Forms.Label();
             this.lblAstrophisics = new System.Windows.Forms.Label();
             this.pIrn = new System.Windows.Forms.Panel();
+            this.lblIrnTimeRemain = new System.Windows.Forms.Label();
             this.lblIrnDuration = new System.Windows.Forms.Label();
             this.btnIrnUpgrade = new System.Windows.Forms.Button();
             this.lblIrnDeuteriumCost = new System.Windows.Forms.Label();
@@ -234,6 +254,7 @@ namespace MinerGame
             this.lblIrnLevel = new System.Windows.Forms.Label();
             this.lblIrn = new System.Windows.Forms.Label();
             this.pPlasmaTechnology = new System.Windows.Forms.Panel();
+            this.lblPlasmaTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblPlasmaTechnologyDuration = new System.Windows.Forms.Label();
             this.btnPlasmaTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblPlasmaTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -242,6 +263,7 @@ namespace MinerGame
             this.lblPlasmaTechnologyLevel = new System.Windows.Forms.Label();
             this.lblPlasmaTechnology = new System.Windows.Forms.Label();
             this.pIonTechnology = new System.Windows.Forms.Panel();
+            this.lblIonTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblIonTechnologyDuration = new System.Windows.Forms.Label();
             this.btnIonTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblIonTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -250,6 +272,7 @@ namespace MinerGame
             this.lblIonTechnologyLevel = new System.Windows.Forms.Label();
             this.lblIonTechnology = new System.Windows.Forms.Label();
             this.pLaserTechnology = new System.Windows.Forms.Panel();
+            this.lblLaserTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblLaserTechnologyDuration = new System.Windows.Forms.Label();
             this.btnLaserTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblLaserTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -258,6 +281,7 @@ namespace MinerGame
             this.lblLaserTechnologyLevel = new System.Windows.Forms.Label();
             this.lblLaserTechnology = new System.Windows.Forms.Label();
             this.pHyperspaceTechnology = new System.Windows.Forms.Panel();
+            this.lblHyperspaceTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblHyperspaceTechnologyDuration = new System.Windows.Forms.Label();
             this.btnHyperspaceTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblHyperspaceTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -266,6 +290,7 @@ namespace MinerGame
             this.lblHyperspaceTechnologyLevel = new System.Windows.Forms.Label();
             this.lblHyperspaceTechnology = new System.Windows.Forms.Label();
             this.pEnergyTechnology = new System.Windows.Forms.Panel();
+            this.lblEnergyTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblEnergyTechnologyDuration = new System.Windows.Forms.Label();
             this.btnEnergyTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblEnergyTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -274,6 +299,7 @@ namespace MinerGame
             this.lblEnergyTechnologyLevel = new System.Windows.Forms.Label();
             this.lblEnergyTechnology = new System.Windows.Forms.Label();
             this.pArmourTechnology = new System.Windows.Forms.Panel();
+            this.lblArmourTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblArmourTechnologyDuration = new System.Windows.Forms.Label();
             this.btnArmourTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblArmourTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -282,6 +308,7 @@ namespace MinerGame
             this.lblArmourTechnologyLevel = new System.Windows.Forms.Label();
             this.lblArmourTechnology = new System.Windows.Forms.Label();
             this.pShieldingTechnology = new System.Windows.Forms.Panel();
+            this.lblShieldingTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblShieldingTechnologyDuration = new System.Windows.Forms.Label();
             this.btnShieldingTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblShieldingTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -290,6 +317,7 @@ namespace MinerGame
             this.lblShieldingTechnologyLevel = new System.Windows.Forms.Label();
             this.lblShieldingTechnology = new System.Windows.Forms.Label();
             this.pWeaponsTechnology = new System.Windows.Forms.Panel();
+            this.lblWeaponsTechnologyTimeRemian = new System.Windows.Forms.Label();
             this.lblWeapeonsTechnologyDuration = new System.Windows.Forms.Label();
             this.btnWeapeonsTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblWeapeonsTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -298,6 +326,7 @@ namespace MinerGame
             this.lblWeapeonsTechnologyLevel = new System.Windows.Forms.Label();
             this.lblWeapeonsTechnology = new System.Windows.Forms.Label();
             this.pHyperspaceDrive = new System.Windows.Forms.Panel();
+            this.lblHyperspaceDriveTimeRemain = new System.Windows.Forms.Label();
             this.lblHyperspaceDriveDuration = new System.Windows.Forms.Label();
             this.btnHyperspaceDriveUpgrade = new System.Windows.Forms.Button();
             this.lblHyperspaceDriveDeuteriumCost = new System.Windows.Forms.Label();
@@ -306,6 +335,7 @@ namespace MinerGame
             this.lblHyperspaceDriveLevel = new System.Windows.Forms.Label();
             this.lblHyperspaceDrive = new System.Windows.Forms.Label();
             this.pImpulseDrive = new System.Windows.Forms.Panel();
+            this.lblImpulseDriveTimeRemain = new System.Windows.Forms.Label();
             this.lblImpulseDriveDuration = new System.Windows.Forms.Label();
             this.btnImpulseDriveUpgrade = new System.Windows.Forms.Button();
             this.lblImpulseDriveDeuteriumCost = new System.Windows.Forms.Label();
@@ -314,6 +344,7 @@ namespace MinerGame
             this.lblImpulseDriveLevel = new System.Windows.Forms.Label();
             this.lblImpulseDrive = new System.Windows.Forms.Label();
             this.pCombustionDrive = new System.Windows.Forms.Panel();
+            this.lblCombustionDriveTimeRemain = new System.Windows.Forms.Label();
             this.lblCombustionDriveDuration = new System.Windows.Forms.Label();
             this.btnCombustionDriveUpgrade = new System.Windows.Forms.Button();
             this.lblCombustionDriveDeuteriumCost = new System.Windows.Forms.Label();
@@ -322,6 +353,7 @@ namespace MinerGame
             this.lblCombustionDriveLevel = new System.Windows.Forms.Label();
             this.lblCombustionDrive = new System.Windows.Forms.Label();
             this.pComputerTechnology = new System.Windows.Forms.Panel();
+            this.lblComputerTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblComputerTechnologyDuration = new System.Windows.Forms.Label();
             this.btnComputerTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblComputerTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -330,6 +362,7 @@ namespace MinerGame
             this.lblComputerTechnologyLevel = new System.Windows.Forms.Label();
             this.lblComputerTechnology = new System.Windows.Forms.Label();
             this.pEspionageTechnology = new System.Windows.Forms.Panel();
+            this.lblEspionageTechnologyTimeRemain = new System.Windows.Forms.Label();
             this.lblEspionageTechnologyDuration = new System.Windows.Forms.Label();
             this.btnEspionageTechnologyUpgrade = new System.Windows.Forms.Button();
             this.lblEspionageTechnologyDeuteriumCost = new System.Windows.Forms.Label();
@@ -384,6 +417,7 @@ namespace MinerGame
             this.pPlanetSelect = new System.Windows.Forms.Panel();
             this.cbPlanetSelect = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.pMenuLeft.SuspendLayout();
             this.pNewGame.SuspendLayout();
             this.pContent.SuspendLayout();
@@ -654,6 +688,7 @@ namespace MinerGame
             // pDeuteriumTank
             // 
             this.pDeuteriumTank.BackColor = System.Drawing.Color.Yellow;
+            this.pDeuteriumTank.Controls.Add(this.lblDeuteriumTanlTimeRemain);
             this.pDeuteriumTank.Controls.Add(this.lblDeuteriumTankNewStorage);
             this.pDeuteriumTank.Controls.Add(this.lblDeuteriumTankDuration);
             this.pDeuteriumTank.Controls.Add(this.btnDeuteriumTankUpgrade);
@@ -667,6 +702,18 @@ namespace MinerGame
             this.pDeuteriumTank.Name = "pDeuteriumTank";
             this.pDeuteriumTank.Size = new System.Drawing.Size(1765, 50);
             this.pDeuteriumTank.TabIndex = 8;
+            // 
+            // lblDeuteriumTanlTimeRemain
+            // 
+            this.lblDeuteriumTanlTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumTanlTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumTanlTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDeuteriumTanlTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblDeuteriumTanlTimeRemain.Name = "lblDeuteriumTanlTimeRemain";
+            this.lblDeuteriumTanlTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblDeuteriumTanlTimeRemain.TabIndex = 23;
+            this.lblDeuteriumTanlTimeRemain.Text = "czas pozostały";
+            this.lblDeuteriumTanlTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumTankNewStorage
             // 
@@ -771,6 +818,7 @@ namespace MinerGame
             // pCrystalStorage
             // 
             this.pCrystalStorage.BackColor = System.Drawing.Color.Gold;
+            this.pCrystalStorage.Controls.Add(this.lblCrystalStorageTimeRemain);
             this.pCrystalStorage.Controls.Add(this.lblCrystalStorageNewStorage);
             this.pCrystalStorage.Controls.Add(this.lblCrystalStorageDuration);
             this.pCrystalStorage.Controls.Add(this.btnCrystalStorageUpgrade);
@@ -784,6 +832,18 @@ namespace MinerGame
             this.pCrystalStorage.Name = "pCrystalStorage";
             this.pCrystalStorage.Size = new System.Drawing.Size(1765, 50);
             this.pCrystalStorage.TabIndex = 7;
+            // 
+            // lblCrystalStorageTimeRemain
+            // 
+            this.lblCrystalStorageTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalStorageTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalStorageTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCrystalStorageTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblCrystalStorageTimeRemain.Name = "lblCrystalStorageTimeRemain";
+            this.lblCrystalStorageTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblCrystalStorageTimeRemain.TabIndex = 22;
+            this.lblCrystalStorageTimeRemain.Text = "czas pozostały";
+            this.lblCrystalStorageTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalStorageNewStorage
             // 
@@ -888,6 +948,7 @@ namespace MinerGame
             // pMetalStorage
             // 
             this.pMetalStorage.BackColor = System.Drawing.Color.Yellow;
+            this.pMetalStorage.Controls.Add(this.lblMetalStorageTimeRemain);
             this.pMetalStorage.Controls.Add(this.lblMetalStorageNewStorage);
             this.pMetalStorage.Controls.Add(this.lblMetalStorageDuration);
             this.pMetalStorage.Controls.Add(this.btnMetalStorageUpgrade);
@@ -901,6 +962,18 @@ namespace MinerGame
             this.pMetalStorage.Name = "pMetalStorage";
             this.pMetalStorage.Size = new System.Drawing.Size(1765, 50);
             this.pMetalStorage.TabIndex = 6;
+            // 
+            // lblMetalStorageTimeRemain
+            // 
+            this.lblMetalStorageTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalStorageTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalStorageTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMetalStorageTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblMetalStorageTimeRemain.Name = "lblMetalStorageTimeRemain";
+            this.lblMetalStorageTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblMetalStorageTimeRemain.TabIndex = 21;
+            this.lblMetalStorageTimeRemain.Text = "czas pozostały";
+            this.lblMetalStorageTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalStorageNewStorage
             // 
@@ -1005,6 +1078,7 @@ namespace MinerGame
             // pFusionReactor
             // 
             this.pFusionReactor.BackColor = System.Drawing.Color.Gold;
+            this.pFusionReactor.Controls.Add(this.lblFusionReactorTimeRemain);
             this.pFusionReactor.Controls.Add(this.lblFusionReactorProductionIncrease);
             this.pFusionReactor.Controls.Add(this.lblFusionReactorDeuteriumDemand);
             this.pFusionReactor.Controls.Add(this.lblFusionReactorDuration);
@@ -1019,6 +1093,18 @@ namespace MinerGame
             this.pFusionReactor.Name = "pFusionReactor";
             this.pFusionReactor.Size = new System.Drawing.Size(1765, 50);
             this.pFusionReactor.TabIndex = 5;
+            // 
+            // lblFusionReactorTimeRemain
+            // 
+            this.lblFusionReactorTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblFusionReactorTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFusionReactorTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFusionReactorTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblFusionReactorTimeRemain.Name = "lblFusionReactorTimeRemain";
+            this.lblFusionReactorTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblFusionReactorTimeRemain.TabIndex = 20;
+            this.lblFusionReactorTimeRemain.Text = "czas pozostały";
+            this.lblFusionReactorTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFusionReactorProductionIncrease
             // 
@@ -1136,6 +1222,7 @@ namespace MinerGame
             // pSolarPlant
             // 
             this.pSolarPlant.BackColor = System.Drawing.Color.Yellow;
+            this.pSolarPlant.Controls.Add(this.lblSolarPlantTimeRemain);
             this.pSolarPlant.Controls.Add(this.lblSolarPlantProductionIncrease);
             this.pSolarPlant.Controls.Add(this.lblSolarPlantDuration);
             this.pSolarPlant.Controls.Add(this.btnSolarPlantUpgrade);
@@ -1149,6 +1236,18 @@ namespace MinerGame
             this.pSolarPlant.Name = "pSolarPlant";
             this.pSolarPlant.Size = new System.Drawing.Size(1765, 50);
             this.pSolarPlant.TabIndex = 4;
+            // 
+            // lblSolarPlantTimeRemain
+            // 
+            this.lblSolarPlantTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarPlantTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarPlantTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSolarPlantTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblSolarPlantTimeRemain.Name = "lblSolarPlantTimeRemain";
+            this.lblSolarPlantTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarPlantTimeRemain.TabIndex = 19;
+            this.lblSolarPlantTimeRemain.Text = "czas pozostały";
+            this.lblSolarPlantTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSolarPlantProductionIncrease
             // 
@@ -1253,6 +1352,7 @@ namespace MinerGame
             // pDeuteriumSynthesizer
             // 
             this.pDeuteriumSynthesizer.BackColor = System.Drawing.Color.Gold;
+            this.pDeuteriumSynthesizer.Controls.Add(this.lblDeuteriumSynthesizerTimeRemain);
             this.pDeuteriumSynthesizer.Controls.Add(this.lblDeuteriumSynthesizerProductionIncrease);
             this.pDeuteriumSynthesizer.Controls.Add(this.lblDeuteriumSynthesizerEnergyDemand);
             this.pDeuteriumSynthesizer.Controls.Add(this.lblDeuteriumSynthesizerDuration);
@@ -1267,6 +1367,18 @@ namespace MinerGame
             this.pDeuteriumSynthesizer.Name = "pDeuteriumSynthesizer";
             this.pDeuteriumSynthesizer.Size = new System.Drawing.Size(1765, 50);
             this.pDeuteriumSynthesizer.TabIndex = 3;
+            // 
+            // lblDeuteriumSynthesizerTimeRemain
+            // 
+            this.lblDeuteriumSynthesizerTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumSynthesizerTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumSynthesizerTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDeuteriumSynthesizerTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblDeuteriumSynthesizerTimeRemain.Name = "lblDeuteriumSynthesizerTimeRemain";
+            this.lblDeuteriumSynthesizerTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblDeuteriumSynthesizerTimeRemain.TabIndex = 18;
+            this.lblDeuteriumSynthesizerTimeRemain.Text = "czas pozostały";
+            this.lblDeuteriumSynthesizerTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDeuteriumSynthesizerProductionIncrease
             // 
@@ -1384,6 +1496,7 @@ namespace MinerGame
             // pCrystalMine
             // 
             this.pCrystalMine.BackColor = System.Drawing.Color.Yellow;
+            this.pCrystalMine.Controls.Add(this.lblCrystalMineTimeRemain);
             this.pCrystalMine.Controls.Add(this.lblCrystalMineProductionIncrease);
             this.pCrystalMine.Controls.Add(this.lblCrystalMineEnergyDemand);
             this.pCrystalMine.Controls.Add(this.lblCrystalMineDuration);
@@ -1398,6 +1511,18 @@ namespace MinerGame
             this.pCrystalMine.Name = "pCrystalMine";
             this.pCrystalMine.Size = new System.Drawing.Size(1765, 50);
             this.pCrystalMine.TabIndex = 2;
+            // 
+            // lblCrystalMineTimeRemain
+            // 
+            this.lblCrystalMineTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalMineTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalMineTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCrystalMineTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblCrystalMineTimeRemain.Name = "lblCrystalMineTimeRemain";
+            this.lblCrystalMineTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblCrystalMineTimeRemain.TabIndex = 17;
+            this.lblCrystalMineTimeRemain.Text = "czas pozostały";
+            this.lblCrystalMineTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrystalMineProductionIncrease
             // 
@@ -1515,6 +1640,7 @@ namespace MinerGame
             // pMetalMine
             // 
             this.pMetalMine.BackColor = System.Drawing.Color.Gold;
+            this.pMetalMine.Controls.Add(this.lblMetalMineTimeRemain);
             this.pMetalMine.Controls.Add(this.lblMetalMineProductionIncrease);
             this.pMetalMine.Controls.Add(this.lblMetalMineEnergyDemand);
             this.pMetalMine.Controls.Add(this.lblMetalMineDuration);
@@ -1529,6 +1655,18 @@ namespace MinerGame
             this.pMetalMine.Name = "pMetalMine";
             this.pMetalMine.Size = new System.Drawing.Size(1765, 50);
             this.pMetalMine.TabIndex = 1;
+            // 
+            // lblMetalMineTimeRemain
+            // 
+            this.lblMetalMineTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalMineTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalMineTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMetalMineTimeRemain.Location = new System.Drawing.Point(1360, 10);
+            this.lblMetalMineTimeRemain.Name = "lblMetalMineTimeRemain";
+            this.lblMetalMineTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblMetalMineTimeRemain.TabIndex = 16;
+            this.lblMetalMineTimeRemain.Text = "czas pozostały";
+            this.lblMetalMineTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineProductionIncrease
             // 
@@ -1645,13 +1783,13 @@ namespace MinerGame
             // 
             // tpProduction
             // 
+            this.tpProduction.BackColor = System.Drawing.Color.Silver;
             this.tpProduction.Location = new System.Drawing.Point(4, 29);
             this.tpProduction.Name = "tpProduction";
             this.tpProduction.Padding = new System.Windows.Forms.Padding(3);
             this.tpProduction.Size = new System.Drawing.Size(1771, 800);
             this.tpProduction.TabIndex = 5;
             this.tpProduction.Text = "Wydobycie";
-            this.tpProduction.UseVisualStyleBackColor = true;
             // 
             // tpStation
             // 
@@ -1676,6 +1814,7 @@ namespace MinerGame
             // pJumpGate
             // 
             this.pJumpGate.BackColor = System.Drawing.Color.Yellow;
+            this.pJumpGate.Controls.Add(this.lblJumpGateTimeRemain);
             this.pJumpGate.Controls.Add(this.lblJumpGateDuration);
             this.pJumpGate.Controls.Add(this.btnJumpGateUpgrade);
             this.pJumpGate.Controls.Add(this.lblJumpGateDeuteriumCost);
@@ -1688,6 +1827,18 @@ namespace MinerGame
             this.pJumpGate.Name = "pJumpGate";
             this.pJumpGate.Size = new System.Drawing.Size(1765, 50);
             this.pJumpGate.TabIndex = 11;
+            // 
+            // lblJumpGateTimeRemain
+            // 
+            this.lblJumpGateTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblJumpGateTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblJumpGateTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblJumpGateTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblJumpGateTimeRemain.Name = "lblJumpGateTimeRemain";
+            this.lblJumpGateTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblJumpGateTimeRemain.TabIndex = 26;
+            this.lblJumpGateTimeRemain.Text = "czas pozostały";
+            this.lblJumpGateTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblJumpGateDuration
             // 
@@ -1779,6 +1930,7 @@ namespace MinerGame
             // pSensorPhalanx
             // 
             this.pSensorPhalanx.BackColor = System.Drawing.Color.Gold;
+            this.pSensorPhalanx.Controls.Add(this.lblSensorPhalanxTimeRemain);
             this.pSensorPhalanx.Controls.Add(this.lblSensorPhalanxDuration);
             this.pSensorPhalanx.Controls.Add(this.btnSensorPhalanxUpgrade);
             this.pSensorPhalanx.Controls.Add(this.lblSensorPhalanxDeuteriumCost);
@@ -1791,6 +1943,18 @@ namespace MinerGame
             this.pSensorPhalanx.Name = "pSensorPhalanx";
             this.pSensorPhalanx.Size = new System.Drawing.Size(1765, 50);
             this.pSensorPhalanx.TabIndex = 10;
+            // 
+            // lblSensorPhalanxTimeRemain
+            // 
+            this.lblSensorPhalanxTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblSensorPhalanxTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSensorPhalanxTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSensorPhalanxTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblSensorPhalanxTimeRemain.Name = "lblSensorPhalanxTimeRemain";
+            this.lblSensorPhalanxTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblSensorPhalanxTimeRemain.TabIndex = 25;
+            this.lblSensorPhalanxTimeRemain.Text = "czas pozostały";
+            this.lblSensorPhalanxTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSensorPhalanxDuration
             // 
@@ -1882,6 +2046,7 @@ namespace MinerGame
             // pLunarBase
             // 
             this.pLunarBase.BackColor = System.Drawing.Color.Yellow;
+            this.pLunarBase.Controls.Add(this.lblLunarBaseTimeRemain);
             this.pLunarBase.Controls.Add(this.lblLunarBaseDuration);
             this.pLunarBase.Controls.Add(this.btnLunarBaseUpgrade);
             this.pLunarBase.Controls.Add(this.lblLunarBaseDeuteriumCost);
@@ -1894,6 +2059,18 @@ namespace MinerGame
             this.pLunarBase.Name = "pLunarBase";
             this.pLunarBase.Size = new System.Drawing.Size(1765, 50);
             this.pLunarBase.TabIndex = 9;
+            // 
+            // lblLunarBaseTimeRemain
+            // 
+            this.lblLunarBaseTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblLunarBaseTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLunarBaseTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLunarBaseTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblLunarBaseTimeRemain.Name = "lblLunarBaseTimeRemain";
+            this.lblLunarBaseTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblLunarBaseTimeRemain.TabIndex = 24;
+            this.lblLunarBaseTimeRemain.Text = "czas pozostały";
+            this.lblLunarBaseTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLunarBaseDuration
             // 
@@ -1985,6 +2162,7 @@ namespace MinerGame
             // pSpaceDock
             // 
             this.pSpaceDock.BackColor = System.Drawing.Color.Gold;
+            this.pSpaceDock.Controls.Add(this.lblSpaceDockTimeRemain);
             this.pSpaceDock.Controls.Add(this.lblSpaceDockEnergyCost);
             this.pSpaceDock.Controls.Add(this.lblSpaceDockDuration);
             this.pSpaceDock.Controls.Add(this.btnSpaceDockUpgrade);
@@ -1998,6 +2176,18 @@ namespace MinerGame
             this.pSpaceDock.Name = "pSpaceDock";
             this.pSpaceDock.Size = new System.Drawing.Size(1765, 50);
             this.pSpaceDock.TabIndex = 8;
+            // 
+            // lblSpaceDockTimeRemain
+            // 
+            this.lblSpaceDockTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblSpaceDockTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSpaceDockTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSpaceDockTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblSpaceDockTimeRemain.Name = "lblSpaceDockTimeRemain";
+            this.lblSpaceDockTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblSpaceDockTimeRemain.TabIndex = 23;
+            this.lblSpaceDockTimeRemain.Text = "czas pozostały";
+            this.lblSpaceDockTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSpaceDockEnergyCost
             // 
@@ -2101,6 +2291,7 @@ namespace MinerGame
             // pTerraformer
             // 
             this.pTerraformer.BackColor = System.Drawing.Color.Yellow;
+            this.pTerraformer.Controls.Add(this.lblTerraformerTimeRemain);
             this.pTerraformer.Controls.Add(this.lblTerraformerEnergyCost);
             this.pTerraformer.Controls.Add(this.lblTerraformerDuration);
             this.pTerraformer.Controls.Add(this.btnTerraformerUpgrade);
@@ -2114,6 +2305,18 @@ namespace MinerGame
             this.pTerraformer.Name = "pTerraformer";
             this.pTerraformer.Size = new System.Drawing.Size(1765, 50);
             this.pTerraformer.TabIndex = 7;
+            // 
+            // lblTerraformerTimeRemain
+            // 
+            this.lblTerraformerTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblTerraformerTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTerraformerTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTerraformerTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblTerraformerTimeRemain.Name = "lblTerraformerTimeRemain";
+            this.lblTerraformerTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblTerraformerTimeRemain.TabIndex = 22;
+            this.lblTerraformerTimeRemain.Text = "czas pozostały";
+            this.lblTerraformerTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTerraformerEnergyCost
             // 
@@ -2217,6 +2420,7 @@ namespace MinerGame
             // pMissileSilo
             // 
             this.pMissileSilo.BackColor = System.Drawing.Color.Gold;
+            this.pMissileSilo.Controls.Add(this.lblMissileSiloTimeRemain);
             this.pMissileSilo.Controls.Add(this.lblMissileSiloDuration);
             this.pMissileSilo.Controls.Add(this.btnMissileSiloUpgrade);
             this.pMissileSilo.Controls.Add(this.lblMissileSiloDeuteriumCost);
@@ -2229,6 +2433,18 @@ namespace MinerGame
             this.pMissileSilo.Name = "pMissileSilo";
             this.pMissileSilo.Size = new System.Drawing.Size(1765, 50);
             this.pMissileSilo.TabIndex = 6;
+            // 
+            // lblMissileSiloTimeRemain
+            // 
+            this.lblMissileSiloTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblMissileSiloTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMissileSiloTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMissileSiloTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblMissileSiloTimeRemain.Name = "lblMissileSiloTimeRemain";
+            this.lblMissileSiloTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblMissileSiloTimeRemain.TabIndex = 21;
+            this.lblMissileSiloTimeRemain.Text = "czas pozostały";
+            this.lblMissileSiloTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMissileSiloDuration
             // 
@@ -2320,6 +2536,7 @@ namespace MinerGame
             // pResearchLab
             // 
             this.pResearchLab.BackColor = System.Drawing.Color.Yellow;
+            this.pResearchLab.Controls.Add(this.lblResearchLabTimeRemain);
             this.pResearchLab.Controls.Add(this.lblResearchLabDuration);
             this.pResearchLab.Controls.Add(this.btnResearchLabUpgrade);
             this.pResearchLab.Controls.Add(this.lblResearchLabDeuteriumCost);
@@ -2332,6 +2549,18 @@ namespace MinerGame
             this.pResearchLab.Name = "pResearchLab";
             this.pResearchLab.Size = new System.Drawing.Size(1765, 50);
             this.pResearchLab.TabIndex = 5;
+            // 
+            // lblResearchLabTimeRemain
+            // 
+            this.lblResearchLabTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblResearchLabTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblResearchLabTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblResearchLabTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblResearchLabTimeRemain.Name = "lblResearchLabTimeRemain";
+            this.lblResearchLabTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblResearchLabTimeRemain.TabIndex = 20;
+            this.lblResearchLabTimeRemain.Text = "czas pozostały";
+            this.lblResearchLabTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblResearchLabDuration
             // 
@@ -2423,6 +2652,7 @@ namespace MinerGame
             // pShipyard
             // 
             this.pShipyard.BackColor = System.Drawing.Color.Gold;
+            this.pShipyard.Controls.Add(this.lblShipyardTimeRemain);
             this.pShipyard.Controls.Add(this.lblShipyardDuration);
             this.pShipyard.Controls.Add(this.btnShipyardUpgrade);
             this.pShipyard.Controls.Add(this.lblShipyardDeuteriumCost);
@@ -2435,6 +2665,18 @@ namespace MinerGame
             this.pShipyard.Name = "pShipyard";
             this.pShipyard.Size = new System.Drawing.Size(1765, 50);
             this.pShipyard.TabIndex = 4;
+            // 
+            // lblShipyardTimeRemain
+            // 
+            this.lblShipyardTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblShipyardTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblShipyardTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblShipyardTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblShipyardTimeRemain.Name = "lblShipyardTimeRemain";
+            this.lblShipyardTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblShipyardTimeRemain.TabIndex = 19;
+            this.lblShipyardTimeRemain.Text = "czas pozostały";
+            this.lblShipyardTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblShipyardDuration
             // 
@@ -2526,6 +2768,7 @@ namespace MinerGame
             // pNaniteFactory
             // 
             this.pNaniteFactory.BackColor = System.Drawing.Color.Yellow;
+            this.pNaniteFactory.Controls.Add(this.lblNaniteFactoryTimeRemain);
             this.pNaniteFactory.Controls.Add(this.lblNaniteFactoryDuration);
             this.pNaniteFactory.Controls.Add(this.btnNaniteFactoryUpgrade);
             this.pNaniteFactory.Controls.Add(this.lblNaniteFactoryDeuteriumCost);
@@ -2538,6 +2781,18 @@ namespace MinerGame
             this.pNaniteFactory.Name = "pNaniteFactory";
             this.pNaniteFactory.Size = new System.Drawing.Size(1765, 50);
             this.pNaniteFactory.TabIndex = 3;
+            // 
+            // lblNaniteFactoryTimeRemain
+            // 
+            this.lblNaniteFactoryTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblNaniteFactoryTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNaniteFactoryTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblNaniteFactoryTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblNaniteFactoryTimeRemain.Name = "lblNaniteFactoryTimeRemain";
+            this.lblNaniteFactoryTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblNaniteFactoryTimeRemain.TabIndex = 18;
+            this.lblNaniteFactoryTimeRemain.Text = "czas pozostały";
+            this.lblNaniteFactoryTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblNaniteFactoryDuration
             // 
@@ -2629,6 +2884,7 @@ namespace MinerGame
             // pRoboticsFactory
             // 
             this.pRoboticsFactory.BackColor = System.Drawing.Color.Gold;
+            this.pRoboticsFactory.Controls.Add(this.lblRoboticsFactoryTimeRemain);
             this.pRoboticsFactory.Controls.Add(this.lblRoboticsFactoryDuration);
             this.pRoboticsFactory.Controls.Add(this.btnRoboticsFactoryUpgrade);
             this.pRoboticsFactory.Controls.Add(this.lblRoboticsFactoryDeuteriumCost);
@@ -2641,6 +2897,18 @@ namespace MinerGame
             this.pRoboticsFactory.Name = "pRoboticsFactory";
             this.pRoboticsFactory.Size = new System.Drawing.Size(1765, 50);
             this.pRoboticsFactory.TabIndex = 2;
+            // 
+            // lblRoboticsFactoryTimeRemain
+            // 
+            this.lblRoboticsFactoryTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoboticsFactoryTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRoboticsFactoryTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRoboticsFactoryTimeRemain.Location = new System.Drawing.Point(1220, 10);
+            this.lblRoboticsFactoryTimeRemain.Name = "lblRoboticsFactoryTimeRemain";
+            this.lblRoboticsFactoryTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblRoboticsFactoryTimeRemain.TabIndex = 17;
+            this.lblRoboticsFactoryTimeRemain.Text = "czas pozostały";
+            this.lblRoboticsFactoryTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblRoboticsFactoryDuration
             // 
@@ -2880,6 +3148,7 @@ namespace MinerGame
             // pAstrophisics
             // 
             this.pAstrophisics.BackColor = System.Drawing.Color.Gold;
+            this.pAstrophisics.Controls.Add(this.lblAstrophisicsTimeRemain);
             this.pAstrophisics.Controls.Add(this.lblAstrophisicsDuration);
             this.pAstrophisics.Controls.Add(this.btnAstrophisicsUpgrade);
             this.pAstrophisics.Controls.Add(this.lblAstrophisicsDeuteriumCost);
@@ -2892,6 +3161,18 @@ namespace MinerGame
             this.pAstrophisics.Name = "pAstrophisics";
             this.pAstrophisics.Size = new System.Drawing.Size(1765, 50);
             this.pAstrophisics.TabIndex = 15;
+            // 
+            // lblAstrophisicsTimeRemain
+            // 
+            this.lblAstrophisicsTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblAstrophisicsTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAstrophisicsTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAstrophisicsTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblAstrophisicsTimeRemain.Name = "lblAstrophisicsTimeRemain";
+            this.lblAstrophisicsTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblAstrophisicsTimeRemain.TabIndex = 41;
+            this.lblAstrophisicsTimeRemain.Text = "czas pozostały";
+            this.lblAstrophisicsTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAstrophisicsDuration
             // 
@@ -2983,6 +3264,7 @@ namespace MinerGame
             // pIrn
             // 
             this.pIrn.BackColor = System.Drawing.Color.Yellow;
+            this.pIrn.Controls.Add(this.lblIrnTimeRemain);
             this.pIrn.Controls.Add(this.lblIrnDuration);
             this.pIrn.Controls.Add(this.btnIrnUpgrade);
             this.pIrn.Controls.Add(this.lblIrnDeuteriumCost);
@@ -2996,6 +3278,18 @@ namespace MinerGame
             this.pIrn.Name = "pIrn";
             this.pIrn.Size = new System.Drawing.Size(1765, 50);
             this.pIrn.TabIndex = 14;
+            // 
+            // lblIrnTimeRemain
+            // 
+            this.lblIrnTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblIrnTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIrnTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblIrnTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblIrnTimeRemain.Name = "lblIrnTimeRemain";
+            this.lblIrnTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblIrnTimeRemain.TabIndex = 40;
+            this.lblIrnTimeRemain.Text = "czas pozostały";
+            this.lblIrnTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIrnDuration
             // 
@@ -3091,6 +3385,7 @@ namespace MinerGame
             // pPlasmaTechnology
             // 
             this.pPlasmaTechnology.BackColor = System.Drawing.Color.Gold;
+            this.pPlasmaTechnology.Controls.Add(this.lblPlasmaTechnologyTimeRemain);
             this.pPlasmaTechnology.Controls.Add(this.lblPlasmaTechnologyDuration);
             this.pPlasmaTechnology.Controls.Add(this.btnPlasmaTechnologyUpgrade);
             this.pPlasmaTechnology.Controls.Add(this.lblPlasmaTechnologyDeuteriumCost);
@@ -3103,6 +3398,18 @@ namespace MinerGame
             this.pPlasmaTechnology.Name = "pPlasmaTechnology";
             this.pPlasmaTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pPlasmaTechnology.TabIndex = 13;
+            // 
+            // lblPlasmaTechnologyTimeRemain
+            // 
+            this.lblPlasmaTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlasmaTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblPlasmaTechnologyTimeRemain.Name = "lblPlasmaTechnologyTimeRemain";
+            this.lblPlasmaTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTechnologyTimeRemain.TabIndex = 39;
+            this.lblPlasmaTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblPlasmaTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlasmaTechnologyDuration
             // 
@@ -3194,6 +3501,7 @@ namespace MinerGame
             // pIonTechnology
             // 
             this.pIonTechnology.BackColor = System.Drawing.Color.Yellow;
+            this.pIonTechnology.Controls.Add(this.lblIonTechnologyTimeRemain);
             this.pIonTechnology.Controls.Add(this.lblIonTechnologyDuration);
             this.pIonTechnology.Controls.Add(this.btnIonTechnologyUpgrade);
             this.pIonTechnology.Controls.Add(this.lblIonTechnologyDeuteriumCost);
@@ -3207,6 +3515,18 @@ namespace MinerGame
             this.pIonTechnology.Name = "pIonTechnology";
             this.pIonTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pIonTechnology.TabIndex = 12;
+            // 
+            // lblIonTechnologyTimeRemain
+            // 
+            this.lblIonTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblIonTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblIonTechnologyTimeRemain.Name = "lblIonTechnologyTimeRemain";
+            this.lblIonTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblIonTechnologyTimeRemain.TabIndex = 38;
+            this.lblIonTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblIonTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIonTechnologyDuration
             // 
@@ -3302,6 +3622,7 @@ namespace MinerGame
             // pLaserTechnology
             // 
             this.pLaserTechnology.BackColor = System.Drawing.Color.Gold;
+            this.pLaserTechnology.Controls.Add(this.lblLaserTechnologyTimeRemain);
             this.pLaserTechnology.Controls.Add(this.lblLaserTechnologyDuration);
             this.pLaserTechnology.Controls.Add(this.btnLaserTechnologyUpgrade);
             this.pLaserTechnology.Controls.Add(this.lblLaserTechnologyDeuteriumCost);
@@ -3314,6 +3635,18 @@ namespace MinerGame
             this.pLaserTechnology.Name = "pLaserTechnology";
             this.pLaserTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pLaserTechnology.TabIndex = 11;
+            // 
+            // lblLaserTechnologyTimeRemain
+            // 
+            this.lblLaserTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblLaserTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLaserTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLaserTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblLaserTechnologyTimeRemain.Name = "lblLaserTechnologyTimeRemain";
+            this.lblLaserTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblLaserTechnologyTimeRemain.TabIndex = 37;
+            this.lblLaserTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblLaserTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLaserTechnologyDuration
             // 
@@ -3405,6 +3738,7 @@ namespace MinerGame
             // pHyperspaceTechnology
             // 
             this.pHyperspaceTechnology.BackColor = System.Drawing.Color.Yellow;
+            this.pHyperspaceTechnology.Controls.Add(this.lblHyperspaceTechnologyTimeRemain);
             this.pHyperspaceTechnology.Controls.Add(this.lblHyperspaceTechnologyDuration);
             this.pHyperspaceTechnology.Controls.Add(this.btnHyperspaceTechnologyUpgrade);
             this.pHyperspaceTechnology.Controls.Add(this.lblHyperspaceTechnologyDeuteriumCost);
@@ -3418,6 +3752,18 @@ namespace MinerGame
             this.pHyperspaceTechnology.Name = "pHyperspaceTechnology";
             this.pHyperspaceTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pHyperspaceTechnology.TabIndex = 10;
+            // 
+            // lblHyperspaceTechnologyTimeRemain
+            // 
+            this.lblHyperspaceTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblHyperspaceTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHyperspaceTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHyperspaceTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblHyperspaceTechnologyTimeRemain.Name = "lblHyperspaceTechnologyTimeRemain";
+            this.lblHyperspaceTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblHyperspaceTechnologyTimeRemain.TabIndex = 36;
+            this.lblHyperspaceTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblHyperspaceTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceTechnologyDuration
             // 
@@ -3513,6 +3859,7 @@ namespace MinerGame
             // pEnergyTechnology
             // 
             this.pEnergyTechnology.BackColor = System.Drawing.Color.Gold;
+            this.pEnergyTechnology.Controls.Add(this.lblEnergyTechnologyTimeRemain);
             this.pEnergyTechnology.Controls.Add(this.lblEnergyTechnologyDuration);
             this.pEnergyTechnology.Controls.Add(this.btnEnergyTechnologyUpgrade);
             this.pEnergyTechnology.Controls.Add(this.lblEnergyTechnologyDeuteriumCost);
@@ -3525,6 +3872,18 @@ namespace MinerGame
             this.pEnergyTechnology.Name = "pEnergyTechnology";
             this.pEnergyTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pEnergyTechnology.TabIndex = 9;
+            // 
+            // lblEnergyTechnologyTimeRemain
+            // 
+            this.lblEnergyTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblEnergyTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEnergyTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEnergyTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblEnergyTechnologyTimeRemain.Name = "lblEnergyTechnologyTimeRemain";
+            this.lblEnergyTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblEnergyTechnologyTimeRemain.TabIndex = 35;
+            this.lblEnergyTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblEnergyTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEnergyTechnologyDuration
             // 
@@ -3616,6 +3975,7 @@ namespace MinerGame
             // pArmourTechnology
             // 
             this.pArmourTechnology.BackColor = System.Drawing.Color.Yellow;
+            this.pArmourTechnology.Controls.Add(this.lblArmourTechnologyTimeRemain);
             this.pArmourTechnology.Controls.Add(this.lblArmourTechnologyDuration);
             this.pArmourTechnology.Controls.Add(this.btnArmourTechnologyUpgrade);
             this.pArmourTechnology.Controls.Add(this.lblArmourTechnologyDeuteriumCost);
@@ -3629,6 +3989,18 @@ namespace MinerGame
             this.pArmourTechnology.Name = "pArmourTechnology";
             this.pArmourTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pArmourTechnology.TabIndex = 8;
+            // 
+            // lblArmourTechnologyTimeRemain
+            // 
+            this.lblArmourTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblArmourTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblArmourTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblArmourTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblArmourTechnologyTimeRemain.Name = "lblArmourTechnologyTimeRemain";
+            this.lblArmourTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblArmourTechnologyTimeRemain.TabIndex = 34;
+            this.lblArmourTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblArmourTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArmourTechnologyDuration
             // 
@@ -3724,6 +4096,7 @@ namespace MinerGame
             // pShieldingTechnology
             // 
             this.pShieldingTechnology.BackColor = System.Drawing.Color.Gold;
+            this.pShieldingTechnology.Controls.Add(this.lblShieldingTechnologyTimeRemain);
             this.pShieldingTechnology.Controls.Add(this.lblShieldingTechnologyDuration);
             this.pShieldingTechnology.Controls.Add(this.btnShieldingTechnologyUpgrade);
             this.pShieldingTechnology.Controls.Add(this.lblShieldingTechnologyDeuteriumCost);
@@ -3736,6 +4109,18 @@ namespace MinerGame
             this.pShieldingTechnology.Name = "pShieldingTechnology";
             this.pShieldingTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pShieldingTechnology.TabIndex = 7;
+            // 
+            // lblShieldingTechnologyTimeRemain
+            // 
+            this.lblShieldingTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblShieldingTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblShieldingTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblShieldingTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblShieldingTechnologyTimeRemain.Name = "lblShieldingTechnologyTimeRemain";
+            this.lblShieldingTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblShieldingTechnologyTimeRemain.TabIndex = 33;
+            this.lblShieldingTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblShieldingTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblShieldingTechnologyDuration
             // 
@@ -3827,6 +4212,7 @@ namespace MinerGame
             // pWeaponsTechnology
             // 
             this.pWeaponsTechnology.BackColor = System.Drawing.Color.Yellow;
+            this.pWeaponsTechnology.Controls.Add(this.lblWeaponsTechnologyTimeRemian);
             this.pWeaponsTechnology.Controls.Add(this.lblWeapeonsTechnologyDuration);
             this.pWeaponsTechnology.Controls.Add(this.btnWeapeonsTechnologyUpgrade);
             this.pWeaponsTechnology.Controls.Add(this.lblWeapeonsTechnologyDeuteriumCost);
@@ -3840,6 +4226,18 @@ namespace MinerGame
             this.pWeaponsTechnology.Name = "pWeaponsTechnology";
             this.pWeaponsTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pWeaponsTechnology.TabIndex = 6;
+            // 
+            // lblWeaponsTechnologyTimeRemian
+            // 
+            this.lblWeaponsTechnologyTimeRemian.BackColor = System.Drawing.Color.Transparent;
+            this.lblWeaponsTechnologyTimeRemian.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWeaponsTechnologyTimeRemian.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblWeaponsTechnologyTimeRemian.Location = new System.Drawing.Point(1080, 10);
+            this.lblWeaponsTechnologyTimeRemian.Name = "lblWeaponsTechnologyTimeRemian";
+            this.lblWeaponsTechnologyTimeRemian.Size = new System.Drawing.Size(130, 30);
+            this.lblWeaponsTechnologyTimeRemian.TabIndex = 32;
+            this.lblWeaponsTechnologyTimeRemian.Text = "czas pozostały";
+            this.lblWeaponsTechnologyTimeRemian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWeapeonsTechnologyDuration
             // 
@@ -3935,6 +4333,7 @@ namespace MinerGame
             // pHyperspaceDrive
             // 
             this.pHyperspaceDrive.BackColor = System.Drawing.Color.Gold;
+            this.pHyperspaceDrive.Controls.Add(this.lblHyperspaceDriveTimeRemain);
             this.pHyperspaceDrive.Controls.Add(this.lblHyperspaceDriveDuration);
             this.pHyperspaceDrive.Controls.Add(this.btnHyperspaceDriveUpgrade);
             this.pHyperspaceDrive.Controls.Add(this.lblHyperspaceDriveDeuteriumCost);
@@ -3947,6 +4346,18 @@ namespace MinerGame
             this.pHyperspaceDrive.Name = "pHyperspaceDrive";
             this.pHyperspaceDrive.Size = new System.Drawing.Size(1765, 50);
             this.pHyperspaceDrive.TabIndex = 5;
+            // 
+            // lblHyperspaceDriveTimeRemain
+            // 
+            this.lblHyperspaceDriveTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblHyperspaceDriveTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHyperspaceDriveTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHyperspaceDriveTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblHyperspaceDriveTimeRemain.Name = "lblHyperspaceDriveTimeRemain";
+            this.lblHyperspaceDriveTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblHyperspaceDriveTimeRemain.TabIndex = 31;
+            this.lblHyperspaceDriveTimeRemain.Text = "czas pozostały";
+            this.lblHyperspaceDriveTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceDriveDuration
             // 
@@ -4038,6 +4449,7 @@ namespace MinerGame
             // pImpulseDrive
             // 
             this.pImpulseDrive.BackColor = System.Drawing.Color.Yellow;
+            this.pImpulseDrive.Controls.Add(this.lblImpulseDriveTimeRemain);
             this.pImpulseDrive.Controls.Add(this.lblImpulseDriveDuration);
             this.pImpulseDrive.Controls.Add(this.btnImpulseDriveUpgrade);
             this.pImpulseDrive.Controls.Add(this.lblImpulseDriveDeuteriumCost);
@@ -4051,6 +4463,18 @@ namespace MinerGame
             this.pImpulseDrive.Name = "pImpulseDrive";
             this.pImpulseDrive.Size = new System.Drawing.Size(1765, 50);
             this.pImpulseDrive.TabIndex = 4;
+            // 
+            // lblImpulseDriveTimeRemain
+            // 
+            this.lblImpulseDriveTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblImpulseDriveTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblImpulseDriveTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblImpulseDriveTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblImpulseDriveTimeRemain.Name = "lblImpulseDriveTimeRemain";
+            this.lblImpulseDriveTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblImpulseDriveTimeRemain.TabIndex = 30;
+            this.lblImpulseDriveTimeRemain.Text = "czas pozostały";
+            this.lblImpulseDriveTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblImpulseDriveDuration
             // 
@@ -4146,6 +4570,7 @@ namespace MinerGame
             // pCombustionDrive
             // 
             this.pCombustionDrive.BackColor = System.Drawing.Color.Gold;
+            this.pCombustionDrive.Controls.Add(this.lblCombustionDriveTimeRemain);
             this.pCombustionDrive.Controls.Add(this.lblCombustionDriveDuration);
             this.pCombustionDrive.Controls.Add(this.btnCombustionDriveUpgrade);
             this.pCombustionDrive.Controls.Add(this.lblCombustionDriveDeuteriumCost);
@@ -4158,6 +4583,18 @@ namespace MinerGame
             this.pCombustionDrive.Name = "pCombustionDrive";
             this.pCombustionDrive.Size = new System.Drawing.Size(1765, 50);
             this.pCombustionDrive.TabIndex = 3;
+            // 
+            // lblCombustionDriveTimeRemain
+            // 
+            this.lblCombustionDriveTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblCombustionDriveTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCombustionDriveTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCombustionDriveTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblCombustionDriveTimeRemain.Name = "lblCombustionDriveTimeRemain";
+            this.lblCombustionDriveTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblCombustionDriveTimeRemain.TabIndex = 29;
+            this.lblCombustionDriveTimeRemain.Text = "czas pozostały";
+            this.lblCombustionDriveTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCombustionDriveDuration
             // 
@@ -4249,6 +4686,7 @@ namespace MinerGame
             // pComputerTechnology
             // 
             this.pComputerTechnology.BackColor = System.Drawing.Color.Yellow;
+            this.pComputerTechnology.Controls.Add(this.lblComputerTechnologyTimeRemain);
             this.pComputerTechnology.Controls.Add(this.lblComputerTechnologyDuration);
             this.pComputerTechnology.Controls.Add(this.btnComputerTechnologyUpgrade);
             this.pComputerTechnology.Controls.Add(this.lblComputerTechnologyDeuteriumCost);
@@ -4262,6 +4700,18 @@ namespace MinerGame
             this.pComputerTechnology.Name = "pComputerTechnology";
             this.pComputerTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pComputerTechnology.TabIndex = 2;
+            // 
+            // lblComputerTechnologyTimeRemain
+            // 
+            this.lblComputerTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblComputerTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblComputerTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblComputerTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblComputerTechnologyTimeRemain.Name = "lblComputerTechnologyTimeRemain";
+            this.lblComputerTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblComputerTechnologyTimeRemain.TabIndex = 28;
+            this.lblComputerTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblComputerTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblComputerTechnologyDuration
             // 
@@ -4357,6 +4807,7 @@ namespace MinerGame
             // pEspionageTechnology
             // 
             this.pEspionageTechnology.BackColor = System.Drawing.Color.Gold;
+            this.pEspionageTechnology.Controls.Add(this.lblEspionageTechnologyTimeRemain);
             this.pEspionageTechnology.Controls.Add(this.lblEspionageTechnologyDuration);
             this.pEspionageTechnology.Controls.Add(this.btnEspionageTechnologyUpgrade);
             this.pEspionageTechnology.Controls.Add(this.lblEspionageTechnologyDeuteriumCost);
@@ -4369,6 +4820,18 @@ namespace MinerGame
             this.pEspionageTechnology.Name = "pEspionageTechnology";
             this.pEspionageTechnology.Size = new System.Drawing.Size(1765, 50);
             this.pEspionageTechnology.TabIndex = 0;
+            // 
+            // lblEspionageTechnologyTimeRemain
+            // 
+            this.lblEspionageTechnologyTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageTechnologyTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageTechnologyTimeRemain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEspionageTechnologyTimeRemain.Location = new System.Drawing.Point(1080, 10);
+            this.lblEspionageTechnologyTimeRemain.Name = "lblEspionageTechnologyTimeRemain";
+            this.lblEspionageTechnologyTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageTechnologyTimeRemain.TabIndex = 27;
+            this.lblEspionageTechnologyTimeRemain.Text = "czas pozostały";
+            this.lblEspionageTechnologyTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEspionageTechnologyDuration
             // 
@@ -4606,23 +5069,23 @@ namespace MinerGame
             // 
             // tpRequirements
             // 
+            this.tpRequirements.BackColor = System.Drawing.Color.Silver;
             this.tpRequirements.Location = new System.Drawing.Point(4, 29);
             this.tpRequirements.Name = "tpRequirements";
             this.tpRequirements.Padding = new System.Windows.Forms.Padding(3);
             this.tpRequirements.Size = new System.Drawing.Size(1771, 800);
             this.tpRequirements.TabIndex = 6;
             this.tpRequirements.Text = "Wymagania";
-            this.tpRequirements.UseVisualStyleBackColor = true;
             // 
             // tpFleet
             // 
+            this.tpFleet.BackColor = System.Drawing.Color.Silver;
             this.tpFleet.Location = new System.Drawing.Point(4, 29);
             this.tpFleet.Name = "tpFleet";
             this.tpFleet.Padding = new System.Windows.Forms.Padding(3);
             this.tpFleet.Size = new System.Drawing.Size(1771, 800);
             this.tpFleet.TabIndex = 7;
             this.tpFleet.Text = "Flota";
-            this.tpFleet.UseVisualStyleBackColor = true;
             // 
             // pInfo
             // 
@@ -4678,6 +5141,7 @@ namespace MinerGame
             this.btnNewPlanet.TabIndex = 20;
             this.btnNewPlanet.Text = "Nowa planeta";
             this.btnNewPlanet.UseVisualStyleBackColor = false;
+            this.btnNewPlanet.Click += new System.EventHandler(this.btnNewPlanet_Click);
             // 
             // lblPlanetCount
             // 
@@ -5455,6 +5919,40 @@ namespace MinerGame
         private System.Windows.Forms.Label lblPlanetFields;
         private System.Windows.Forms.Button btnDeletePlanet;
         private System.Windows.Forms.Button btnNewPlanet;
+        private System.Windows.Forms.Label lblCrystalStorageTimeRemain;
+        private System.Windows.Forms.Label lblMetalStorageTimeRemain;
+        private System.Windows.Forms.Label lblFusionReactorTimeRemain;
+        private System.Windows.Forms.Label lblSolarPlantTimeRemain;
+        private System.Windows.Forms.Label lblDeuteriumSynthesizerTimeRemain;
+        private System.Windows.Forms.Label lblCrystalMineTimeRemain;
+        private System.Windows.Forms.Label lblMetalMineTimeRemain;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Label lblDeuteriumTanlTimeRemain;
+        private System.Windows.Forms.Label lblJumpGateTimeRemain;
+        private System.Windows.Forms.Label lblSensorPhalanxTimeRemain;
+        private System.Windows.Forms.Label lblLunarBaseTimeRemain;
+        private System.Windows.Forms.Label lblSpaceDockTimeRemain;
+        private System.Windows.Forms.Label lblTerraformerTimeRemain;
+        private System.Windows.Forms.Label lblMissileSiloTimeRemain;
+        private System.Windows.Forms.Label lblResearchLabTimeRemain;
+        private System.Windows.Forms.Label lblShipyardTimeRemain;
+        private System.Windows.Forms.Label lblNaniteFactoryTimeRemain;
+        private System.Windows.Forms.Label lblRoboticsFactoryTimeRemain;
+        private System.Windows.Forms.Label lblAstrophisicsTimeRemain;
+        private System.Windows.Forms.Label lblIrnTimeRemain;
+        private System.Windows.Forms.Label lblPlasmaTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblIonTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblLaserTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblHyperspaceTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblEnergyTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblArmourTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblShieldingTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblWeaponsTechnologyTimeRemian;
+        private System.Windows.Forms.Label lblHyperspaceDriveTimeRemain;
+        private System.Windows.Forms.Label lblImpulseDriveTimeRemain;
+        private System.Windows.Forms.Label lblCombustionDriveTimeRemain;
+        private System.Windows.Forms.Label lblComputerTechnologyTimeRemain;
+        private System.Windows.Forms.Label lblEspionageTechnologyTimeRemain;
     }
 }
 

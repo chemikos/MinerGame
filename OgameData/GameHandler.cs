@@ -248,11 +248,17 @@ namespace OgameData
                 galaxy = new Random().Next(0, 9);
                 solar = new Random().Next(0, 99);
                 planet = new Random().Next(0, 9);
-            } while (OGame.Positions[galaxy, solar, planet]);
-
-            OGame.Positions[galaxy, solar, planet] = true;
+            } while (IsPositionTaken(galaxy, solar, planet));
 
             return new int[] { galaxy, solar, planet };
+        }
+        private static bool IsPositionTaken(int galaxy, int solar, int planet)
+        {
+            foreach(Position p in OGame.Positions)
+            {
+                if (p.Galaxy == galaxy && p.SolarSystem == solar && p.PlanetNumber == planet) { return true; }
+            }
+            return false;
         }
     }
 }
