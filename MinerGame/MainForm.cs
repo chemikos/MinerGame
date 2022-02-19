@@ -83,8 +83,13 @@ namespace MinerGame
             CreatePlanetsList();
             activePlanet = ogame.Planets[0];
 
+            // kod do testu wyświetlanie czasu ukończenia
             OGame.TimeEvents.Add(new TimeEvent() { Item = Item.METAL_STORAGE, PlanetID = activePlanet.PlanetID, ProcessFinish = ogame.LastUpdate.AddDays(3) } );
             activePlanet.Buildings[Item.METAL_STORAGE].IsProcessing = true;
+
+            OGame.TimeEvents.Add(new TimeEvent() { Item = Item.WEAPONS_TECHNOLOGY, PlanetID = 2, ProcessFinish = ogame.LastUpdate.AddDays(5) });
+            OGame.Researches[Item.WEAPONS_TECHNOLOGY].IsProcessing = true;
+            ///
 
             FillInfoPanel();
             FillTabs();
@@ -150,13 +155,7 @@ namespace MinerGame
                 ogame.Planets.Remove(activePlanet);
                 OGame.Positions.Remove(activePlanet.Position);
 
-                foreach (TimeEvent te in OGame.TimeEvents)
-                {
-                    if (te.PlanetID == activePlanet.PlanetID)
-                    {
-                        OGame.TimeEvents.Remove(te);
-                    }
-                }
+                RemoveTimeEvents();
 
                 ogame.UpdateResources(DateTime.Now);
 
@@ -176,17 +175,13 @@ namespace MinerGame
             //dodać "opłatę" za nową planetę
             //i jeśli się uda to dalej...
             ogame.UpdateResources(DateTime.Now);
-            
-            
+                        
             ogame.Planets.Add(new Planet(id));
             Planet p = ogame.Planets.ElementAt(ogame.Planets.Count - 1);
             cbPlanetSelect.Items.Add($"{p.PlanetName} {p.Position}");
 
-
             FillInfoPanel();
-            FillTabs();
-
-  
+            FillTabs();  
         }
         #endregion
 
@@ -515,7 +510,7 @@ namespace MinerGame
                 { Item.ENERGY_TECHNOLOGY, lblEnergyTechnologyTimeRemain },
                 { Item.LASER_TECHNOLOGY, lblLaserTechnologyTimeRemain },
                 { Item.ION_TECHNOLOGY, lblIonTechnologyTimeRemain },
-                { Item.HYPERSPACE_TECHNOLOGY, lblHyperspaceDriveTimeRemain },
+                { Item.HYPERSPACE_TECHNOLOGY, lblHyperspaceTechnologyTimeRemain },
                 { Item.PLASMA_TECHNOLOGY, lblPlasmaTechnologyTimeRemain },
                 { Item.ASTROPHISICS, lblAstrophisicsTimeRemain },
                 { Item.IRN, lblIrnTimeRemain }
@@ -643,7 +638,16 @@ namespace MinerGame
                 btnNewPlanet.BackColor = Color.Silver;
             }
 
-            if (currentPlanetsCount > 1)
+            var research = OGame.Researches.Where(r => r.Value.IsProcessing == true).ToList();
+            bool researchInProgress = research.Count > 0;
+            int planetID = -1;
+            if (researchInProgress)
+            {
+                Item item = research[0].Key;
+                planetID = OGame.TimeEvents.Where(te => te.Item == item).Select(te => te.PlanetID).ToList()[0];
+            }
+
+            if (currentPlanetsCount > 1 && activePlanet.PlanetID != planetID)
             {
                 btnDeletePlanet.Enabled = true;
                 btnDeletePlanet.BackColor = Color.Lime;
@@ -675,6 +679,7 @@ namespace MinerGame
             FillDemandIncerase();
 
             FillBuildingTimeRemainLabel();
+            FillResearchTimeRemainLabel();
         }
 
         private void FillNameLabels()
@@ -797,6 +802,23 @@ namespace MinerGame
                 else
                 {
                     BuildingTimeRemainLabelList[item].Text = "";
+                }
+            }
+        }
+
+        private void FillResearchTimeRemainLabel()
+        {
+            foreach(Item item in ResearchTimeRemainLabelList.Keys)
+            {
+                if (OGame.Researches[item].IsProcessing)
+                {
+                    DateTime finishDate = OGame.TimeEvents.Where(te => te.Item == item).Select(pe => pe.ProcessFinish).ToList()[0];
+
+                    ResearchTimeRemainLabelList[item].Text = (finishDate - ogame.LastUpdate).ToString("d'd 'hh'h 'mm'm 'ss's'");
+                }
+                else
+                {
+                    ResearchTimeRemainLabelList[item].Text = "";
                 }
             }
         }
@@ -949,6 +971,24 @@ namespace MinerGame
         {
             int maxPlanetID = ogame.Planets.Select(p => p.PlanetID).Max();
             return maxPlanetID + 1;
+        }
+
+        private void RemoveTimeEvents()
+        {
+            List<int> indexes = new();
+            foreach(TimeEvent te in OGame.TimeEvents)
+            {
+                if (te.PlanetID == activePlanet.PlanetID)
+                {
+                    indexes.Add(OGame.TimeEvents.IndexOf(te));
+                }
+            }
+            indexes.Reverse();
+
+            foreach(int i in indexes)
+            {
+                OGame.TimeEvents.RemoveAt(i);
+            }
         }
         #endregion
 
