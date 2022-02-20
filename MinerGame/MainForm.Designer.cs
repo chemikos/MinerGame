@@ -751,6 +751,7 @@ namespace MinerGame
             this.btnDeuteriumTankUpgrade.TabIndex = 12;
             this.btnDeuteriumTankUpgrade.Text = "Ulepsz";
             this.btnDeuteriumTankUpgrade.UseVisualStyleBackColor = false;
+            this.btnDeuteriumTankUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblDeuteriumTankDeuteriumCost
             // 
@@ -881,6 +882,7 @@ namespace MinerGame
             this.btnCrystalStorageUpgrade.TabIndex = 12;
             this.btnCrystalStorageUpgrade.Text = "Ulepsz";
             this.btnCrystalStorageUpgrade.UseVisualStyleBackColor = false;
+            this.btnCrystalStorageUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblCrystalStorageDeuteriumCost
             // 
@@ -1011,6 +1013,7 @@ namespace MinerGame
             this.btnMetalStorageUpgrade.TabIndex = 12;
             this.btnMetalStorageUpgrade.Text = "Ulepsz";
             this.btnMetalStorageUpgrade.UseVisualStyleBackColor = false;
+            this.btnMetalStorageUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblMetalStorageDeuteriumCost
             // 
@@ -1155,6 +1158,7 @@ namespace MinerGame
             this.btnFusionReactorUpgrade.TabIndex = 12;
             this.btnFusionReactorUpgrade.Text = "Ulepsz";
             this.btnFusionReactorUpgrade.UseVisualStyleBackColor = false;
+            this.btnFusionReactorUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblFusionReactorDeuteriumCost
             // 
@@ -1285,6 +1289,7 @@ namespace MinerGame
             this.btnSolarPlantUpgrade.TabIndex = 12;
             this.btnSolarPlantUpgrade.Text = "Ulepsz";
             this.btnSolarPlantUpgrade.UseVisualStyleBackColor = false;
+            this.btnSolarPlantUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblSolarPlantDeuteriumCost
             // 
@@ -1429,6 +1434,7 @@ namespace MinerGame
             this.btnDeuteriumSynthesizerUpgrade.TabIndex = 12;
             this.btnDeuteriumSynthesizerUpgrade.Text = "Ulepsz";
             this.btnDeuteriumSynthesizerUpgrade.UseVisualStyleBackColor = false;
+            this.btnDeuteriumSynthesizerUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblDeuteriumSynthesizerDeuteriumCost
             // 
@@ -1573,6 +1579,7 @@ namespace MinerGame
             this.btnCrystalMineUpgrade.TabIndex = 12;
             this.btnCrystalMineUpgrade.Text = "Ulepsz";
             this.btnCrystalMineUpgrade.UseVisualStyleBackColor = false;
+            this.btnCrystalMineUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblCrystalMineDeuteriumCost
             // 
@@ -1717,6 +1724,7 @@ namespace MinerGame
             this.btnMetalMineUpgrade.TabIndex = 12;
             this.btnMetalMineUpgrade.Text = "Ulepsz";
             this.btnMetalMineUpgrade.UseVisualStyleBackColor = false;
+            this.btnMetalMineUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblMetalMineDeuteriumCost
             // 
@@ -1863,6 +1871,7 @@ namespace MinerGame
             this.btnJumpGateUpgrade.TabIndex = 12;
             this.btnJumpGateUpgrade.Text = "Ulepsz";
             this.btnJumpGateUpgrade.UseVisualStyleBackColor = false;
+            this.btnJumpGateUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblJumpGateDeuteriumCost
             // 
@@ -1979,6 +1988,7 @@ namespace MinerGame
             this.btnSensorPhalanxUpgrade.TabIndex = 12;
             this.btnSensorPhalanxUpgrade.Text = "Ulepsz";
             this.btnSensorPhalanxUpgrade.UseVisualStyleBackColor = false;
+            this.btnSensorPhalanxUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblSensorPhalanxDeuteriumCost
             // 
@@ -2095,6 +2105,7 @@ namespace MinerGame
             this.btnLunarBaseUpgrade.TabIndex = 12;
             this.btnLunarBaseUpgrade.Text = "Ulepsz";
             this.btnLunarBaseUpgrade.UseVisualStyleBackColor = false;
+            this.btnLunarBaseUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblLunarBaseDeuteriumCost
             // 
@@ -2224,6 +2235,7 @@ namespace MinerGame
             this.btnSpaceDockUpgrade.TabIndex = 12;
             this.btnSpaceDockUpgrade.Text = "Ulepsz";
             this.btnSpaceDockUpgrade.UseVisualStyleBackColor = false;
+            this.btnSpaceDockUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblSpaceDockDeuteriumCost
             // 
@@ -2353,6 +2365,7 @@ namespace MinerGame
             this.btnTerraformerUpgrade.TabIndex = 12;
             this.btnTerraformerUpgrade.Text = "Ulepsz";
             this.btnTerraformerUpgrade.UseVisualStyleBackColor = false;
+            this.btnTerraformerUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblTerraformerDeuteriumCost
             // 
@@ -2469,6 +2482,7 @@ namespace MinerGame
             this.btnMissileSiloUpgrade.TabIndex = 12;
             this.btnMissileSiloUpgrade.Text = "Ulepsz";
             this.btnMissileSiloUpgrade.UseVisualStyleBackColor = false;
+            this.btnMissileSiloUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblMissileSiloDeuteriumCost
             // 
@@ -2585,6 +2599,7 @@ namespace MinerGame
             this.btnResearchLabUpgrade.TabIndex = 12;
             this.btnResearchLabUpgrade.Text = "Ulepsz";
             this.btnResearchLabUpgrade.UseVisualStyleBackColor = false;
+            this.btnResearchLabUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblResearchLabDeuteriumCost
             // 
@@ -2701,6 +2716,7 @@ namespace MinerGame
             this.btnShipyardUpgrade.TabIndex = 12;
             this.btnShipyardUpgrade.Text = "Ulepsz";
             this.btnShipyardUpgrade.UseVisualStyleBackColor = false;
+            this.btnShipyardUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblShipyardDeuteriumCost
             // 
@@ -2817,6 +2833,7 @@ namespace MinerGame
             this.btnNaniteFactoryUpgrade.TabIndex = 12;
             this.btnNaniteFactoryUpgrade.Text = "Ulepsz";
             this.btnNaniteFactoryUpgrade.UseVisualStyleBackColor = false;
+            this.btnNaniteFactoryUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblNaniteFactoryDeuteriumCost
             // 
@@ -2933,6 +2950,7 @@ namespace MinerGame
             this.btnRoboticsFactoryUpgrade.TabIndex = 12;
             this.btnRoboticsFactoryUpgrade.Text = "Ulepsz";
             this.btnRoboticsFactoryUpgrade.UseVisualStyleBackColor = false;
+            this.btnRoboticsFactoryUpgrade.Click += new System.EventHandler(this.BtnUpgradeBuilding_Click);
             // 
             // lblRoboticsFactoryDeuteriumCost
             // 
@@ -3079,6 +3097,7 @@ namespace MinerGame
             this.btnGravitonTechnologyUpgrade.TabIndex = 12;
             this.btnGravitonTechnologyUpgrade.Text = "Ulepsz";
             this.btnGravitonTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnGravitonTechnologyUpgrade.Click += new System.EventHandler(this.BtnGravitonTechnologyUpgrade_Click);
             // 
             // lblGravitonTechnologyDeuteriumCost
             // 
@@ -3197,6 +3216,7 @@ namespace MinerGame
             this.btnAstrophisicsUpgrade.TabIndex = 12;
             this.btnAstrophisicsUpgrade.Text = "Ulepsz";
             this.btnAstrophisicsUpgrade.UseVisualStyleBackColor = false;
+            this.btnAstrophisicsUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblAstrophisicsDeuteriumCost
             // 
@@ -3316,6 +3336,7 @@ namespace MinerGame
             this.btnIrnUpgrade.TabIndex = 12;
             this.btnIrnUpgrade.Text = "Ulepsz";
             this.btnIrnUpgrade.UseVisualStyleBackColor = false;
+            this.btnIrnUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblIrnDeuteriumCost
             // 
@@ -3434,6 +3455,7 @@ namespace MinerGame
             this.btnPlasmaTechnologyUpgrade.TabIndex = 12;
             this.btnPlasmaTechnologyUpgrade.Text = "Ulepsz";
             this.btnPlasmaTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnPlasmaTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblPlasmaTechnologyDeuteriumCost
             // 
@@ -3553,6 +3575,7 @@ namespace MinerGame
             this.btnIonTechnologyUpgrade.TabIndex = 12;
             this.btnIonTechnologyUpgrade.Text = "Ulepsz";
             this.btnIonTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnIonTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblIonTechnologyDeuteriumCost
             // 
@@ -3671,6 +3694,7 @@ namespace MinerGame
             this.btnLaserTechnologyUpgrade.TabIndex = 12;
             this.btnLaserTechnologyUpgrade.Text = "Ulepsz";
             this.btnLaserTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnLaserTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblLaserTechnologyDeuteriumCost
             // 
@@ -3790,6 +3814,7 @@ namespace MinerGame
             this.btnHyperspaceTechnologyUpgrade.TabIndex = 12;
             this.btnHyperspaceTechnologyUpgrade.Text = "Ulepsz";
             this.btnHyperspaceTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnHyperspaceTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblHyperspaceTechnologyDeuteriumCost
             // 
@@ -3908,6 +3933,7 @@ namespace MinerGame
             this.btnEnergyTechnologyUpgrade.TabIndex = 12;
             this.btnEnergyTechnologyUpgrade.Text = "Ulepsz";
             this.btnEnergyTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnEnergyTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblEnergyTechnologyDeuteriumCost
             // 
@@ -4027,6 +4053,7 @@ namespace MinerGame
             this.btnArmourTechnologyUpgrade.TabIndex = 12;
             this.btnArmourTechnologyUpgrade.Text = "Ulepsz";
             this.btnArmourTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnArmourTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblArmourTechnologyDeuteriumCost
             // 
@@ -4145,6 +4172,7 @@ namespace MinerGame
             this.btnShieldingTechnologyUpgrade.TabIndex = 12;
             this.btnShieldingTechnologyUpgrade.Text = "Ulepsz";
             this.btnShieldingTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnShieldingTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblShieldingTechnologyDeuteriumCost
             // 
@@ -4264,6 +4292,7 @@ namespace MinerGame
             this.btnWeapeonsTechnologyUpgrade.TabIndex = 12;
             this.btnWeapeonsTechnologyUpgrade.Text = "Ulepsz";
             this.btnWeapeonsTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnWeapeonsTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblWeapeonsTechnologyDeuteriumCost
             // 
@@ -4382,6 +4411,7 @@ namespace MinerGame
             this.btnHyperspaceDriveUpgrade.TabIndex = 12;
             this.btnHyperspaceDriveUpgrade.Text = "Ulepsz";
             this.btnHyperspaceDriveUpgrade.UseVisualStyleBackColor = false;
+            this.btnHyperspaceDriveUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblHyperspaceDriveDeuteriumCost
             // 
@@ -4501,6 +4531,7 @@ namespace MinerGame
             this.btnImpulseDriveUpgrade.TabIndex = 12;
             this.btnImpulseDriveUpgrade.Text = "Ulepsz";
             this.btnImpulseDriveUpgrade.UseVisualStyleBackColor = false;
+            this.btnImpulseDriveUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblImpulseDriveDeuteriumCost
             // 
@@ -4619,6 +4650,7 @@ namespace MinerGame
             this.btnCombustionDriveUpgrade.TabIndex = 12;
             this.btnCombustionDriveUpgrade.Text = "Ulepsz";
             this.btnCombustionDriveUpgrade.UseVisualStyleBackColor = false;
+            this.btnCombustionDriveUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblCombustionDriveDeuteriumCost
             // 
@@ -4738,6 +4770,7 @@ namespace MinerGame
             this.btnComputerTechnologyUpgrade.TabIndex = 12;
             this.btnComputerTechnologyUpgrade.Text = "Ulepsz";
             this.btnComputerTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnComputerTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblComputerTechnologyDeuteriumCost
             // 
@@ -4856,6 +4889,7 @@ namespace MinerGame
             this.btnEspionageTechnologyUpgrade.TabIndex = 12;
             this.btnEspionageTechnologyUpgrade.Text = "Ulepsz";
             this.btnEspionageTechnologyUpgrade.UseVisualStyleBackColor = false;
+            this.btnEspionageTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
             // lblEspionageTechnologyDeuteriumCost
             // 
@@ -5141,7 +5175,7 @@ namespace MinerGame
             this.btnNewPlanet.TabIndex = 20;
             this.btnNewPlanet.Text = "Nowa planeta";
             this.btnNewPlanet.UseVisualStyleBackColor = false;
-            this.btnNewPlanet.Click += new System.EventHandler(this.btnNewPlanet_Click);
+            this.btnNewPlanet.Click += new System.EventHandler(this.BtnNewPlanet_Click);
             // 
             // lblPlanetCount
             // 

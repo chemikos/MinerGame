@@ -92,6 +92,7 @@ namespace OgameData
             Resources nextLevel = GameHandler.UpgradeCost(item, Buildings[item].Level + 1);
             Buildings[item].Level++;
             Buildings[item].TotalCost.Add(nextLevel);
+            Buildings[item].IsProcessing = false;
         }
         #endregion
     }

@@ -146,6 +146,13 @@ namespace OgameData
             double metal = Math.Ceiling(GameData.COST[item][Item.METAL] * Math.Pow(GameData.COST[item][Item.FACTOR], level - 1));
             double crystal = Math.Ceiling(GameData.COST[item][Item.CRYSTAL] * Math.Pow(GameData.COST[item][Item.FACTOR], level - 1));
             double deuterium = Math.Ceiling(GameData.COST[item][Item.DEUTERIUM] * Math.Pow(GameData.COST[item][Item.FACTOR], level - 1));
+
+            if (item == Item.ASTROPHISICS)
+            {
+                metal = Math.Ceiling(metal / 100) * 100;
+                crystal = Math.Ceiling(crystal / 100) * 100;
+                deuterium = Math.Ceiling(deuterium / 100) * 100;
+            }
             return new Resources(metal, crystal, deuterium);
         }
         

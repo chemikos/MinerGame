@@ -45,27 +45,24 @@ namespace OgameData
         public DateTime GameStart { get; set; }
         public DateTime LastUpdate { get; set; }
         public List<Planet> Planets { get; set; }
-        
+
         public OGame(string name)
         {
             GameName = name;
             GameStart = LastUpdate = DateTime.Now;
             Planets = new List<Planet>()
             {
-                new Planet(1, "Planeta matka"),
-                new Planet(2)
+                new Planet(1, "Planeta matka")
             };
         }
 
-        #region Private methods
         public static void UpgradeResearch(Item item)
         {
             Resources nextLevel = GameHandler.UpgradeCost(item, Researches[item].Level + 1);
             Researches[item].Level++;
             Researches[item].TotalCost.Add(nextLevel);
+            Researches[item].IsProcessing = false;
         }
-
-        #endregion
 
         #region Resource Update
         public void UpdateResources(DateTime newLastUpdate)
@@ -74,13 +71,46 @@ namespace OgameData
 
             foreach (Planet p in Planets)
             {
-                Resources production = GameHandler.PlanetProduction(p);
-                production.Multiply(duration.TotalSeconds / 3600);
-
-                p.Resources.Add(production);
+                UpdateResourcesStorageLimit(p, duration);
             }
 
             LastUpdate = newLastUpdate;
+        }
+
+        private void UpdateResourcesStorageLimit(Planet p, TimeSpan duration)
+        {
+            Resources production = GameHandler.PlanetProduction(p);
+            production.Multiply(duration.TotalSeconds / 3600);
+
+            double metalStorage = GameHandler.StorageCapacity(p.Buildings[Item.METAL_STORAGE].Level);
+            if (p.Resources.Metal < metalStorage)
+            {
+                p.Resources.Metal += production.Metal;
+                if (p.Resources.Metal > metalStorage)
+                {
+                    p.Resources.Metal = metalStorage;
+                }
+            }
+
+            double crystalStorage = GameHandler.StorageCapacity(p.Buildings[Item.CRYSTAL_STORAGE].Level);
+            if (p.Resources.Crystal < crystalStorage)
+            {
+                p.Resources.Crystal += production.Crystal;
+                if (p.Resources.Crystal > crystalStorage)
+                {
+                    p.Resources.Crystal = crystalStorage;
+                }
+            }
+
+            double deuteriumStorage = GameHandler.StorageCapacity(p.Buildings[Item.DEUTERIUM_TANK].Level);
+            if (p.Resources.Deuterium < deuteriumStorage)
+            {
+                p.Resources.Deuterium += production.Deuterium;
+                if (p.Resources.Deuterium > deuteriumStorage)
+                {
+                    p.Resources.Deuterium = deuteriumStorage;
+                }
+            }
         }
         #endregion
 

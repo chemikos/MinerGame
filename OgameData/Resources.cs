@@ -20,6 +20,13 @@
             Deuterium += second.Deuterium;
         }
 
+        public void Subtract(Resources second)
+        {
+            Metal -= second.Metal;
+            Crystal -= second.Crystal;
+            Deuterium -= second.Deuterium;
+        }
+
         public void Multiply(double factor)
         {
             Metal *= factor;
