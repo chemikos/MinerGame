@@ -1076,6 +1076,12 @@ namespace MinerGame
                 }                
             }
 
+            ogame.Planets.Add(new Planet());
+            ogame.Planets.Add(new Planet());
+            ogame.Planets.Add(new Planet());
+            ogame.Planets.Add(new Planet());
+            ogame.Planets.Add(new Planet());
+
             //ogame.Planets.ElementAt(0).Resources = new Resources(20000.0, 20000.0, 20000.0);
 
             //for (int i = 0; i < 5; i++)
