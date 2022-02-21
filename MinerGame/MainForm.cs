@@ -166,11 +166,11 @@ namespace MinerGame
 
         private void BtnNewPlanet_Click(object sender, EventArgs e)
         {
-            int id = FindPlanetID();
-
-            //dodać "opłatę" za nową planetę
-            //i jeśli się uda to dalej...
             ogame.UpdateResources(DateTime.Now);
+
+            //activePlanet.Fleet[Item.COLONY_SHIP]--;
+
+            int id = FindPlanetID();
 
             ogame.Planets.Add(new Planet(id));
             Planet p = ogame.Planets.ElementAt(ogame.Planets.Count - 1);
@@ -182,12 +182,12 @@ namespace MinerGame
 
         private void BtnUpgradeBuilding_Click(object sender, EventArgs e)
         {
+            ogame.UpdateResources(DateTime.Now);
+
             Item item = BuildingUpgradeButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
             Resources cost = GameHandler.UpgradeCost(item, activePlanet.Buildings[item].Level + 1);
             activePlanet.Resources.Subtract(cost);
-            activePlanet.Buildings[item].IsProcessing = true;
-
-            ogame.UpdateResources(DateTime.Now);
+            activePlanet.Buildings[item].IsProcessing = true;            
 
             TimeSpan duration = GameHandler.BuildingTime(cost, activePlanet.Buildings[Item.ROBOTICS_FACTORY].Level, activePlanet.Buildings[Item.NANITE_FACTORY].Level);
 
@@ -201,12 +201,13 @@ namespace MinerGame
 
         private void BtnResearchUpgrade_Click(object sender, EventArgs e)
         {
+            ogame.UpdateResources(DateTime.Now);
+
             Item item = ResearchUpgradeButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
             Resources cost = GameHandler.UpgradeCost(item, OGame.Researches[item].Level + 1);
             activePlanet.Resources.Subtract(cost);
             OGame.Researches[item].IsProcessing = true;
-
-            ogame.UpdateResources(DateTime.Now);
+            
             int lablvl = GameHandler.LabLevel(activePlanet, ogame.Planets, OGame.Researches[Item.IRN].Level, GameData.REQUIREMENTS[item][Item.RESEARCH_LAB]);
             TimeSpan duration = GameHandler.ResearchTime(cost, lablvl, OGame.Researches[Item.GRAVITON_TECHNOLOGY].Level);
 
@@ -671,6 +672,7 @@ namespace MinerGame
 
             lblPlanetCount.Text = currentPlanetsCount.ToString("N0") + " / " + maxPlanets.ToString("N0");
 
+            //if (currentPlanetsCount < maxPlanets && activePlanet.Fleet[Item.COLONY_SHIP] > 0)
             if (currentPlanetsCount < maxPlanets)
             {
                 btnNewPlanet.Enabled = true;
@@ -840,7 +842,10 @@ namespace MinerGame
             {
                 if (activePlanet.Buildings[item].IsProcessing)
                 {
-                    DateTime finishDate = OGame.TimeEvents.Where(te => te.Item == item && te.PlanetID == activePlanet.PlanetID).Select(pe => pe.ProcessFinish).ToList().ElementAt(0);
+                    DateTime finishDate = OGame.TimeEvents.Where(te => te.Item == item && te.PlanetID == activePlanet.PlanetID)
+                                                          .Select(pe => pe.ProcessFinish)
+                                                          .ToList()
+                                                          .ElementAt(0);
 
                     BuildingTimeRemainLabelList[item].Text = (finishDate - ogame.LastUpdate).ToString("d'd 'hh'h 'mm'm 'ss's'");
                 }
@@ -1221,6 +1226,7 @@ namespace MinerGame
                 }
                 OGame.TimeEvents.RemoveAt(0);
             }
+
             return newLastUpdate;
         }
         #endregion
