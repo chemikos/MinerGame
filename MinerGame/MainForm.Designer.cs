@@ -132,6 +132,7 @@ namespace MinerGame
             this.lblMetalMineLevel = new System.Windows.Forms.Label();
             this.lblMetalMine = new System.Windows.Forms.Label();
             this.tpProduction = new System.Windows.Forms.TabPage();
+            this.pProductionGeneratedContent = new System.Windows.Forms.Panel();
             this.pTotalProduction = new System.Windows.Forms.Panel();
             this.pTotalProductionDetails = new System.Windows.Forms.Panel();
             this.pTotalDeuteriumProductionDetails = new System.Windows.Forms.Panel();
@@ -157,6 +158,7 @@ namespace MinerGame
             this.lblTotalMetalMineLevel = new System.Windows.Forms.Label();
             this.lblTotalProduction = new System.Windows.Forms.Label();
             this.pTotalProductionHeader = new System.Windows.Forms.Panel();
+            this.lblTimeToFillStorage = new System.Windows.Forms.Label();
             this.lblProductionBasic = new System.Windows.Forms.Label();
             this.lblProductionCrawlers = new System.Windows.Forms.Label();
             this.lblProductionPlasma = new System.Windows.Forms.Label();
@@ -1832,6 +1834,7 @@ namespace MinerGame
             // 
             this.tpProduction.AutoScroll = true;
             this.tpProduction.BackColor = System.Drawing.Color.Silver;
+            this.tpProduction.Controls.Add(this.pProductionGeneratedContent);
             this.tpProduction.Controls.Add(this.pTotalProduction);
             this.tpProduction.Controls.Add(this.pTotalProductionHeader);
             this.tpProduction.Location = new System.Drawing.Point(4, 29);
@@ -1841,15 +1844,24 @@ namespace MinerGame
             this.tpProduction.TabIndex = 5;
             this.tpProduction.Text = "Wydobycie";
             // 
+            // pProductionGeneratedContent
+            // 
+            this.pProductionGeneratedContent.AutoSize = true;
+            this.pProductionGeneratedContent.BackColor = System.Drawing.Color.Silver;
+            this.pProductionGeneratedContent.Location = new System.Drawing.Point(3, 108);
+            this.pProductionGeneratedContent.Name = "pProductionGeneratedContent";
+            this.pProductionGeneratedContent.Size = new System.Drawing.Size(1779, 689);
+            this.pProductionGeneratedContent.TabIndex = 5;
+            // 
             // pTotalProduction
             // 
+            this.pTotalProduction.AutoSize = true;
             this.pTotalProduction.BackColor = System.Drawing.Color.Gold;
             this.pTotalProduction.Controls.Add(this.pTotalProductionDetails);
             this.pTotalProduction.Controls.Add(this.lblTotalProduction);
-            this.pTotalProduction.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTotalProduction.Location = new System.Drawing.Point(3, 33);
             this.pTotalProduction.Name = "pTotalProduction";
-            this.pTotalProduction.Size = new System.Drawing.Size(1765, 75);
+            this.pTotalProduction.Size = new System.Drawing.Size(1779, 75);
             this.pTotalProduction.TabIndex = 3;
             // 
             // pTotalProductionDetails
@@ -2171,7 +2183,9 @@ namespace MinerGame
             // 
             // pTotalProductionHeader
             // 
+            this.pTotalProductionHeader.AutoSize = true;
             this.pTotalProductionHeader.BackColor = System.Drawing.Color.Yellow;
+            this.pTotalProductionHeader.Controls.Add(this.lblTimeToFillStorage);
             this.pTotalProductionHeader.Controls.Add(this.lblProductionBasic);
             this.pTotalProductionHeader.Controls.Add(this.lblProductionCrawlers);
             this.pTotalProductionHeader.Controls.Add(this.lblProductionPlasma);
@@ -2179,11 +2193,23 @@ namespace MinerGame
             this.pTotalProductionHeader.Controls.Add(this.lblProductionTotal);
             this.pTotalProductionHeader.Controls.Add(this.lblProductionLevel);
             this.pTotalProductionHeader.Controls.Add(this.lblProductionPlanet);
-            this.pTotalProductionHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTotalProductionHeader.Location = new System.Drawing.Point(3, 3);
             this.pTotalProductionHeader.Name = "pTotalProductionHeader";
-            this.pTotalProductionHeader.Size = new System.Drawing.Size(1765, 30);
+            this.pTotalProductionHeader.Size = new System.Drawing.Size(1779, 30);
             this.pTotalProductionHeader.TabIndex = 4;
+            // 
+            // lblTimeToFillStorage
+            // 
+            this.lblTimeToFillStorage.BackColor = System.Drawing.Color.Transparent;
+            this.lblTimeToFillStorage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTimeToFillStorage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTimeToFillStorage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTimeToFillStorage.Location = new System.Drawing.Point(1010, 0);
+            this.lblTimeToFillStorage.Name = "lblTimeToFillStorage";
+            this.lblTimeToFillStorage.Size = new System.Drawing.Size(160, 30);
+            this.lblTimeToFillStorage.TabIndex = 17;
+            this.lblTimeToFillStorage.Text = "Wypełnienie magazynu";
+            this.lblTimeToFillStorage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblProductionBasic
             // 
@@ -6029,6 +6055,7 @@ namespace MinerGame
             this.pCrystalMine.ResumeLayout(false);
             this.pMetalMine.ResumeLayout(false);
             this.tpProduction.ResumeLayout(false);
+            this.tpProduction.PerformLayout();
             this.pTotalProduction.ResumeLayout(false);
             this.pTotalProductionDetails.ResumeLayout(false);
             this.pTotalDeuteriumProductionDetails.ResumeLayout(false);
@@ -6503,6 +6530,8 @@ namespace MinerGame
         private System.Windows.Forms.Label lblTotalCrystalMineLevel;
         private System.Windows.Forms.Label lblTotalMetalMineLevel;
         private System.Windows.Forms.Label lblProductionLevel;
+        private System.Windows.Forms.Label lblTimeToFillStorage;
+        private System.Windows.Forms.Panel pProductionGeneratedContent;
     }
 }
 
