@@ -132,6 +132,38 @@ namespace MinerGame
             this.lblMetalMineLevel = new System.Windows.Forms.Label();
             this.lblMetalMine = new System.Windows.Forms.Label();
             this.tpProduction = new System.Windows.Forms.TabPage();
+            this.pTotalProduction = new System.Windows.Forms.Panel();
+            this.pTotalProductionDetails = new System.Windows.Forms.Panel();
+            this.pTotalDeuteriumProductionDetails = new System.Windows.Forms.Panel();
+            this.lblTotalDeuteriumProductionBasic = new System.Windows.Forms.Label();
+            this.lblTotalDeuteriumProductionCrawlers = new System.Windows.Forms.Label();
+            this.lblTotalDeuteriumProductionPlasma = new System.Windows.Forms.Label();
+            this.lblTotalDeuteriumProductionMine = new System.Windows.Forms.Label();
+            this.lblTotalDeuteriumProduction = new System.Windows.Forms.Label();
+            this.lblTotalDeuteriumSynthesizerLevel = new System.Windows.Forms.Label();
+            this.pTotalCrystalProductionDetails = new System.Windows.Forms.Panel();
+            this.lblTotalCrystalProductionBasic = new System.Windows.Forms.Label();
+            this.lblTotalCrystalProductionCrawlers = new System.Windows.Forms.Label();
+            this.lblTotalCrystalProductionPlasma = new System.Windows.Forms.Label();
+            this.lblTotalCrystalProductionMine = new System.Windows.Forms.Label();
+            this.lblTotalCrystalProduction = new System.Windows.Forms.Label();
+            this.lblTotalCrystalMineLevel = new System.Windows.Forms.Label();
+            this.pTotalMetalProductionDetails = new System.Windows.Forms.Panel();
+            this.lblTotalMetalProductionBasic = new System.Windows.Forms.Label();
+            this.lblTotalMetalProductionCrawlers = new System.Windows.Forms.Label();
+            this.lblTotalMetalProductionPlasma = new System.Windows.Forms.Label();
+            this.lblTotalMetalProductionMine = new System.Windows.Forms.Label();
+            this.lblTotalMetalProduction = new System.Windows.Forms.Label();
+            this.lblTotalMetalMineLevel = new System.Windows.Forms.Label();
+            this.lblTotalProduction = new System.Windows.Forms.Label();
+            this.pTotalProductionHeader = new System.Windows.Forms.Panel();
+            this.lblProductionBasic = new System.Windows.Forms.Label();
+            this.lblProductionCrawlers = new System.Windows.Forms.Label();
+            this.lblProductionPlasma = new System.Windows.Forms.Label();
+            this.lblProductionMine = new System.Windows.Forms.Label();
+            this.lblProductionTotal = new System.Windows.Forms.Label();
+            this.lblProductionLevel = new System.Windows.Forms.Label();
+            this.lblProductionPlanet = new System.Windows.Forms.Label();
             this.tpStation = new System.Windows.Forms.TabPage();
             this.pJumpGate = new System.Windows.Forms.Panel();
             this.lblJumpGateTimeRemain = new System.Windows.Forms.Label();
@@ -433,6 +465,13 @@ namespace MinerGame
             this.pDeuteriumSynthesizer.SuspendLayout();
             this.pCrystalMine.SuspendLayout();
             this.pMetalMine.SuspendLayout();
+            this.tpProduction.SuspendLayout();
+            this.pTotalProduction.SuspendLayout();
+            this.pTotalProductionDetails.SuspendLayout();
+            this.pTotalDeuteriumProductionDetails.SuspendLayout();
+            this.pTotalCrystalProductionDetails.SuspendLayout();
+            this.pTotalMetalProductionDetails.SuspendLayout();
+            this.pTotalProductionHeader.SuspendLayout();
             this.tpStation.SuspendLayout();
             this.pJumpGate.SuspendLayout();
             this.pSensorPhalanx.SuspendLayout();
@@ -1791,13 +1830,451 @@ namespace MinerGame
             // 
             // tpProduction
             // 
+            this.tpProduction.AutoScroll = true;
             this.tpProduction.BackColor = System.Drawing.Color.Silver;
+            this.tpProduction.Controls.Add(this.pTotalProduction);
+            this.tpProduction.Controls.Add(this.pTotalProductionHeader);
             this.tpProduction.Location = new System.Drawing.Point(4, 29);
             this.tpProduction.Name = "tpProduction";
             this.tpProduction.Padding = new System.Windows.Forms.Padding(3);
             this.tpProduction.Size = new System.Drawing.Size(1771, 800);
             this.tpProduction.TabIndex = 5;
             this.tpProduction.Text = "Wydobycie";
+            // 
+            // pTotalProduction
+            // 
+            this.pTotalProduction.BackColor = System.Drawing.Color.Gold;
+            this.pTotalProduction.Controls.Add(this.pTotalProductionDetails);
+            this.pTotalProduction.Controls.Add(this.lblTotalProduction);
+            this.pTotalProduction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTotalProduction.Location = new System.Drawing.Point(3, 33);
+            this.pTotalProduction.Name = "pTotalProduction";
+            this.pTotalProduction.Size = new System.Drawing.Size(1765, 75);
+            this.pTotalProduction.TabIndex = 3;
+            // 
+            // pTotalProductionDetails
+            // 
+            this.pTotalProductionDetails.Controls.Add(this.pTotalDeuteriumProductionDetails);
+            this.pTotalProductionDetails.Controls.Add(this.pTotalCrystalProductionDetails);
+            this.pTotalProductionDetails.Controls.Add(this.pTotalMetalProductionDetails);
+            this.pTotalProductionDetails.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pTotalProductionDetails.Location = new System.Drawing.Point(160, 0);
+            this.pTotalProductionDetails.Name = "pTotalProductionDetails";
+            this.pTotalProductionDetails.Size = new System.Drawing.Size(850, 75);
+            this.pTotalProductionDetails.TabIndex = 12;
+            // 
+            // pTotalDeuteriumProductionDetails
+            // 
+            this.pTotalDeuteriumProductionDetails.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionBasic);
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionCrawlers);
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionPlasma);
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionMine);
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProduction);
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumSynthesizerLevel);
+            this.pTotalDeuteriumProductionDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTotalDeuteriumProductionDetails.Location = new System.Drawing.Point(0, 50);
+            this.pTotalDeuteriumProductionDetails.Name = "pTotalDeuteriumProductionDetails";
+            this.pTotalDeuteriumProductionDetails.Size = new System.Drawing.Size(850, 25);
+            this.pTotalDeuteriumProductionDetails.TabIndex = 2;
+            // 
+            // lblTotalDeuteriumProductionBasic
+            // 
+            this.lblTotalDeuteriumProductionBasic.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeuteriumProductionBasic.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalDeuteriumProductionBasic.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalDeuteriumProductionBasic.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDeuteriumProductionBasic.Location = new System.Drawing.Point(690, 0);
+            this.lblTotalDeuteriumProductionBasic.Name = "lblTotalDeuteriumProductionBasic";
+            this.lblTotalDeuteriumProductionBasic.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalDeuteriumProductionBasic.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalDeuteriumProductionBasic.TabIndex = 15;
+            this.lblTotalDeuteriumProductionBasic.Text = "100 000";
+            this.lblTotalDeuteriumProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalDeuteriumProductionCrawlers
+            // 
+            this.lblTotalDeuteriumProductionCrawlers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeuteriumProductionCrawlers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalDeuteriumProductionCrawlers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalDeuteriumProductionCrawlers.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDeuteriumProductionCrawlers.Location = new System.Drawing.Point(530, 0);
+            this.lblTotalDeuteriumProductionCrawlers.Name = "lblTotalDeuteriumProductionCrawlers";
+            this.lblTotalDeuteriumProductionCrawlers.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalDeuteriumProductionCrawlers.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalDeuteriumProductionCrawlers.TabIndex = 14;
+            this.lblTotalDeuteriumProductionCrawlers.Text = "100 000";
+            this.lblTotalDeuteriumProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalDeuteriumProductionPlasma
+            // 
+            this.lblTotalDeuteriumProductionPlasma.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeuteriumProductionPlasma.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalDeuteriumProductionPlasma.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalDeuteriumProductionPlasma.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDeuteriumProductionPlasma.Location = new System.Drawing.Point(370, 0);
+            this.lblTotalDeuteriumProductionPlasma.Name = "lblTotalDeuteriumProductionPlasma";
+            this.lblTotalDeuteriumProductionPlasma.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalDeuteriumProductionPlasma.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalDeuteriumProductionPlasma.TabIndex = 13;
+            this.lblTotalDeuteriumProductionPlasma.Text = "100 000";
+            this.lblTotalDeuteriumProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalDeuteriumProductionMine
+            // 
+            this.lblTotalDeuteriumProductionMine.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeuteriumProductionMine.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalDeuteriumProductionMine.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalDeuteriumProductionMine.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDeuteriumProductionMine.Location = new System.Drawing.Point(210, 0);
+            this.lblTotalDeuteriumProductionMine.Name = "lblTotalDeuteriumProductionMine";
+            this.lblTotalDeuteriumProductionMine.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalDeuteriumProductionMine.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalDeuteriumProductionMine.TabIndex = 12;
+            this.lblTotalDeuteriumProductionMine.Text = "100 000";
+            this.lblTotalDeuteriumProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalDeuteriumProduction
+            // 
+            this.lblTotalDeuteriumProduction.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeuteriumProduction.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalDeuteriumProduction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalDeuteriumProduction.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDeuteriumProduction.Location = new System.Drawing.Point(50, 0);
+            this.lblTotalDeuteriumProduction.Name = "lblTotalDeuteriumProduction";
+            this.lblTotalDeuteriumProduction.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalDeuteriumProduction.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalDeuteriumProduction.TabIndex = 11;
+            this.lblTotalDeuteriumProduction.Text = "100 000";
+            this.lblTotalDeuteriumProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalDeuteriumSynthesizerLevel
+            // 
+            this.lblTotalDeuteriumSynthesizerLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeuteriumSynthesizerLevel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalDeuteriumSynthesizerLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalDeuteriumSynthesizerLevel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDeuteriumSynthesizerLevel.Location = new System.Drawing.Point(0, 0);
+            this.lblTotalDeuteriumSynthesizerLevel.Name = "lblTotalDeuteriumSynthesizerLevel";
+            this.lblTotalDeuteriumSynthesizerLevel.Size = new System.Drawing.Size(50, 25);
+            this.lblTotalDeuteriumSynthesizerLevel.TabIndex = 16;
+            this.lblTotalDeuteriumSynthesizerLevel.Text = "200";
+            this.lblTotalDeuteriumSynthesizerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pTotalCrystalProductionDetails
+            // 
+            this.pTotalCrystalProductionDetails.BackColor = System.Drawing.Color.Coral;
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionBasic);
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionCrawlers);
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionPlasma);
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionMine);
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProduction);
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalMineLevel);
+            this.pTotalCrystalProductionDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTotalCrystalProductionDetails.Location = new System.Drawing.Point(0, 25);
+            this.pTotalCrystalProductionDetails.Name = "pTotalCrystalProductionDetails";
+            this.pTotalCrystalProductionDetails.Size = new System.Drawing.Size(850, 25);
+            this.pTotalCrystalProductionDetails.TabIndex = 1;
+            // 
+            // lblTotalCrystalProductionBasic
+            // 
+            this.lblTotalCrystalProductionBasic.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCrystalProductionBasic.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalCrystalProductionBasic.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCrystalProductionBasic.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalCrystalProductionBasic.Location = new System.Drawing.Point(690, 0);
+            this.lblTotalCrystalProductionBasic.Name = "lblTotalCrystalProductionBasic";
+            this.lblTotalCrystalProductionBasic.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalCrystalProductionBasic.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalCrystalProductionBasic.TabIndex = 14;
+            this.lblTotalCrystalProductionBasic.Text = "100 000";
+            this.lblTotalCrystalProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalCrystalProductionCrawlers
+            // 
+            this.lblTotalCrystalProductionCrawlers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCrystalProductionCrawlers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalCrystalProductionCrawlers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCrystalProductionCrawlers.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalCrystalProductionCrawlers.Location = new System.Drawing.Point(530, 0);
+            this.lblTotalCrystalProductionCrawlers.Name = "lblTotalCrystalProductionCrawlers";
+            this.lblTotalCrystalProductionCrawlers.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalCrystalProductionCrawlers.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalCrystalProductionCrawlers.TabIndex = 13;
+            this.lblTotalCrystalProductionCrawlers.Text = "100 000";
+            this.lblTotalCrystalProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalCrystalProductionPlasma
+            // 
+            this.lblTotalCrystalProductionPlasma.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCrystalProductionPlasma.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalCrystalProductionPlasma.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCrystalProductionPlasma.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalCrystalProductionPlasma.Location = new System.Drawing.Point(370, 0);
+            this.lblTotalCrystalProductionPlasma.Name = "lblTotalCrystalProductionPlasma";
+            this.lblTotalCrystalProductionPlasma.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalCrystalProductionPlasma.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalCrystalProductionPlasma.TabIndex = 12;
+            this.lblTotalCrystalProductionPlasma.Text = "100 000";
+            this.lblTotalCrystalProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalCrystalProductionMine
+            // 
+            this.lblTotalCrystalProductionMine.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCrystalProductionMine.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalCrystalProductionMine.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCrystalProductionMine.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalCrystalProductionMine.Location = new System.Drawing.Point(210, 0);
+            this.lblTotalCrystalProductionMine.Name = "lblTotalCrystalProductionMine";
+            this.lblTotalCrystalProductionMine.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalCrystalProductionMine.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalCrystalProductionMine.TabIndex = 11;
+            this.lblTotalCrystalProductionMine.Text = "100 000";
+            this.lblTotalCrystalProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalCrystalProduction
+            // 
+            this.lblTotalCrystalProduction.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCrystalProduction.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalCrystalProduction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCrystalProduction.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalCrystalProduction.Location = new System.Drawing.Point(50, 0);
+            this.lblTotalCrystalProduction.Name = "lblTotalCrystalProduction";
+            this.lblTotalCrystalProduction.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalCrystalProduction.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalCrystalProduction.TabIndex = 10;
+            this.lblTotalCrystalProduction.Text = "100 000";
+            this.lblTotalCrystalProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalCrystalMineLevel
+            // 
+            this.lblTotalCrystalMineLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalCrystalMineLevel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalCrystalMineLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalCrystalMineLevel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalCrystalMineLevel.Location = new System.Drawing.Point(0, 0);
+            this.lblTotalCrystalMineLevel.Name = "lblTotalCrystalMineLevel";
+            this.lblTotalCrystalMineLevel.Size = new System.Drawing.Size(50, 25);
+            this.lblTotalCrystalMineLevel.TabIndex = 15;
+            this.lblTotalCrystalMineLevel.Text = "200";
+            this.lblTotalCrystalMineLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pTotalMetalProductionDetails
+            // 
+            this.pTotalMetalProductionDetails.BackColor = System.Drawing.Color.Silver;
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionBasic);
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionCrawlers);
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionPlasma);
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionMine);
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProduction);
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalMineLevel);
+            this.pTotalMetalProductionDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTotalMetalProductionDetails.Location = new System.Drawing.Point(0, 0);
+            this.pTotalMetalProductionDetails.Name = "pTotalMetalProductionDetails";
+            this.pTotalMetalProductionDetails.Size = new System.Drawing.Size(850, 25);
+            this.pTotalMetalProductionDetails.TabIndex = 0;
+            // 
+            // lblTotalMetalProductionBasic
+            // 
+            this.lblTotalMetalProductionBasic.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalMetalProductionBasic.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalMetalProductionBasic.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalMetalProductionBasic.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMetalProductionBasic.Location = new System.Drawing.Point(690, 0);
+            this.lblTotalMetalProductionBasic.Name = "lblTotalMetalProductionBasic";
+            this.lblTotalMetalProductionBasic.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalMetalProductionBasic.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalMetalProductionBasic.TabIndex = 13;
+            this.lblTotalMetalProductionBasic.Text = "200";
+            this.lblTotalMetalProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalMetalProductionCrawlers
+            // 
+            this.lblTotalMetalProductionCrawlers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalMetalProductionCrawlers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalMetalProductionCrawlers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalMetalProductionCrawlers.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMetalProductionCrawlers.Location = new System.Drawing.Point(530, 0);
+            this.lblTotalMetalProductionCrawlers.Name = "lblTotalMetalProductionCrawlers";
+            this.lblTotalMetalProductionCrawlers.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalMetalProductionCrawlers.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalMetalProductionCrawlers.TabIndex = 12;
+            this.lblTotalMetalProductionCrawlers.Text = "800";
+            this.lblTotalMetalProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalMetalProductionPlasma
+            // 
+            this.lblTotalMetalProductionPlasma.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalMetalProductionPlasma.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalMetalProductionPlasma.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalMetalProductionPlasma.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMetalProductionPlasma.Location = new System.Drawing.Point(370, 0);
+            this.lblTotalMetalProductionPlasma.Name = "lblTotalMetalProductionPlasma";
+            this.lblTotalMetalProductionPlasma.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalMetalProductionPlasma.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalMetalProductionPlasma.TabIndex = 11;
+            this.lblTotalMetalProductionPlasma.Text = "14 000";
+            this.lblTotalMetalProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalMetalProductionMine
+            // 
+            this.lblTotalMetalProductionMine.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalMetalProductionMine.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalMetalProductionMine.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalMetalProductionMine.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMetalProductionMine.Location = new System.Drawing.Point(210, 0);
+            this.lblTotalMetalProductionMine.Name = "lblTotalMetalProductionMine";
+            this.lblTotalMetalProductionMine.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalMetalProductionMine.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalMetalProductionMine.TabIndex = 10;
+            this.lblTotalMetalProductionMine.Text = "85 000";
+            this.lblTotalMetalProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalMetalProduction
+            // 
+            this.lblTotalMetalProduction.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalMetalProduction.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalMetalProduction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalMetalProduction.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMetalProduction.Location = new System.Drawing.Point(50, 0);
+            this.lblTotalMetalProduction.Name = "lblTotalMetalProduction";
+            this.lblTotalMetalProduction.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblTotalMetalProduction.Size = new System.Drawing.Size(160, 25);
+            this.lblTotalMetalProduction.TabIndex = 9;
+            this.lblTotalMetalProduction.Text = "100 000";
+            this.lblTotalMetalProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotalMetalMineLevel
+            // 
+            this.lblTotalMetalMineLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalMetalMineLevel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalMetalMineLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalMetalMineLevel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMetalMineLevel.Location = new System.Drawing.Point(0, 0);
+            this.lblTotalMetalMineLevel.Name = "lblTotalMetalMineLevel";
+            this.lblTotalMetalMineLevel.Size = new System.Drawing.Size(50, 25);
+            this.lblTotalMetalMineLevel.TabIndex = 14;
+            this.lblTotalMetalMineLevel.Text = "200";
+            this.lblTotalMetalMineLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalProduction
+            // 
+            this.lblTotalProduction.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalProduction.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTotalProduction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalProduction.Location = new System.Drawing.Point(0, 0);
+            this.lblTotalProduction.Name = "lblTotalProduction";
+            this.lblTotalProduction.Size = new System.Drawing.Size(160, 75);
+            this.lblTotalProduction.TabIndex = 7;
+            this.lblTotalProduction.Text = "Razem";
+            this.lblTotalProduction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pTotalProductionHeader
+            // 
+            this.pTotalProductionHeader.BackColor = System.Drawing.Color.Yellow;
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionBasic);
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionCrawlers);
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionPlasma);
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionMine);
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionTotal);
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionLevel);
+            this.pTotalProductionHeader.Controls.Add(this.lblProductionPlanet);
+            this.pTotalProductionHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTotalProductionHeader.Location = new System.Drawing.Point(3, 3);
+            this.pTotalProductionHeader.Name = "pTotalProductionHeader";
+            this.pTotalProductionHeader.Size = new System.Drawing.Size(1765, 30);
+            this.pTotalProductionHeader.TabIndex = 4;
+            // 
+            // lblProductionBasic
+            // 
+            this.lblProductionBasic.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionBasic.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionBasic.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionBasic.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionBasic.Location = new System.Drawing.Point(850, 0);
+            this.lblProductionBasic.Name = "lblProductionBasic";
+            this.lblProductionBasic.Size = new System.Drawing.Size(160, 30);
+            this.lblProductionBasic.TabIndex = 15;
+            this.lblProductionBasic.Text = "Wydobycie podstawowe";
+            this.lblProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProductionCrawlers
+            // 
+            this.lblProductionCrawlers.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionCrawlers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionCrawlers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionCrawlers.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionCrawlers.Location = new System.Drawing.Point(690, 0);
+            this.lblProductionCrawlers.Name = "lblProductionCrawlers";
+            this.lblProductionCrawlers.Size = new System.Drawing.Size(160, 30);
+            this.lblProductionCrawlers.TabIndex = 14;
+            this.lblProductionCrawlers.Text = "Pełzacze";
+            this.lblProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProductionPlasma
+            // 
+            this.lblProductionPlasma.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionPlasma.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionPlasma.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionPlasma.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionPlasma.Location = new System.Drawing.Point(530, 0);
+            this.lblProductionPlasma.Name = "lblProductionPlasma";
+            this.lblProductionPlasma.Size = new System.Drawing.Size(160, 30);
+            this.lblProductionPlasma.TabIndex = 13;
+            this.lblProductionPlasma.Text = "Technologia plazmowa";
+            this.lblProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProductionMine
+            // 
+            this.lblProductionMine.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionMine.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionMine.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionMine.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionMine.Location = new System.Drawing.Point(370, 0);
+            this.lblProductionMine.Name = "lblProductionMine";
+            this.lblProductionMine.Size = new System.Drawing.Size(160, 30);
+            this.lblProductionMine.TabIndex = 12;
+            this.lblProductionMine.Text = "Kopalnia";
+            this.lblProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProductionTotal
+            // 
+            this.lblProductionTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionTotal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionTotal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionTotal.Location = new System.Drawing.Point(210, 0);
+            this.lblProductionTotal.Name = "lblProductionTotal";
+            this.lblProductionTotal.Size = new System.Drawing.Size(160, 30);
+            this.lblProductionTotal.TabIndex = 11;
+            this.lblProductionTotal.Text = "Razem";
+            this.lblProductionTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProductionLevel
+            // 
+            this.lblProductionLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionLevel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionLevel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionLevel.Location = new System.Drawing.Point(160, 0);
+            this.lblProductionLevel.Name = "lblProductionLevel";
+            this.lblProductionLevel.Size = new System.Drawing.Size(50, 30);
+            this.lblProductionLevel.TabIndex = 16;
+            this.lblProductionLevel.Text = "Poziom";
+            this.lblProductionLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProductionPlanet
+            // 
+            this.lblProductionPlanet.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductionPlanet.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblProductionPlanet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductionPlanet.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductionPlanet.Location = new System.Drawing.Point(0, 0);
+            this.lblProductionPlanet.Name = "lblProductionPlanet";
+            this.lblProductionPlanet.Size = new System.Drawing.Size(160, 30);
+            this.lblProductionPlanet.TabIndex = 10;
+            this.lblProductionPlanet.Text = "Planeta";
+            this.lblProductionPlanet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tpStation
             // 
@@ -5551,6 +6028,13 @@ namespace MinerGame
             this.pDeuteriumSynthesizer.ResumeLayout(false);
             this.pCrystalMine.ResumeLayout(false);
             this.pMetalMine.ResumeLayout(false);
+            this.tpProduction.ResumeLayout(false);
+            this.pTotalProduction.ResumeLayout(false);
+            this.pTotalProductionDetails.ResumeLayout(false);
+            this.pTotalDeuteriumProductionDetails.ResumeLayout(false);
+            this.pTotalCrystalProductionDetails.ResumeLayout(false);
+            this.pTotalMetalProductionDetails.ResumeLayout(false);
+            this.pTotalProductionHeader.ResumeLayout(false);
             this.tpStation.ResumeLayout(false);
             this.pJumpGate.ResumeLayout(false);
             this.pSensorPhalanx.ResumeLayout(false);
@@ -5987,6 +6471,38 @@ namespace MinerGame
         private System.Windows.Forms.Label lblCombustionDriveTimeRemain;
         private System.Windows.Forms.Label lblComputerTechnologyTimeRemain;
         private System.Windows.Forms.Label lblEspionageTechnologyTimeRemain;
+        private System.Windows.Forms.Panel pTotalProduction;
+        private System.Windows.Forms.Label lblTotalDeuteriumProduction;
+        private System.Windows.Forms.Label lblTotalCrystalProduction;
+        private System.Windows.Forms.Label lblTotalMetalProduction;
+        private System.Windows.Forms.Label lblTotalProduction;
+        private System.Windows.Forms.Panel pTotalProductionDetails;
+        private System.Windows.Forms.Panel pTotalDeuteriumProductionDetails;
+        private System.Windows.Forms.Panel pTotalCrystalProductionDetails;
+        private System.Windows.Forms.Panel pTotalMetalProductionDetails;
+        private System.Windows.Forms.Label lblTotalMetalProductionBasic;
+        private System.Windows.Forms.Label lblTotalMetalProductionCrawlers;
+        private System.Windows.Forms.Label lblTotalMetalProductionPlasma;
+        private System.Windows.Forms.Label lblTotalMetalProductionMine;
+        private System.Windows.Forms.Panel pTotalProductionHeader;
+        private System.Windows.Forms.Label lblProductionBasic;
+        private System.Windows.Forms.Label lblProductionCrawlers;
+        private System.Windows.Forms.Label lblProductionPlasma;
+        private System.Windows.Forms.Label lblProductionMine;
+        private System.Windows.Forms.Label lblProductionTotal;
+        private System.Windows.Forms.Label lblProductionPlanet;
+        private System.Windows.Forms.Label lblTotalCrystalProductionBasic;
+        private System.Windows.Forms.Label lblTotalCrystalProductionCrawlers;
+        private System.Windows.Forms.Label lblTotalCrystalProductionPlasma;
+        private System.Windows.Forms.Label lblTotalCrystalProductionMine;
+        private System.Windows.Forms.Label lblTotalDeuteriumProductionBasic;
+        private System.Windows.Forms.Label lblTotalDeuteriumProductionCrawlers;
+        private System.Windows.Forms.Label lblTotalDeuteriumProductionPlasma;
+        private System.Windows.Forms.Label lblTotalDeuteriumProductionMine;
+        private System.Windows.Forms.Label lblTotalDeuteriumSynthesizerLevel;
+        private System.Windows.Forms.Label lblTotalCrystalMineLevel;
+        private System.Windows.Forms.Label lblTotalMetalMineLevel;
+        private System.Windows.Forms.Label lblProductionLevel;
     }
 }
 

@@ -20,6 +20,13 @@
             Deuterium += second.Deuterium;
         }
 
+        public void Add(double value, Item item)
+        {
+            if (item == Item.METAL) { Metal += value; }
+            if (item == Item.CRYSTAL) { Crystal += value; }
+            if (item == Item.DEUTERIUM) { Deuterium += value; }
+        }
+
         public void Subtract(Resources second)
         {
             Metal -= second.Metal;
