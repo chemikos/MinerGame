@@ -16,9 +16,9 @@ namespace OgameData
         public Dictionary<Item, int> Defences { get; set; }
         #endregion
 
-        public Planet(int id = 0, string name = "Kolonia")
+        public Planet(int id = 0, string name = "")
         {
-            PlanetName = name;
+            PlanetName = name.Length == 0 ? $"Kolonia_{id}" : name;
             PlanetID = id;
             Position = new Position(GameHandler.GeneratePosition());
             Temperature = GameHandler.RandomTemperature();

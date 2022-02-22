@@ -117,7 +117,7 @@ namespace OgameData
         public static double FusionReactorProduction(int level, int energyTechnology)
         {
             const double PRODUCTION = 30.0;
-            const double PRODUCTION_FACTOR = 1.05;
+            const double PRODUCTION_FACTOR = 1.1;
             const double TECHNOLOGY_FACTOR = 0.01;
             return Math.Floor(PRODUCTION * level * Math.Pow(PRODUCTION_FACTOR + TECHNOLOGY_FACTOR * energyTechnology, level));
         }
@@ -137,6 +137,26 @@ namespace OgameData
         public static double EnergyCost(Item item, int level)
         {
             return Math.Ceiling(GameData.COST[item][Item.ENERGY] * Math.Pow(GameData.COST[item][Item.ENERGY_FACTOR], level - 1));
+        }
+        
+        public static double SolarSatelitteEnergy(int temperature, int solarSatelliteis = 1)
+        {
+            return solarSatelliteis * Math.Floor((temperature + 140) / 6.0); ;
+        }
+        
+        public static double PlanetEnergyProduction(Planet p)
+        {
+            return PlanetEnergyProduction(p.Buildings[Item.SOLAR_PLANT].Level, p.Buildings[Item.FUSION_REACTOR].Level,
+                                          OGame.Researches[Item.ENERGY_TECHNOLOGY].Level, p.Temperature, p.Defences[Item.SOLAR_SATELLITE]);
+        }
+
+        public static double PlanetEnergyProduction(int solarPlantLevel,int fusionReactorLevel,int energyTechnologyLevel, int temperature, int satellities)
+        {
+            double solarPlant = SolarPlantProduction(solarPlantLevel);
+            double fusionReactor = FusionReactorProduction(fusionReactorLevel, energyTechnologyLevel);
+            double satellites = SolarSatelitteEnergy(temperature, satellities);
+
+            return solarPlant + fusionReactor + satellites;
         }
         #endregion
         
@@ -203,10 +223,7 @@ namespace OgameData
         public static int LabLevel(Planet planet, List<Planet> planets, int irn, int minLab)
         {
             int level = planet.Buildings[Item.RESEARCH_LAB].Level;
-            if (irn == 0)
-            {
-                return level;
-            }
+            if (irn == 0) { return level; }
 
             var labs = planets  .Where(pl => !pl.Equals(planet))
                                 .Where(pl => pl.Buildings[Item.RESEARCH_LAB].Level >= minLab)
@@ -259,6 +276,7 @@ namespace OgameData
 
             return new int[] { galaxy, solar, planet };
         }
+        
         private static bool IsPositionTaken(int galaxy, int solar, int planet)
         {
             foreach(Position p in OGame.Positions)

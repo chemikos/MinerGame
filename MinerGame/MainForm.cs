@@ -61,8 +61,6 @@ namespace MinerGame
         private void BtnSave_Click(object sender, EventArgs e)
         {
             string ogameSerialized = JsonConvert.SerializeObject(ogame);
-            //File.WriteAllText($@"c:\jsons\{ogame.GameName} x{OGame.GameSpeed}.json", ogameSerialized);
-            //File.WriteAllText($@"{ogame.GameName} x{OGame.GameSpeed}.json", ogameSerialized);
 
             saveFileDialog.Filter = "json files (*.json)|*.json";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -231,6 +229,39 @@ namespace MinerGame
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+        }
+
+        private void TextBox_Click(object sender, EventArgs e)
+        {
+            ((TextBox)sender).Text = "";
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text.Length == 0)
+            {
+                if (tb.Name.Equals(tbNewGameName.Name))
+                {
+                    tb.Text = "Nazwa gry";
+                }
+
+                if (tb.Name.Equals(tbEcoSpeed.Name))
+                {
+                    tb.Text = "Prędkość symulacji";
+                }
+            }
+        }
+
+        private void BtnChangePlanetName_Click(object sender, EventArgs e)
+        {
+            if (tbNewPlanetName.Text.Length != 0)
+            {
+                activePlanet.PlanetName = tbNewPlanetName.Text;
+            }
+
+            FillInfoPanel();
+            FillTabs();
         }
         #endregion
 
@@ -611,8 +642,10 @@ namespace MinerGame
 
         private void FillPlanetEnergyInfoGroupBox()
         {
-            double available = GameHandler.SolarPlantProduction(activePlanet.Buildings[Item.SOLAR_PLANT].Level)
-                             + GameHandler.FusionReactorProduction(activePlanet.Buildings[Item.FUSION_REACTOR].Level, OGame.Researches[Item.ENERGY_TECHNOLOGY].Level);
+            //double available = GameHandler.SolarPlantProduction(activePlanet.Buildings[Item.SOLAR_PLANT].Level)
+            //                  + GameHandler.FusionReactorProduction(activePlanet.Buildings[Item.FUSION_REACTOR].Level, OGame.Researches[Item.ENERGY_TECHNOLOGY].Level);
+
+            double available = GameHandler.PlanetEnergyProduction(activePlanet);
             double demand = GameHandler.MetalMineEnergyDemand(activePlanet.Buildings[Item.METAL_MINE].Level)
                           + GameHandler.CrystalMineEnergyDemand(activePlanet.Buildings[Item.CRYSTAL_MINE].Level)
                           + GameHandler.DeuteriumSynthesizerEnergyDemand(activePlanet.Buildings[Item.DEUTERIUM_SYNTHESIZER].Level);
@@ -731,6 +764,7 @@ namespace MinerGame
             FillResearchTimeRemainLabel();
 
             FillProductionTab();
+            FillPlanetTab();
         }
 
         private void FillNameLabels()
@@ -979,7 +1013,7 @@ namespace MinerGame
 
             panel.BackColor = index % 2 > 0 ? Color.Gold : Color.Yellow;
             panel.Location = new Point(0, 75 * index);
-            panel.Size = new Size(1779, 75);
+            panel.Size = new Size(1889, 75);
         }
         
         private Label CreatePlanetLabel(int index)
@@ -1062,6 +1096,21 @@ namespace MinerGame
         }
         #endregion
 
+        private void FillPlanetTab()
+        {
+            FillTextBoxNewName();
+            EnableBtnChangePlanetName();
+        }
+
+        private void EnableBtnChangePlanetName()
+        {
+            btnChangePlanetName.Enabled = true;
+        }
+
+        private void FillTextBoxNewName()
+        {
+            tbNewPlanetName.Text = activePlanet.PlanetName;
+        }
         #endregion
 
         #region Upgrade Buttons
@@ -1287,5 +1336,7 @@ namespace MinerGame
             //}            
         }
         #endregion
+
+
     }
 }

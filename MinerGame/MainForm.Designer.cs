@@ -32,12 +32,10 @@ namespace MinerGame
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.pMenuLeft = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.pNewGame = new System.Windows.Forms.Panel();
             this.tbEcoSpeed = new System.Windows.Forms.TextBox();
             this.tbNewGameName = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.lblLastUpdate = new System.Windows.Forms.Label();
             this.lblGameNameValue = new System.Windows.Forms.Label();
             this.lblEcoSpeedValue = new System.Windows.Forms.Label();
@@ -407,7 +405,7 @@ namespace MinerGame
             this.tpShipyard = new System.Windows.Forms.TabPage();
             this.pSmallCargo = new System.Windows.Forms.Panel();
             this.tbSmallCargoCount = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblSmallCargoShade = new System.Windows.Forms.Label();
             this.lblSmallCargoDuration = new System.Windows.Forms.Label();
             this.btnSmallCargoConstruct = new System.Windows.Forms.Button();
             this.lblSmallCargoDeuteriumCost = new System.Windows.Forms.Label();
@@ -418,6 +416,10 @@ namespace MinerGame
             this.tpDefence = new System.Windows.Forms.TabPage();
             this.tpRequirements = new System.Windows.Forms.TabPage();
             this.tpFleet = new System.Windows.Forms.TabPage();
+            this.tpPoints = new System.Windows.Forms.TabPage();
+            this.tpPlanet = new System.Windows.Forms.TabPage();
+            this.btnChangePlanetName = new System.Windows.Forms.Button();
+            this.tbNewPlanetName = new System.Windows.Forms.TextBox();
             this.pInfo = new System.Windows.Forms.Panel();
             this.gbPlanetCountInfo = new System.Windows.Forms.GroupBox();
             this.btnDeletePlanet = new System.Windows.Forms.Button();
@@ -452,8 +454,7 @@ namespace MinerGame
             this.cbPlanetSelect = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.pMenuLeft.SuspendLayout();
-            this.pNewGame.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
             this.pContent.SuspendLayout();
             this.pPlanet.SuspendLayout();
             this.pPlanetStructures.SuspendLayout();
@@ -504,6 +505,7 @@ namespace MinerGame
             this.pEspionageTechnology.SuspendLayout();
             this.tpShipyard.SuspendLayout();
             this.pSmallCargo.SuspendLayout();
+            this.tpPlanet.SuspendLayout();
             this.pInfo.SuspendLayout();
             this.gbPlanetCountInfo.SuspendLayout();
             this.gbEnergyInfo.SuspendLayout();
@@ -518,9 +520,9 @@ namespace MinerGame
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(2, 6);
+            this.btnNewGame.Location = new System.Drawing.Point(1420, 6);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(115, 25);
+            this.btnNewGame.Size = new System.Drawing.Size(150, 25);
             this.btnNewGame.TabIndex = 0;
             this.btnNewGame.Text = "Nowa gra";
             this.btnNewGame.UseVisualStyleBackColor = true;
@@ -529,9 +531,9 @@ namespace MinerGame
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(3, 106);
+            this.btnUpdate.Location = new System.Drawing.Point(180, 6);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(115, 25);
+            this.btnUpdate.Size = new System.Drawing.Size(150, 25);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Aktualizuj";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -539,34 +541,42 @@ namespace MinerGame
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(4, 199);
+            this.btnClose.Location = new System.Drawing.Point(690, 6);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(115, 25);
+            this.btnClose.Size = new System.Drawing.Size(150, 25);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Zamknij";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // pMenuLeft
+            // tbEcoSpeed
             // 
-            this.pMenuLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pMenuLeft.Controls.Add(this.btnSave);
-            this.pMenuLeft.Controls.Add(this.btnLoad);
-            this.pMenuLeft.Controls.Add(this.pNewGame);
-            this.pMenuLeft.Controls.Add(this.btnClose);
-            this.pMenuLeft.Controls.Add(this.btnUpdate);
-            this.pMenuLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pMenuLeft.Location = new System.Drawing.Point(0, 0);
-            this.pMenuLeft.Name = "pMenuLeft";
-            this.pMenuLeft.Size = new System.Drawing.Size(125, 1011);
-            this.pMenuLeft.TabIndex = 3;
+            this.tbEcoSpeed.Location = new System.Drawing.Point(1760, 6);
+            this.tbEcoSpeed.Name = "tbEcoSpeed";
+            this.tbEcoSpeed.Size = new System.Drawing.Size(150, 23);
+            this.tbEcoSpeed.TabIndex = 2;
+            this.tbEcoSpeed.Text = "Prędkość symulacji";
+            this.tbEcoSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbEcoSpeed.Click += new System.EventHandler(this.TextBox_Click);
+            this.tbEcoSpeed.Leave += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // tbNewGameName
+            // 
+            this.tbNewGameName.Location = new System.Drawing.Point(1590, 6);
+            this.tbNewGameName.Name = "tbNewGameName";
+            this.tbNewGameName.Size = new System.Drawing.Size(150, 23);
+            this.tbNewGameName.TabIndex = 1;
+            this.tbNewGameName.Text = "Nazwa gry";
+            this.tbNewGameName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbNewGameName.Click += new System.EventHandler(this.TextBox_Click);
+            this.tbNewGameName.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(4, 168);
+            this.btnSave.Location = new System.Drawing.Point(350, 6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(115, 25);
+            this.btnSave.Size = new System.Drawing.Size(150, 25);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Zapisz";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -574,41 +584,13 @@ namespace MinerGame
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(3, 137);
+            this.btnLoad.Location = new System.Drawing.Point(520, 6);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(115, 25);
+            this.btnLoad.Size = new System.Drawing.Size(150, 25);
             this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Wczytaj";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
-            // 
-            // pNewGame
-            // 
-            this.pNewGame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pNewGame.Controls.Add(this.tbEcoSpeed);
-            this.pNewGame.Controls.Add(this.tbNewGameName);
-            this.pNewGame.Controls.Add(this.btnNewGame);
-            this.pNewGame.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pNewGame.Location = new System.Drawing.Point(0, 0);
-            this.pNewGame.Name = "pNewGame";
-            this.pNewGame.Size = new System.Drawing.Size(123, 100);
-            this.pNewGame.TabIndex = 3;
-            // 
-            // tbEcoSpeed
-            // 
-            this.tbEcoSpeed.Location = new System.Drawing.Point(3, 66);
-            this.tbEcoSpeed.Name = "tbEcoSpeed";
-            this.tbEcoSpeed.Size = new System.Drawing.Size(115, 23);
-            this.tbEcoSpeed.TabIndex = 2;
-            this.tbEcoSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tbNewGameName
-            // 
-            this.tbNewGameName.Location = new System.Drawing.Point(3, 37);
-            this.tbNewGameName.Name = "tbNewGameName";
-            this.tbNewGameName.Size = new System.Drawing.Size(115, 23);
-            this.tbNewGameName.TabIndex = 1;
-            this.tbNewGameName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLastUpdate
             // 
@@ -617,7 +599,7 @@ namespace MinerGame
             this.lblLastUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblLastUpdate.Location = new System.Drawing.Point(10, 100);
             this.lblLastUpdate.Name = "lblLastUpdate";
-            this.lblLastUpdate.Size = new System.Drawing.Size(130, 30);
+            this.lblLastUpdate.Size = new System.Drawing.Size(150, 30);
             this.lblLastUpdate.TabIndex = 5;
             this.lblLastUpdate.Text = "last update";
             this.lblLastUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -629,7 +611,7 @@ namespace MinerGame
             this.lblGameNameValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblGameNameValue.Location = new System.Drawing.Point(10, 20);
             this.lblGameNameValue.Name = "lblGameNameValue";
-            this.lblGameNameValue.Size = new System.Drawing.Size(130, 30);
+            this.lblGameNameValue.Size = new System.Drawing.Size(150, 30);
             this.lblGameNameValue.TabIndex = 4;
             this.lblGameNameValue.Text = "Nazwa gry";
             this.lblGameNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -641,7 +623,7 @@ namespace MinerGame
             this.lblEcoSpeedValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEcoSpeedValue.Location = new System.Drawing.Point(10, 60);
             this.lblEcoSpeedValue.Name = "lblEcoSpeedValue";
-            this.lblEcoSpeedValue.Size = new System.Drawing.Size(130, 30);
+            this.lblEcoSpeedValue.Size = new System.Drawing.Size(150, 30);
             this.lblEcoSpeedValue.TabIndex = 3;
             this.lblEcoSpeedValue.Text = "speed";
             this.lblEcoSpeedValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -653,7 +635,7 @@ namespace MinerGame
             this.lblMetalTotalValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMetalTotalValue.Location = new System.Drawing.Point(10, 20);
             this.lblMetalTotalValue.Name = "lblMetalTotalValue";
-            this.lblMetalTotalValue.Size = new System.Drawing.Size(130, 30);
+            this.lblMetalTotalValue.Size = new System.Drawing.Size(150, 30);
             this.lblMetalTotalValue.TabIndex = 1;
             this.lblMetalTotalValue.Text = "Metal";
             this.lblMetalTotalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -664,9 +646,9 @@ namespace MinerGame
             this.pContent.Controls.Add(this.pPlanet);
             this.pContent.Controls.Add(this.pPlanetSelect);
             this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContent.Location = new System.Drawing.Point(125, 0);
+            this.pContent.Location = new System.Drawing.Point(0, 0);
             this.pContent.Name = "pContent";
-            this.pContent.Size = new System.Drawing.Size(1779, 1011);
+            this.pContent.Size = new System.Drawing.Size(1904, 1011);
             this.pContent.TabIndex = 6;
             // 
             // pPlanet
@@ -677,7 +659,7 @@ namespace MinerGame
             this.pPlanet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pPlanet.Location = new System.Drawing.Point(0, 38);
             this.pPlanet.Name = "pPlanet";
-            this.pPlanet.Size = new System.Drawing.Size(1779, 973);
+            this.pPlanet.Size = new System.Drawing.Size(1904, 973);
             this.pPlanet.TabIndex = 7;
             // 
             // pPlanetStructures
@@ -687,7 +669,7 @@ namespace MinerGame
             this.pPlanetStructures.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pPlanetStructures.Location = new System.Drawing.Point(0, 140);
             this.pPlanetStructures.Name = "pPlanetStructures";
-            this.pPlanetStructures.Size = new System.Drawing.Size(1779, 833);
+            this.pPlanetStructures.Size = new System.Drawing.Size(1904, 833);
             this.pPlanetStructures.TabIndex = 2;
             // 
             // tcStructures
@@ -700,12 +682,14 @@ namespace MinerGame
             this.tcStructures.Controls.Add(this.tpDefence);
             this.tcStructures.Controls.Add(this.tpRequirements);
             this.tcStructures.Controls.Add(this.tpFleet);
+            this.tcStructures.Controls.Add(this.tpPoints);
+            this.tcStructures.Controls.Add(this.tpPlanet);
             this.tcStructures.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcStructures.ItemSize = new System.Drawing.Size(100, 25);
             this.tcStructures.Location = new System.Drawing.Point(0, 0);
             this.tcStructures.Name = "tcStructures";
             this.tcStructures.SelectedIndex = 0;
-            this.tcStructures.Size = new System.Drawing.Size(1779, 833);
+            this.tcStructures.Size = new System.Drawing.Size(1904, 833);
             this.tcStructures.TabIndex = 0;
             // 
             // tpResources
@@ -722,7 +706,7 @@ namespace MinerGame
             this.tpResources.Location = new System.Drawing.Point(4, 29);
             this.tpResources.Name = "tpResources";
             this.tpResources.Padding = new System.Windows.Forms.Padding(3);
-            this.tpResources.Size = new System.Drawing.Size(1771, 800);
+            this.tpResources.Size = new System.Drawing.Size(1896, 800);
             this.tpResources.TabIndex = 0;
             this.tpResources.Text = "Surowce";
             // 
@@ -741,7 +725,7 @@ namespace MinerGame
             this.pDeuteriumTank.Dock = System.Windows.Forms.DockStyle.Top;
             this.pDeuteriumTank.Location = new System.Drawing.Point(3, 353);
             this.pDeuteriumTank.Name = "pDeuteriumTank";
-            this.pDeuteriumTank.Size = new System.Drawing.Size(1765, 50);
+            this.pDeuteriumTank.Size = new System.Drawing.Size(1890, 50);
             this.pDeuteriumTank.TabIndex = 8;
             // 
             // lblDeuteriumTanlTimeRemain
@@ -872,7 +856,7 @@ namespace MinerGame
             this.pCrystalStorage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pCrystalStorage.Location = new System.Drawing.Point(3, 303);
             this.pCrystalStorage.Name = "pCrystalStorage";
-            this.pCrystalStorage.Size = new System.Drawing.Size(1765, 50);
+            this.pCrystalStorage.Size = new System.Drawing.Size(1890, 50);
             this.pCrystalStorage.TabIndex = 7;
             // 
             // lblCrystalStorageTimeRemain
@@ -1003,7 +987,7 @@ namespace MinerGame
             this.pMetalStorage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pMetalStorage.Location = new System.Drawing.Point(3, 253);
             this.pMetalStorage.Name = "pMetalStorage";
-            this.pMetalStorage.Size = new System.Drawing.Size(1765, 50);
+            this.pMetalStorage.Size = new System.Drawing.Size(1890, 50);
             this.pMetalStorage.TabIndex = 6;
             // 
             // lblMetalStorageTimeRemain
@@ -1135,7 +1119,7 @@ namespace MinerGame
             this.pFusionReactor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pFusionReactor.Location = new System.Drawing.Point(3, 203);
             this.pFusionReactor.Name = "pFusionReactor";
-            this.pFusionReactor.Size = new System.Drawing.Size(1765, 50);
+            this.pFusionReactor.Size = new System.Drawing.Size(1890, 50);
             this.pFusionReactor.TabIndex = 5;
             // 
             // lblFusionReactorTimeRemain
@@ -1279,7 +1263,7 @@ namespace MinerGame
             this.pSolarPlant.Dock = System.Windows.Forms.DockStyle.Top;
             this.pSolarPlant.Location = new System.Drawing.Point(3, 153);
             this.pSolarPlant.Name = "pSolarPlant";
-            this.pSolarPlant.Size = new System.Drawing.Size(1765, 50);
+            this.pSolarPlant.Size = new System.Drawing.Size(1890, 50);
             this.pSolarPlant.TabIndex = 4;
             // 
             // lblSolarPlantTimeRemain
@@ -1411,7 +1395,7 @@ namespace MinerGame
             this.pDeuteriumSynthesizer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pDeuteriumSynthesizer.Location = new System.Drawing.Point(3, 103);
             this.pDeuteriumSynthesizer.Name = "pDeuteriumSynthesizer";
-            this.pDeuteriumSynthesizer.Size = new System.Drawing.Size(1765, 50);
+            this.pDeuteriumSynthesizer.Size = new System.Drawing.Size(1890, 50);
             this.pDeuteriumSynthesizer.TabIndex = 3;
             // 
             // lblDeuteriumSynthesizerTimeRemain
@@ -1556,7 +1540,7 @@ namespace MinerGame
             this.pCrystalMine.Dock = System.Windows.Forms.DockStyle.Top;
             this.pCrystalMine.Location = new System.Drawing.Point(3, 53);
             this.pCrystalMine.Name = "pCrystalMine";
-            this.pCrystalMine.Size = new System.Drawing.Size(1765, 50);
+            this.pCrystalMine.Size = new System.Drawing.Size(1890, 50);
             this.pCrystalMine.TabIndex = 2;
             // 
             // lblCrystalMineTimeRemain
@@ -1701,7 +1685,7 @@ namespace MinerGame
             this.pMetalMine.Dock = System.Windows.Forms.DockStyle.Top;
             this.pMetalMine.Location = new System.Drawing.Point(3, 3);
             this.pMetalMine.Name = "pMetalMine";
-            this.pMetalMine.Size = new System.Drawing.Size(1765, 50);
+            this.pMetalMine.Size = new System.Drawing.Size(1890, 50);
             this.pMetalMine.TabIndex = 1;
             // 
             // lblMetalMineTimeRemain
@@ -1840,7 +1824,7 @@ namespace MinerGame
             this.tpProduction.Location = new System.Drawing.Point(4, 29);
             this.tpProduction.Name = "tpProduction";
             this.tpProduction.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProduction.Size = new System.Drawing.Size(1771, 800);
+            this.tpProduction.Size = new System.Drawing.Size(1896, 800);
             this.tpProduction.TabIndex = 5;
             this.tpProduction.Text = "Wydobycie";
             // 
@@ -1850,7 +1834,7 @@ namespace MinerGame
             this.pProductionGeneratedContent.BackColor = System.Drawing.Color.Silver;
             this.pProductionGeneratedContent.Location = new System.Drawing.Point(3, 108);
             this.pProductionGeneratedContent.Name = "pProductionGeneratedContent";
-            this.pProductionGeneratedContent.Size = new System.Drawing.Size(1779, 689);
+            this.pProductionGeneratedContent.Size = new System.Drawing.Size(1890, 689);
             this.pProductionGeneratedContent.TabIndex = 5;
             // 
             // pTotalProduction
@@ -1861,7 +1845,7 @@ namespace MinerGame
             this.pTotalProduction.Controls.Add(this.lblTotalProduction);
             this.pTotalProduction.Location = new System.Drawing.Point(3, 33);
             this.pTotalProduction.Name = "pTotalProduction";
-            this.pTotalProduction.Size = new System.Drawing.Size(1779, 75);
+            this.pTotalProduction.Size = new System.Drawing.Size(1890, 75);
             this.pTotalProduction.TabIndex = 3;
             // 
             // pTotalProductionDetails
@@ -2195,7 +2179,7 @@ namespace MinerGame
             this.pTotalProductionHeader.Controls.Add(this.lblProductionPlanet);
             this.pTotalProductionHeader.Location = new System.Drawing.Point(3, 3);
             this.pTotalProductionHeader.Name = "pTotalProductionHeader";
-            this.pTotalProductionHeader.Size = new System.Drawing.Size(1779, 30);
+            this.pTotalProductionHeader.Size = new System.Drawing.Size(1890, 30);
             this.pTotalProductionHeader.TabIndex = 4;
             // 
             // lblTimeToFillStorage
@@ -2318,7 +2302,7 @@ namespace MinerGame
             this.tpStation.Location = new System.Drawing.Point(4, 29);
             this.tpStation.Name = "tpStation";
             this.tpStation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStation.Size = new System.Drawing.Size(1771, 800);
+            this.tpStation.Size = new System.Drawing.Size(1896, 800);
             this.tpStation.TabIndex = 1;
             this.tpStation.Text = "Stacja";
             // 
@@ -2336,7 +2320,7 @@ namespace MinerGame
             this.pJumpGate.Dock = System.Windows.Forms.DockStyle.Top;
             this.pJumpGate.Location = new System.Drawing.Point(3, 453);
             this.pJumpGate.Name = "pJumpGate";
-            this.pJumpGate.Size = new System.Drawing.Size(1765, 50);
+            this.pJumpGate.Size = new System.Drawing.Size(1890, 50);
             this.pJumpGate.TabIndex = 11;
             // 
             // lblJumpGateTimeRemain
@@ -2453,7 +2437,7 @@ namespace MinerGame
             this.pSensorPhalanx.Dock = System.Windows.Forms.DockStyle.Top;
             this.pSensorPhalanx.Location = new System.Drawing.Point(3, 403);
             this.pSensorPhalanx.Name = "pSensorPhalanx";
-            this.pSensorPhalanx.Size = new System.Drawing.Size(1765, 50);
+            this.pSensorPhalanx.Size = new System.Drawing.Size(1890, 50);
             this.pSensorPhalanx.TabIndex = 10;
             // 
             // lblSensorPhalanxTimeRemain
@@ -2570,7 +2554,7 @@ namespace MinerGame
             this.pLunarBase.Dock = System.Windows.Forms.DockStyle.Top;
             this.pLunarBase.Location = new System.Drawing.Point(3, 353);
             this.pLunarBase.Name = "pLunarBase";
-            this.pLunarBase.Size = new System.Drawing.Size(1765, 50);
+            this.pLunarBase.Size = new System.Drawing.Size(1890, 50);
             this.pLunarBase.TabIndex = 9;
             // 
             // lblLunarBaseTimeRemain
@@ -2688,7 +2672,7 @@ namespace MinerGame
             this.pSpaceDock.Dock = System.Windows.Forms.DockStyle.Top;
             this.pSpaceDock.Location = new System.Drawing.Point(3, 303);
             this.pSpaceDock.Name = "pSpaceDock";
-            this.pSpaceDock.Size = new System.Drawing.Size(1765, 50);
+            this.pSpaceDock.Size = new System.Drawing.Size(1890, 50);
             this.pSpaceDock.TabIndex = 8;
             // 
             // lblSpaceDockTimeRemain
@@ -2818,7 +2802,7 @@ namespace MinerGame
             this.pTerraformer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTerraformer.Location = new System.Drawing.Point(3, 253);
             this.pTerraformer.Name = "pTerraformer";
-            this.pTerraformer.Size = new System.Drawing.Size(1765, 50);
+            this.pTerraformer.Size = new System.Drawing.Size(1890, 50);
             this.pTerraformer.TabIndex = 7;
             // 
             // lblTerraformerTimeRemain
@@ -2947,7 +2931,7 @@ namespace MinerGame
             this.pMissileSilo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pMissileSilo.Location = new System.Drawing.Point(3, 203);
             this.pMissileSilo.Name = "pMissileSilo";
-            this.pMissileSilo.Size = new System.Drawing.Size(1765, 50);
+            this.pMissileSilo.Size = new System.Drawing.Size(1890, 50);
             this.pMissileSilo.TabIndex = 6;
             // 
             // lblMissileSiloTimeRemain
@@ -3064,7 +3048,7 @@ namespace MinerGame
             this.pResearchLab.Dock = System.Windows.Forms.DockStyle.Top;
             this.pResearchLab.Location = new System.Drawing.Point(3, 153);
             this.pResearchLab.Name = "pResearchLab";
-            this.pResearchLab.Size = new System.Drawing.Size(1765, 50);
+            this.pResearchLab.Size = new System.Drawing.Size(1890, 50);
             this.pResearchLab.TabIndex = 5;
             // 
             // lblResearchLabTimeRemain
@@ -3181,7 +3165,7 @@ namespace MinerGame
             this.pShipyard.Dock = System.Windows.Forms.DockStyle.Top;
             this.pShipyard.Location = new System.Drawing.Point(3, 103);
             this.pShipyard.Name = "pShipyard";
-            this.pShipyard.Size = new System.Drawing.Size(1765, 50);
+            this.pShipyard.Size = new System.Drawing.Size(1890, 50);
             this.pShipyard.TabIndex = 4;
             // 
             // lblShipyardTimeRemain
@@ -3298,7 +3282,7 @@ namespace MinerGame
             this.pNaniteFactory.Dock = System.Windows.Forms.DockStyle.Top;
             this.pNaniteFactory.Location = new System.Drawing.Point(3, 53);
             this.pNaniteFactory.Name = "pNaniteFactory";
-            this.pNaniteFactory.Size = new System.Drawing.Size(1765, 50);
+            this.pNaniteFactory.Size = new System.Drawing.Size(1890, 50);
             this.pNaniteFactory.TabIndex = 3;
             // 
             // lblNaniteFactoryTimeRemain
@@ -3415,7 +3399,7 @@ namespace MinerGame
             this.pRoboticsFactory.Dock = System.Windows.Forms.DockStyle.Top;
             this.pRoboticsFactory.Location = new System.Drawing.Point(3, 3);
             this.pRoboticsFactory.Name = "pRoboticsFactory";
-            this.pRoboticsFactory.Size = new System.Drawing.Size(1765, 50);
+            this.pRoboticsFactory.Size = new System.Drawing.Size(1890, 50);
             this.pRoboticsFactory.TabIndex = 2;
             // 
             // lblRoboticsFactoryTimeRemain
@@ -3540,7 +3524,7 @@ namespace MinerGame
             this.tpResearch.Location = new System.Drawing.Point(4, 29);
             this.tpResearch.Name = "tpResearch";
             this.tpResearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpResearch.Size = new System.Drawing.Size(1771, 800);
+            this.tpResearch.Size = new System.Drawing.Size(1896, 800);
             this.tpResearch.TabIndex = 4;
             this.tpResearch.Text = "Badania";
             // 
@@ -3559,7 +3543,7 @@ namespace MinerGame
             this.pGravitonTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pGravitonTechnology.Location = new System.Drawing.Point(3, 753);
             this.pGravitonTechnology.Name = "pGravitonTechnology";
-            this.pGravitonTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pGravitonTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pGravitonTechnology.TabIndex = 16;
             // 
             // lblGravitonTechnologyEnergyCost
@@ -3681,7 +3665,7 @@ namespace MinerGame
             this.pAstrophisics.Dock = System.Windows.Forms.DockStyle.Top;
             this.pAstrophisics.Location = new System.Drawing.Point(3, 703);
             this.pAstrophisics.Name = "pAstrophisics";
-            this.pAstrophisics.Size = new System.Drawing.Size(1765, 50);
+            this.pAstrophisics.Size = new System.Drawing.Size(1890, 50);
             this.pAstrophisics.TabIndex = 15;
             // 
             // lblAstrophisicsTimeRemain
@@ -3799,7 +3783,7 @@ namespace MinerGame
             this.pIrn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pIrn.Location = new System.Drawing.Point(3, 653);
             this.pIrn.Name = "pIrn";
-            this.pIrn.Size = new System.Drawing.Size(1765, 50);
+            this.pIrn.Size = new System.Drawing.Size(1890, 50);
             this.pIrn.TabIndex = 14;
             // 
             // lblIrnTimeRemain
@@ -3920,7 +3904,7 @@ namespace MinerGame
             this.pPlasmaTechnology.Dock = System.Windows.Forms.DockStyle.Top;
             this.pPlasmaTechnology.Location = new System.Drawing.Point(3, 603);
             this.pPlasmaTechnology.Name = "pPlasmaTechnology";
-            this.pPlasmaTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pPlasmaTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pPlasmaTechnology.TabIndex = 13;
             // 
             // lblPlasmaTechnologyTimeRemain
@@ -4038,7 +4022,7 @@ namespace MinerGame
             this.pIonTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pIonTechnology.Location = new System.Drawing.Point(3, 553);
             this.pIonTechnology.Name = "pIonTechnology";
-            this.pIonTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pIonTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pIonTechnology.TabIndex = 12;
             // 
             // lblIonTechnologyTimeRemain
@@ -4159,7 +4143,7 @@ namespace MinerGame
             this.pLaserTechnology.Dock = System.Windows.Forms.DockStyle.Top;
             this.pLaserTechnology.Location = new System.Drawing.Point(3, 503);
             this.pLaserTechnology.Name = "pLaserTechnology";
-            this.pLaserTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pLaserTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pLaserTechnology.TabIndex = 11;
             // 
             // lblLaserTechnologyTimeRemain
@@ -4277,7 +4261,7 @@ namespace MinerGame
             this.pHyperspaceTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pHyperspaceTechnology.Location = new System.Drawing.Point(3, 453);
             this.pHyperspaceTechnology.Name = "pHyperspaceTechnology";
-            this.pHyperspaceTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pHyperspaceTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pHyperspaceTechnology.TabIndex = 10;
             // 
             // lblHyperspaceTechnologyTimeRemain
@@ -4398,7 +4382,7 @@ namespace MinerGame
             this.pEnergyTechnology.Dock = System.Windows.Forms.DockStyle.Top;
             this.pEnergyTechnology.Location = new System.Drawing.Point(3, 403);
             this.pEnergyTechnology.Name = "pEnergyTechnology";
-            this.pEnergyTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pEnergyTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pEnergyTechnology.TabIndex = 9;
             // 
             // lblEnergyTechnologyTimeRemain
@@ -4516,7 +4500,7 @@ namespace MinerGame
             this.pArmourTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pArmourTechnology.Location = new System.Drawing.Point(3, 353);
             this.pArmourTechnology.Name = "pArmourTechnology";
-            this.pArmourTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pArmourTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pArmourTechnology.TabIndex = 8;
             // 
             // lblArmourTechnologyTimeRemain
@@ -4637,7 +4621,7 @@ namespace MinerGame
             this.pShieldingTechnology.Dock = System.Windows.Forms.DockStyle.Top;
             this.pShieldingTechnology.Location = new System.Drawing.Point(3, 303);
             this.pShieldingTechnology.Name = "pShieldingTechnology";
-            this.pShieldingTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pShieldingTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pShieldingTechnology.TabIndex = 7;
             // 
             // lblShieldingTechnologyTimeRemain
@@ -4755,7 +4739,7 @@ namespace MinerGame
             this.pWeaponsTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pWeaponsTechnology.Location = new System.Drawing.Point(3, 253);
             this.pWeaponsTechnology.Name = "pWeaponsTechnology";
-            this.pWeaponsTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pWeaponsTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pWeaponsTechnology.TabIndex = 6;
             // 
             // lblWeaponsTechnologyTimeRemian
@@ -4876,7 +4860,7 @@ namespace MinerGame
             this.pHyperspaceDrive.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHyperspaceDrive.Location = new System.Drawing.Point(3, 203);
             this.pHyperspaceDrive.Name = "pHyperspaceDrive";
-            this.pHyperspaceDrive.Size = new System.Drawing.Size(1765, 50);
+            this.pHyperspaceDrive.Size = new System.Drawing.Size(1890, 50);
             this.pHyperspaceDrive.TabIndex = 5;
             // 
             // lblHyperspaceDriveTimeRemain
@@ -4994,7 +4978,7 @@ namespace MinerGame
             this.pImpulseDrive.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pImpulseDrive.Location = new System.Drawing.Point(3, 153);
             this.pImpulseDrive.Name = "pImpulseDrive";
-            this.pImpulseDrive.Size = new System.Drawing.Size(1765, 50);
+            this.pImpulseDrive.Size = new System.Drawing.Size(1890, 50);
             this.pImpulseDrive.TabIndex = 4;
             // 
             // lblImpulseDriveTimeRemain
@@ -5115,7 +5099,7 @@ namespace MinerGame
             this.pCombustionDrive.Dock = System.Windows.Forms.DockStyle.Top;
             this.pCombustionDrive.Location = new System.Drawing.Point(3, 103);
             this.pCombustionDrive.Name = "pCombustionDrive";
-            this.pCombustionDrive.Size = new System.Drawing.Size(1765, 50);
+            this.pCombustionDrive.Size = new System.Drawing.Size(1890, 50);
             this.pCombustionDrive.TabIndex = 3;
             // 
             // lblCombustionDriveTimeRemain
@@ -5233,7 +5217,7 @@ namespace MinerGame
             this.pComputerTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pComputerTechnology.Location = new System.Drawing.Point(3, 53);
             this.pComputerTechnology.Name = "pComputerTechnology";
-            this.pComputerTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pComputerTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pComputerTechnology.TabIndex = 2;
             // 
             // lblComputerTechnologyTimeRemain
@@ -5354,7 +5338,7 @@ namespace MinerGame
             this.pEspionageTechnology.Dock = System.Windows.Forms.DockStyle.Top;
             this.pEspionageTechnology.Location = new System.Drawing.Point(3, 3);
             this.pEspionageTechnology.Name = "pEspionageTechnology";
-            this.pEspionageTechnology.Size = new System.Drawing.Size(1765, 50);
+            this.pEspionageTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pEspionageTechnology.TabIndex = 0;
             // 
             // lblEspionageTechnologyTimeRemain
@@ -5464,15 +5448,16 @@ namespace MinerGame
             this.tpShipyard.Location = new System.Drawing.Point(4, 29);
             this.tpShipyard.Name = "tpShipyard";
             this.tpShipyard.Padding = new System.Windows.Forms.Padding(3);
-            this.tpShipyard.Size = new System.Drawing.Size(1771, 800);
+            this.tpShipyard.Size = new System.Drawing.Size(1896, 800);
             this.tpShipyard.TabIndex = 2;
             this.tpShipyard.Text = "Stocznia";
             // 
             // pSmallCargo
             // 
             this.pSmallCargo.BackColor = System.Drawing.Color.Gold;
+            this.pSmallCargo.Controls.Add(this.label1);
             this.pSmallCargo.Controls.Add(this.tbSmallCargoCount);
-            this.pSmallCargo.Controls.Add(this.label7);
+            this.pSmallCargo.Controls.Add(this.lblSmallCargoShade);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoDuration);
             this.pSmallCargo.Controls.Add(this.btnSmallCargoConstruct);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoDeuteriumCost);
@@ -5483,36 +5468,37 @@ namespace MinerGame
             this.pSmallCargo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pSmallCargo.Location = new System.Drawing.Point(3, 3);
             this.pSmallCargo.Name = "pSmallCargo";
-            this.pSmallCargo.Size = new System.Drawing.Size(1765, 50);
+            this.pSmallCargo.Size = new System.Drawing.Size(1890, 50);
             this.pSmallCargo.TabIndex = 3;
             // 
             // tbSmallCargoCount
             // 
-            this.tbSmallCargoCount.BackColor = System.Drawing.Color.Silver;
+            this.tbSmallCargoCount.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tbSmallCargoCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbSmallCargoCount.Location = new System.Drawing.Point(881, 17);
+            this.tbSmallCargoCount.Location = new System.Drawing.Point(1161, 17);
             this.tbSmallCargoCount.Name = "tbSmallCargoCount";
             this.tbSmallCargoCount.Size = new System.Drawing.Size(129, 16);
             this.tbSmallCargoCount.TabIndex = 4;
+            this.tbSmallCargoCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label7
+            // lblSmallCargoShade
             // 
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(880, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 30);
-            this.label7.TabIndex = 14;
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSmallCargoShade.BackColor = System.Drawing.Color.White;
+            this.lblSmallCargoShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSmallCargoShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallCargoShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSmallCargoShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblSmallCargoShade.Name = "lblSmallCargoShade";
+            this.lblSmallCargoShade.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallCargoShade.TabIndex = 14;
+            this.lblSmallCargoShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSmallCargoDuration
             // 
             this.lblSmallCargoDuration.BackColor = System.Drawing.Color.Transparent;
             this.lblSmallCargoDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSmallCargoDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSmallCargoDuration.Location = new System.Drawing.Point(1160, 10);
+            this.lblSmallCargoDuration.Location = new System.Drawing.Point(880, 10);
             this.lblSmallCargoDuration.Name = "lblSmallCargoDuration";
             this.lblSmallCargoDuration.Size = new System.Drawing.Size(130, 30);
             this.lblSmallCargoDuration.TabIndex = 13;
@@ -5600,7 +5586,7 @@ namespace MinerGame
             this.tpDefence.Location = new System.Drawing.Point(4, 29);
             this.tpDefence.Name = "tpDefence";
             this.tpDefence.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDefence.Size = new System.Drawing.Size(1771, 800);
+            this.tpDefence.Size = new System.Drawing.Size(1896, 800);
             this.tpDefence.TabIndex = 3;
             this.tpDefence.Text = "Obrona";
             // 
@@ -5610,7 +5596,7 @@ namespace MinerGame
             this.tpRequirements.Location = new System.Drawing.Point(4, 29);
             this.tpRequirements.Name = "tpRequirements";
             this.tpRequirements.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRequirements.Size = new System.Drawing.Size(1771, 800);
+            this.tpRequirements.Size = new System.Drawing.Size(1896, 800);
             this.tpRequirements.TabIndex = 6;
             this.tpRequirements.Text = "Wymagania";
             // 
@@ -5620,9 +5606,51 @@ namespace MinerGame
             this.tpFleet.Location = new System.Drawing.Point(4, 29);
             this.tpFleet.Name = "tpFleet";
             this.tpFleet.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFleet.Size = new System.Drawing.Size(1771, 800);
+            this.tpFleet.Size = new System.Drawing.Size(1896, 800);
             this.tpFleet.TabIndex = 7;
             this.tpFleet.Text = "Flota";
+            // 
+            // tpPoints
+            // 
+            this.tpPoints.BackColor = System.Drawing.Color.Silver;
+            this.tpPoints.Location = new System.Drawing.Point(4, 29);
+            this.tpPoints.Name = "tpPoints";
+            this.tpPoints.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPoints.Size = new System.Drawing.Size(1896, 800);
+            this.tpPoints.TabIndex = 8;
+            this.tpPoints.Text = "Punkty";
+            // 
+            // tpPlanet
+            // 
+            this.tpPlanet.BackColor = System.Drawing.Color.Silver;
+            this.tpPlanet.Controls.Add(this.btnChangePlanetName);
+            this.tpPlanet.Controls.Add(this.tbNewPlanetName);
+            this.tpPlanet.Location = new System.Drawing.Point(4, 29);
+            this.tpPlanet.Name = "tpPlanet";
+            this.tpPlanet.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPlanet.Size = new System.Drawing.Size(1896, 800);
+            this.tpPlanet.TabIndex = 9;
+            this.tpPlanet.Text = "Planeta";
+            // 
+            // btnChangePlanetName
+            // 
+            this.btnChangePlanetName.Enabled = false;
+            this.btnChangePlanetName.Location = new System.Drawing.Point(166, 15);
+            this.btnChangePlanetName.Name = "btnChangePlanetName";
+            this.btnChangePlanetName.Size = new System.Drawing.Size(130, 25);
+            this.btnChangePlanetName.TabIndex = 3;
+            this.btnChangePlanetName.Text = "Zmień nazwę";
+            this.btnChangePlanetName.UseVisualStyleBackColor = true;
+            this.btnChangePlanetName.Click += new System.EventHandler(this.BtnChangePlanetName_Click);
+            // 
+            // tbNewPlanetName
+            // 
+            this.tbNewPlanetName.Location = new System.Drawing.Point(16, 15);
+            this.tbNewPlanetName.Name = "tbNewPlanetName";
+            this.tbNewPlanetName.Size = new System.Drawing.Size(130, 23);
+            this.tbNewPlanetName.TabIndex = 2;
+            this.tbNewPlanetName.Text = "Nazwa planety";
+            this.tbNewPlanetName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pInfo
             // 
@@ -5638,7 +5666,7 @@ namespace MinerGame
             this.pInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pInfo.Location = new System.Drawing.Point(0, 0);
             this.pInfo.Name = "pInfo";
-            this.pInfo.Size = new System.Drawing.Size(1779, 140);
+            this.pInfo.Size = new System.Drawing.Size(1904, 140);
             this.pInfo.TabIndex = 1;
             // 
             // gbPlanetCountInfo
@@ -5647,9 +5675,9 @@ namespace MinerGame
             this.gbPlanetCountInfo.Controls.Add(this.btnNewPlanet);
             this.gbPlanetCountInfo.Controls.Add(this.lblPlanetCount);
             this.gbPlanetCountInfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbPlanetCountInfo.Location = new System.Drawing.Point(900, 0);
+            this.gbPlanetCountInfo.Location = new System.Drawing.Point(1020, 0);
             this.gbPlanetCountInfo.Name = "gbPlanetCountInfo";
-            this.gbPlanetCountInfo.Size = new System.Drawing.Size(150, 140);
+            this.gbPlanetCountInfo.Size = new System.Drawing.Size(170, 140);
             this.gbPlanetCountInfo.TabIndex = 11;
             this.gbPlanetCountInfo.TabStop = false;
             this.gbPlanetCountInfo.Text = "Ilość planet";
@@ -5661,7 +5689,7 @@ namespace MinerGame
             this.btnDeletePlanet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDeletePlanet.Location = new System.Drawing.Point(10, 100);
             this.btnDeletePlanet.Name = "btnDeletePlanet";
-            this.btnDeletePlanet.Size = new System.Drawing.Size(130, 30);
+            this.btnDeletePlanet.Size = new System.Drawing.Size(150, 30);
             this.btnDeletePlanet.TabIndex = 21;
             this.btnDeletePlanet.Text = "Usuń planetę";
             this.btnDeletePlanet.UseVisualStyleBackColor = false;
@@ -5674,7 +5702,7 @@ namespace MinerGame
             this.btnNewPlanet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewPlanet.Location = new System.Drawing.Point(10, 60);
             this.btnNewPlanet.Name = "btnNewPlanet";
-            this.btnNewPlanet.Size = new System.Drawing.Size(130, 30);
+            this.btnNewPlanet.Size = new System.Drawing.Size(150, 30);
             this.btnNewPlanet.TabIndex = 20;
             this.btnNewPlanet.Text = "Nowa planeta";
             this.btnNewPlanet.UseVisualStyleBackColor = false;
@@ -5687,7 +5715,7 @@ namespace MinerGame
             this.lblPlanetCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlanetCount.Location = new System.Drawing.Point(10, 20);
             this.lblPlanetCount.Name = "lblPlanetCount";
-            this.lblPlanetCount.Size = new System.Drawing.Size(130, 30);
+            this.lblPlanetCount.Size = new System.Drawing.Size(150, 30);
             this.lblPlanetCount.TabIndex = 19;
             this.lblPlanetCount.Text = "1 / 1";
             this.lblPlanetCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5698,9 +5726,9 @@ namespace MinerGame
             this.gbEnergyInfo.Controls.Add(this.lblEnergyAvailableValue);
             this.gbEnergyInfo.Controls.Add(this.lblEnergyDemandValue);
             this.gbEnergyInfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbEnergyInfo.Location = new System.Drawing.Point(750, 0);
+            this.gbEnergyInfo.Location = new System.Drawing.Point(850, 0);
             this.gbEnergyInfo.Name = "gbEnergyInfo";
-            this.gbEnergyInfo.Size = new System.Drawing.Size(150, 140);
+            this.gbEnergyInfo.Size = new System.Drawing.Size(170, 140);
             this.gbEnergyInfo.TabIndex = 9;
             this.gbEnergyInfo.TabStop = false;
             this.gbEnergyInfo.Text = "Energia na planecie";
@@ -5712,7 +5740,7 @@ namespace MinerGame
             this.lblEnergyOverValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEnergyOverValue.Location = new System.Drawing.Point(10, 100);
             this.lblEnergyOverValue.Name = "lblEnergyOverValue";
-            this.lblEnergyOverValue.Size = new System.Drawing.Size(130, 30);
+            this.lblEnergyOverValue.Size = new System.Drawing.Size(150, 30);
             this.lblEnergyOverValue.TabIndex = 17;
             this.lblEnergyOverValue.Text = "Nadmiar";
             this.lblEnergyOverValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5724,7 +5752,7 @@ namespace MinerGame
             this.lblEnergyAvailableValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEnergyAvailableValue.Location = new System.Drawing.Point(10, 20);
             this.lblEnergyAvailableValue.Name = "lblEnergyAvailableValue";
-            this.lblEnergyAvailableValue.Size = new System.Drawing.Size(130, 30);
+            this.lblEnergyAvailableValue.Size = new System.Drawing.Size(150, 30);
             this.lblEnergyAvailableValue.TabIndex = 13;
             this.lblEnergyAvailableValue.Text = "Dostępna";
             this.lblEnergyAvailableValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5736,7 +5764,7 @@ namespace MinerGame
             this.lblEnergyDemandValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEnergyDemandValue.Location = new System.Drawing.Point(10, 60);
             this.lblEnergyDemandValue.Name = "lblEnergyDemandValue";
-            this.lblEnergyDemandValue.Size = new System.Drawing.Size(130, 30);
+            this.lblEnergyDemandValue.Size = new System.Drawing.Size(150, 30);
             this.lblEnergyDemandValue.TabIndex = 15;
             this.lblEnergyDemandValue.Text = "Zapotrzebowanie";
             this.lblEnergyDemandValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5748,9 +5776,9 @@ namespace MinerGame
             this.gbGameInfo.Controls.Add(this.lblGameNameValue);
             this.gbGameInfo.Controls.Add(this.lblEcoSpeedValue);
             this.gbGameInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbGameInfo.Location = new System.Drawing.Point(1629, 0);
+            this.gbGameInfo.Location = new System.Drawing.Point(1734, 0);
             this.gbGameInfo.Name = "gbGameInfo";
-            this.gbGameInfo.Size = new System.Drawing.Size(150, 140);
+            this.gbGameInfo.Size = new System.Drawing.Size(170, 140);
             this.gbGameInfo.TabIndex = 8;
             this.gbGameInfo.TabStop = false;
             this.gbGameInfo.Text = "Informacje o grze";
@@ -5762,9 +5790,9 @@ namespace MinerGame
             this.gbStorageTotal.Controls.Add(this.lblStorageMetalTotalValue);
             this.gbStorageTotal.Controls.Add(this.lblStorageCrystalTotalValue);
             this.gbStorageTotal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbStorageTotal.Location = new System.Drawing.Point(600, 0);
+            this.gbStorageTotal.Location = new System.Drawing.Point(680, 0);
             this.gbStorageTotal.Name = "gbStorageTotal";
-            this.gbStorageTotal.Size = new System.Drawing.Size(150, 140);
+            this.gbStorageTotal.Size = new System.Drawing.Size(170, 140);
             this.gbStorageTotal.TabIndex = 7;
             this.gbStorageTotal.TabStop = false;
             this.gbStorageTotal.Text = "Magazyn łącznie";
@@ -5776,7 +5804,7 @@ namespace MinerGame
             this.lblStorageDeuteriumTotalValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageDeuteriumTotalValue.Location = new System.Drawing.Point(10, 100);
             this.lblStorageDeuteriumTotalValue.Name = "lblStorageDeuteriumTotalValue";
-            this.lblStorageDeuteriumTotalValue.Size = new System.Drawing.Size(130, 30);
+            this.lblStorageDeuteriumTotalValue.Size = new System.Drawing.Size(150, 30);
             this.lblStorageDeuteriumTotalValue.TabIndex = 8;
             this.lblStorageDeuteriumTotalValue.Text = "Zbiornik deuteru";
             this.lblStorageDeuteriumTotalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5788,7 +5816,7 @@ namespace MinerGame
             this.lblStorageMetalTotalValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageMetalTotalValue.Location = new System.Drawing.Point(10, 20);
             this.lblStorageMetalTotalValue.Name = "lblStorageMetalTotalValue";
-            this.lblStorageMetalTotalValue.Size = new System.Drawing.Size(130, 30);
+            this.lblStorageMetalTotalValue.Size = new System.Drawing.Size(150, 30);
             this.lblStorageMetalTotalValue.TabIndex = 6;
             this.lblStorageMetalTotalValue.Text = "Magazyn metalu";
             this.lblStorageMetalTotalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5800,7 +5828,7 @@ namespace MinerGame
             this.lblStorageCrystalTotalValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageCrystalTotalValue.Location = new System.Drawing.Point(10, 60);
             this.lblStorageCrystalTotalValue.Name = "lblStorageCrystalTotalValue";
-            this.lblStorageCrystalTotalValue.Size = new System.Drawing.Size(130, 30);
+            this.lblStorageCrystalTotalValue.Size = new System.Drawing.Size(150, 30);
             this.lblStorageCrystalTotalValue.TabIndex = 7;
             this.lblStorageCrystalTotalValue.Text = "Magazyn kryształu";
             this.lblStorageCrystalTotalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5811,9 +5839,9 @@ namespace MinerGame
             this.gbTotalResources.Controls.Add(this.lblMetalTotalValue);
             this.gbTotalResources.Controls.Add(this.lblCrystalTotalValue);
             this.gbTotalResources.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbTotalResources.Location = new System.Drawing.Point(450, 0);
+            this.gbTotalResources.Location = new System.Drawing.Point(510, 0);
             this.gbTotalResources.Name = "gbTotalResources";
-            this.gbTotalResources.Size = new System.Drawing.Size(150, 140);
+            this.gbTotalResources.Size = new System.Drawing.Size(170, 140);
             this.gbTotalResources.TabIndex = 6;
             this.gbTotalResources.TabStop = false;
             this.gbTotalResources.Text = "Zasoby łączne";
@@ -5825,7 +5853,7 @@ namespace MinerGame
             this.lblDeuteriumTotalValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDeuteriumTotalValue.Location = new System.Drawing.Point(10, 100);
             this.lblDeuteriumTotalValue.Name = "lblDeuteriumTotalValue";
-            this.lblDeuteriumTotalValue.Size = new System.Drawing.Size(130, 30);
+            this.lblDeuteriumTotalValue.Size = new System.Drawing.Size(150, 30);
             this.lblDeuteriumTotalValue.TabIndex = 5;
             this.lblDeuteriumTotalValue.Text = "Deuter";
             this.lblDeuteriumTotalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5837,7 +5865,7 @@ namespace MinerGame
             this.lblCrystalTotalValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCrystalTotalValue.Location = new System.Drawing.Point(10, 60);
             this.lblCrystalTotalValue.Name = "lblCrystalTotalValue";
-            this.lblCrystalTotalValue.Size = new System.Drawing.Size(130, 30);
+            this.lblCrystalTotalValue.Size = new System.Drawing.Size(150, 30);
             this.lblCrystalTotalValue.TabIndex = 3;
             this.lblCrystalTotalValue.Text = "Kryształ";
             this.lblCrystalTotalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5849,9 +5877,9 @@ namespace MinerGame
             this.gbStoragePlanet.Controls.Add(this.lblStorageMetalPlanetValue);
             this.gbStoragePlanet.Controls.Add(this.lblStorageCrystalPlanetValue);
             this.gbStoragePlanet.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbStoragePlanet.Location = new System.Drawing.Point(300, 0);
+            this.gbStoragePlanet.Location = new System.Drawing.Point(340, 0);
             this.gbStoragePlanet.Name = "gbStoragePlanet";
-            this.gbStoragePlanet.Size = new System.Drawing.Size(150, 140);
+            this.gbStoragePlanet.Size = new System.Drawing.Size(170, 140);
             this.gbStoragePlanet.TabIndex = 4;
             this.gbStoragePlanet.TabStop = false;
             this.gbStoragePlanet.Text = "Magazyn na planecie";
@@ -5863,7 +5891,7 @@ namespace MinerGame
             this.lblStorageDeuteriumPlanetValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageDeuteriumPlanetValue.Location = new System.Drawing.Point(10, 100);
             this.lblStorageDeuteriumPlanetValue.Name = "lblStorageDeuteriumPlanetValue";
-            this.lblStorageDeuteriumPlanetValue.Size = new System.Drawing.Size(130, 30);
+            this.lblStorageDeuteriumPlanetValue.Size = new System.Drawing.Size(150, 30);
             this.lblStorageDeuteriumPlanetValue.TabIndex = 8;
             this.lblStorageDeuteriumPlanetValue.Text = "Zbiornik deuteru";
             this.lblStorageDeuteriumPlanetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5875,7 +5903,7 @@ namespace MinerGame
             this.lblStorageMetalPlanetValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageMetalPlanetValue.Location = new System.Drawing.Point(10, 20);
             this.lblStorageMetalPlanetValue.Name = "lblStorageMetalPlanetValue";
-            this.lblStorageMetalPlanetValue.Size = new System.Drawing.Size(130, 30);
+            this.lblStorageMetalPlanetValue.Size = new System.Drawing.Size(150, 30);
             this.lblStorageMetalPlanetValue.TabIndex = 6;
             this.lblStorageMetalPlanetValue.Text = "Magazyn metalu";
             this.lblStorageMetalPlanetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5887,7 +5915,7 @@ namespace MinerGame
             this.lblStorageCrystalPlanetValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageCrystalPlanetValue.Location = new System.Drawing.Point(10, 60);
             this.lblStorageCrystalPlanetValue.Name = "lblStorageCrystalPlanetValue";
-            this.lblStorageCrystalPlanetValue.Size = new System.Drawing.Size(130, 30);
+            this.lblStorageCrystalPlanetValue.Size = new System.Drawing.Size(150, 30);
             this.lblStorageCrystalPlanetValue.TabIndex = 7;
             this.lblStorageCrystalPlanetValue.Text = "Magazyn kryształu";
             this.lblStorageCrystalPlanetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5899,9 +5927,9 @@ namespace MinerGame
             this.gbPlanetResources.Controls.Add(this.lblMetalPlanetValue);
             this.gbPlanetResources.Controls.Add(this.lblCrystalPlanetValue);
             this.gbPlanetResources.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbPlanetResources.Location = new System.Drawing.Point(150, 0);
+            this.gbPlanetResources.Location = new System.Drawing.Point(170, 0);
             this.gbPlanetResources.Name = "gbPlanetResources";
-            this.gbPlanetResources.Size = new System.Drawing.Size(150, 140);
+            this.gbPlanetResources.Size = new System.Drawing.Size(170, 140);
             this.gbPlanetResources.TabIndex = 3;
             this.gbPlanetResources.TabStop = false;
             this.gbPlanetResources.Text = " Zasoby na planecie";
@@ -5913,7 +5941,7 @@ namespace MinerGame
             this.lblDeuteriumPlanetValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDeuteriumPlanetValue.Location = new System.Drawing.Point(10, 100);
             this.lblDeuteriumPlanetValue.Name = "lblDeuteriumPlanetValue";
-            this.lblDeuteriumPlanetValue.Size = new System.Drawing.Size(130, 30);
+            this.lblDeuteriumPlanetValue.Size = new System.Drawing.Size(150, 30);
             this.lblDeuteriumPlanetValue.TabIndex = 11;
             this.lblDeuteriumPlanetValue.Text = "Deuter";
             this.lblDeuteriumPlanetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5925,7 +5953,7 @@ namespace MinerGame
             this.lblMetalPlanetValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMetalPlanetValue.Location = new System.Drawing.Point(10, 20);
             this.lblMetalPlanetValue.Name = "lblMetalPlanetValue";
-            this.lblMetalPlanetValue.Size = new System.Drawing.Size(130, 30);
+            this.lblMetalPlanetValue.Size = new System.Drawing.Size(150, 30);
             this.lblMetalPlanetValue.TabIndex = 7;
             this.lblMetalPlanetValue.Text = "Metal";
             this.lblMetalPlanetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5937,7 +5965,7 @@ namespace MinerGame
             this.lblCrystalPlanetValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCrystalPlanetValue.Location = new System.Drawing.Point(10, 60);
             this.lblCrystalPlanetValue.Name = "lblCrystalPlanetValue";
-            this.lblCrystalPlanetValue.Size = new System.Drawing.Size(130, 30);
+            this.lblCrystalPlanetValue.Size = new System.Drawing.Size(150, 30);
             this.lblCrystalPlanetValue.TabIndex = 9;
             this.lblCrystalPlanetValue.Text = "Kryształ";
             this.lblCrystalPlanetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5952,7 +5980,7 @@ namespace MinerGame
             this.gbPlanetInfo.Dock = System.Windows.Forms.DockStyle.Left;
             this.gbPlanetInfo.Location = new System.Drawing.Point(0, 0);
             this.gbPlanetInfo.Name = "gbPlanetInfo";
-            this.gbPlanetInfo.Size = new System.Drawing.Size(150, 140);
+            this.gbPlanetInfo.Size = new System.Drawing.Size(170, 140);
             this.gbPlanetInfo.TabIndex = 5;
             this.gbPlanetInfo.TabStop = false;
             this.gbPlanetInfo.Text = "Informacje o planecie";
@@ -5962,9 +5990,9 @@ namespace MinerGame
             this.lblPlanetFields.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblPlanetFields.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPlanetFields.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlanetFields.Location = new System.Drawing.Point(70, 60);
+            this.lblPlanetFields.Location = new System.Drawing.Point(80, 60);
             this.lblPlanetFields.Name = "lblPlanetFields";
-            this.lblPlanetFields.Size = new System.Drawing.Size(70, 30);
+            this.lblPlanetFields.Size = new System.Drawing.Size(80, 30);
             this.lblPlanetFields.TabIndex = 8;
             this.lblPlanetFields.Text = "Pola";
             this.lblPlanetFields.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5976,7 +6004,7 @@ namespace MinerGame
             this.lblDiameterValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDiameterValue.Location = new System.Drawing.Point(10, 100);
             this.lblDiameterValue.Name = "lblDiameterValue";
-            this.lblDiameterValue.Size = new System.Drawing.Size(130, 30);
+            this.lblDiameterValue.Size = new System.Drawing.Size(150, 30);
             this.lblDiameterValue.TabIndex = 7;
             this.lblDiameterValue.Text = "Średnica [km]";
             this.lblDiameterValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5988,7 +6016,7 @@ namespace MinerGame
             this.lblTemperatureValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTemperatureValue.Location = new System.Drawing.Point(10, 60);
             this.lblTemperatureValue.Name = "lblTemperatureValue";
-            this.lblTemperatureValue.Size = new System.Drawing.Size(55, 30);
+            this.lblTemperatureValue.Size = new System.Drawing.Size(60, 30);
             this.lblTemperatureValue.TabIndex = 5;
             this.lblTemperatureValue.Text = "T [℃]";
             this.lblTemperatureValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6000,7 +6028,7 @@ namespace MinerGame
             this.lblPlanetNameValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlanetNameValue.Location = new System.Drawing.Point(10, 20);
             this.lblPlanetNameValue.Name = "lblPlanetNameValue";
-            this.lblPlanetNameValue.Size = new System.Drawing.Size(130, 30);
+            this.lblPlanetNameValue.Size = new System.Drawing.Size(150, 30);
             this.lblPlanetNameValue.TabIndex = 3;
             this.lblPlanetNameValue.Text = "Nazwa planety";
             this.lblPlanetNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6008,11 +6036,18 @@ namespace MinerGame
             // pPlanetSelect
             // 
             this.pPlanetSelect.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.pPlanetSelect.Controls.Add(this.tbEcoSpeed);
+            this.pPlanetSelect.Controls.Add(this.btnLoad);
+            this.pPlanetSelect.Controls.Add(this.tbNewGameName);
+            this.pPlanetSelect.Controls.Add(this.btnClose);
+            this.pPlanetSelect.Controls.Add(this.btnNewGame);
+            this.pPlanetSelect.Controls.Add(this.btnSave);
             this.pPlanetSelect.Controls.Add(this.cbPlanetSelect);
+            this.pPlanetSelect.Controls.Add(this.btnUpdate);
             this.pPlanetSelect.Dock = System.Windows.Forms.DockStyle.Top;
             this.pPlanetSelect.Location = new System.Drawing.Point(0, 0);
             this.pPlanetSelect.Name = "pPlanetSelect";
-            this.pPlanetSelect.Size = new System.Drawing.Size(1779, 38);
+            this.pPlanetSelect.Size = new System.Drawing.Size(1904, 38);
             this.pPlanetSelect.TabIndex = 6;
             // 
             // cbPlanetSelect
@@ -6024,6 +6059,18 @@ namespace MinerGame
             this.cbPlanetSelect.TabIndex = 4;
             this.cbPlanetSelect.SelectedIndexChanged += new System.EventHandler(this.CbPlanetSelect_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1300, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 30);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "czas pozostały";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -6031,16 +6078,12 @@ namespace MinerGame
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1904, 1011);
             this.Controls.Add(this.pContent);
-            this.Controls.Add(this.pMenuLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Miner Game";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.pMenuLeft.ResumeLayout(false);
-            this.pNewGame.ResumeLayout(false);
-            this.pNewGame.PerformLayout();
             this.pContent.ResumeLayout(false);
             this.pPlanet.ResumeLayout(false);
             this.pPlanetStructures.ResumeLayout(false);
@@ -6093,6 +6136,8 @@ namespace MinerGame
             this.tpShipyard.ResumeLayout(false);
             this.pSmallCargo.ResumeLayout(false);
             this.pSmallCargo.PerformLayout();
+            this.tpPlanet.ResumeLayout(false);
+            this.tpPlanet.PerformLayout();
             this.pInfo.ResumeLayout(false);
             this.gbPlanetCountInfo.ResumeLayout(false);
             this.gbEnergyInfo.ResumeLayout(false);
@@ -6103,6 +6148,7 @@ namespace MinerGame
             this.gbPlanetResources.ResumeLayout(false);
             this.gbPlanetInfo.ResumeLayout(false);
             this.pPlanetSelect.ResumeLayout(false);
+            this.pPlanetSelect.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -6112,9 +6158,7 @@ namespace MinerGame
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel pMenuLeft;
         private System.Windows.Forms.Label lblMetalTotalValue;
-        private System.Windows.Forms.Panel pNewGame;
         private System.Windows.Forms.TextBox tbEcoSpeed;
         private System.Windows.Forms.TextBox tbNewGameName;
         private System.Windows.Forms.Button btnSave;
@@ -6368,7 +6412,7 @@ namespace MinerGame
         private System.Windows.Forms.Label lblSmallCargoCount;
         private System.Windows.Forms.Label lblSmallCargo;
         private System.Windows.Forms.TextBox tbSmallCargoCount;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblSmallCargoShade;
         private System.Windows.Forms.GroupBox gbPlanetCountInfo;
         private System.Windows.Forms.GroupBox gbEnergyInfo;
         private System.Windows.Forms.Label lblEnergyOverValue;
@@ -6532,6 +6576,11 @@ namespace MinerGame
         private System.Windows.Forms.Label lblProductionLevel;
         private System.Windows.Forms.Label lblTimeToFillStorage;
         private System.Windows.Forms.Panel pProductionGeneratedContent;
+        private System.Windows.Forms.TabPage tpPoints;
+        private System.Windows.Forms.TabPage tpPlanet;
+        private System.Windows.Forms.Button btnChangePlanetName;
+        private System.Windows.Forms.TextBox tbNewPlanetName;
+        private System.Windows.Forms.Label label1;
     }
 }
 
