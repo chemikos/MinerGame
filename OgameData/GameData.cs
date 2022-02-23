@@ -599,7 +599,7 @@ namespace OgameData
             #region Ships
             { Item.SMALL_CARGO, "Mały transporter" },
             { Item.LARGE_CARGO, "Duży transporter" },
-            { Item.COLONY_SHIP, "Statek kolonizazyjny" },
+            { Item.COLONY_SHIP, "Statek kolonizacyjny" },
             { Item.RECYCLER, "Recykler" },
             { Item.ESPIONAGE_PROBE, "Sonda szpiegowska" },
             { Item.LIGHT_FIGHTER, "Lekki myśliwiec" },
@@ -609,7 +609,7 @@ namespace OgameData
             { Item.BATTLECRUISER, "Pancernik" },
             { Item.BOMBER, "Bombowiec" },
             { Item.DESTROYER, "Niszczyciel" },
-            { Item.DEATHSTAR, "Gwiazda Śmierci" },
+            { Item.DEATHSTAR, "Gwiazda śmierci" },
             { Item.REAPER, "Rozpruwacz" },
             { Item.PATHFINDER, "Pionier" },
             #endregion
@@ -658,7 +658,7 @@ namespace OgameData
         {
             { Item.METAL, 30.0 },
             { Item.CRYSTAL, 15.0 },
-            { Item.DEUTERIUM, 0.0 }
+            { Item.DEUTERIUM, 5.0 }
         };
         
         public static readonly Dictionary<Item, Dictionary<Item, double>> TECHNICAL_DATA = new()

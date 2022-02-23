@@ -2,14 +2,10 @@
 using OgameData;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MinerGame
@@ -21,28 +17,24 @@ namespace MinerGame
         private Planet activePlanet;
 
         private Dictionary<Item, Label> NameLabelList;
-
         private Dictionary<Item, Label> ResearchLevelLabelList;
         private Dictionary<Item, Label> BuildingLevelLabelList;
-
         private Dictionary<Item, Label[]> ResearchCostLabelsList;
         private Dictionary<Item, Label[]> BuildingCostLabelsList;
-
         private Dictionary<Item, Label> ResearchDurationLabelList;
         private Dictionary<Item, Label> BuildingDurationLabelList;
-
         private Dictionary<Item, Button> ResearchUpgradeButtonList;
         private Dictionary<Item, Button> BuildingUpgradeButtonList;
-
         private Dictionary<Item, Label> BuildingTimeRemainLabelList;
         private Dictionary<Item, Label> ResearchTimeRemainLabelList;
-
-        // flota i obrona, do zrobienia w formularzu
-        //private Dictionary<Item, Label> CountLabelList;
-        //private Dictionary<Item, Label[]> UnitCostLabelList;
-        //private Dictionary<Item, Label> UnitConstructDurationLabelList;
-        //private Dictionary<Item, Button> ConstructButtonList;
-        //private Dictionary<Item, Label> ConstructTimeRemainLabelList;
+        private Dictionary<Item, Label> ShipCountLabelList;
+        private Dictionary<Item, Label> DefenceCountLabelList;
+        private Dictionary<Item, Label[]> UnitCostLabelList;
+        private Dictionary<Item, Label> UnitDurationLabelList;
+        private Dictionary<Item, Button> UnitConstructButtonList;
+        private Dictionary<Item, Label> UnitTimeRemainLabelList;
+        private Dictionary<Item, Label> ConstructShadeLabelList;
+        private Dictionary<Item, TextBox> UnitCountTextBoxList;
         #endregion
 
         public MainForm()
@@ -72,7 +64,7 @@ namespace MinerGame
 
         private void BtnNewGame_Click(object sender, EventArgs e)
         {
-            OGame.GameSpeed = GetFactorSpeed(tbEcoSpeed.Text);
+            OGame.GameSpeed = GetGameSpeed(tbEcoSpeed.Text);
             ogame = new OGame(GetGameName());
 
             tbNewGameName.Text = "";
@@ -88,6 +80,7 @@ namespace MinerGame
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+            EnableConstructButtons();
 
             EnableSaveUpdateButtons();
         }
@@ -108,6 +101,7 @@ namespace MinerGame
                     FillInfoPanel();
                     FillTabs();
                     EnableUpgradeButtons();
+                    EnableConstructButtons();
 
                     EnableSaveUpdateButtons();
                 }
@@ -125,6 +119,7 @@ namespace MinerGame
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+            EnableConstructButtons();
         }
 
         private void CbPlanetSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +131,7 @@ namespace MinerGame
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+            EnableConstructButtons();
         }
 
         private void BtnDeletePlanet_Click(object sender, EventArgs e)
@@ -161,6 +157,7 @@ namespace MinerGame
                 FillInfoPanel();
                 FillTabs();
                 EnableUpgradeButtons();
+                EnableConstructButtons();
             }
         }
 
@@ -168,7 +165,7 @@ namespace MinerGame
         {
             ogame.UpdateResources(DateTime.Now);
 
-            //activePlanet.Fleet[Item.COLONY_SHIP]--;
+            activePlanet.Fleet[Item.COLONY_SHIP]--;
 
             int id = FindPlanetID();
 
@@ -193,12 +190,13 @@ namespace MinerGame
 
             TimeSpan duration = GameHandler.BuildingTime(cost, activePlanet.Buildings[Item.ROBOTICS_FACTORY].Level, activePlanet.Buildings[Item.NANITE_FACTORY].Level);
 
-            OGame.TimeEvents.Add(new TimeEvent(item, activePlanet.PlanetID, ogame.LastUpdate.Add(duration)));
+            OGame.TimeEvents.Add(new TimeEvent(item, activePlanet.PlanetID, ogame.LastUpdate, ogame.LastUpdate.Add(duration)));
             OGame.TimeEvents = OGame.TimeEvents.OrderBy(te => te.ProcessFinish).ToList();
 
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+            EnableConstructButtons();
         }
 
         private void BtnResearchUpgrade_Click(object sender, EventArgs e)
@@ -213,12 +211,50 @@ namespace MinerGame
             int lablvl = GameHandler.LabLevel(activePlanet, ogame.Planets, OGame.Researches[Item.IRN].Level, GameData.REQUIREMENTS[item][Item.RESEARCH_LAB]);
             TimeSpan duration = GameHandler.ResearchTime(cost, lablvl, OGame.Researches[Item.GRAVITON_TECHNOLOGY].Level);
 
-            OGame.TimeEvents.Add(new TimeEvent(item, activePlanet.PlanetID, ogame.LastUpdate.Add(duration)));
+            OGame.TimeEvents.Add(new TimeEvent(item, activePlanet.PlanetID, ogame.LastUpdate, ogame.LastUpdate.Add(duration)));
             OGame.TimeEvents = OGame.TimeEvents.OrderBy(te => te.ProcessFinish).ToList();
 
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+            EnableConstructButtons();
+        }
+
+        private void BtnConstruct_Click(object sender, EventArgs e)
+        {
+            ogame.UpdateResources(DateTime.Now);
+
+            Item item = UnitConstructButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
+            double count = GetUnitCount(UnitCountTextBoxList[item].Text);
+
+            if (count > GameHandler.MaxUnits(item, activePlanet.Resources))
+            {
+                count = GameHandler.MaxUnits(item, activePlanet.Resources);
+            }
+
+            if (item == Item.ANTI_BALLISTIC_MISSILE || item == Item.INTERPLANETARY_MISSILE)
+            {
+                double space = activePlanet.Buildings[Item.MISSILE_SILO].Level * 10.0;
+                space = item == Item.ANTI_BALLISTIC_MISSILE ? space - activePlanet.Defences[item] - activePlanet.Defences[item + 1] * 2
+                                                            : space / 2 - Math.Floor((activePlanet.Defences[item - 1] + 1) / 2.0) - activePlanet.Defences[item];
+
+                count = count > space ? space : count;
+            }
+
+            Resources cost = new(GameData.COST[item][Item.METAL], GameData.COST[item][Item.CRYSTAL], GameData.COST[item][Item.DEUTERIUM]);
+            cost.Multiply(count);
+            activePlanet.Resources.Subtract(cost);
+            activePlanet.IsShipyardWorking = true;
+
+            TimeSpan durationTotal = GameHandler.ConstructTime(item, activePlanet.Buildings[Item.SHIPYARD].Level, activePlanet.Buildings[Item.NANITE_FACTORY].Level) * count;
+
+            OGame.TimeEvents.Add(new TimeEvent(item, activePlanet.PlanetID, ogame.LastUpdate, ogame.LastUpdate.Add(durationTotal), count));
+            OGame.TimeEvents = OGame.TimeEvents.OrderBy(te => te.ProcessFinish).ToList();
+
+            FillInfoPanel();
+            FillTabs();
+            EnableUpgradeButtons();
+            EnableConstructButtons();
         }
 
         private void BtnGravitonTechnologyUpgrade_Click(object sender, EventArgs e)
@@ -229,6 +265,7 @@ namespace MinerGame
             FillInfoPanel();
             FillTabs();
             EnableUpgradeButtons();
+            EnableConstructButtons();
         }
 
         private void TextBox_Click(object sender, EventArgs e)
@@ -272,18 +309,28 @@ namespace MinerGame
 
             InitResearchLevelLabelList();
             InitBuildingLevelLabelList();
+            InitShipCountLabelList();
+            InitDefenceCountLabelList();
 
             InitResearchCostLabelList();
             InitBuildingCostLabelList();
+            InitUnitCostLabel();
 
             InitResearchDurationLabelList();
             InitBuildingDurationLabelList();
+            InitUnitDurationLabelList();
 
             InitResearchUpgradeButtonList();
             InitBuildingUpgradeButtonList();
+            InitUnitConstructButtonList();
 
             InitBuildingTimeRemainLabelList();
             InitResearchTimeRemainLabelList();
+            InitUnitTimeRemainLabelList();
+
+            InitConstructShadeLabelList();
+
+            InitUnitCountTextBoxList();
         }
 
         private void InitNameLabelList()
@@ -333,15 +380,37 @@ namespace MinerGame
                 #endregion
 
                 #region Defences
-
+                { Item.ROCKER_LAUNCHER, lblRocketLauncher },
+                { Item.LIGHT_LASER, lblLightLaser },
+                { Item.HEAVY_LASER, lblHeavyLaser },
+                { Item.GAUSS_CANNON, lblGaussCannon },
+                { Item.ION_CANNON, lblIonCannon },
+                { Item.PLASMA_TURRET, lblPlasmaTurret },
+                { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissile },
+                { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissile },
                 #endregion
 
                 #region Fleet but Defences
-
+                { Item.SOLAR_SATELLITE, lblSolarSatellite },
+                { Item.CRAWLER, lblCrawler },
                 #endregion
 
                 #region Fleet
-
+                { Item.SMALL_CARGO, lblSmallCargo },
+                { Item.LARGE_CARGO, lblLargeCargo },
+                { Item.COLONY_SHIP, lblColonyShip },
+                { Item.RECYCLER, lblRecycler },
+                { Item.ESPIONAGE_PROBE, lblEspionageProbe },
+                { Item.LIGHT_FIGHTER, lblLightFighter },
+                { Item.HEAVY_FIGHTER, lblHeavyFighter },
+                { Item.CRUISER, lblCruiser },
+                { Item.BATTLESHIP, lblBattleship },
+                { Item.BATTLECRUISER, lblBattlecruiser },
+                { Item.BOMBER, lblBomber },
+                { Item.DESTROYER, lblDestroyer },
+                { Item.DEATHSTAR, lblDeathstar },
+                { Item.REAPER, lblReaper },
+                { Item.PATHFINDER, lblPathfinder }
                 #endregion
 
             };
@@ -397,6 +466,47 @@ namespace MinerGame
             };
         }
 
+        private void InitShipCountLabelList()
+        {
+            ShipCountLabelList = new Dictionary<Item, Label>()
+            {
+                { Item.SMALL_CARGO, lblSmallCargoCount },
+                { Item.LARGE_CARGO, lblLargeCargoCount },
+                { Item.COLONY_SHIP, lblColonyShipCount },
+                { Item.RECYCLER, lblRecyclerCount },
+                { Item.ESPIONAGE_PROBE, lblEspionageProbeCount },
+                { Item.LIGHT_FIGHTER, lblLightFighterCount },
+                { Item.HEAVY_FIGHTER, lblHeavyFighterCount },
+                { Item.CRUISER, lblCruiserCount },
+                { Item.BATTLESHIP, lblBattleshipCount },
+                { Item.BATTLECRUISER, lblBattlecruiserCount },
+                { Item.BOMBER, lblBomberCount },
+                { Item.DESTROYER, lblDestroyerCount },
+                { Item.DEATHSTAR, lblDeathstarCount },
+                { Item.REAPER, lblReaperCount },
+                { Item.PATHFINDER, lblPathfinderCount }
+            };
+        }
+
+        private void InitDefenceCountLabelList()
+        {
+            DefenceCountLabelList = new Dictionary<Item, Label>()
+            {
+                { Item.SOLAR_SATELLITE, lblSolarSatelliteCount },
+                { Item.CRAWLER, lblCrawlerCount },
+                { Item.ROCKER_LAUNCHER, lblRocketLauncherCount },
+                { Item.LIGHT_LASER, lblLightLaserCount },
+                { Item.HEAVY_LASER, lblHeavyLaserCount },
+                { Item.GAUSS_CANNON, lblGaussCannonCount },
+                { Item.ION_CANNON, lblIonCannonCount },
+                { Item.PLASMA_TURRET, lblPlasmaTurretCount },
+                { Item.SMALL_SHIELD_DOME, lblSmallShieldDomeCount },
+                { Item.LARGE_SHIELD_DOME, lblLargeShieldDomeCount },
+                { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissileCount },
+                { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileCount }
+            };
+        }
+
         private void InitResearchCostLabelList()
         {
             ResearchCostLabelsList = new Dictionary<Item, Label[]>()
@@ -445,6 +555,41 @@ namespace MinerGame
                 { Item.LUNAR_BASE, new Label[] { lblLunarBaseMetalCost, lblLunarBaseCrystalCost, lblLunarBaseDeuteriumCost } },
                 { Item.SENSOR_PHALANX, new Label[] { lblSensorPhalanxMetalCost, lblSensorPhalanxCrystalCost, lblSensorPhalanxDeuteriumCost } },
                 { Item.JUMP_GATE, new Label[] { lblJumpGateMetalCost, lblJumpGateCrystalCost, lblJumpGateDeuteriumCost } }
+            };
+        }
+
+        private void InitUnitCostLabel()
+        {
+            UnitCostLabelList = new Dictionary<Item, Label[]>()
+            {
+                { Item.SMALL_CARGO, new Label[] { lblSmallCargoMetalCost, lblSmallCargoCrystalCost, lblSmallCargoDeuteriumCost } },
+                { Item.LARGE_CARGO, new Label[] { lblLargeCargoMetalCost, lblLargeCargoCrystalCost, lblLargeCargoDeuteriumCost } },
+                { Item.COLONY_SHIP, new Label[] { lblColonyShipMetalCost, lblColonyShipCrystalCost, lblColonyShipDeuteriumCost } },
+                { Item.RECYCLER, new Label[] { lblRecyclerMetalCost, lblRecyclerCrystalCost, lblRecyclerDeuteriumCost } },
+                { Item.ESPIONAGE_PROBE, new Label[] { lblEspionageProbeMetalCost, lblEspionageProbeCrystalCost, lblEspionageProbeDeuteriumCost } },
+                { Item.LIGHT_FIGHTER, new Label[] { lblLightFighterMetalCost, lblLightFighterCrystalCost, lblLightFighterDeuteriumCost } },
+                { Item.HEAVY_FIGHTER, new Label[] { lblHeavyFighterMetalCost, lblHeavyFighterCrystalCost, lblHeavyFighterDeuteriumCost } },
+                { Item.CRUISER, new Label[] { lblCruiserMetalCost, lblCruiserCrystalCost, lblCruiserDeuteriumCost } },
+                { Item.BATTLESHIP, new Label[] { lblBattleshipMetalCost, lblBattleshipCrystalCost, lblBattleshipDeuteriumCost } },
+                { Item.BATTLECRUISER, new Label[] { lblBattlecruiserMetalCost, lblBattlecruiserCrystalCost, lblBattleshipDeuteriumCost } },
+                { Item.BOMBER, new Label[] { lblBomberMetalCost, lblBomberCrystalCost, lblBomberDeuteriumCost } },
+                { Item.DESTROYER, new Label[] { lblDestroyerMetalCost, lblDestroyerCrystalCost, lblDestroyerDeuteriumCost } },
+                { Item.DEATHSTAR, new Label[] { lblDeathstarMetalCost, lblDeathstarCrystalCost, lblDeathstarDeuteriumCost } },
+                { Item.REAPER, new Label[] { lblReaperMetalCost, lblReaperCrystalCost, lblReaperDeuteriumCost } },
+                { Item.PATHFINDER, new Label[] { lblPathfinderMetalCost, lblPathfinderCrystalCost, lblPathfinderDeuteriumCost } },
+
+                { Item.SOLAR_SATELLITE, new Label[] { lblSolarSatelliteMetalCost, lblSolarSatelliteCrystalCost, lblSolarSatelliteDeuteriumCost } },
+                { Item.CRAWLER, new Label[] { lblCrawlerMetalCost, lblCrawlerCrystalCost, lblCrawlerDeuteriumCost } },
+                { Item.ROCKER_LAUNCHER, new Label[] { lblRocketLauncherMetalCost, lblRocketLauncherCrystalCost, lblRocketLauncherDeuteriumCost } },
+                { Item.LIGHT_LASER, new Label[] { lblLightLaserMetalCost, lblLightLaserCrystalCost, lblLightLaserDeuteriumCost } },
+                { Item.HEAVY_LASER, new Label[] { lblHeavyLaserMetalCost, lblHeavyLaserCrystalCost, lblHeavyLaserDeuteriumCost } },
+                { Item.GAUSS_CANNON, new Label[] { lblGaussCannonMetalCost, lblGaussCannonCrystalCost, lblGaussCannonDeuteriumCost } },
+                { Item.ION_CANNON, new Label[] { lblIonCannonMetalCost, lblIonCannonCrystalCost, lblIonCannonDeuteriumCost } },
+                { Item.PLASMA_TURRET, new Label[] { lblPlasmaTurretMetalCost, lblPlasmaTurretCrystalCost, lblPlasmaTurretDeuteriumCost } },
+                { Item.SMALL_SHIELD_DOME, new Label[] { lblSmallShieldDomeMetalCost, lblSmallShieldDomeCrystalCost, lblSmallShieldDomeDeuteriumCost } },
+                { Item.LARGE_SHIELD_DOME, new Label[] { lblLargeShieldDomeMetalCost, lblLargeShieldDomeCrystalCost, lblLargeShieldDomeDeuteriumCost } },
+                { Item.ANTI_BALLISTIC_MISSILE, new Label[] { lblAntiBallisticMissileMetalCost, lblAntiBallisticMissileCrystalCost, lblAntiBallisticMissileDeuteriumCost } },
+                { Item.INTERPLANETARY_MISSILE, new Label[] { lblInterplanetaryMissileMetalCost, lblInterplanetaryMissileCrystalCost, lblInterplanetaryMissileDeuteriumCost } }
             };
         }
 
@@ -498,6 +643,41 @@ namespace MinerGame
             };
         }
 
+        private void InitUnitDurationLabelList()
+        {
+            UnitDurationLabelList = new Dictionary<Item, Label>()
+            {
+                { Item.SMALL_CARGO, lblSmallCargoDuration },
+                { Item.LARGE_CARGO, lblLargeCargoDuration },
+                { Item.COLONY_SHIP, lblColonyShipDuration },
+                { Item.RECYCLER, lblRecyclerDuration },
+                { Item.ESPIONAGE_PROBE, lblEspionageProbeDuration },
+                { Item.LIGHT_FIGHTER, lblLightFighterDuration },
+                { Item.HEAVY_FIGHTER, lblHeavyFighterDuration },
+                { Item.CRUISER, lblCruiserDuration },
+                { Item.BATTLESHIP, lblBattleshipDuration },
+                { Item.BATTLECRUISER, lblBattlecruiserDuration },
+                { Item.BOMBER, lblBomberDuration },
+                { Item.DESTROYER, lblDestroyerDuration },
+                { Item.DEATHSTAR, lblDeathstarDuration },
+                { Item.REAPER, lblReaperDuration },
+                { Item.PATHFINDER, lblPathfinderDuration },
+
+                { Item.SOLAR_SATELLITE, lblSolarSatelliteDuration },
+                { Item.CRAWLER, lblCrawlerDuration },
+                { Item.ROCKER_LAUNCHER, lblRocketLauncherDuration },
+                { Item.LIGHT_LASER, lblLightLaserDuration },
+                { Item.HEAVY_LASER, lblHeavyLaserDuration },
+                { Item.GAUSS_CANNON, lblGaussCannonDuration },
+                { Item.ION_CANNON, lblIonCannonDuration },
+                { Item.PLASMA_TURRET, lblPlasmaTurretDuration },
+                { Item.SMALL_SHIELD_DOME, lblSmallShieldDomeDuration },
+                { Item.LARGE_SHIELD_DOME, lblLargeShieldDomeDuration },
+                { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissileDuration },
+                { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileDuration }
+            };
+        }
+
         private void InitResearchUpgradeButtonList()
         {
             ResearchUpgradeButtonList = new Dictionary<Item, Button>()
@@ -545,6 +725,41 @@ namespace MinerGame
                 { Item.LUNAR_BASE, btnLunarBaseUpgrade },
                 { Item.SENSOR_PHALANX, btnSensorPhalanxUpgrade },
                 { Item.JUMP_GATE, btnJumpGateUpgrade }
+            };
+        }
+
+        private void InitUnitConstructButtonList()
+        {
+            UnitConstructButtonList = new Dictionary<Item, Button>()
+            {
+                { Item.SMALL_CARGO, btnSmallCargoConstruct },
+                { Item.LARGE_CARGO, btnLargeCargoConstruct },
+                { Item.COLONY_SHIP, btnColonyShipConstruct },
+                { Item.RECYCLER, btnRecyclerConstruct },
+                { Item.ESPIONAGE_PROBE, btnEspionageProbeConstruct },
+                { Item.LIGHT_FIGHTER, btnLightFighterConstruct },
+                { Item.HEAVY_FIGHTER, btnHeavyFighterConstruct },
+                { Item.CRUISER, btnCruiserConstruct },
+                { Item.BATTLESHIP, btnBattleshipConstruct },
+                { Item.BATTLECRUISER, btnBattlecruiserConstruct },
+                { Item.BOMBER, btnBomberConstruct },
+                { Item.DESTROYER, btnDestroyerConstruct },
+                { Item.DEATHSTAR, btnDeathstarConstruct },
+                { Item.REAPER, btnReaperConstruct },
+                { Item.PATHFINDER, btnPathfinderConstruct },
+
+                { Item.SOLAR_SATELLITE, btnSolarSatelliteConstruct },
+                { Item.CRAWLER, btnCrawlerConstruct },
+                { Item.ROCKER_LAUNCHER, btnRocketLauncherConstruct },
+                { Item.LIGHT_LASER, btnLightLaserConstruct },
+                { Item.HEAVY_LASER, btnHeavyLaserConstruct },
+                { Item.GAUSS_CANNON, btnGaussCannonConstruct },
+                { Item.ION_CANNON, btnIonCannonConstruct },
+                { Item.PLASMA_TURRET, btnPlasmaTurretConstruct },
+                { Item.SMALL_SHIELD_DOME, btnSmallShieldDomeConstruct },
+                { Item.LARGE_SHIELD_DOME, btnLargeShieldDomeConstruct },
+                { Item.ANTI_BALLISTIC_MISSILE, btnAntiBallisticMissileConstruct },
+                { Item.INTERPLANETARY_MISSILE, btnInterplanetaryMissileConstruct }
             };
         }
 
@@ -596,6 +811,111 @@ namespace MinerGame
                 { Item.IRN, lblIrnTimeRemain }
             };
         }
+
+        private void InitUnitTimeRemainLabelList()
+        {
+            UnitTimeRemainLabelList = new Dictionary<Item, Label>()
+            {
+                { Item.SMALL_CARGO, lblSmallCargoTimeRemain },
+                { Item.LARGE_CARGO, lblLargeCargoTimeRemain },
+                { Item.COLONY_SHIP, lblColonyShipTimeRemain },
+                { Item.RECYCLER, lblRecyclerTimeRemian },
+                { Item.ESPIONAGE_PROBE, lblEspionageProbeTimeRemain },
+                { Item.LIGHT_FIGHTER, lblLightFighterTimeRemain },
+                { Item.HEAVY_FIGHTER, lblHeavyFighterTimeRemain },
+                { Item.CRUISER, lblCruiserTimeRemain },
+                { Item.BATTLESHIP, lblBattleshipTimeRemain },
+                { Item.BATTLECRUISER, lblBattlecruiserTimeRemain },
+                { Item.BOMBER, lblBomberTimeRemain },
+                { Item.DESTROYER, lblDestroyerTimeRemain },
+                { Item.DEATHSTAR, lblDeathstarTimeRemain },
+                { Item.REAPER, lblReaperTimeRemain },
+                { Item.PATHFINDER, lblPathfinderTimeRemain },
+
+                { Item.SOLAR_SATELLITE, lblSolarSatelliteTimeRemain },
+                { Item.CRAWLER, lblCrawlerTimeRemain },
+                { Item.ROCKER_LAUNCHER, lblRocketLauncherTimeRemain },
+                { Item.LIGHT_LASER, lblLightLaserTimeRemain },
+                { Item.HEAVY_LASER, lblHeavyLaserTimeRemain },
+                { Item.GAUSS_CANNON, lblGaussCannonTimeRemain },
+                { Item.ION_CANNON, lblIonCannonTimeRemain },
+                { Item.PLASMA_TURRET, lblPlasmaTurretTimeRemain },
+                { Item.SMALL_SHIELD_DOME, lblSmallShieldDomeTimeRemain },
+                { Item.LARGE_SHIELD_DOME, lblLargeShieldDomeTimeRemain },
+                { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissileTimeRemain },
+                { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileTimeRemain }
+            };
+        }
+
+        private void InitConstructShadeLabelList()
+        {
+            ConstructShadeLabelList = new Dictionary<Item, Label>()
+            {
+                { Item.SMALL_CARGO, lblSmallCargoShade },
+                { Item.LARGE_CARGO, lblLargeCargoShade },
+                { Item.COLONY_SHIP, lblColonyShipShade },
+                { Item.RECYCLER, lblRecyclerShade },
+                { Item.ESPIONAGE_PROBE, lblEspionageProbeShade },
+                { Item.LIGHT_FIGHTER, lblLightFighterShade },
+                { Item.HEAVY_FIGHTER, lblHeavyFighterShade },
+                { Item.CRUISER, lblCruiserShade },
+                { Item.BATTLESHIP, lblBattleshipShade },
+                { Item.BATTLECRUISER, lblBattlecruiserShade },
+                { Item.BOMBER, lblBomberShade },
+                { Item.DESTROYER, lblDestroyerShade },
+                { Item.DEATHSTAR, lblDeathstarShade },
+                { Item.REAPER, lblReaperShade },
+                { Item.PATHFINDER, lblPathfinderShade },
+
+                { Item.SOLAR_SATELLITE, lblSolarSatelliteShade },
+                { Item.CRAWLER, lblCrawlerShade },
+                { Item.ROCKER_LAUNCHER, lblRocketLauncherShade },
+                { Item.LIGHT_LASER, lblLightLaserShade },
+                { Item.HEAVY_LASER, lblHeavyLaserShade },
+                { Item.GAUSS_CANNON, lblGaussCannonShade },
+                { Item.ION_CANNON, lblIonCannonShade },
+                { Item.PLASMA_TURRET, lblPlasmaTurretShade },
+                { Item.SMALL_SHIELD_DOME, lblSmallShieldDomeShade },
+                { Item.LARGE_SHIELD_DOME, lblLargeShieldDomeShade },
+                { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissileShade },
+                { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileShade }
+            };
+        }
+
+        private void InitUnitCountTextBoxList()
+        {
+            UnitCountTextBoxList = new Dictionary<Item, TextBox>()
+            {
+                { Item.SMALL_CARGO, tbSmallCargoCount },
+                { Item.LARGE_CARGO, tbLargeCargoCount },
+                { Item.COLONY_SHIP, tbColonyShipCount },
+                { Item.RECYCLER, tbRecyclerCount },
+                { Item.ESPIONAGE_PROBE, tbEspionageProbeCount },
+                { Item.LIGHT_FIGHTER, tbLightFighterCount },
+                { Item.HEAVY_FIGHTER, tbHeavyFighterCount },
+                { Item.CRUISER, tbCruiserCount },
+                { Item.BATTLESHIP, tbBattleshipCount },
+                { Item.BATTLECRUISER, tbBattlecruiserCount },
+                { Item.BOMBER, tbBomberCount },
+                { Item.DESTROYER, tbDestroyerCount },
+                { Item.DEATHSTAR, tbDeathstarCount },
+                { Item.REAPER, tbReaperCount },
+                { Item.PATHFINDER, tbPathfinderCount },
+
+                { Item.SOLAR_SATELLITE, tbSolarSatelliteCount },
+                { Item.CRAWLER, tbCrawlerCount },
+                { Item.ROCKER_LAUNCHER, tbRocketLauncherCount },
+                { Item.LIGHT_LASER, tbLightLaserCount },
+                { Item.HEAVY_LASER, tbHeavyLaserCount },
+                { Item.GAUSS_CANNON, tbGaussCannonCount },
+                { Item.ION_CANNON, tbIonCannonCount },
+                { Item.PLASMA_TURRET, tbPlasmaTurretCount },
+                { Item.SMALL_SHIELD_DOME, tbSmallShieldDomeCount },
+                { Item.LARGE_SHIELD_DOME, tbLargeShieldDomeCount },
+                { Item.ANTI_BALLISTIC_MISSILE, tbAntiBallisticMissileCount },
+                { Item.INTERPLANETARY_MISSILE, tbInterplanetaryMissileCount }
+            };
+        }
         #endregion
 
         #region Fill Info panel
@@ -642,9 +962,6 @@ namespace MinerGame
 
         private void FillPlanetEnergyInfoGroupBox()
         {
-            //double available = GameHandler.SolarPlantProduction(activePlanet.Buildings[Item.SOLAR_PLANT].Level)
-            //                  + GameHandler.FusionReactorProduction(activePlanet.Buildings[Item.FUSION_REACTOR].Level, OGame.Researches[Item.ENERGY_TECHNOLOGY].Level);
-
             double available = GameHandler.PlanetEnergyProduction(activePlanet);
             double demand = GameHandler.MetalMineEnergyDemand(activePlanet.Buildings[Item.METAL_MINE].Level)
                           + GameHandler.CrystalMineEnergyDemand(activePlanet.Buildings[Item.CRYSTAL_MINE].Level)
@@ -709,8 +1026,7 @@ namespace MinerGame
 
             lblPlanetCount.Text = currentPlanetsCount.ToString("N0") + " / " + maxPlanets.ToString("N0");
 
-            //if (currentPlanetsCount < maxPlanets && activePlanet.Fleet[Item.COLONY_SHIP] > 0)
-            if (currentPlanetsCount < maxPlanets)
+            if (currentPlanetsCount < maxPlanets && activePlanet.Fleet[Item.COLONY_SHIP] > 0)
             {
                 btnNewPlanet.Enabled = true;
                 btnNewPlanet.BackColor = Color.Lime;
@@ -751,9 +1067,16 @@ namespace MinerGame
 
             FillBuildingLevelLabel();
             FillResearchLevelLabel();
+            FillShipCountLabel();
+            FillDefenceCountLabel();
 
             FillBuildingCostAndDurationLabels();
             FillResearchCostAndDurationLabels();
+
+            FillUnitCostLabels();
+            FillUnitDurationLabel();
+            FillUnitCountTextBox();
+
             FillEnergyCost();
 
             FillProductionIncrease();
@@ -762,6 +1085,7 @@ namespace MinerGame
 
             FillBuildingTimeRemainLabel();
             FillResearchTimeRemainLabel();
+            FillUnitTimeRemainLabel();
 
             FillProductionTab();
             FillPlanetTab();
@@ -788,6 +1112,22 @@ namespace MinerGame
             foreach (Item item in ResearchLevelLabelList.Keys)
             {
                 ResearchLevelLabelList[item].Text = OGame.Researches[item].Level.ToString("N0");
+            }
+        }
+
+        private void FillShipCountLabel()
+        {
+            foreach (Item item in ShipCountLabelList.Keys)
+            {
+                ShipCountLabelList[item].Text = activePlanet.Fleet[item].ToString("N0");
+            }
+        }
+
+        private void FillDefenceCountLabel()
+        {
+            foreach (Item item in DefenceCountLabelList.Keys)
+            {
+                DefenceCountLabelList[item].Text = activePlanet.Defences[item].ToString("N0");
             }
         }
 
@@ -822,6 +1162,33 @@ namespace MinerGame
                 ResearchDurationLabelList[item].Text
                        = GameHandler.ResearchTime(cost, lablvl, OGame.Researches[Item.GRAVITON_TECHNOLOGY].Level)
                        .ToString("d'd 'hh'h 'mm'm 'ss's'");
+            }
+        }
+
+        private void FillUnitCostLabels()
+        {
+            foreach (Item item in UnitCostLabelList.Keys)
+            {
+                UnitCostLabelList[item].ElementAt(0).Text = GameData.COST[item][Item.METAL].ToString("N0");
+                UnitCostLabelList[item].ElementAt(1).Text = GameData.COST[item][Item.CRYSTAL].ToString("N0");
+                UnitCostLabelList[item].ElementAt(2).Text = GameData.COST[item][Item.DEUTERIUM].ToString("N0");
+            }
+        }
+
+        private void FillUnitDurationLabel()
+        {
+            foreach (Item item in UnitDurationLabelList.Keys)
+            {
+                UnitDurationLabelList[item].Text = GameHandler.ConstructTime(item, activePlanet.Buildings[Item.SHIPYARD].Level, activePlanet.Buildings[Item.NANITE_FACTORY].Level).ToString("d'd 'hh'h 'mm'm 'ss's'");
+            }
+        }
+
+        private void FillUnitCountTextBox()
+        {
+            foreach (Item item in UnitCountTextBoxList.Keys)
+            {
+                UnitCountTextBoxList[item].BackColor = Color.White;
+                UnitCountTextBoxList[item].Text = GameHandler.MaxUnits(item, activePlanet.Resources).ToString("N0");
             }
         }
 
@@ -881,7 +1248,7 @@ namespace MinerGame
                 if (activePlanet.Buildings[item].IsProcessing)
                 {
                     DateTime finishDate = OGame.TimeEvents.Where(te => te.Item == item && te.PlanetID == activePlanet.PlanetID)
-                                                          .Select(pe => pe.ProcessFinish)
+                                                          .Select(te => te.ProcessFinish)
                                                           .ToList()
                                                           .ElementAt(0);
 
@@ -911,10 +1278,40 @@ namespace MinerGame
             }
         }
 
+        private void FillUnitTimeRemainLabel()
+        {
+            foreach (Item item in UnitTimeRemainLabelList.Keys)
+            {
+                if (activePlanet.IsShipyardWorking)
+                {
+                    var unit = OGame.TimeEvents.Where(te => te.Item == item && te.PlanetID == activePlanet.PlanetID).ToList();
+
+                    if (unit.Count > 0)
+                    {
+                        UnitTimeRemainLabelList[item].Text = unit.ElementAt(0).UnitCount.ToString("N0") + " - " + (unit.ElementAt(0).ProcessFinish - ogame.LastUpdate).ToString("d'd 'hh'h 'mm'm 'ss's'");
+                    }
+                    else
+                    {
+                        UnitTimeRemainLabelList[item].Text = "";
+                    }
+                }
+                else
+                {
+                    UnitTimeRemainLabelList[item].Text = "";
+                }
+            }
+        }
+
         #region Production tab
         private void FillProductionTab()
         {
             TotalResourcesDataView resourcesDataView = new();
+            Dictionary<Item, TimeSpan> minStorageTime = new()
+            {
+                { Item.METAL, new TimeSpan() },
+                { Item.CRYSTAL, new TimeSpan() },
+                { Item.DEUTERIUM, new TimeSpan() }
+            };
 
             for (int i = 0; i < ogame.Planets.Count; i++)
             {
@@ -949,11 +1346,22 @@ namespace MinerGame
                     }
                     else
                     {
-                        resourcesPanel[j].Controls[6].Text = StorageFullfill(i, (Item)j, total).ToString("d'd 'hh'h 'mm'm 'ss's'");
+                        TimeSpan time = StorageFullfill(i, (Item)j, total);
+
+                        if (i == 0)
+                        {
+                            minStorageTime[(Item)j] = time;
+                        }
+                        else
+                        {
+                            minStorageTime[(Item)j] = minStorageTime[(Item)j] > time ? time : minStorageTime[(Item)j];
+                        }
+
+                        resourcesPanel[j].Controls[6].Text = time.ToString("d'd 'hh'h 'mm'm 'ss's'");
                     }                    
                 }
             }
-            FillTotalResourcesSection(resourcesDataView);
+            FillTotalResourcesSection(resourcesDataView, minStorageTime);
         }
 
         private TimeSpan StorageFullfill(int planetIndex, Item item, double production)
@@ -969,7 +1377,7 @@ namespace MinerGame
             return TimeSpan.FromSeconds((storage - resource) / (production / 3600));
         }
 
-        private void FillTotalResourcesSection(TotalResourcesDataView resourcesDataView)
+        private void FillTotalResourcesSection(TotalResourcesDataView resourcesDataView, Dictionary<Item, TimeSpan> minStorageTime)
         {
             Resources total = new();
             total.Add(resourcesDataView.Mines);
@@ -1000,6 +1408,10 @@ namespace MinerGame
             lblTotalMetalProductionBasic.Text = resourcesDataView.Basic.Metal.ToString("N0");
             lblTotalCrystalProductionBasic.Text = resourcesDataView.Basic.Crystal.ToString("N0");
             lblTotalDeuteriumProductionBasic.Text = resourcesDataView.Basic.Deuterium.ToString("N0");
+
+            lblStorageMetalMinTime.Text = minStorageTime[Item.METAL].ToString("d'd 'hh'h 'mm'm 'ss's'");
+            lblStorageCrystalMinTime.Text = minStorageTime[Item.CRYSTAL].ToString("d'd 'hh'h 'mm'm 'ss's'");
+            lblStorageDeuteriumMinTime.Text = minStorageTime[Item.DEUTERIUM].ToString("d'd 'hh'h 'mm'm 'ss's'");
         }
 
         private void CreatePlanetPanel(int index)
@@ -1113,11 +1525,28 @@ namespace MinerGame
         }
         #endregion
 
-        #region Upgrade Buttons
+        #region Upgrade / Construct Buttons
         private void EnableUpgradeButtons()
         {
             EnableUpgradeButtons(ResearchUpgradeButtonList);
             EnableUpgradeButtons(BuildingUpgradeButtonList);
+        }
+
+        private void EnableConstructButtons()
+        {
+            foreach (Item item in UnitConstructButtonList.Keys)
+            {
+                if (!IsUpgradeInProgress() && AreRequirementsMet(item) && AreResourcesEnoughShipyard(item) && !activePlanet.IsShipyardWorking && IsSpaceInMissileSilo(item))
+                {
+                    UnitConstructButtonList[item].Enabled = true;
+                    UnitConstructButtonList[item].BackColor = Color.Lime;
+                }
+                else
+                {
+                    UnitConstructButtonList[item].Enabled = false;
+                    UnitConstructButtonList[item].BackColor = Color.Silver;
+                }
+            }
         }
 
         private void EnableUpgradeButtons(Dictionary<Item, Button> buttons)
@@ -1143,6 +1572,11 @@ namespace MinerGame
             return IsAnyBuildingInProgress();
         }
 
+        private bool IsUpgradeInProgress()
+        {
+            return activePlanet.Buildings[Item.SHIPYARD].IsProcessing || activePlanet.Buildings[Item.NANITE_FACTORY].IsProcessing;
+        }
+
         private bool IsAnyBuildingInProgress()
         {
             foreach (Item item in activePlanet.Buildings.Keys)
@@ -1166,6 +1600,14 @@ namespace MinerGame
                 if (p.Buildings[Item.RESEARCH_LAB].IsProcessing) { return true; }
             }
             return false;
+        }
+
+        private bool AreResourcesEnoughShipyard(Item item)
+        {
+            return activePlanet.Resources.Metal >= GameData.COST[item][Item.METAL]
+                && activePlanet.Resources.Crystal >= GameData.COST[item][Item.CRYSTAL]
+                && activePlanet.Resources.Deuterium >= GameData.COST[item][Item.DEUTERIUM]
+                && EnergyRequirements(item);
         }
 
         private bool AreResourcesEnough(Item item)
@@ -1211,12 +1653,39 @@ namespace MinerGame
                 if (item == Item.DEUTERIUM_SYNTHESIZER) { energyDemand = double.Parse(lblDeuteriumSynthesizerEnergyDemand.Text); }
                 return energyOver >= energyDemand;
             }
+
+            if (item == Item.CRAWLER)
+            {
+                double energyLimit = GameHandler.MetalMineEnergyDemand(activePlanet.Buildings[Item.METAL_MINE].Level)
+                                    + GameHandler.CrystalMineEnergyDemand(activePlanet.Buildings[Item.CRYSTAL_MINE].Level)
+                                    + GameHandler.DeuteriumSynthesizerEnergyDemand(activePlanet.Buildings[Item.DEUTERIUM_SYNTHESIZER].Level);
+                double energyDemand = activePlanet.Defences[item] * GameData.COST[item][Item.ENERGY];
+
+                return (energyLimit - energyDemand) / GameData.COST[item][Item.ENERGY] >= 1.0;
+            }
             return true;
         }
 
         private bool AreAnyRequirements(Item item)
         {
             return GameData.REQUIREMENTS.ContainsKey(item);
+        }
+
+        private bool IsSpaceInMissileSilo(Item item)
+        {
+            int space = activePlanet.Buildings[Item.MISSILE_SILO].Level * 10;
+            if (item == Item.ANTI_BALLISTIC_MISSILE)
+            {
+                return space > activePlanet.Defences[Item.ANTI_BALLISTIC_MISSILE] + activePlanet.Defences[Item.INTERPLANETARY_MISSILE] * 2;
+            }
+            else if (item == Item.INTERPLANETARY_MISSILE)
+            {
+                return space / 2 > (activePlanet.Defences[Item.ANTI_BALLISTIC_MISSILE] + 1) / 2.0 + activePlanet.Defences[Item.INTERPLANETARY_MISSILE];
+            }
+            else
+            {
+                return true;
+            }
         }
         #endregion
 
@@ -1229,13 +1698,16 @@ namespace MinerGame
                 return tbNewGameName.Text;
         }
 
-        private static int GetFactorSpeed(string factor)
+        private static int GetGameSpeed(string factor)
         {
-            if (!int.TryParse(factor, out int temp))
-            {
-                return 1;
-            }
+            if (!int.TryParse(factor, out int temp) && temp < 1){ return 1; }
             return temp;
+        }
+
+        private static double GetUnitCount(string count)
+        {
+            if (!double.TryParse(count, out double temp) && temp < 1) { return 1.0; }
+            return Math.Floor(temp);
         }
 
         private void EnableSaveUpdateButtons()
@@ -1297,8 +1769,16 @@ namespace MinerGame
                 else
                 {
                     Planet planet = ogame.Planets.Where(p => p.PlanetID == planetID).ToList()[0];
-                    planet.UpgradeBuilding(item);
+                    if (activePlanet.Buildings.ContainsKey(item))
+                    {
+                        planet.UpgradeBuilding(item);
+                    }
+                    else
+                    {
+                        planet.UpdateUnitConstruct(item, OGame.TimeEvents.ElementAt(0).UnitCount);
+                    }
                 }
+
                 OGame.TimeEvents.RemoveAt(0);
             }
 
@@ -1325,8 +1805,10 @@ namespace MinerGame
             ogame.Planets.Add(new Planet(2));
             ogame.Planets.Add(new Planet(3));
             ogame.Planets.Add(new Planet(4));
-            ogame.Planets.Add(new Planet(5));
-            ogame.Planets.Add(new Planet(6));
+
+            ogame.Planets[0].Resources = new Resources(1000000000, 1000000000, 1000000000);
+
+
             //ogame.Planets.ElementAt(0).Resources = new Resources(20000.0, 20000.0, 20000.0);
 
             //for (int i = 0; i < 5; i++)
@@ -1335,8 +1817,7 @@ namespace MinerGame
             //    ogame.Planets.ElementAt(0).UpgradeBuilding(Item.ROBOTICS_FACTORY);
             //}            
         }
+
         #endregion
-
-
     }
 }

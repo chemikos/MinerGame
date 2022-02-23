@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OgameData
 {
@@ -12,8 +13,9 @@ namespace OgameData
         public int Diameter { get; set; }
         public Resources Resources { get; set; }
         public Dictionary<Item, Building> Buildings { get; set; }
-        public Dictionary<Item, int> Fleet { get; set; }
-        public Dictionary<Item, int> Defences { get; set; }
+        public Dictionary<Item, double> Fleet { get; set; }
+        public Dictionary<Item, double> Defences { get; set; }
+        public bool IsShipyardWorking { get; set; }
         #endregion
 
         public Planet(int id = 0, string name = "")
@@ -46,7 +48,7 @@ namespace OgameData
                 { Item.SENSOR_PHALANX, new Building() },
                 { Item.JUMP_GATE, new Building() }
             };
-            Fleet = new Dictionary<Item, int>()
+            Fleet = new Dictionary<Item, double>()
             {
                 { Item.SMALL_CARGO, 0 },
                 { Item.LARGE_CARGO, 0 },
@@ -66,11 +68,11 @@ namespace OgameData
                 { Item.REAPER, 0 },
                 { Item.PATHFINDER, 0 }
             };
-            Defences = new Dictionary<Item, int>()
+            Defences = new Dictionary<Item, double>()
             {
                 { Item.ROCKER_LAUNCHER, 0 },
                 { Item.LIGHT_LASER, 0 },
-                { Item.HEAVY_FIGHTER, 0 },
+                { Item.HEAVY_LASER, 0 },
                 { Item.GAUSS_CANNON, 0 },
                 { Item.ION_CANNON, 0 },
                 { Item.PLASMA_TURRET, 0 },
@@ -84,6 +86,8 @@ namespace OgameData
                 { Item.SOLAR_SATELLITE, 0 },
                 { Item.CRAWLER, 0 }
             };
+
+            IsShipyardWorking = false;
         }
 
         #region Methods
@@ -93,6 +97,13 @@ namespace OgameData
             Buildings[item].Level++;
             Buildings[item].TotalCost.Add(nextLevel);
             Buildings[item].IsProcessing = false;
+        }
+
+        public void UpdateUnitConstruct(Item item, double count)
+        {
+            if (Fleet.ContainsKey(item)) { Fleet[item] += count; }
+            else { Defences[item] += count; }
+            IsShipyardWorking = false;
         }
         #endregion
     }

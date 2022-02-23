@@ -134,6 +134,7 @@ namespace MinerGame
             this.pTotalProduction = new System.Windows.Forms.Panel();
             this.pTotalProductionDetails = new System.Windows.Forms.Panel();
             this.pTotalDeuteriumProductionDetails = new System.Windows.Forms.Panel();
+            this.lblStorageDeuteriumMinTime = new System.Windows.Forms.Label();
             this.lblTotalDeuteriumProductionBasic = new System.Windows.Forms.Label();
             this.lblTotalDeuteriumProductionCrawlers = new System.Windows.Forms.Label();
             this.lblTotalDeuteriumProductionPlasma = new System.Windows.Forms.Label();
@@ -141,6 +142,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProduction = new System.Windows.Forms.Label();
             this.lblTotalDeuteriumSynthesizerLevel = new System.Windows.Forms.Label();
             this.pTotalCrystalProductionDetails = new System.Windows.Forms.Panel();
+            this.lblStorageCrystalMinTime = new System.Windows.Forms.Label();
             this.lblTotalCrystalProductionBasic = new System.Windows.Forms.Label();
             this.lblTotalCrystalProductionCrawlers = new System.Windows.Forms.Label();
             this.lblTotalCrystalProductionPlasma = new System.Windows.Forms.Label();
@@ -148,6 +150,7 @@ namespace MinerGame
             this.lblTotalCrystalProduction = new System.Windows.Forms.Label();
             this.lblTotalCrystalMineLevel = new System.Windows.Forms.Label();
             this.pTotalMetalProductionDetails = new System.Windows.Forms.Panel();
+            this.lblStorageMetalMinTime = new System.Windows.Forms.Label();
             this.lblTotalMetalProductionBasic = new System.Windows.Forms.Label();
             this.lblTotalMetalProductionCrawlers = new System.Windows.Forms.Label();
             this.lblTotalMetalProductionPlasma = new System.Windows.Forms.Label();
@@ -403,7 +406,162 @@ namespace MinerGame
             this.lblEspionageTechnologyLevel = new System.Windows.Forms.Label();
             this.lblEspionageTechnology = new System.Windows.Forms.Label();
             this.tpShipyard = new System.Windows.Forms.TabPage();
+            this.pPathfinder = new System.Windows.Forms.Panel();
+            this.lblPathfinderTimeRemain = new System.Windows.Forms.Label();
+            this.tbPathfinderCount = new System.Windows.Forms.TextBox();
+            this.lblPathfinderShade = new System.Windows.Forms.Label();
+            this.lblPathfinderDuration = new System.Windows.Forms.Label();
+            this.btnPathfinderConstruct = new System.Windows.Forms.Button();
+            this.lblPathfinderDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblPathfinderCrystalCost = new System.Windows.Forms.Label();
+            this.lblPathfinderMetalCost = new System.Windows.Forms.Label();
+            this.lblPathfinderCount = new System.Windows.Forms.Label();
+            this.lblPathfinder = new System.Windows.Forms.Label();
+            this.pReaper = new System.Windows.Forms.Panel();
+            this.lblReaperTimeRemain = new System.Windows.Forms.Label();
+            this.tbReaperCount = new System.Windows.Forms.TextBox();
+            this.lblReaperShade = new System.Windows.Forms.Label();
+            this.lblReaperDuration = new System.Windows.Forms.Label();
+            this.btnReaperConstruct = new System.Windows.Forms.Button();
+            this.lblReaperDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblReaperCrystalCost = new System.Windows.Forms.Label();
+            this.lblReaperMetalCost = new System.Windows.Forms.Label();
+            this.lblReaperCount = new System.Windows.Forms.Label();
+            this.lblReaper = new System.Windows.Forms.Label();
+            this.pDeathstar = new System.Windows.Forms.Panel();
+            this.lblDeathstarTimeRemain = new System.Windows.Forms.Label();
+            this.tbDeathstarCount = new System.Windows.Forms.TextBox();
+            this.lblDeathstarShade = new System.Windows.Forms.Label();
+            this.lblDeathstarDuration = new System.Windows.Forms.Label();
+            this.btnDeathstarConstruct = new System.Windows.Forms.Button();
+            this.lblDeathstarDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblDeathstarCrystalCost = new System.Windows.Forms.Label();
+            this.lblDeathstarMetalCost = new System.Windows.Forms.Label();
+            this.lblDeathstarCount = new System.Windows.Forms.Label();
+            this.lblDeathstar = new System.Windows.Forms.Label();
+            this.pDestroyer = new System.Windows.Forms.Panel();
+            this.lblDestroyerTimeRemain = new System.Windows.Forms.Label();
+            this.tbDestroyerCount = new System.Windows.Forms.TextBox();
+            this.lblDestroyerShade = new System.Windows.Forms.Label();
+            this.lblDestroyerDuration = new System.Windows.Forms.Label();
+            this.btnDestroyerConstruct = new System.Windows.Forms.Button();
+            this.lblDestroyerDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblDestroyerCrystalCost = new System.Windows.Forms.Label();
+            this.lblDestroyerMetalCost = new System.Windows.Forms.Label();
+            this.lblDestroyerCount = new System.Windows.Forms.Label();
+            this.lblDestroyer = new System.Windows.Forms.Label();
+            this.pBomber = new System.Windows.Forms.Panel();
+            this.lblBomberTimeRemain = new System.Windows.Forms.Label();
+            this.tbBomberCount = new System.Windows.Forms.TextBox();
+            this.lblBomberShade = new System.Windows.Forms.Label();
+            this.lblBomberDuration = new System.Windows.Forms.Label();
+            this.btnBomberConstruct = new System.Windows.Forms.Button();
+            this.lblBomberDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblBomberCrystalCost = new System.Windows.Forms.Label();
+            this.lblBomberMetalCost = new System.Windows.Forms.Label();
+            this.lblBomberCount = new System.Windows.Forms.Label();
+            this.lblBomber = new System.Windows.Forms.Label();
+            this.pBattlecruiser = new System.Windows.Forms.Panel();
+            this.lblBattlecruiserTimeRemain = new System.Windows.Forms.Label();
+            this.tbBattlecruiserCount = new System.Windows.Forms.TextBox();
+            this.lblBattlecruiserShade = new System.Windows.Forms.Label();
+            this.lblBattlecruiserDuration = new System.Windows.Forms.Label();
+            this.btnBattlecruiserConstruct = new System.Windows.Forms.Button();
+            this.lblBattlecruiserDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblBattlecruiserCrystalCost = new System.Windows.Forms.Label();
+            this.lblBattlecruiserMetalCost = new System.Windows.Forms.Label();
+            this.lblBattlecruiserCount = new System.Windows.Forms.Label();
+            this.lblBattlecruiser = new System.Windows.Forms.Label();
+            this.pBattleship = new System.Windows.Forms.Panel();
+            this.lblBattleshipTimeRemain = new System.Windows.Forms.Label();
+            this.tbBattleshipCount = new System.Windows.Forms.TextBox();
+            this.lblBattleshipShade = new System.Windows.Forms.Label();
+            this.lblBattleshipDuration = new System.Windows.Forms.Label();
+            this.btnBattleshipConstruct = new System.Windows.Forms.Button();
+            this.lblBattleshipDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblBattleshipCrystalCost = new System.Windows.Forms.Label();
+            this.lblBattleshipMetalCost = new System.Windows.Forms.Label();
+            this.lblBattleshipCount = new System.Windows.Forms.Label();
+            this.lblBattleship = new System.Windows.Forms.Label();
+            this.pCruiser = new System.Windows.Forms.Panel();
+            this.lblCruiserTimeRemain = new System.Windows.Forms.Label();
+            this.tbCruiserCount = new System.Windows.Forms.TextBox();
+            this.lblCruiserShade = new System.Windows.Forms.Label();
+            this.lblCruiserDuration = new System.Windows.Forms.Label();
+            this.btnCruiserConstruct = new System.Windows.Forms.Button();
+            this.lblCruiserDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblCruiserCrystalCost = new System.Windows.Forms.Label();
+            this.lblCruiserMetalCost = new System.Windows.Forms.Label();
+            this.lblCruiserCount = new System.Windows.Forms.Label();
+            this.lblCruiser = new System.Windows.Forms.Label();
+            this.pHeavyFighter = new System.Windows.Forms.Panel();
+            this.lblHeavyFighterTimeRemain = new System.Windows.Forms.Label();
+            this.tbHeavyFighterCount = new System.Windows.Forms.TextBox();
+            this.lblHeavyFighterShade = new System.Windows.Forms.Label();
+            this.lblHeavyFighterDuration = new System.Windows.Forms.Label();
+            this.btnHeavyFighterConstruct = new System.Windows.Forms.Button();
+            this.lblHeavyFighterDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblHeavyFighterCrystalCost = new System.Windows.Forms.Label();
+            this.lblHeavyFighterMetalCost = new System.Windows.Forms.Label();
+            this.lblHeavyFighterCount = new System.Windows.Forms.Label();
+            this.lblHeavyFighter = new System.Windows.Forms.Label();
+            this.pLightFighter = new System.Windows.Forms.Panel();
+            this.lblLightFighterTimeRemain = new System.Windows.Forms.Label();
+            this.tbLightFighterCount = new System.Windows.Forms.TextBox();
+            this.lblLightFighterShade = new System.Windows.Forms.Label();
+            this.lblLightFighterDuration = new System.Windows.Forms.Label();
+            this.btnLightFighterConstruct = new System.Windows.Forms.Button();
+            this.lblLightFighterDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblLightFighterCrystalCost = new System.Windows.Forms.Label();
+            this.lblLightFighterMetalCost = new System.Windows.Forms.Label();
+            this.lblLightFighterCount = new System.Windows.Forms.Label();
+            this.lblLightFighter = new System.Windows.Forms.Label();
+            this.pEspionageProbe = new System.Windows.Forms.Panel();
+            this.lblEspionageProbeTimeRemain = new System.Windows.Forms.Label();
+            this.tbEspionageProbeCount = new System.Windows.Forms.TextBox();
+            this.lblEspionageProbeShade = new System.Windows.Forms.Label();
+            this.lblEspionageProbeDuration = new System.Windows.Forms.Label();
+            this.btnEspionageProbeConstruct = new System.Windows.Forms.Button();
+            this.lblEspionageProbeDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblEspionageProbeCrystalCost = new System.Windows.Forms.Label();
+            this.lblEspionageProbeMetalCost = new System.Windows.Forms.Label();
+            this.lblEspionageProbeCount = new System.Windows.Forms.Label();
+            this.lblEspionageProbe = new System.Windows.Forms.Label();
+            this.pRecycler = new System.Windows.Forms.Panel();
+            this.lblRecyclerTimeRemian = new System.Windows.Forms.Label();
+            this.tbRecyclerCount = new System.Windows.Forms.TextBox();
+            this.lblRecyclerShade = new System.Windows.Forms.Label();
+            this.lblRecyclerDuration = new System.Windows.Forms.Label();
+            this.btnRecyclerConstruct = new System.Windows.Forms.Button();
+            this.lblRecyclerDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblRecyclerCrystalCost = new System.Windows.Forms.Label();
+            this.lblRecyclerMetalCost = new System.Windows.Forms.Label();
+            this.lblRecyclerCount = new System.Windows.Forms.Label();
+            this.lblRecycler = new System.Windows.Forms.Label();
+            this.pColonyShip = new System.Windows.Forms.Panel();
+            this.lblColonyShipTimeRemain = new System.Windows.Forms.Label();
+            this.tbColonyShipCount = new System.Windows.Forms.TextBox();
+            this.lblColonyShipShade = new System.Windows.Forms.Label();
+            this.lblColonyShipDuration = new System.Windows.Forms.Label();
+            this.btnColonyShipConstruct = new System.Windows.Forms.Button();
+            this.lblColonyShipDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblColonyShipCrystalCost = new System.Windows.Forms.Label();
+            this.lblColonyShipMetalCost = new System.Windows.Forms.Label();
+            this.lblColonyShipCount = new System.Windows.Forms.Label();
+            this.lblColonyShip = new System.Windows.Forms.Label();
+            this.pLargeCargo = new System.Windows.Forms.Panel();
+            this.lblLargeCargoTimeRemain = new System.Windows.Forms.Label();
+            this.tbLargeCargoCount = new System.Windows.Forms.TextBox();
+            this.lblLargeCargoShade = new System.Windows.Forms.Label();
+            this.lblLargeCargoDuration = new System.Windows.Forms.Label();
+            this.btnLargeCargoConstruct = new System.Windows.Forms.Button();
+            this.lblLargeCargoDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblLargeCargoCrystalCost = new System.Windows.Forms.Label();
+            this.lblLargeCargoMetalCost = new System.Windows.Forms.Label();
+            this.lblLargeCargoCount = new System.Windows.Forms.Label();
+            this.lblLargeCargo = new System.Windows.Forms.Label();
             this.pSmallCargo = new System.Windows.Forms.Panel();
+            this.lblSmallCargoTimeRemain = new System.Windows.Forms.Label();
             this.tbSmallCargoCount = new System.Windows.Forms.TextBox();
             this.lblSmallCargoShade = new System.Windows.Forms.Label();
             this.lblSmallCargoDuration = new System.Windows.Forms.Label();
@@ -414,12 +572,145 @@ namespace MinerGame
             this.lblSmallCargoCount = new System.Windows.Forms.Label();
             this.lblSmallCargo = new System.Windows.Forms.Label();
             this.tpDefence = new System.Windows.Forms.TabPage();
+            this.pInterplanetaryMissile = new System.Windows.Forms.Panel();
+            this.lblInterplanetaryMissileTimeRemain = new System.Windows.Forms.Label();
+            this.tbInterplanetaryMissileCount = new System.Windows.Forms.TextBox();
+            this.lblInterplanetaryMissileShade = new System.Windows.Forms.Label();
+            this.lblInterplanetaryMissileDuration = new System.Windows.Forms.Label();
+            this.btnInterplanetaryMissileConstruct = new System.Windows.Forms.Button();
+            this.lblInterplanetaryMissileDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblInterplanetaryMissileCrystalCost = new System.Windows.Forms.Label();
+            this.lblInterplanetaryMissileMetalCost = new System.Windows.Forms.Label();
+            this.lblInterplanetaryMissileCount = new System.Windows.Forms.Label();
+            this.lblInterplanetaryMissile = new System.Windows.Forms.Label();
+            this.pAntiBallisticMissile = new System.Windows.Forms.Panel();
+            this.lblAntiBallisticMissileTimeRemain = new System.Windows.Forms.Label();
+            this.tbAntiBallisticMissileCount = new System.Windows.Forms.TextBox();
+            this.lblAntiBallisticMissileShade = new System.Windows.Forms.Label();
+            this.lblAntiBallisticMissileDuration = new System.Windows.Forms.Label();
+            this.btnAntiBallisticMissileConstruct = new System.Windows.Forms.Button();
+            this.lblAntiBallisticMissileDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblAntiBallisticMissileCrystalCost = new System.Windows.Forms.Label();
+            this.lblAntiBallisticMissileMetalCost = new System.Windows.Forms.Label();
+            this.lblAntiBallisticMissileCount = new System.Windows.Forms.Label();
+            this.lblAntiBallisticMissile = new System.Windows.Forms.Label();
+            this.pLargeShieldDome = new System.Windows.Forms.Panel();
+            this.lblLargeShieldDomeTimeRemain = new System.Windows.Forms.Label();
+            this.tbLargeShieldDomeCount = new System.Windows.Forms.TextBox();
+            this.lblLargeShieldDomeShade = new System.Windows.Forms.Label();
+            this.lblLargeShieldDomeDuration = new System.Windows.Forms.Label();
+            this.btnLargeShieldDomeConstruct = new System.Windows.Forms.Button();
+            this.lblLargeShieldDomeDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblLargeShieldDomeCrystalCost = new System.Windows.Forms.Label();
+            this.lblLargeShieldDomeMetalCost = new System.Windows.Forms.Label();
+            this.lblLargeShieldDomeCount = new System.Windows.Forms.Label();
+            this.lblLargeShieldDome = new System.Windows.Forms.Label();
+            this.pSmallShieldDome = new System.Windows.Forms.Panel();
+            this.lblSmallShieldDomeTimeRemain = new System.Windows.Forms.Label();
+            this.tbSmallShieldDomeCount = new System.Windows.Forms.TextBox();
+            this.lblSmallShieldDomeShade = new System.Windows.Forms.Label();
+            this.lblSmallShieldDomeDuration = new System.Windows.Forms.Label();
+            this.btnSmallShieldDomeConstruct = new System.Windows.Forms.Button();
+            this.lblSmallShieldDomeDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblSmallShieldDomeCrystalCost = new System.Windows.Forms.Label();
+            this.lblSmallShieldDomeMetalCost = new System.Windows.Forms.Label();
+            this.lblSmallShieldDomeCount = new System.Windows.Forms.Label();
+            this.lblSmallShieldDome = new System.Windows.Forms.Label();
+            this.pPlasmaTurret = new System.Windows.Forms.Panel();
+            this.lblPlasmaTurretTimeRemain = new System.Windows.Forms.Label();
+            this.tbPlasmaTurretCount = new System.Windows.Forms.TextBox();
+            this.lblPlasmaTurretShade = new System.Windows.Forms.Label();
+            this.lblPlasmaTurretDuration = new System.Windows.Forms.Label();
+            this.btnPlasmaTurretConstruct = new System.Windows.Forms.Button();
+            this.lblPlasmaTurretDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblPlasmaTurretCrystalCost = new System.Windows.Forms.Label();
+            this.lblPlasmaTurretMetalCost = new System.Windows.Forms.Label();
+            this.lblPlasmaTurretCount = new System.Windows.Forms.Label();
+            this.lblPlasmaTurret = new System.Windows.Forms.Label();
+            this.pIonCannon = new System.Windows.Forms.Panel();
+            this.lblIonCannonTimeRemain = new System.Windows.Forms.Label();
+            this.tbIonCannonCount = new System.Windows.Forms.TextBox();
+            this.lblIonCannonShade = new System.Windows.Forms.Label();
+            this.lblIonCannonDuration = new System.Windows.Forms.Label();
+            this.btnIonCannonConstruct = new System.Windows.Forms.Button();
+            this.lblIonCannonDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblIonCannonCrystalCost = new System.Windows.Forms.Label();
+            this.lblIonCannonMetalCost = new System.Windows.Forms.Label();
+            this.lblIonCannonCount = new System.Windows.Forms.Label();
+            this.lblIonCannon = new System.Windows.Forms.Label();
+            this.pGaussCannon = new System.Windows.Forms.Panel();
+            this.lblGaussCannonTimeRemain = new System.Windows.Forms.Label();
+            this.tbGaussCannonCount = new System.Windows.Forms.TextBox();
+            this.lblGaussCannonShade = new System.Windows.Forms.Label();
+            this.lblGaussCannonDuration = new System.Windows.Forms.Label();
+            this.btnGaussCannonConstruct = new System.Windows.Forms.Button();
+            this.lblGaussCannonDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblGaussCannonCrystalCost = new System.Windows.Forms.Label();
+            this.lblGaussCannonMetalCost = new System.Windows.Forms.Label();
+            this.lblGaussCannonCount = new System.Windows.Forms.Label();
+            this.lblGaussCannon = new System.Windows.Forms.Label();
+            this.pHeavyLaser = new System.Windows.Forms.Panel();
+            this.lblHeavyLaserTimeRemain = new System.Windows.Forms.Label();
+            this.tbHeavyLaserCount = new System.Windows.Forms.TextBox();
+            this.lblHeavyLaserShade = new System.Windows.Forms.Label();
+            this.lblHeavyLaserDuration = new System.Windows.Forms.Label();
+            this.btnHeavyLaserConstruct = new System.Windows.Forms.Button();
+            this.lblHeavyLaserDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblHeavyLaserCrystalCost = new System.Windows.Forms.Label();
+            this.lblHeavyLaserMetalCost = new System.Windows.Forms.Label();
+            this.lblHeavyLaserCount = new System.Windows.Forms.Label();
+            this.lblHeavyLaser = new System.Windows.Forms.Label();
+            this.pLightLaser = new System.Windows.Forms.Panel();
+            this.lblLightLaserTimeRemain = new System.Windows.Forms.Label();
+            this.tbLightLaserCount = new System.Windows.Forms.TextBox();
+            this.lblLightLaserShade = new System.Windows.Forms.Label();
+            this.lblLightLaserDuration = new System.Windows.Forms.Label();
+            this.btnLightLaserConstruct = new System.Windows.Forms.Button();
+            this.lblLightLaserDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblLightLaserCrystalCost = new System.Windows.Forms.Label();
+            this.lblLightLaserMetalCost = new System.Windows.Forms.Label();
+            this.lblLightLaserCount = new System.Windows.Forms.Label();
+            this.lblLightLaser = new System.Windows.Forms.Label();
+            this.pRocketLauncher = new System.Windows.Forms.Panel();
+            this.lblRocketLauncherTimeRemain = new System.Windows.Forms.Label();
+            this.tbRocketLauncherCount = new System.Windows.Forms.TextBox();
+            this.lblRocketLauncherShade = new System.Windows.Forms.Label();
+            this.lblRocketLauncherDuration = new System.Windows.Forms.Label();
+            this.btnRocketLauncherConstruct = new System.Windows.Forms.Button();
+            this.lblRocketLauncherDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblRocketLauncherCrystalCost = new System.Windows.Forms.Label();
+            this.lblRocketLauncherMetalCost = new System.Windows.Forms.Label();
+            this.lblRocketLauncherCount = new System.Windows.Forms.Label();
+            this.lblRocketLauncher = new System.Windows.Forms.Label();
+            this.pCrawler = new System.Windows.Forms.Panel();
+            this.lblCrawlerTimeRemain = new System.Windows.Forms.Label();
+            this.tbCrawlerCount = new System.Windows.Forms.TextBox();
+            this.lblCrawlerShade = new System.Windows.Forms.Label();
+            this.lblCrawlerDuration = new System.Windows.Forms.Label();
+            this.btnCrawlerConstruct = new System.Windows.Forms.Button();
+            this.lblCrawlerDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblCrawlerCrystalCost = new System.Windows.Forms.Label();
+            this.lblCrawlerMetalCost = new System.Windows.Forms.Label();
+            this.lblCrawlerCount = new System.Windows.Forms.Label();
+            this.lblCrawler = new System.Windows.Forms.Label();
+            this.pSolarSatellite = new System.Windows.Forms.Panel();
+            this.lblSolarSatelliteTimeRemain = new System.Windows.Forms.Label();
+            this.tbSolarSatelliteCount = new System.Windows.Forms.TextBox();
+            this.lblSolarSatelliteShade = new System.Windows.Forms.Label();
+            this.lblSolarSatelliteDuration = new System.Windows.Forms.Label();
+            this.btnSolarSatelliteConstruct = new System.Windows.Forms.Button();
+            this.lblSolarSatelliteDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblSolarSatelliteCrystalCost = new System.Windows.Forms.Label();
+            this.lblSolarSatelliteMetalCost = new System.Windows.Forms.Label();
+            this.lblSolarSatelliteCount = new System.Windows.Forms.Label();
+            this.lblSolarSatellite = new System.Windows.Forms.Label();
             this.tpRequirements = new System.Windows.Forms.TabPage();
             this.tpFleet = new System.Windows.Forms.TabPage();
             this.tpPoints = new System.Windows.Forms.TabPage();
             this.tpPlanet = new System.Windows.Forms.TabPage();
             this.btnChangePlanetName = new System.Windows.Forms.Button();
             this.tbNewPlanetName = new System.Windows.Forms.TextBox();
+            this.tpMerchant = new System.Windows.Forms.TabPage();
             this.pInfo = new System.Windows.Forms.Panel();
             this.gbPlanetCountInfo = new System.Windows.Forms.GroupBox();
             this.btnDeletePlanet = new System.Windows.Forms.Button();
@@ -454,7 +745,6 @@ namespace MinerGame
             this.cbPlanetSelect = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
             this.pContent.SuspendLayout();
             this.pPlanet.SuspendLayout();
             this.pPlanetStructures.SuspendLayout();
@@ -504,7 +794,34 @@ namespace MinerGame
             this.pComputerTechnology.SuspendLayout();
             this.pEspionageTechnology.SuspendLayout();
             this.tpShipyard.SuspendLayout();
+            this.pPathfinder.SuspendLayout();
+            this.pReaper.SuspendLayout();
+            this.pDeathstar.SuspendLayout();
+            this.pDestroyer.SuspendLayout();
+            this.pBomber.SuspendLayout();
+            this.pBattlecruiser.SuspendLayout();
+            this.pBattleship.SuspendLayout();
+            this.pCruiser.SuspendLayout();
+            this.pHeavyFighter.SuspendLayout();
+            this.pLightFighter.SuspendLayout();
+            this.pEspionageProbe.SuspendLayout();
+            this.pRecycler.SuspendLayout();
+            this.pColonyShip.SuspendLayout();
+            this.pLargeCargo.SuspendLayout();
             this.pSmallCargo.SuspendLayout();
+            this.tpDefence.SuspendLayout();
+            this.pInterplanetaryMissile.SuspendLayout();
+            this.pAntiBallisticMissile.SuspendLayout();
+            this.pLargeShieldDome.SuspendLayout();
+            this.pSmallShieldDome.SuspendLayout();
+            this.pPlasmaTurret.SuspendLayout();
+            this.pIonCannon.SuspendLayout();
+            this.pGaussCannon.SuspendLayout();
+            this.pHeavyLaser.SuspendLayout();
+            this.pLightLaser.SuspendLayout();
+            this.pRocketLauncher.SuspendLayout();
+            this.pCrawler.SuspendLayout();
+            this.pSolarSatellite.SuspendLayout();
             this.tpPlanet.SuspendLayout();
             this.pInfo.SuspendLayout();
             this.gbPlanetCountInfo.SuspendLayout();
@@ -601,7 +918,7 @@ namespace MinerGame
             this.lblLastUpdate.Name = "lblLastUpdate";
             this.lblLastUpdate.Size = new System.Drawing.Size(150, 30);
             this.lblLastUpdate.TabIndex = 5;
-            this.lblLastUpdate.Text = "last update";
+            this.lblLastUpdate.Text = "Ostatnia aktualizacja";
             this.lblLastUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblGameNameValue
@@ -625,7 +942,7 @@ namespace MinerGame
             this.lblEcoSpeedValue.Name = "lblEcoSpeedValue";
             this.lblEcoSpeedValue.Size = new System.Drawing.Size(150, 30);
             this.lblEcoSpeedValue.TabIndex = 3;
-            this.lblEcoSpeedValue.Text = "speed";
+            this.lblEcoSpeedValue.Text = "Prędkość symulacji";
             this.lblEcoSpeedValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalTotalValue
@@ -684,6 +1001,7 @@ namespace MinerGame
             this.tcStructures.Controls.Add(this.tpFleet);
             this.tcStructures.Controls.Add(this.tpPoints);
             this.tcStructures.Controls.Add(this.tpPlanet);
+            this.tcStructures.Controls.Add(this.tpMerchant);
             this.tcStructures.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcStructures.ItemSize = new System.Drawing.Size(100, 25);
             this.tcStructures.Location = new System.Drawing.Point(0, 0);
@@ -1856,12 +2174,13 @@ namespace MinerGame
             this.pTotalProductionDetails.Dock = System.Windows.Forms.DockStyle.Left;
             this.pTotalProductionDetails.Location = new System.Drawing.Point(160, 0);
             this.pTotalProductionDetails.Name = "pTotalProductionDetails";
-            this.pTotalProductionDetails.Size = new System.Drawing.Size(850, 75);
+            this.pTotalProductionDetails.Size = new System.Drawing.Size(1010, 75);
             this.pTotalProductionDetails.TabIndex = 12;
             // 
             // pTotalDeuteriumProductionDetails
             // 
             this.pTotalDeuteriumProductionDetails.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblStorageDeuteriumMinTime);
             this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionBasic);
             this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionCrawlers);
             this.pTotalDeuteriumProductionDetails.Controls.Add(this.lblTotalDeuteriumProductionPlasma);
@@ -1871,8 +2190,22 @@ namespace MinerGame
             this.pTotalDeuteriumProductionDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTotalDeuteriumProductionDetails.Location = new System.Drawing.Point(0, 50);
             this.pTotalDeuteriumProductionDetails.Name = "pTotalDeuteriumProductionDetails";
-            this.pTotalDeuteriumProductionDetails.Size = new System.Drawing.Size(850, 25);
+            this.pTotalDeuteriumProductionDetails.Size = new System.Drawing.Size(1010, 25);
             this.pTotalDeuteriumProductionDetails.TabIndex = 2;
+            // 
+            // lblStorageDeuteriumMinTime
+            // 
+            this.lblStorageDeuteriumMinTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblStorageDeuteriumMinTime.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblStorageDeuteriumMinTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStorageDeuteriumMinTime.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblStorageDeuteriumMinTime.Location = new System.Drawing.Point(850, 0);
+            this.lblStorageDeuteriumMinTime.Name = "lblStorageDeuteriumMinTime";
+            this.lblStorageDeuteriumMinTime.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblStorageDeuteriumMinTime.Size = new System.Drawing.Size(160, 25);
+            this.lblStorageDeuteriumMinTime.TabIndex = 17;
+            this.lblStorageDeuteriumMinTime.Text = "0";
+            this.lblStorageDeuteriumMinTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalDeuteriumProductionBasic
             // 
@@ -1885,7 +2218,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProductionBasic.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalDeuteriumProductionBasic.Size = new System.Drawing.Size(160, 25);
             this.lblTotalDeuteriumProductionBasic.TabIndex = 15;
-            this.lblTotalDeuteriumProductionBasic.Text = "100 000";
+            this.lblTotalDeuteriumProductionBasic.Text = "0";
             this.lblTotalDeuteriumProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalDeuteriumProductionCrawlers
@@ -1899,7 +2232,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProductionCrawlers.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalDeuteriumProductionCrawlers.Size = new System.Drawing.Size(160, 25);
             this.lblTotalDeuteriumProductionCrawlers.TabIndex = 14;
-            this.lblTotalDeuteriumProductionCrawlers.Text = "100 000";
+            this.lblTotalDeuteriumProductionCrawlers.Text = "0";
             this.lblTotalDeuteriumProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalDeuteriumProductionPlasma
@@ -1913,7 +2246,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProductionPlasma.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalDeuteriumProductionPlasma.Size = new System.Drawing.Size(160, 25);
             this.lblTotalDeuteriumProductionPlasma.TabIndex = 13;
-            this.lblTotalDeuteriumProductionPlasma.Text = "100 000";
+            this.lblTotalDeuteriumProductionPlasma.Text = "0";
             this.lblTotalDeuteriumProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalDeuteriumProductionMine
@@ -1927,7 +2260,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProductionMine.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalDeuteriumProductionMine.Size = new System.Drawing.Size(160, 25);
             this.lblTotalDeuteriumProductionMine.TabIndex = 12;
-            this.lblTotalDeuteriumProductionMine.Text = "100 000";
+            this.lblTotalDeuteriumProductionMine.Text = "0";
             this.lblTotalDeuteriumProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalDeuteriumProduction
@@ -1941,7 +2274,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProduction.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalDeuteriumProduction.Size = new System.Drawing.Size(160, 25);
             this.lblTotalDeuteriumProduction.TabIndex = 11;
-            this.lblTotalDeuteriumProduction.Text = "100 000";
+            this.lblTotalDeuteriumProduction.Text = "0";
             this.lblTotalDeuteriumProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalDeuteriumSynthesizerLevel
@@ -1954,12 +2287,13 @@ namespace MinerGame
             this.lblTotalDeuteriumSynthesizerLevel.Name = "lblTotalDeuteriumSynthesizerLevel";
             this.lblTotalDeuteriumSynthesizerLevel.Size = new System.Drawing.Size(50, 25);
             this.lblTotalDeuteriumSynthesizerLevel.TabIndex = 16;
-            this.lblTotalDeuteriumSynthesizerLevel.Text = "200";
+            this.lblTotalDeuteriumSynthesizerLevel.Text = "0";
             this.lblTotalDeuteriumSynthesizerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pTotalCrystalProductionDetails
             // 
             this.pTotalCrystalProductionDetails.BackColor = System.Drawing.Color.Coral;
+            this.pTotalCrystalProductionDetails.Controls.Add(this.lblStorageCrystalMinTime);
             this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionBasic);
             this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionCrawlers);
             this.pTotalCrystalProductionDetails.Controls.Add(this.lblTotalCrystalProductionPlasma);
@@ -1969,8 +2303,22 @@ namespace MinerGame
             this.pTotalCrystalProductionDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTotalCrystalProductionDetails.Location = new System.Drawing.Point(0, 25);
             this.pTotalCrystalProductionDetails.Name = "pTotalCrystalProductionDetails";
-            this.pTotalCrystalProductionDetails.Size = new System.Drawing.Size(850, 25);
+            this.pTotalCrystalProductionDetails.Size = new System.Drawing.Size(1010, 25);
             this.pTotalCrystalProductionDetails.TabIndex = 1;
+            // 
+            // lblStorageCrystalMinTime
+            // 
+            this.lblStorageCrystalMinTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblStorageCrystalMinTime.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblStorageCrystalMinTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStorageCrystalMinTime.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblStorageCrystalMinTime.Location = new System.Drawing.Point(850, 0);
+            this.lblStorageCrystalMinTime.Name = "lblStorageCrystalMinTime";
+            this.lblStorageCrystalMinTime.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblStorageCrystalMinTime.Size = new System.Drawing.Size(160, 25);
+            this.lblStorageCrystalMinTime.TabIndex = 16;
+            this.lblStorageCrystalMinTime.Text = "0";
+            this.lblStorageCrystalMinTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalCrystalProductionBasic
             // 
@@ -1983,7 +2331,7 @@ namespace MinerGame
             this.lblTotalCrystalProductionBasic.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalCrystalProductionBasic.Size = new System.Drawing.Size(160, 25);
             this.lblTotalCrystalProductionBasic.TabIndex = 14;
-            this.lblTotalCrystalProductionBasic.Text = "100 000";
+            this.lblTotalCrystalProductionBasic.Text = "0";
             this.lblTotalCrystalProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalCrystalProductionCrawlers
@@ -1997,7 +2345,7 @@ namespace MinerGame
             this.lblTotalCrystalProductionCrawlers.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalCrystalProductionCrawlers.Size = new System.Drawing.Size(160, 25);
             this.lblTotalCrystalProductionCrawlers.TabIndex = 13;
-            this.lblTotalCrystalProductionCrawlers.Text = "100 000";
+            this.lblTotalCrystalProductionCrawlers.Text = "0";
             this.lblTotalCrystalProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalCrystalProductionPlasma
@@ -2011,7 +2359,7 @@ namespace MinerGame
             this.lblTotalCrystalProductionPlasma.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalCrystalProductionPlasma.Size = new System.Drawing.Size(160, 25);
             this.lblTotalCrystalProductionPlasma.TabIndex = 12;
-            this.lblTotalCrystalProductionPlasma.Text = "100 000";
+            this.lblTotalCrystalProductionPlasma.Text = "0";
             this.lblTotalCrystalProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalCrystalProductionMine
@@ -2025,7 +2373,7 @@ namespace MinerGame
             this.lblTotalCrystalProductionMine.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalCrystalProductionMine.Size = new System.Drawing.Size(160, 25);
             this.lblTotalCrystalProductionMine.TabIndex = 11;
-            this.lblTotalCrystalProductionMine.Text = "100 000";
+            this.lblTotalCrystalProductionMine.Text = "0";
             this.lblTotalCrystalProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalCrystalProduction
@@ -2039,7 +2387,7 @@ namespace MinerGame
             this.lblTotalCrystalProduction.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalCrystalProduction.Size = new System.Drawing.Size(160, 25);
             this.lblTotalCrystalProduction.TabIndex = 10;
-            this.lblTotalCrystalProduction.Text = "100 000";
+            this.lblTotalCrystalProduction.Text = "0";
             this.lblTotalCrystalProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalCrystalMineLevel
@@ -2052,12 +2400,13 @@ namespace MinerGame
             this.lblTotalCrystalMineLevel.Name = "lblTotalCrystalMineLevel";
             this.lblTotalCrystalMineLevel.Size = new System.Drawing.Size(50, 25);
             this.lblTotalCrystalMineLevel.TabIndex = 15;
-            this.lblTotalCrystalMineLevel.Text = "200";
+            this.lblTotalCrystalMineLevel.Text = "0";
             this.lblTotalCrystalMineLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pTotalMetalProductionDetails
             // 
             this.pTotalMetalProductionDetails.BackColor = System.Drawing.Color.Silver;
+            this.pTotalMetalProductionDetails.Controls.Add(this.lblStorageMetalMinTime);
             this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionBasic);
             this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionCrawlers);
             this.pTotalMetalProductionDetails.Controls.Add(this.lblTotalMetalProductionPlasma);
@@ -2067,8 +2416,22 @@ namespace MinerGame
             this.pTotalMetalProductionDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTotalMetalProductionDetails.Location = new System.Drawing.Point(0, 0);
             this.pTotalMetalProductionDetails.Name = "pTotalMetalProductionDetails";
-            this.pTotalMetalProductionDetails.Size = new System.Drawing.Size(850, 25);
+            this.pTotalMetalProductionDetails.Size = new System.Drawing.Size(1010, 25);
             this.pTotalMetalProductionDetails.TabIndex = 0;
+            // 
+            // lblStorageMetalMinTime
+            // 
+            this.lblStorageMetalMinTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblStorageMetalMinTime.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblStorageMetalMinTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStorageMetalMinTime.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblStorageMetalMinTime.Location = new System.Drawing.Point(850, 0);
+            this.lblStorageMetalMinTime.Name = "lblStorageMetalMinTime";
+            this.lblStorageMetalMinTime.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblStorageMetalMinTime.Size = new System.Drawing.Size(160, 25);
+            this.lblStorageMetalMinTime.TabIndex = 15;
+            this.lblStorageMetalMinTime.Text = "0";
+            this.lblStorageMetalMinTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalMetalProductionBasic
             // 
@@ -2081,7 +2444,7 @@ namespace MinerGame
             this.lblTotalMetalProductionBasic.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalMetalProductionBasic.Size = new System.Drawing.Size(160, 25);
             this.lblTotalMetalProductionBasic.TabIndex = 13;
-            this.lblTotalMetalProductionBasic.Text = "200";
+            this.lblTotalMetalProductionBasic.Text = "0";
             this.lblTotalMetalProductionBasic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalMetalProductionCrawlers
@@ -2095,7 +2458,7 @@ namespace MinerGame
             this.lblTotalMetalProductionCrawlers.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalMetalProductionCrawlers.Size = new System.Drawing.Size(160, 25);
             this.lblTotalMetalProductionCrawlers.TabIndex = 12;
-            this.lblTotalMetalProductionCrawlers.Text = "800";
+            this.lblTotalMetalProductionCrawlers.Text = "0";
             this.lblTotalMetalProductionCrawlers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalMetalProductionPlasma
@@ -2109,7 +2472,7 @@ namespace MinerGame
             this.lblTotalMetalProductionPlasma.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalMetalProductionPlasma.Size = new System.Drawing.Size(160, 25);
             this.lblTotalMetalProductionPlasma.TabIndex = 11;
-            this.lblTotalMetalProductionPlasma.Text = "14 000";
+            this.lblTotalMetalProductionPlasma.Text = "0";
             this.lblTotalMetalProductionPlasma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalMetalProductionMine
@@ -2123,7 +2486,7 @@ namespace MinerGame
             this.lblTotalMetalProductionMine.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalMetalProductionMine.Size = new System.Drawing.Size(160, 25);
             this.lblTotalMetalProductionMine.TabIndex = 10;
-            this.lblTotalMetalProductionMine.Text = "85 000";
+            this.lblTotalMetalProductionMine.Text = "0";
             this.lblTotalMetalProductionMine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalMetalProduction
@@ -2137,7 +2500,7 @@ namespace MinerGame
             this.lblTotalMetalProduction.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblTotalMetalProduction.Size = new System.Drawing.Size(160, 25);
             this.lblTotalMetalProduction.TabIndex = 9;
-            this.lblTotalMetalProduction.Text = "100 000";
+            this.lblTotalMetalProduction.Text = "0";
             this.lblTotalMetalProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalMetalMineLevel
@@ -2150,7 +2513,7 @@ namespace MinerGame
             this.lblTotalMetalMineLevel.Name = "lblTotalMetalMineLevel";
             this.lblTotalMetalMineLevel.Size = new System.Drawing.Size(50, 25);
             this.lblTotalMetalMineLevel.TabIndex = 14;
-            this.lblTotalMetalMineLevel.Text = "200";
+            this.lblTotalMetalMineLevel.Text = "0";
             this.lblTotalMetalMineLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTotalProduction
@@ -5444,6 +5807,20 @@ namespace MinerGame
             // tpShipyard
             // 
             this.tpShipyard.BackColor = System.Drawing.Color.Silver;
+            this.tpShipyard.Controls.Add(this.pPathfinder);
+            this.tpShipyard.Controls.Add(this.pReaper);
+            this.tpShipyard.Controls.Add(this.pDeathstar);
+            this.tpShipyard.Controls.Add(this.pDestroyer);
+            this.tpShipyard.Controls.Add(this.pBomber);
+            this.tpShipyard.Controls.Add(this.pBattlecruiser);
+            this.tpShipyard.Controls.Add(this.pBattleship);
+            this.tpShipyard.Controls.Add(this.pCruiser);
+            this.tpShipyard.Controls.Add(this.pHeavyFighter);
+            this.tpShipyard.Controls.Add(this.pLightFighter);
+            this.tpShipyard.Controls.Add(this.pEspionageProbe);
+            this.tpShipyard.Controls.Add(this.pRecycler);
+            this.tpShipyard.Controls.Add(this.pColonyShip);
+            this.tpShipyard.Controls.Add(this.pLargeCargo);
             this.tpShipyard.Controls.Add(this.pSmallCargo);
             this.tpShipyard.Location = new System.Drawing.Point(4, 29);
             this.tpShipyard.Name = "tpShipyard";
@@ -5452,10 +5829,1970 @@ namespace MinerGame
             this.tpShipyard.TabIndex = 2;
             this.tpShipyard.Text = "Stocznia";
             // 
+            // pPathfinder
+            // 
+            this.pPathfinder.BackColor = System.Drawing.Color.Gold;
+            this.pPathfinder.Controls.Add(this.lblPathfinderTimeRemain);
+            this.pPathfinder.Controls.Add(this.tbPathfinderCount);
+            this.pPathfinder.Controls.Add(this.lblPathfinderShade);
+            this.pPathfinder.Controls.Add(this.lblPathfinderDuration);
+            this.pPathfinder.Controls.Add(this.btnPathfinderConstruct);
+            this.pPathfinder.Controls.Add(this.lblPathfinderDeuteriumCost);
+            this.pPathfinder.Controls.Add(this.lblPathfinderCrystalCost);
+            this.pPathfinder.Controls.Add(this.lblPathfinderMetalCost);
+            this.pPathfinder.Controls.Add(this.lblPathfinderCount);
+            this.pPathfinder.Controls.Add(this.lblPathfinder);
+            this.pPathfinder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pPathfinder.Location = new System.Drawing.Point(3, 703);
+            this.pPathfinder.Name = "pPathfinder";
+            this.pPathfinder.Size = new System.Drawing.Size(1890, 50);
+            this.pPathfinder.TabIndex = 17;
+            // 
+            // lblPathfinderTimeRemain
+            // 
+            this.lblPathfinderTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinderTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblPathfinderTimeRemain.Name = "lblPathfinderTimeRemain";
+            this.lblPathfinderTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderTimeRemain.TabIndex = 15;
+            this.lblPathfinderTimeRemain.Text = "czas pozostały";
+            this.lblPathfinderTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPathfinderCount
+            // 
+            this.tbPathfinderCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbPathfinderCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPathfinderCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbPathfinderCount.Name = "tbPathfinderCount";
+            this.tbPathfinderCount.Size = new System.Drawing.Size(129, 16);
+            this.tbPathfinderCount.TabIndex = 4;
+            this.tbPathfinderCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblPathfinderShade
+            // 
+            this.lblPathfinderShade.BackColor = System.Drawing.Color.White;
+            this.lblPathfinderShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPathfinderShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPathfinderShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblPathfinderShade.Name = "lblPathfinderShade";
+            this.lblPathfinderShade.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderShade.TabIndex = 14;
+            this.lblPathfinderShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPathfinderDuration
+            // 
+            this.lblPathfinderDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinderDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPathfinderDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblPathfinderDuration.Name = "lblPathfinderDuration";
+            this.lblPathfinderDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderDuration.TabIndex = 13;
+            this.lblPathfinderDuration.Text = "czas";
+            this.lblPathfinderDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPathfinderConstruct
+            // 
+            this.btnPathfinderConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnPathfinderConstruct.Enabled = false;
+            this.btnPathfinderConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPathfinderConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnPathfinderConstruct.Name = "btnPathfinderConstruct";
+            this.btnPathfinderConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnPathfinderConstruct.TabIndex = 12;
+            this.btnPathfinderConstruct.Text = "Zbuduj";
+            this.btnPathfinderConstruct.UseVisualStyleBackColor = false;
+            this.btnPathfinderConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblPathfinderDeuteriumCost
+            // 
+            this.lblPathfinderDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinderDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPathfinderDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPathfinderDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblPathfinderDeuteriumCost.Name = "lblPathfinderDeuteriumCost";
+            this.lblPathfinderDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderDeuteriumCost.TabIndex = 11;
+            this.lblPathfinderDeuteriumCost.Text = "deuter";
+            this.lblPathfinderDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPathfinderCrystalCost
+            // 
+            this.lblPathfinderCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinderCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPathfinderCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPathfinderCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblPathfinderCrystalCost.Name = "lblPathfinderCrystalCost";
+            this.lblPathfinderCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderCrystalCost.TabIndex = 10;
+            this.lblPathfinderCrystalCost.Text = "kryształ";
+            this.lblPathfinderCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPathfinderMetalCost
+            // 
+            this.lblPathfinderMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinderMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPathfinderMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPathfinderMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblPathfinderMetalCost.Name = "lblPathfinderMetalCost";
+            this.lblPathfinderMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderMetalCost.TabIndex = 9;
+            this.lblPathfinderMetalCost.Text = "metal";
+            this.lblPathfinderMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPathfinderCount
+            // 
+            this.lblPathfinderCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinderCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPathfinderCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinderCount.Location = new System.Drawing.Point(320, 10);
+            this.lblPathfinderCount.Name = "lblPathfinderCount";
+            this.lblPathfinderCount.Size = new System.Drawing.Size(130, 30);
+            this.lblPathfinderCount.TabIndex = 8;
+            this.lblPathfinderCount.Text = "Ilość";
+            this.lblPathfinderCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPathfinder
+            // 
+            this.lblPathfinder.BackColor = System.Drawing.Color.Transparent;
+            this.lblPathfinder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPathfinder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPathfinder.Location = new System.Drawing.Point(10, 10);
+            this.lblPathfinder.Name = "lblPathfinder";
+            this.lblPathfinder.Size = new System.Drawing.Size(300, 30);
+            this.lblPathfinder.TabIndex = 7;
+            this.lblPathfinder.Text = "Pionier";
+            this.lblPathfinder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pReaper
+            // 
+            this.pReaper.BackColor = System.Drawing.Color.Yellow;
+            this.pReaper.Controls.Add(this.lblReaperTimeRemain);
+            this.pReaper.Controls.Add(this.tbReaperCount);
+            this.pReaper.Controls.Add(this.lblReaperShade);
+            this.pReaper.Controls.Add(this.lblReaperDuration);
+            this.pReaper.Controls.Add(this.btnReaperConstruct);
+            this.pReaper.Controls.Add(this.lblReaperDeuteriumCost);
+            this.pReaper.Controls.Add(this.lblReaperCrystalCost);
+            this.pReaper.Controls.Add(this.lblReaperMetalCost);
+            this.pReaper.Controls.Add(this.lblReaperCount);
+            this.pReaper.Controls.Add(this.lblReaper);
+            this.pReaper.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pReaper.Location = new System.Drawing.Point(3, 653);
+            this.pReaper.Name = "pReaper";
+            this.pReaper.Size = new System.Drawing.Size(1890, 50);
+            this.pReaper.TabIndex = 16;
+            // 
+            // lblReaperTimeRemain
+            // 
+            this.lblReaperTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaperTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblReaperTimeRemain.Name = "lblReaperTimeRemain";
+            this.lblReaperTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperTimeRemain.TabIndex = 15;
+            this.lblReaperTimeRemain.Text = "czas pozostały";
+            this.lblReaperTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbReaperCount
+            // 
+            this.tbReaperCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbReaperCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbReaperCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbReaperCount.Name = "tbReaperCount";
+            this.tbReaperCount.Size = new System.Drawing.Size(129, 16);
+            this.tbReaperCount.TabIndex = 4;
+            this.tbReaperCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblReaperShade
+            // 
+            this.lblReaperShade.BackColor = System.Drawing.Color.White;
+            this.lblReaperShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblReaperShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblReaperShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblReaperShade.Name = "lblReaperShade";
+            this.lblReaperShade.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperShade.TabIndex = 14;
+            this.lblReaperShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblReaperDuration
+            // 
+            this.lblReaperDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaperDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblReaperDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblReaperDuration.Name = "lblReaperDuration";
+            this.lblReaperDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperDuration.TabIndex = 13;
+            this.lblReaperDuration.Text = "czas";
+            this.lblReaperDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnReaperConstruct
+            // 
+            this.btnReaperConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnReaperConstruct.Enabled = false;
+            this.btnReaperConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnReaperConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnReaperConstruct.Name = "btnReaperConstruct";
+            this.btnReaperConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnReaperConstruct.TabIndex = 12;
+            this.btnReaperConstruct.Text = "Zbuduj";
+            this.btnReaperConstruct.UseVisualStyleBackColor = false;
+            this.btnReaperConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblReaperDeuteriumCost
+            // 
+            this.lblReaperDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaperDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblReaperDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblReaperDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblReaperDeuteriumCost.Name = "lblReaperDeuteriumCost";
+            this.lblReaperDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperDeuteriumCost.TabIndex = 11;
+            this.lblReaperDeuteriumCost.Text = "deuter";
+            this.lblReaperDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblReaperCrystalCost
+            // 
+            this.lblReaperCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaperCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblReaperCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblReaperCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblReaperCrystalCost.Name = "lblReaperCrystalCost";
+            this.lblReaperCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperCrystalCost.TabIndex = 10;
+            this.lblReaperCrystalCost.Text = "kryształ";
+            this.lblReaperCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblReaperMetalCost
+            // 
+            this.lblReaperMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaperMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblReaperMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblReaperMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblReaperMetalCost.Name = "lblReaperMetalCost";
+            this.lblReaperMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperMetalCost.TabIndex = 9;
+            this.lblReaperMetalCost.Text = "metal";
+            this.lblReaperMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblReaperCount
+            // 
+            this.lblReaperCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaperCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblReaperCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaperCount.Location = new System.Drawing.Point(320, 10);
+            this.lblReaperCount.Name = "lblReaperCount";
+            this.lblReaperCount.Size = new System.Drawing.Size(130, 30);
+            this.lblReaperCount.TabIndex = 8;
+            this.lblReaperCount.Text = "Ilość";
+            this.lblReaperCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblReaper
+            // 
+            this.lblReaper.BackColor = System.Drawing.Color.Transparent;
+            this.lblReaper.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblReaper.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReaper.Location = new System.Drawing.Point(10, 10);
+            this.lblReaper.Name = "lblReaper";
+            this.lblReaper.Size = new System.Drawing.Size(300, 30);
+            this.lblReaper.TabIndex = 7;
+            this.lblReaper.Text = "Rozpruwacz";
+            this.lblReaper.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pDeathstar
+            // 
+            this.pDeathstar.BackColor = System.Drawing.Color.Gold;
+            this.pDeathstar.Controls.Add(this.lblDeathstarTimeRemain);
+            this.pDeathstar.Controls.Add(this.tbDeathstarCount);
+            this.pDeathstar.Controls.Add(this.lblDeathstarShade);
+            this.pDeathstar.Controls.Add(this.lblDeathstarDuration);
+            this.pDeathstar.Controls.Add(this.btnDeathstarConstruct);
+            this.pDeathstar.Controls.Add(this.lblDeathstarDeuteriumCost);
+            this.pDeathstar.Controls.Add(this.lblDeathstarCrystalCost);
+            this.pDeathstar.Controls.Add(this.lblDeathstarMetalCost);
+            this.pDeathstar.Controls.Add(this.lblDeathstarCount);
+            this.pDeathstar.Controls.Add(this.lblDeathstar);
+            this.pDeathstar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pDeathstar.Location = new System.Drawing.Point(3, 603);
+            this.pDeathstar.Name = "pDeathstar";
+            this.pDeathstar.Size = new System.Drawing.Size(1890, 50);
+            this.pDeathstar.TabIndex = 16;
+            // 
+            // lblDeathstarTimeRemain
+            // 
+            this.lblDeathstarTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstarTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblDeathstarTimeRemain.Name = "lblDeathstarTimeRemain";
+            this.lblDeathstarTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarTimeRemain.TabIndex = 15;
+            this.lblDeathstarTimeRemain.Text = "czas pozostały";
+            this.lblDeathstarTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbDeathstarCount
+            // 
+            this.tbDeathstarCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbDeathstarCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDeathstarCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbDeathstarCount.Name = "tbDeathstarCount";
+            this.tbDeathstarCount.Size = new System.Drawing.Size(129, 16);
+            this.tbDeathstarCount.TabIndex = 4;
+            this.tbDeathstarCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblDeathstarShade
+            // 
+            this.lblDeathstarShade.BackColor = System.Drawing.Color.White;
+            this.lblDeathstarShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDeathstarShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDeathstarShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblDeathstarShade.Name = "lblDeathstarShade";
+            this.lblDeathstarShade.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarShade.TabIndex = 14;
+            this.lblDeathstarShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeathstarDuration
+            // 
+            this.lblDeathstarDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstarDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeathstarDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblDeathstarDuration.Name = "lblDeathstarDuration";
+            this.lblDeathstarDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarDuration.TabIndex = 13;
+            this.lblDeathstarDuration.Text = "czas";
+            this.lblDeathstarDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnDeathstarConstruct
+            // 
+            this.btnDeathstarConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnDeathstarConstruct.Enabled = false;
+            this.btnDeathstarConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeathstarConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnDeathstarConstruct.Name = "btnDeathstarConstruct";
+            this.btnDeathstarConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnDeathstarConstruct.TabIndex = 12;
+            this.btnDeathstarConstruct.Text = "Zbuduj";
+            this.btnDeathstarConstruct.UseVisualStyleBackColor = false;
+            this.btnDeathstarConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblDeathstarDeuteriumCost
+            // 
+            this.lblDeathstarDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstarDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeathstarDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDeathstarDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblDeathstarDeuteriumCost.Name = "lblDeathstarDeuteriumCost";
+            this.lblDeathstarDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarDeuteriumCost.TabIndex = 11;
+            this.lblDeathstarDeuteriumCost.Text = "deuter";
+            this.lblDeathstarDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeathstarCrystalCost
+            // 
+            this.lblDeathstarCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstarCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeathstarCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDeathstarCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblDeathstarCrystalCost.Name = "lblDeathstarCrystalCost";
+            this.lblDeathstarCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarCrystalCost.TabIndex = 10;
+            this.lblDeathstarCrystalCost.Text = "kryształ";
+            this.lblDeathstarCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeathstarMetalCost
+            // 
+            this.lblDeathstarMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstarMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeathstarMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDeathstarMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblDeathstarMetalCost.Name = "lblDeathstarMetalCost";
+            this.lblDeathstarMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarMetalCost.TabIndex = 9;
+            this.lblDeathstarMetalCost.Text = "metal";
+            this.lblDeathstarMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeathstarCount
+            // 
+            this.lblDeathstarCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstarCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeathstarCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstarCount.Location = new System.Drawing.Point(320, 10);
+            this.lblDeathstarCount.Name = "lblDeathstarCount";
+            this.lblDeathstarCount.Size = new System.Drawing.Size(130, 30);
+            this.lblDeathstarCount.TabIndex = 8;
+            this.lblDeathstarCount.Text = "Ilość";
+            this.lblDeathstarCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeathstar
+            // 
+            this.lblDeathstar.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeathstar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeathstar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeathstar.Location = new System.Drawing.Point(10, 10);
+            this.lblDeathstar.Name = "lblDeathstar";
+            this.lblDeathstar.Size = new System.Drawing.Size(300, 30);
+            this.lblDeathstar.TabIndex = 7;
+            this.lblDeathstar.Text = "Gwiazda śmierci";
+            this.lblDeathstar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pDestroyer
+            // 
+            this.pDestroyer.BackColor = System.Drawing.Color.Yellow;
+            this.pDestroyer.Controls.Add(this.lblDestroyerTimeRemain);
+            this.pDestroyer.Controls.Add(this.tbDestroyerCount);
+            this.pDestroyer.Controls.Add(this.lblDestroyerShade);
+            this.pDestroyer.Controls.Add(this.lblDestroyerDuration);
+            this.pDestroyer.Controls.Add(this.btnDestroyerConstruct);
+            this.pDestroyer.Controls.Add(this.lblDestroyerDeuteriumCost);
+            this.pDestroyer.Controls.Add(this.lblDestroyerCrystalCost);
+            this.pDestroyer.Controls.Add(this.lblDestroyerMetalCost);
+            this.pDestroyer.Controls.Add(this.lblDestroyerCount);
+            this.pDestroyer.Controls.Add(this.lblDestroyer);
+            this.pDestroyer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pDestroyer.Location = new System.Drawing.Point(3, 553);
+            this.pDestroyer.Name = "pDestroyer";
+            this.pDestroyer.Size = new System.Drawing.Size(1890, 50);
+            this.pDestroyer.TabIndex = 14;
+            // 
+            // lblDestroyerTimeRemain
+            // 
+            this.lblDestroyerTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyerTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblDestroyerTimeRemain.Name = "lblDestroyerTimeRemain";
+            this.lblDestroyerTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerTimeRemain.TabIndex = 15;
+            this.lblDestroyerTimeRemain.Text = "czas pozostały";
+            this.lblDestroyerTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbDestroyerCount
+            // 
+            this.tbDestroyerCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbDestroyerCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDestroyerCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbDestroyerCount.Name = "tbDestroyerCount";
+            this.tbDestroyerCount.Size = new System.Drawing.Size(129, 16);
+            this.tbDestroyerCount.TabIndex = 4;
+            this.tbDestroyerCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblDestroyerShade
+            // 
+            this.lblDestroyerShade.BackColor = System.Drawing.Color.White;
+            this.lblDestroyerShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDestroyerShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDestroyerShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblDestroyerShade.Name = "lblDestroyerShade";
+            this.lblDestroyerShade.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerShade.TabIndex = 14;
+            this.lblDestroyerShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDestroyerDuration
+            // 
+            this.lblDestroyerDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyerDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDestroyerDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblDestroyerDuration.Name = "lblDestroyerDuration";
+            this.lblDestroyerDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerDuration.TabIndex = 13;
+            this.lblDestroyerDuration.Text = "czas";
+            this.lblDestroyerDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnDestroyerConstruct
+            // 
+            this.btnDestroyerConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnDestroyerConstruct.Enabled = false;
+            this.btnDestroyerConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDestroyerConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnDestroyerConstruct.Name = "btnDestroyerConstruct";
+            this.btnDestroyerConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnDestroyerConstruct.TabIndex = 12;
+            this.btnDestroyerConstruct.Text = "Zbuduj";
+            this.btnDestroyerConstruct.UseVisualStyleBackColor = false;
+            this.btnDestroyerConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblDestroyerDeuteriumCost
+            // 
+            this.lblDestroyerDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyerDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDestroyerDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDestroyerDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblDestroyerDeuteriumCost.Name = "lblDestroyerDeuteriumCost";
+            this.lblDestroyerDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerDeuteriumCost.TabIndex = 11;
+            this.lblDestroyerDeuteriumCost.Text = "deuter";
+            this.lblDestroyerDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDestroyerCrystalCost
+            // 
+            this.lblDestroyerCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyerCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDestroyerCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDestroyerCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblDestroyerCrystalCost.Name = "lblDestroyerCrystalCost";
+            this.lblDestroyerCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerCrystalCost.TabIndex = 10;
+            this.lblDestroyerCrystalCost.Text = "kryształ";
+            this.lblDestroyerCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDestroyerMetalCost
+            // 
+            this.lblDestroyerMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyerMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDestroyerMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDestroyerMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblDestroyerMetalCost.Name = "lblDestroyerMetalCost";
+            this.lblDestroyerMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerMetalCost.TabIndex = 9;
+            this.lblDestroyerMetalCost.Text = "metal";
+            this.lblDestroyerMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDestroyerCount
+            // 
+            this.lblDestroyerCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyerCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDestroyerCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyerCount.Location = new System.Drawing.Point(320, 10);
+            this.lblDestroyerCount.Name = "lblDestroyerCount";
+            this.lblDestroyerCount.Size = new System.Drawing.Size(130, 30);
+            this.lblDestroyerCount.TabIndex = 8;
+            this.lblDestroyerCount.Text = "Ilość";
+            this.lblDestroyerCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDestroyer
+            // 
+            this.lblDestroyer.BackColor = System.Drawing.Color.Transparent;
+            this.lblDestroyer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDestroyer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDestroyer.Location = new System.Drawing.Point(10, 10);
+            this.lblDestroyer.Name = "lblDestroyer";
+            this.lblDestroyer.Size = new System.Drawing.Size(300, 30);
+            this.lblDestroyer.TabIndex = 7;
+            this.lblDestroyer.Text = "Niszczyciel";
+            this.lblDestroyer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pBomber
+            // 
+            this.pBomber.BackColor = System.Drawing.Color.Gold;
+            this.pBomber.Controls.Add(this.lblBomberTimeRemain);
+            this.pBomber.Controls.Add(this.tbBomberCount);
+            this.pBomber.Controls.Add(this.lblBomberShade);
+            this.pBomber.Controls.Add(this.lblBomberDuration);
+            this.pBomber.Controls.Add(this.btnBomberConstruct);
+            this.pBomber.Controls.Add(this.lblBomberDeuteriumCost);
+            this.pBomber.Controls.Add(this.lblBomberCrystalCost);
+            this.pBomber.Controls.Add(this.lblBomberMetalCost);
+            this.pBomber.Controls.Add(this.lblBomberCount);
+            this.pBomber.Controls.Add(this.lblBomber);
+            this.pBomber.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pBomber.Location = new System.Drawing.Point(3, 503);
+            this.pBomber.Name = "pBomber";
+            this.pBomber.Size = new System.Drawing.Size(1890, 50);
+            this.pBomber.TabIndex = 13;
+            // 
+            // lblBomberTimeRemain
+            // 
+            this.lblBomberTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomberTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblBomberTimeRemain.Name = "lblBomberTimeRemain";
+            this.lblBomberTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberTimeRemain.TabIndex = 15;
+            this.lblBomberTimeRemain.Text = "czas pozostały";
+            this.lblBomberTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbBomberCount
+            // 
+            this.tbBomberCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbBomberCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBomberCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbBomberCount.Name = "tbBomberCount";
+            this.tbBomberCount.Size = new System.Drawing.Size(129, 16);
+            this.tbBomberCount.TabIndex = 4;
+            this.tbBomberCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblBomberShade
+            // 
+            this.lblBomberShade.BackColor = System.Drawing.Color.White;
+            this.lblBomberShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBomberShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBomberShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblBomberShade.Name = "lblBomberShade";
+            this.lblBomberShade.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberShade.TabIndex = 14;
+            this.lblBomberShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBomberDuration
+            // 
+            this.lblBomberDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomberDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBomberDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblBomberDuration.Name = "lblBomberDuration";
+            this.lblBomberDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberDuration.TabIndex = 13;
+            this.lblBomberDuration.Text = "czas";
+            this.lblBomberDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnBomberConstruct
+            // 
+            this.btnBomberConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnBomberConstruct.Enabled = false;
+            this.btnBomberConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBomberConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnBomberConstruct.Name = "btnBomberConstruct";
+            this.btnBomberConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnBomberConstruct.TabIndex = 12;
+            this.btnBomberConstruct.Text = "Zbuduj";
+            this.btnBomberConstruct.UseVisualStyleBackColor = false;
+            this.btnBomberConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblBomberDeuteriumCost
+            // 
+            this.lblBomberDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomberDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBomberDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBomberDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblBomberDeuteriumCost.Name = "lblBomberDeuteriumCost";
+            this.lblBomberDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberDeuteriumCost.TabIndex = 11;
+            this.lblBomberDeuteriumCost.Text = "deuter";
+            this.lblBomberDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBomberCrystalCost
+            // 
+            this.lblBomberCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomberCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBomberCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBomberCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblBomberCrystalCost.Name = "lblBomberCrystalCost";
+            this.lblBomberCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberCrystalCost.TabIndex = 10;
+            this.lblBomberCrystalCost.Text = "kryształ";
+            this.lblBomberCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBomberMetalCost
+            // 
+            this.lblBomberMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomberMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBomberMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBomberMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblBomberMetalCost.Name = "lblBomberMetalCost";
+            this.lblBomberMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberMetalCost.TabIndex = 9;
+            this.lblBomberMetalCost.Text = "metal";
+            this.lblBomberMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBomberCount
+            // 
+            this.lblBomberCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomberCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBomberCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomberCount.Location = new System.Drawing.Point(320, 10);
+            this.lblBomberCount.Name = "lblBomberCount";
+            this.lblBomberCount.Size = new System.Drawing.Size(130, 30);
+            this.lblBomberCount.TabIndex = 8;
+            this.lblBomberCount.Text = "Ilość";
+            this.lblBomberCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBomber
+            // 
+            this.lblBomber.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBomber.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBomber.Location = new System.Drawing.Point(10, 10);
+            this.lblBomber.Name = "lblBomber";
+            this.lblBomber.Size = new System.Drawing.Size(300, 30);
+            this.lblBomber.TabIndex = 7;
+            this.lblBomber.Text = "Bombowiec";
+            this.lblBomber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pBattlecruiser
+            // 
+            this.pBattlecruiser.BackColor = System.Drawing.Color.Yellow;
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserTimeRemain);
+            this.pBattlecruiser.Controls.Add(this.tbBattlecruiserCount);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserShade);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserDuration);
+            this.pBattlecruiser.Controls.Add(this.btnBattlecruiserConstruct);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserDeuteriumCost);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserCrystalCost);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserMetalCost);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiserCount);
+            this.pBattlecruiser.Controls.Add(this.lblBattlecruiser);
+            this.pBattlecruiser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pBattlecruiser.Location = new System.Drawing.Point(3, 453);
+            this.pBattlecruiser.Name = "pBattlecruiser";
+            this.pBattlecruiser.Size = new System.Drawing.Size(1890, 50);
+            this.pBattlecruiser.TabIndex = 12;
+            // 
+            // lblBattlecruiserTimeRemain
+            // 
+            this.lblBattlecruiserTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiserTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblBattlecruiserTimeRemain.Name = "lblBattlecruiserTimeRemain";
+            this.lblBattlecruiserTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserTimeRemain.TabIndex = 15;
+            this.lblBattlecruiserTimeRemain.Text = "czas pozostały";
+            this.lblBattlecruiserTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbBattlecruiserCount
+            // 
+            this.tbBattlecruiserCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbBattlecruiserCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBattlecruiserCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbBattlecruiserCount.Name = "tbBattlecruiserCount";
+            this.tbBattlecruiserCount.Size = new System.Drawing.Size(129, 16);
+            this.tbBattlecruiserCount.TabIndex = 4;
+            this.tbBattlecruiserCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblBattlecruiserShade
+            // 
+            this.lblBattlecruiserShade.BackColor = System.Drawing.Color.White;
+            this.lblBattlecruiserShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBattlecruiserShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBattlecruiserShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblBattlecruiserShade.Name = "lblBattlecruiserShade";
+            this.lblBattlecruiserShade.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserShade.TabIndex = 14;
+            this.lblBattlecruiserShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattlecruiserDuration
+            // 
+            this.lblBattlecruiserDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiserDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattlecruiserDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblBattlecruiserDuration.Name = "lblBattlecruiserDuration";
+            this.lblBattlecruiserDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserDuration.TabIndex = 13;
+            this.lblBattlecruiserDuration.Text = "czas";
+            this.lblBattlecruiserDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnBattlecruiserConstruct
+            // 
+            this.btnBattlecruiserConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnBattlecruiserConstruct.Enabled = false;
+            this.btnBattlecruiserConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBattlecruiserConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnBattlecruiserConstruct.Name = "btnBattlecruiserConstruct";
+            this.btnBattlecruiserConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnBattlecruiserConstruct.TabIndex = 12;
+            this.btnBattlecruiserConstruct.Text = "Zbuduj";
+            this.btnBattlecruiserConstruct.UseVisualStyleBackColor = false;
+            this.btnBattlecruiserConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblBattlecruiserDeuteriumCost
+            // 
+            this.lblBattlecruiserDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiserDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattlecruiserDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBattlecruiserDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblBattlecruiserDeuteriumCost.Name = "lblBattlecruiserDeuteriumCost";
+            this.lblBattlecruiserDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserDeuteriumCost.TabIndex = 11;
+            this.lblBattlecruiserDeuteriumCost.Text = "deuter";
+            this.lblBattlecruiserDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattlecruiserCrystalCost
+            // 
+            this.lblBattlecruiserCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiserCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattlecruiserCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBattlecruiserCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblBattlecruiserCrystalCost.Name = "lblBattlecruiserCrystalCost";
+            this.lblBattlecruiserCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserCrystalCost.TabIndex = 10;
+            this.lblBattlecruiserCrystalCost.Text = "kryształ";
+            this.lblBattlecruiserCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattlecruiserMetalCost
+            // 
+            this.lblBattlecruiserMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiserMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattlecruiserMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBattlecruiserMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblBattlecruiserMetalCost.Name = "lblBattlecruiserMetalCost";
+            this.lblBattlecruiserMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserMetalCost.TabIndex = 9;
+            this.lblBattlecruiserMetalCost.Text = "metal";
+            this.lblBattlecruiserMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattlecruiserCount
+            // 
+            this.lblBattlecruiserCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiserCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattlecruiserCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiserCount.Location = new System.Drawing.Point(320, 10);
+            this.lblBattlecruiserCount.Name = "lblBattlecruiserCount";
+            this.lblBattlecruiserCount.Size = new System.Drawing.Size(130, 30);
+            this.lblBattlecruiserCount.TabIndex = 8;
+            this.lblBattlecruiserCount.Text = "Ilość";
+            this.lblBattlecruiserCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattlecruiser
+            // 
+            this.lblBattlecruiser.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattlecruiser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattlecruiser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattlecruiser.Location = new System.Drawing.Point(10, 10);
+            this.lblBattlecruiser.Name = "lblBattlecruiser";
+            this.lblBattlecruiser.Size = new System.Drawing.Size(300, 30);
+            this.lblBattlecruiser.TabIndex = 7;
+            this.lblBattlecruiser.Text = "Pancernik";
+            this.lblBattlecruiser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pBattleship
+            // 
+            this.pBattleship.BackColor = System.Drawing.Color.Gold;
+            this.pBattleship.Controls.Add(this.lblBattleshipTimeRemain);
+            this.pBattleship.Controls.Add(this.tbBattleshipCount);
+            this.pBattleship.Controls.Add(this.lblBattleshipShade);
+            this.pBattleship.Controls.Add(this.lblBattleshipDuration);
+            this.pBattleship.Controls.Add(this.btnBattleshipConstruct);
+            this.pBattleship.Controls.Add(this.lblBattleshipDeuteriumCost);
+            this.pBattleship.Controls.Add(this.lblBattleshipCrystalCost);
+            this.pBattleship.Controls.Add(this.lblBattleshipMetalCost);
+            this.pBattleship.Controls.Add(this.lblBattleshipCount);
+            this.pBattleship.Controls.Add(this.lblBattleship);
+            this.pBattleship.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pBattleship.Location = new System.Drawing.Point(3, 403);
+            this.pBattleship.Name = "pBattleship";
+            this.pBattleship.Size = new System.Drawing.Size(1890, 50);
+            this.pBattleship.TabIndex = 11;
+            // 
+            // lblBattleshipTimeRemain
+            // 
+            this.lblBattleshipTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleshipTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblBattleshipTimeRemain.Name = "lblBattleshipTimeRemain";
+            this.lblBattleshipTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipTimeRemain.TabIndex = 15;
+            this.lblBattleshipTimeRemain.Text = "czas pozostały";
+            this.lblBattleshipTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbBattleshipCount
+            // 
+            this.tbBattleshipCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbBattleshipCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBattleshipCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbBattleshipCount.Name = "tbBattleshipCount";
+            this.tbBattleshipCount.Size = new System.Drawing.Size(129, 16);
+            this.tbBattleshipCount.TabIndex = 4;
+            this.tbBattleshipCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblBattleshipShade
+            // 
+            this.lblBattleshipShade.BackColor = System.Drawing.Color.White;
+            this.lblBattleshipShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBattleshipShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBattleshipShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblBattleshipShade.Name = "lblBattleshipShade";
+            this.lblBattleshipShade.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipShade.TabIndex = 14;
+            this.lblBattleshipShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattleshipDuration
+            // 
+            this.lblBattleshipDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleshipDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattleshipDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblBattleshipDuration.Name = "lblBattleshipDuration";
+            this.lblBattleshipDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipDuration.TabIndex = 13;
+            this.lblBattleshipDuration.Text = "czas";
+            this.lblBattleshipDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnBattleshipConstruct
+            // 
+            this.btnBattleshipConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnBattleshipConstruct.Enabled = false;
+            this.btnBattleshipConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBattleshipConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnBattleshipConstruct.Name = "btnBattleshipConstruct";
+            this.btnBattleshipConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnBattleshipConstruct.TabIndex = 12;
+            this.btnBattleshipConstruct.Text = "Zbuduj";
+            this.btnBattleshipConstruct.UseVisualStyleBackColor = false;
+            this.btnBattleshipConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblBattleshipDeuteriumCost
+            // 
+            this.lblBattleshipDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleshipDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattleshipDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBattleshipDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblBattleshipDeuteriumCost.Name = "lblBattleshipDeuteriumCost";
+            this.lblBattleshipDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipDeuteriumCost.TabIndex = 11;
+            this.lblBattleshipDeuteriumCost.Text = "deuter";
+            this.lblBattleshipDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattleshipCrystalCost
+            // 
+            this.lblBattleshipCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleshipCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattleshipCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBattleshipCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblBattleshipCrystalCost.Name = "lblBattleshipCrystalCost";
+            this.lblBattleshipCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipCrystalCost.TabIndex = 10;
+            this.lblBattleshipCrystalCost.Text = "kryształ";
+            this.lblBattleshipCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattleshipMetalCost
+            // 
+            this.lblBattleshipMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleshipMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattleshipMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblBattleshipMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblBattleshipMetalCost.Name = "lblBattleshipMetalCost";
+            this.lblBattleshipMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipMetalCost.TabIndex = 9;
+            this.lblBattleshipMetalCost.Text = "metal";
+            this.lblBattleshipMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattleshipCount
+            // 
+            this.lblBattleshipCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleshipCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattleshipCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleshipCount.Location = new System.Drawing.Point(320, 10);
+            this.lblBattleshipCount.Name = "lblBattleshipCount";
+            this.lblBattleshipCount.Size = new System.Drawing.Size(130, 30);
+            this.lblBattleshipCount.TabIndex = 8;
+            this.lblBattleshipCount.Text = "Ilość";
+            this.lblBattleshipCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBattleship
+            // 
+            this.lblBattleship.BackColor = System.Drawing.Color.Transparent;
+            this.lblBattleship.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBattleship.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBattleship.Location = new System.Drawing.Point(10, 10);
+            this.lblBattleship.Name = "lblBattleship";
+            this.lblBattleship.Size = new System.Drawing.Size(300, 30);
+            this.lblBattleship.TabIndex = 7;
+            this.lblBattleship.Text = "Okręt wojenny";
+            this.lblBattleship.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pCruiser
+            // 
+            this.pCruiser.BackColor = System.Drawing.Color.Yellow;
+            this.pCruiser.Controls.Add(this.lblCruiserTimeRemain);
+            this.pCruiser.Controls.Add(this.tbCruiserCount);
+            this.pCruiser.Controls.Add(this.lblCruiserShade);
+            this.pCruiser.Controls.Add(this.lblCruiserDuration);
+            this.pCruiser.Controls.Add(this.btnCruiserConstruct);
+            this.pCruiser.Controls.Add(this.lblCruiserDeuteriumCost);
+            this.pCruiser.Controls.Add(this.lblCruiserCrystalCost);
+            this.pCruiser.Controls.Add(this.lblCruiserMetalCost);
+            this.pCruiser.Controls.Add(this.lblCruiserCount);
+            this.pCruiser.Controls.Add(this.lblCruiser);
+            this.pCruiser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pCruiser.Location = new System.Drawing.Point(3, 353);
+            this.pCruiser.Name = "pCruiser";
+            this.pCruiser.Size = new System.Drawing.Size(1890, 50);
+            this.pCruiser.TabIndex = 10;
+            // 
+            // lblCruiserTimeRemain
+            // 
+            this.lblCruiserTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiserTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblCruiserTimeRemain.Name = "lblCruiserTimeRemain";
+            this.lblCruiserTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserTimeRemain.TabIndex = 15;
+            this.lblCruiserTimeRemain.Text = "czas pozostały";
+            this.lblCruiserTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbCruiserCount
+            // 
+            this.tbCruiserCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbCruiserCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCruiserCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbCruiserCount.Name = "tbCruiserCount";
+            this.tbCruiserCount.Size = new System.Drawing.Size(129, 16);
+            this.tbCruiserCount.TabIndex = 4;
+            this.tbCruiserCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblCruiserShade
+            // 
+            this.lblCruiserShade.BackColor = System.Drawing.Color.White;
+            this.lblCruiserShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCruiserShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCruiserShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblCruiserShade.Name = "lblCruiserShade";
+            this.lblCruiserShade.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserShade.TabIndex = 14;
+            this.lblCruiserShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCruiserDuration
+            // 
+            this.lblCruiserDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiserDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCruiserDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblCruiserDuration.Name = "lblCruiserDuration";
+            this.lblCruiserDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserDuration.TabIndex = 13;
+            this.lblCruiserDuration.Text = "czas";
+            this.lblCruiserDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCruiserConstruct
+            // 
+            this.btnCruiserConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnCruiserConstruct.Enabled = false;
+            this.btnCruiserConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCruiserConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnCruiserConstruct.Name = "btnCruiserConstruct";
+            this.btnCruiserConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnCruiserConstruct.TabIndex = 12;
+            this.btnCruiserConstruct.Text = "Zbuduj";
+            this.btnCruiserConstruct.UseVisualStyleBackColor = false;
+            this.btnCruiserConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblCruiserDeuteriumCost
+            // 
+            this.lblCruiserDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiserDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCruiserDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCruiserDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblCruiserDeuteriumCost.Name = "lblCruiserDeuteriumCost";
+            this.lblCruiserDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserDeuteriumCost.TabIndex = 11;
+            this.lblCruiserDeuteriumCost.Text = "deuter";
+            this.lblCruiserDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCruiserCrystalCost
+            // 
+            this.lblCruiserCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiserCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCruiserCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCruiserCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblCruiserCrystalCost.Name = "lblCruiserCrystalCost";
+            this.lblCruiserCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserCrystalCost.TabIndex = 10;
+            this.lblCruiserCrystalCost.Text = "kryształ";
+            this.lblCruiserCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCruiserMetalCost
+            // 
+            this.lblCruiserMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiserMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCruiserMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCruiserMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblCruiserMetalCost.Name = "lblCruiserMetalCost";
+            this.lblCruiserMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserMetalCost.TabIndex = 9;
+            this.lblCruiserMetalCost.Text = "metal";
+            this.lblCruiserMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCruiserCount
+            // 
+            this.lblCruiserCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiserCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCruiserCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiserCount.Location = new System.Drawing.Point(320, 10);
+            this.lblCruiserCount.Name = "lblCruiserCount";
+            this.lblCruiserCount.Size = new System.Drawing.Size(130, 30);
+            this.lblCruiserCount.TabIndex = 8;
+            this.lblCruiserCount.Text = "Ilość";
+            this.lblCruiserCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCruiser
+            // 
+            this.lblCruiser.BackColor = System.Drawing.Color.Transparent;
+            this.lblCruiser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCruiser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCruiser.Location = new System.Drawing.Point(10, 10);
+            this.lblCruiser.Name = "lblCruiser";
+            this.lblCruiser.Size = new System.Drawing.Size(300, 30);
+            this.lblCruiser.TabIndex = 7;
+            this.lblCruiser.Text = "Krążkownik";
+            this.lblCruiser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pHeavyFighter
+            // 
+            this.pHeavyFighter.BackColor = System.Drawing.Color.Gold;
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterTimeRemain);
+            this.pHeavyFighter.Controls.Add(this.tbHeavyFighterCount);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterShade);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterDuration);
+            this.pHeavyFighter.Controls.Add(this.btnHeavyFighterConstruct);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterDeuteriumCost);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterCrystalCost);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterMetalCost);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighterCount);
+            this.pHeavyFighter.Controls.Add(this.lblHeavyFighter);
+            this.pHeavyFighter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pHeavyFighter.Location = new System.Drawing.Point(3, 303);
+            this.pHeavyFighter.Name = "pHeavyFighter";
+            this.pHeavyFighter.Size = new System.Drawing.Size(1890, 50);
+            this.pHeavyFighter.TabIndex = 9;
+            // 
+            // lblHeavyFighterTimeRemain
+            // 
+            this.lblHeavyFighterTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighterTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblHeavyFighterTimeRemain.Name = "lblHeavyFighterTimeRemain";
+            this.lblHeavyFighterTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterTimeRemain.TabIndex = 15;
+            this.lblHeavyFighterTimeRemain.Text = "czas pozostały";
+            this.lblHeavyFighterTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbHeavyFighterCount
+            // 
+            this.tbHeavyFighterCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbHeavyFighterCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbHeavyFighterCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbHeavyFighterCount.Name = "tbHeavyFighterCount";
+            this.tbHeavyFighterCount.Size = new System.Drawing.Size(129, 16);
+            this.tbHeavyFighterCount.TabIndex = 4;
+            this.tbHeavyFighterCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblHeavyFighterShade
+            // 
+            this.lblHeavyFighterShade.BackColor = System.Drawing.Color.White;
+            this.lblHeavyFighterShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblHeavyFighterShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHeavyFighterShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblHeavyFighterShade.Name = "lblHeavyFighterShade";
+            this.lblHeavyFighterShade.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterShade.TabIndex = 14;
+            this.lblHeavyFighterShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyFighterDuration
+            // 
+            this.lblHeavyFighterDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighterDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyFighterDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblHeavyFighterDuration.Name = "lblHeavyFighterDuration";
+            this.lblHeavyFighterDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterDuration.TabIndex = 13;
+            this.lblHeavyFighterDuration.Text = "czas";
+            this.lblHeavyFighterDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnHeavyFighterConstruct
+            // 
+            this.btnHeavyFighterConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnHeavyFighterConstruct.Enabled = false;
+            this.btnHeavyFighterConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHeavyFighterConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnHeavyFighterConstruct.Name = "btnHeavyFighterConstruct";
+            this.btnHeavyFighterConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnHeavyFighterConstruct.TabIndex = 12;
+            this.btnHeavyFighterConstruct.Text = "Zbuduj";
+            this.btnHeavyFighterConstruct.UseVisualStyleBackColor = false;
+            this.btnHeavyFighterConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblHeavyFighterDeuteriumCost
+            // 
+            this.lblHeavyFighterDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighterDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyFighterDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeavyFighterDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblHeavyFighterDeuteriumCost.Name = "lblHeavyFighterDeuteriumCost";
+            this.lblHeavyFighterDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterDeuteriumCost.TabIndex = 11;
+            this.lblHeavyFighterDeuteriumCost.Text = "deuter";
+            this.lblHeavyFighterDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyFighterCrystalCost
+            // 
+            this.lblHeavyFighterCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighterCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyFighterCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeavyFighterCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblHeavyFighterCrystalCost.Name = "lblHeavyFighterCrystalCost";
+            this.lblHeavyFighterCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterCrystalCost.TabIndex = 10;
+            this.lblHeavyFighterCrystalCost.Text = "kryształ";
+            this.lblHeavyFighterCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyFighterMetalCost
+            // 
+            this.lblHeavyFighterMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighterMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyFighterMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeavyFighterMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblHeavyFighterMetalCost.Name = "lblHeavyFighterMetalCost";
+            this.lblHeavyFighterMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterMetalCost.TabIndex = 9;
+            this.lblHeavyFighterMetalCost.Text = "metal";
+            this.lblHeavyFighterMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyFighterCount
+            // 
+            this.lblHeavyFighterCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighterCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyFighterCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighterCount.Location = new System.Drawing.Point(320, 10);
+            this.lblHeavyFighterCount.Name = "lblHeavyFighterCount";
+            this.lblHeavyFighterCount.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyFighterCount.TabIndex = 8;
+            this.lblHeavyFighterCount.Text = "Ilość";
+            this.lblHeavyFighterCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyFighter
+            // 
+            this.lblHeavyFighter.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyFighter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyFighter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyFighter.Location = new System.Drawing.Point(10, 10);
+            this.lblHeavyFighter.Name = "lblHeavyFighter";
+            this.lblHeavyFighter.Size = new System.Drawing.Size(300, 30);
+            this.lblHeavyFighter.TabIndex = 7;
+            this.lblHeavyFighter.Text = "Ciężki myśliwiec";
+            this.lblHeavyFighter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pLightFighter
+            // 
+            this.pLightFighter.BackColor = System.Drawing.Color.Yellow;
+            this.pLightFighter.Controls.Add(this.lblLightFighterTimeRemain);
+            this.pLightFighter.Controls.Add(this.tbLightFighterCount);
+            this.pLightFighter.Controls.Add(this.lblLightFighterShade);
+            this.pLightFighter.Controls.Add(this.lblLightFighterDuration);
+            this.pLightFighter.Controls.Add(this.btnLightFighterConstruct);
+            this.pLightFighter.Controls.Add(this.lblLightFighterDeuteriumCost);
+            this.pLightFighter.Controls.Add(this.lblLightFighterCrystalCost);
+            this.pLightFighter.Controls.Add(this.lblLightFighterMetalCost);
+            this.pLightFighter.Controls.Add(this.lblLightFighterCount);
+            this.pLightFighter.Controls.Add(this.lblLightFighter);
+            this.pLightFighter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pLightFighter.Location = new System.Drawing.Point(3, 253);
+            this.pLightFighter.Name = "pLightFighter";
+            this.pLightFighter.Size = new System.Drawing.Size(1890, 50);
+            this.pLightFighter.TabIndex = 8;
+            // 
+            // lblLightFighterTimeRemain
+            // 
+            this.lblLightFighterTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighterTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblLightFighterTimeRemain.Name = "lblLightFighterTimeRemain";
+            this.lblLightFighterTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterTimeRemain.TabIndex = 15;
+            this.lblLightFighterTimeRemain.Text = "czas pozostały";
+            this.lblLightFighterTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbLightFighterCount
+            // 
+            this.tbLightFighterCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbLightFighterCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLightFighterCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbLightFighterCount.Name = "tbLightFighterCount";
+            this.tbLightFighterCount.Size = new System.Drawing.Size(129, 16);
+            this.tbLightFighterCount.TabIndex = 4;
+            this.tbLightFighterCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblLightFighterShade
+            // 
+            this.lblLightFighterShade.BackColor = System.Drawing.Color.White;
+            this.lblLightFighterShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLightFighterShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLightFighterShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblLightFighterShade.Name = "lblLightFighterShade";
+            this.lblLightFighterShade.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterShade.TabIndex = 14;
+            this.lblLightFighterShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightFighterDuration
+            // 
+            this.lblLightFighterDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighterDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightFighterDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblLightFighterDuration.Name = "lblLightFighterDuration";
+            this.lblLightFighterDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterDuration.TabIndex = 13;
+            this.lblLightFighterDuration.Text = "czas";
+            this.lblLightFighterDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLightFighterConstruct
+            // 
+            this.btnLightFighterConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnLightFighterConstruct.Enabled = false;
+            this.btnLightFighterConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLightFighterConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnLightFighterConstruct.Name = "btnLightFighterConstruct";
+            this.btnLightFighterConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnLightFighterConstruct.TabIndex = 12;
+            this.btnLightFighterConstruct.Text = "Zbuduj";
+            this.btnLightFighterConstruct.UseVisualStyleBackColor = false;
+            this.btnLightFighterConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblLightFighterDeuteriumCost
+            // 
+            this.lblLightFighterDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighterDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightFighterDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLightFighterDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblLightFighterDeuteriumCost.Name = "lblLightFighterDeuteriumCost";
+            this.lblLightFighterDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterDeuteriumCost.TabIndex = 11;
+            this.lblLightFighterDeuteriumCost.Text = "deuter";
+            this.lblLightFighterDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightFighterCrystalCost
+            // 
+            this.lblLightFighterCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighterCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightFighterCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLightFighterCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblLightFighterCrystalCost.Name = "lblLightFighterCrystalCost";
+            this.lblLightFighterCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterCrystalCost.TabIndex = 10;
+            this.lblLightFighterCrystalCost.Text = "kryształ";
+            this.lblLightFighterCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightFighterMetalCost
+            // 
+            this.lblLightFighterMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighterMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightFighterMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLightFighterMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblLightFighterMetalCost.Name = "lblLightFighterMetalCost";
+            this.lblLightFighterMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterMetalCost.TabIndex = 9;
+            this.lblLightFighterMetalCost.Text = "metal";
+            this.lblLightFighterMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightFighterCount
+            // 
+            this.lblLightFighterCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighterCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightFighterCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighterCount.Location = new System.Drawing.Point(320, 10);
+            this.lblLightFighterCount.Name = "lblLightFighterCount";
+            this.lblLightFighterCount.Size = new System.Drawing.Size(130, 30);
+            this.lblLightFighterCount.TabIndex = 8;
+            this.lblLightFighterCount.Text = "Ilość";
+            this.lblLightFighterCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightFighter
+            // 
+            this.lblLightFighter.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightFighter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightFighter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightFighter.Location = new System.Drawing.Point(10, 10);
+            this.lblLightFighter.Name = "lblLightFighter";
+            this.lblLightFighter.Size = new System.Drawing.Size(300, 30);
+            this.lblLightFighter.TabIndex = 7;
+            this.lblLightFighter.Text = "Lekki myśliwiec";
+            this.lblLightFighter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pEspionageProbe
+            // 
+            this.pEspionageProbe.BackColor = System.Drawing.Color.Gold;
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeTimeRemain);
+            this.pEspionageProbe.Controls.Add(this.tbEspionageProbeCount);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeShade);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeDuration);
+            this.pEspionageProbe.Controls.Add(this.btnEspionageProbeConstruct);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeDeuteriumCost);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeCrystalCost);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeMetalCost);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbeCount);
+            this.pEspionageProbe.Controls.Add(this.lblEspionageProbe);
+            this.pEspionageProbe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pEspionageProbe.Location = new System.Drawing.Point(3, 203);
+            this.pEspionageProbe.Name = "pEspionageProbe";
+            this.pEspionageProbe.Size = new System.Drawing.Size(1890, 50);
+            this.pEspionageProbe.TabIndex = 7;
+            // 
+            // lblEspionageProbeTimeRemain
+            // 
+            this.lblEspionageProbeTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbeTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblEspionageProbeTimeRemain.Name = "lblEspionageProbeTimeRemain";
+            this.lblEspionageProbeTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeTimeRemain.TabIndex = 15;
+            this.lblEspionageProbeTimeRemain.Text = "czas pozostały";
+            this.lblEspionageProbeTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbEspionageProbeCount
+            // 
+            this.tbEspionageProbeCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbEspionageProbeCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbEspionageProbeCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbEspionageProbeCount.Name = "tbEspionageProbeCount";
+            this.tbEspionageProbeCount.Size = new System.Drawing.Size(129, 16);
+            this.tbEspionageProbeCount.TabIndex = 4;
+            this.tbEspionageProbeCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblEspionageProbeShade
+            // 
+            this.lblEspionageProbeShade.BackColor = System.Drawing.Color.White;
+            this.lblEspionageProbeShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblEspionageProbeShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEspionageProbeShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblEspionageProbeShade.Name = "lblEspionageProbeShade";
+            this.lblEspionageProbeShade.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeShade.TabIndex = 14;
+            this.lblEspionageProbeShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEspionageProbeDuration
+            // 
+            this.lblEspionageProbeDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbeDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageProbeDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblEspionageProbeDuration.Name = "lblEspionageProbeDuration";
+            this.lblEspionageProbeDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeDuration.TabIndex = 13;
+            this.lblEspionageProbeDuration.Text = "czas";
+            this.lblEspionageProbeDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnEspionageProbeConstruct
+            // 
+            this.btnEspionageProbeConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnEspionageProbeConstruct.Enabled = false;
+            this.btnEspionageProbeConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEspionageProbeConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnEspionageProbeConstruct.Name = "btnEspionageProbeConstruct";
+            this.btnEspionageProbeConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnEspionageProbeConstruct.TabIndex = 12;
+            this.btnEspionageProbeConstruct.Text = "Zbuduj";
+            this.btnEspionageProbeConstruct.UseVisualStyleBackColor = false;
+            this.btnEspionageProbeConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblEspionageProbeDeuteriumCost
+            // 
+            this.lblEspionageProbeDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbeDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageProbeDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblEspionageProbeDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblEspionageProbeDeuteriumCost.Name = "lblEspionageProbeDeuteriumCost";
+            this.lblEspionageProbeDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeDeuteriumCost.TabIndex = 11;
+            this.lblEspionageProbeDeuteriumCost.Text = "deuter";
+            this.lblEspionageProbeDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEspionageProbeCrystalCost
+            // 
+            this.lblEspionageProbeCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbeCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageProbeCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblEspionageProbeCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblEspionageProbeCrystalCost.Name = "lblEspionageProbeCrystalCost";
+            this.lblEspionageProbeCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeCrystalCost.TabIndex = 10;
+            this.lblEspionageProbeCrystalCost.Text = "kryształ";
+            this.lblEspionageProbeCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEspionageProbeMetalCost
+            // 
+            this.lblEspionageProbeMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbeMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageProbeMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblEspionageProbeMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblEspionageProbeMetalCost.Name = "lblEspionageProbeMetalCost";
+            this.lblEspionageProbeMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeMetalCost.TabIndex = 9;
+            this.lblEspionageProbeMetalCost.Text = "metal";
+            this.lblEspionageProbeMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEspionageProbeCount
+            // 
+            this.lblEspionageProbeCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbeCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageProbeCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbeCount.Location = new System.Drawing.Point(320, 10);
+            this.lblEspionageProbeCount.Name = "lblEspionageProbeCount";
+            this.lblEspionageProbeCount.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageProbeCount.TabIndex = 8;
+            this.lblEspionageProbeCount.Text = "Ilość";
+            this.lblEspionageProbeCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEspionageProbe
+            // 
+            this.lblEspionageProbe.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageProbe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageProbe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageProbe.Location = new System.Drawing.Point(10, 10);
+            this.lblEspionageProbe.Name = "lblEspionageProbe";
+            this.lblEspionageProbe.Size = new System.Drawing.Size(300, 30);
+            this.lblEspionageProbe.TabIndex = 7;
+            this.lblEspionageProbe.Text = "Sonda szpiegowska";
+            this.lblEspionageProbe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pRecycler
+            // 
+            this.pRecycler.BackColor = System.Drawing.Color.Yellow;
+            this.pRecycler.Controls.Add(this.lblRecyclerTimeRemian);
+            this.pRecycler.Controls.Add(this.tbRecyclerCount);
+            this.pRecycler.Controls.Add(this.lblRecyclerShade);
+            this.pRecycler.Controls.Add(this.lblRecyclerDuration);
+            this.pRecycler.Controls.Add(this.btnRecyclerConstruct);
+            this.pRecycler.Controls.Add(this.lblRecyclerDeuteriumCost);
+            this.pRecycler.Controls.Add(this.lblRecyclerCrystalCost);
+            this.pRecycler.Controls.Add(this.lblRecyclerMetalCost);
+            this.pRecycler.Controls.Add(this.lblRecyclerCount);
+            this.pRecycler.Controls.Add(this.lblRecycler);
+            this.pRecycler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pRecycler.Location = new System.Drawing.Point(3, 153);
+            this.pRecycler.Name = "pRecycler";
+            this.pRecycler.Size = new System.Drawing.Size(1890, 50);
+            this.pRecycler.TabIndex = 6;
+            // 
+            // lblRecyclerTimeRemian
+            // 
+            this.lblRecyclerTimeRemian.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecyclerTimeRemian.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerTimeRemian.Location = new System.Drawing.Point(1300, 10);
+            this.lblRecyclerTimeRemian.Name = "lblRecyclerTimeRemian";
+            this.lblRecyclerTimeRemian.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerTimeRemian.TabIndex = 15;
+            this.lblRecyclerTimeRemian.Text = "czas pozostały";
+            this.lblRecyclerTimeRemian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbRecyclerCount
+            // 
+            this.tbRecyclerCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbRecyclerCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbRecyclerCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbRecyclerCount.Name = "tbRecyclerCount";
+            this.tbRecyclerCount.Size = new System.Drawing.Size(129, 16);
+            this.tbRecyclerCount.TabIndex = 4;
+            this.tbRecyclerCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblRecyclerShade
+            // 
+            this.lblRecyclerShade.BackColor = System.Drawing.Color.White;
+            this.lblRecyclerShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRecyclerShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRecyclerShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblRecyclerShade.Name = "lblRecyclerShade";
+            this.lblRecyclerShade.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerShade.TabIndex = 14;
+            this.lblRecyclerShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRecyclerDuration
+            // 
+            this.lblRecyclerDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecyclerDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRecyclerDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblRecyclerDuration.Name = "lblRecyclerDuration";
+            this.lblRecyclerDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerDuration.TabIndex = 13;
+            this.lblRecyclerDuration.Text = "czas";
+            this.lblRecyclerDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRecyclerConstruct
+            // 
+            this.btnRecyclerConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnRecyclerConstruct.Enabled = false;
+            this.btnRecyclerConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRecyclerConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnRecyclerConstruct.Name = "btnRecyclerConstruct";
+            this.btnRecyclerConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnRecyclerConstruct.TabIndex = 12;
+            this.btnRecyclerConstruct.Text = "Zbuduj";
+            this.btnRecyclerConstruct.UseVisualStyleBackColor = false;
+            this.btnRecyclerConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblRecyclerDeuteriumCost
+            // 
+            this.lblRecyclerDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecyclerDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRecyclerDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRecyclerDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblRecyclerDeuteriumCost.Name = "lblRecyclerDeuteriumCost";
+            this.lblRecyclerDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerDeuteriumCost.TabIndex = 11;
+            this.lblRecyclerDeuteriumCost.Text = "deuter";
+            this.lblRecyclerDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRecyclerCrystalCost
+            // 
+            this.lblRecyclerCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecyclerCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRecyclerCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRecyclerCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblRecyclerCrystalCost.Name = "lblRecyclerCrystalCost";
+            this.lblRecyclerCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerCrystalCost.TabIndex = 10;
+            this.lblRecyclerCrystalCost.Text = "kryształ";
+            this.lblRecyclerCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRecyclerMetalCost
+            // 
+            this.lblRecyclerMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecyclerMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRecyclerMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRecyclerMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblRecyclerMetalCost.Name = "lblRecyclerMetalCost";
+            this.lblRecyclerMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerMetalCost.TabIndex = 9;
+            this.lblRecyclerMetalCost.Text = "metal";
+            this.lblRecyclerMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRecyclerCount
+            // 
+            this.lblRecyclerCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecyclerCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRecyclerCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecyclerCount.Location = new System.Drawing.Point(320, 10);
+            this.lblRecyclerCount.Name = "lblRecyclerCount";
+            this.lblRecyclerCount.Size = new System.Drawing.Size(130, 30);
+            this.lblRecyclerCount.TabIndex = 8;
+            this.lblRecyclerCount.Text = "Ilość";
+            this.lblRecyclerCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRecycler
+            // 
+            this.lblRecycler.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecycler.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRecycler.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRecycler.Location = new System.Drawing.Point(10, 10);
+            this.lblRecycler.Name = "lblRecycler";
+            this.lblRecycler.Size = new System.Drawing.Size(300, 30);
+            this.lblRecycler.TabIndex = 7;
+            this.lblRecycler.Text = "Recycler";
+            this.lblRecycler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pColonyShip
+            // 
+            this.pColonyShip.BackColor = System.Drawing.Color.Gold;
+            this.pColonyShip.Controls.Add(this.lblColonyShipTimeRemain);
+            this.pColonyShip.Controls.Add(this.tbColonyShipCount);
+            this.pColonyShip.Controls.Add(this.lblColonyShipShade);
+            this.pColonyShip.Controls.Add(this.lblColonyShipDuration);
+            this.pColonyShip.Controls.Add(this.btnColonyShipConstruct);
+            this.pColonyShip.Controls.Add(this.lblColonyShipDeuteriumCost);
+            this.pColonyShip.Controls.Add(this.lblColonyShipCrystalCost);
+            this.pColonyShip.Controls.Add(this.lblColonyShipMetalCost);
+            this.pColonyShip.Controls.Add(this.lblColonyShipCount);
+            this.pColonyShip.Controls.Add(this.lblColonyShip);
+            this.pColonyShip.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pColonyShip.Location = new System.Drawing.Point(3, 103);
+            this.pColonyShip.Name = "pColonyShip";
+            this.pColonyShip.Size = new System.Drawing.Size(1890, 50);
+            this.pColonyShip.TabIndex = 5;
+            // 
+            // lblColonyShipTimeRemain
+            // 
+            this.lblColonyShipTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShipTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblColonyShipTimeRemain.Name = "lblColonyShipTimeRemain";
+            this.lblColonyShipTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipTimeRemain.TabIndex = 15;
+            this.lblColonyShipTimeRemain.Text = "czas pozostały";
+            this.lblColonyShipTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbColonyShipCount
+            // 
+            this.tbColonyShipCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbColonyShipCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbColonyShipCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbColonyShipCount.Name = "tbColonyShipCount";
+            this.tbColonyShipCount.Size = new System.Drawing.Size(129, 16);
+            this.tbColonyShipCount.TabIndex = 4;
+            this.tbColonyShipCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblColonyShipShade
+            // 
+            this.lblColonyShipShade.BackColor = System.Drawing.Color.White;
+            this.lblColonyShipShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblColonyShipShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblColonyShipShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblColonyShipShade.Name = "lblColonyShipShade";
+            this.lblColonyShipShade.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipShade.TabIndex = 14;
+            this.lblColonyShipShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblColonyShipDuration
+            // 
+            this.lblColonyShipDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShipDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColonyShipDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblColonyShipDuration.Name = "lblColonyShipDuration";
+            this.lblColonyShipDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipDuration.TabIndex = 13;
+            this.lblColonyShipDuration.Text = "czas";
+            this.lblColonyShipDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnColonyShipConstruct
+            // 
+            this.btnColonyShipConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnColonyShipConstruct.Enabled = false;
+            this.btnColonyShipConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnColonyShipConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnColonyShipConstruct.Name = "btnColonyShipConstruct";
+            this.btnColonyShipConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnColonyShipConstruct.TabIndex = 12;
+            this.btnColonyShipConstruct.Text = "Zbuduj";
+            this.btnColonyShipConstruct.UseVisualStyleBackColor = false;
+            this.btnColonyShipConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblColonyShipDeuteriumCost
+            // 
+            this.lblColonyShipDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShipDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColonyShipDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblColonyShipDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblColonyShipDeuteriumCost.Name = "lblColonyShipDeuteriumCost";
+            this.lblColonyShipDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipDeuteriumCost.TabIndex = 11;
+            this.lblColonyShipDeuteriumCost.Text = "deuter";
+            this.lblColonyShipDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblColonyShipCrystalCost
+            // 
+            this.lblColonyShipCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShipCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColonyShipCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblColonyShipCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblColonyShipCrystalCost.Name = "lblColonyShipCrystalCost";
+            this.lblColonyShipCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipCrystalCost.TabIndex = 10;
+            this.lblColonyShipCrystalCost.Text = "kryształ";
+            this.lblColonyShipCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblColonyShipMetalCost
+            // 
+            this.lblColonyShipMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShipMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColonyShipMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblColonyShipMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblColonyShipMetalCost.Name = "lblColonyShipMetalCost";
+            this.lblColonyShipMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipMetalCost.TabIndex = 9;
+            this.lblColonyShipMetalCost.Text = "metal";
+            this.lblColonyShipMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblColonyShipCount
+            // 
+            this.lblColonyShipCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShipCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColonyShipCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShipCount.Location = new System.Drawing.Point(320, 10);
+            this.lblColonyShipCount.Name = "lblColonyShipCount";
+            this.lblColonyShipCount.Size = new System.Drawing.Size(130, 30);
+            this.lblColonyShipCount.TabIndex = 8;
+            this.lblColonyShipCount.Text = "Ilość";
+            this.lblColonyShipCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblColonyShip
+            // 
+            this.lblColonyShip.BackColor = System.Drawing.Color.Transparent;
+            this.lblColonyShip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColonyShip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblColonyShip.Location = new System.Drawing.Point(10, 10);
+            this.lblColonyShip.Name = "lblColonyShip";
+            this.lblColonyShip.Size = new System.Drawing.Size(300, 30);
+            this.lblColonyShip.TabIndex = 7;
+            this.lblColonyShip.Text = "Statek kolonizacyjny";
+            this.lblColonyShip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pLargeCargo
+            // 
+            this.pLargeCargo.BackColor = System.Drawing.Color.Yellow;
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoTimeRemain);
+            this.pLargeCargo.Controls.Add(this.tbLargeCargoCount);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoShade);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoDuration);
+            this.pLargeCargo.Controls.Add(this.btnLargeCargoConstruct);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoDeuteriumCost);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoCrystalCost);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoMetalCost);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargoCount);
+            this.pLargeCargo.Controls.Add(this.lblLargeCargo);
+            this.pLargeCargo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pLargeCargo.Location = new System.Drawing.Point(3, 53);
+            this.pLargeCargo.Name = "pLargeCargo";
+            this.pLargeCargo.Size = new System.Drawing.Size(1890, 50);
+            this.pLargeCargo.TabIndex = 4;
+            // 
+            // lblLargeCargoTimeRemain
+            // 
+            this.lblLargeCargoTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargoTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblLargeCargoTimeRemain.Name = "lblLargeCargoTimeRemain";
+            this.lblLargeCargoTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoTimeRemain.TabIndex = 15;
+            this.lblLargeCargoTimeRemain.Text = "czas pozostały";
+            this.lblLargeCargoTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbLargeCargoCount
+            // 
+            this.tbLargeCargoCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbLargeCargoCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLargeCargoCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbLargeCargoCount.Name = "tbLargeCargoCount";
+            this.tbLargeCargoCount.Size = new System.Drawing.Size(129, 16);
+            this.tbLargeCargoCount.TabIndex = 4;
+            this.tbLargeCargoCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblLargeCargoShade
+            // 
+            this.lblLargeCargoShade.BackColor = System.Drawing.Color.White;
+            this.lblLargeCargoShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLargeCargoShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLargeCargoShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblLargeCargoShade.Name = "lblLargeCargoShade";
+            this.lblLargeCargoShade.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoShade.TabIndex = 14;
+            this.lblLargeCargoShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeCargoDuration
+            // 
+            this.lblLargeCargoDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargoDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeCargoDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblLargeCargoDuration.Name = "lblLargeCargoDuration";
+            this.lblLargeCargoDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoDuration.TabIndex = 13;
+            this.lblLargeCargoDuration.Text = "czas";
+            this.lblLargeCargoDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLargeCargoConstruct
+            // 
+            this.btnLargeCargoConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnLargeCargoConstruct.Enabled = false;
+            this.btnLargeCargoConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLargeCargoConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnLargeCargoConstruct.Name = "btnLargeCargoConstruct";
+            this.btnLargeCargoConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnLargeCargoConstruct.TabIndex = 12;
+            this.btnLargeCargoConstruct.Text = "Zbuduj";
+            this.btnLargeCargoConstruct.UseVisualStyleBackColor = false;
+            this.btnLargeCargoConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblLargeCargoDeuteriumCost
+            // 
+            this.lblLargeCargoDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargoDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeCargoDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLargeCargoDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblLargeCargoDeuteriumCost.Name = "lblLargeCargoDeuteriumCost";
+            this.lblLargeCargoDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoDeuteriumCost.TabIndex = 11;
+            this.lblLargeCargoDeuteriumCost.Text = "deuter";
+            this.lblLargeCargoDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeCargoCrystalCost
+            // 
+            this.lblLargeCargoCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargoCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeCargoCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLargeCargoCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblLargeCargoCrystalCost.Name = "lblLargeCargoCrystalCost";
+            this.lblLargeCargoCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoCrystalCost.TabIndex = 10;
+            this.lblLargeCargoCrystalCost.Text = "kryształ";
+            this.lblLargeCargoCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeCargoMetalCost
+            // 
+            this.lblLargeCargoMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargoMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeCargoMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLargeCargoMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblLargeCargoMetalCost.Name = "lblLargeCargoMetalCost";
+            this.lblLargeCargoMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoMetalCost.TabIndex = 9;
+            this.lblLargeCargoMetalCost.Text = "metal";
+            this.lblLargeCargoMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeCargoCount
+            // 
+            this.lblLargeCargoCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargoCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeCargoCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargoCount.Location = new System.Drawing.Point(320, 10);
+            this.lblLargeCargoCount.Name = "lblLargeCargoCount";
+            this.lblLargeCargoCount.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeCargoCount.TabIndex = 8;
+            this.lblLargeCargoCount.Text = "Ilość";
+            this.lblLargeCargoCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeCargo
+            // 
+            this.lblLargeCargo.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeCargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeCargo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeCargo.Location = new System.Drawing.Point(10, 10);
+            this.lblLargeCargo.Name = "lblLargeCargo";
+            this.lblLargeCargo.Size = new System.Drawing.Size(300, 30);
+            this.lblLargeCargo.TabIndex = 7;
+            this.lblLargeCargo.Text = "Duży transporter";
+            this.lblLargeCargo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pSmallCargo
             // 
             this.pSmallCargo.BackColor = System.Drawing.Color.Gold;
-            this.pSmallCargo.Controls.Add(this.label1);
+            this.pSmallCargo.Controls.Add(this.lblSmallCargoTimeRemain);
             this.pSmallCargo.Controls.Add(this.tbSmallCargoCount);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoShade);
             this.pSmallCargo.Controls.Add(this.lblSmallCargoDuration);
@@ -5470,6 +7807,17 @@ namespace MinerGame
             this.pSmallCargo.Name = "pSmallCargo";
             this.pSmallCargo.Size = new System.Drawing.Size(1890, 50);
             this.pSmallCargo.TabIndex = 3;
+            // 
+            // lblSmallCargoTimeRemain
+            // 
+            this.lblSmallCargoTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallCargoTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallCargoTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblSmallCargoTimeRemain.Name = "lblSmallCargoTimeRemain";
+            this.lblSmallCargoTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallCargoTimeRemain.TabIndex = 15;
+            this.lblSmallCargoTimeRemain.Text = "czas pozostały";
+            this.lblSmallCargoTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbSmallCargoCount
             // 
@@ -5516,6 +7864,7 @@ namespace MinerGame
             this.btnSmallCargoConstruct.TabIndex = 12;
             this.btnSmallCargoConstruct.Text = "Zbuduj";
             this.btnSmallCargoConstruct.UseVisualStyleBackColor = false;
+            this.btnSmallCargoConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
             // 
             // lblSmallCargoDeuteriumCost
             // 
@@ -5583,12 +7932,1704 @@ namespace MinerGame
             // tpDefence
             // 
             this.tpDefence.BackColor = System.Drawing.Color.Silver;
+            this.tpDefence.Controls.Add(this.pInterplanetaryMissile);
+            this.tpDefence.Controls.Add(this.pAntiBallisticMissile);
+            this.tpDefence.Controls.Add(this.pLargeShieldDome);
+            this.tpDefence.Controls.Add(this.pSmallShieldDome);
+            this.tpDefence.Controls.Add(this.pPlasmaTurret);
+            this.tpDefence.Controls.Add(this.pIonCannon);
+            this.tpDefence.Controls.Add(this.pGaussCannon);
+            this.tpDefence.Controls.Add(this.pHeavyLaser);
+            this.tpDefence.Controls.Add(this.pLightLaser);
+            this.tpDefence.Controls.Add(this.pRocketLauncher);
+            this.tpDefence.Controls.Add(this.pCrawler);
+            this.tpDefence.Controls.Add(this.pSolarSatellite);
             this.tpDefence.Location = new System.Drawing.Point(4, 29);
             this.tpDefence.Name = "tpDefence";
             this.tpDefence.Padding = new System.Windows.Forms.Padding(3);
             this.tpDefence.Size = new System.Drawing.Size(1896, 800);
             this.tpDefence.TabIndex = 3;
             this.tpDefence.Text = "Obrona";
+            // 
+            // pInterplanetaryMissile
+            // 
+            this.pInterplanetaryMissile.BackColor = System.Drawing.Color.Yellow;
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileTimeRemain);
+            this.pInterplanetaryMissile.Controls.Add(this.tbInterplanetaryMissileCount);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileShade);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileDuration);
+            this.pInterplanetaryMissile.Controls.Add(this.btnInterplanetaryMissileConstruct);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileDeuteriumCost);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileCrystalCost);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileMetalCost);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissileCount);
+            this.pInterplanetaryMissile.Controls.Add(this.lblInterplanetaryMissile);
+            this.pInterplanetaryMissile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pInterplanetaryMissile.Location = new System.Drawing.Point(3, 553);
+            this.pInterplanetaryMissile.Name = "pInterplanetaryMissile";
+            this.pInterplanetaryMissile.Size = new System.Drawing.Size(1890, 50);
+            this.pInterplanetaryMissile.TabIndex = 15;
+            // 
+            // lblInterplanetaryMissileTimeRemain
+            // 
+            this.lblInterplanetaryMissileTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissileTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblInterplanetaryMissileTimeRemain.Name = "lblInterplanetaryMissileTimeRemain";
+            this.lblInterplanetaryMissileTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileTimeRemain.TabIndex = 15;
+            this.lblInterplanetaryMissileTimeRemain.Text = "czas pozostały";
+            this.lblInterplanetaryMissileTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbInterplanetaryMissileCount
+            // 
+            this.tbInterplanetaryMissileCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbInterplanetaryMissileCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbInterplanetaryMissileCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbInterplanetaryMissileCount.Name = "tbInterplanetaryMissileCount";
+            this.tbInterplanetaryMissileCount.Size = new System.Drawing.Size(129, 16);
+            this.tbInterplanetaryMissileCount.TabIndex = 4;
+            this.tbInterplanetaryMissileCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblInterplanetaryMissileShade
+            // 
+            this.lblInterplanetaryMissileShade.BackColor = System.Drawing.Color.White;
+            this.lblInterplanetaryMissileShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblInterplanetaryMissileShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblInterplanetaryMissileShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblInterplanetaryMissileShade.Name = "lblInterplanetaryMissileShade";
+            this.lblInterplanetaryMissileShade.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileShade.TabIndex = 14;
+            this.lblInterplanetaryMissileShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInterplanetaryMissileDuration
+            // 
+            this.lblInterplanetaryMissileDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissileDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInterplanetaryMissileDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblInterplanetaryMissileDuration.Name = "lblInterplanetaryMissileDuration";
+            this.lblInterplanetaryMissileDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileDuration.TabIndex = 13;
+            this.lblInterplanetaryMissileDuration.Text = "czas";
+            this.lblInterplanetaryMissileDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnInterplanetaryMissileConstruct
+            // 
+            this.btnInterplanetaryMissileConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnInterplanetaryMissileConstruct.Enabled = false;
+            this.btnInterplanetaryMissileConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnInterplanetaryMissileConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnInterplanetaryMissileConstruct.Name = "btnInterplanetaryMissileConstruct";
+            this.btnInterplanetaryMissileConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnInterplanetaryMissileConstruct.TabIndex = 12;
+            this.btnInterplanetaryMissileConstruct.Text = "Zbuduj";
+            this.btnInterplanetaryMissileConstruct.UseVisualStyleBackColor = false;
+            this.btnInterplanetaryMissileConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblInterplanetaryMissileDeuteriumCost
+            // 
+            this.lblInterplanetaryMissileDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissileDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInterplanetaryMissileDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblInterplanetaryMissileDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblInterplanetaryMissileDeuteriumCost.Name = "lblInterplanetaryMissileDeuteriumCost";
+            this.lblInterplanetaryMissileDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileDeuteriumCost.TabIndex = 11;
+            this.lblInterplanetaryMissileDeuteriumCost.Text = "deuter";
+            this.lblInterplanetaryMissileDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInterplanetaryMissileCrystalCost
+            // 
+            this.lblInterplanetaryMissileCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissileCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInterplanetaryMissileCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblInterplanetaryMissileCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblInterplanetaryMissileCrystalCost.Name = "lblInterplanetaryMissileCrystalCost";
+            this.lblInterplanetaryMissileCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileCrystalCost.TabIndex = 10;
+            this.lblInterplanetaryMissileCrystalCost.Text = "kryształ";
+            this.lblInterplanetaryMissileCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInterplanetaryMissileMetalCost
+            // 
+            this.lblInterplanetaryMissileMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissileMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInterplanetaryMissileMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblInterplanetaryMissileMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblInterplanetaryMissileMetalCost.Name = "lblInterplanetaryMissileMetalCost";
+            this.lblInterplanetaryMissileMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileMetalCost.TabIndex = 9;
+            this.lblInterplanetaryMissileMetalCost.Text = "metal";
+            this.lblInterplanetaryMissileMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInterplanetaryMissileCount
+            // 
+            this.lblInterplanetaryMissileCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissileCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInterplanetaryMissileCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissileCount.Location = new System.Drawing.Point(320, 10);
+            this.lblInterplanetaryMissileCount.Name = "lblInterplanetaryMissileCount";
+            this.lblInterplanetaryMissileCount.Size = new System.Drawing.Size(130, 30);
+            this.lblInterplanetaryMissileCount.TabIndex = 8;
+            this.lblInterplanetaryMissileCount.Text = "Ilość";
+            this.lblInterplanetaryMissileCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInterplanetaryMissile
+            // 
+            this.lblInterplanetaryMissile.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterplanetaryMissile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInterplanetaryMissile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblInterplanetaryMissile.Location = new System.Drawing.Point(10, 10);
+            this.lblInterplanetaryMissile.Name = "lblInterplanetaryMissile";
+            this.lblInterplanetaryMissile.Size = new System.Drawing.Size(300, 30);
+            this.lblInterplanetaryMissile.TabIndex = 7;
+            this.lblInterplanetaryMissile.Text = "Rakieta międzyplanetarna";
+            this.lblInterplanetaryMissile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pAntiBallisticMissile
+            // 
+            this.pAntiBallisticMissile.BackColor = System.Drawing.Color.Gold;
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileTimeRemain);
+            this.pAntiBallisticMissile.Controls.Add(this.tbAntiBallisticMissileCount);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileShade);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileDuration);
+            this.pAntiBallisticMissile.Controls.Add(this.btnAntiBallisticMissileConstruct);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileDeuteriumCost);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileCrystalCost);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileMetalCost);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissileCount);
+            this.pAntiBallisticMissile.Controls.Add(this.lblAntiBallisticMissile);
+            this.pAntiBallisticMissile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pAntiBallisticMissile.Location = new System.Drawing.Point(3, 503);
+            this.pAntiBallisticMissile.Name = "pAntiBallisticMissile";
+            this.pAntiBallisticMissile.Size = new System.Drawing.Size(1890, 50);
+            this.pAntiBallisticMissile.TabIndex = 14;
+            // 
+            // lblAntiBallisticMissileTimeRemain
+            // 
+            this.lblAntiBallisticMissileTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissileTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblAntiBallisticMissileTimeRemain.Name = "lblAntiBallisticMissileTimeRemain";
+            this.lblAntiBallisticMissileTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileTimeRemain.TabIndex = 15;
+            this.lblAntiBallisticMissileTimeRemain.Text = "czas pozostały";
+            this.lblAntiBallisticMissileTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbAntiBallisticMissileCount
+            // 
+            this.tbAntiBallisticMissileCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbAntiBallisticMissileCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAntiBallisticMissileCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbAntiBallisticMissileCount.Name = "tbAntiBallisticMissileCount";
+            this.tbAntiBallisticMissileCount.Size = new System.Drawing.Size(129, 16);
+            this.tbAntiBallisticMissileCount.TabIndex = 4;
+            this.tbAntiBallisticMissileCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblAntiBallisticMissileShade
+            // 
+            this.lblAntiBallisticMissileShade.BackColor = System.Drawing.Color.White;
+            this.lblAntiBallisticMissileShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblAntiBallisticMissileShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAntiBallisticMissileShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblAntiBallisticMissileShade.Name = "lblAntiBallisticMissileShade";
+            this.lblAntiBallisticMissileShade.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileShade.TabIndex = 14;
+            this.lblAntiBallisticMissileShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAntiBallisticMissileDuration
+            // 
+            this.lblAntiBallisticMissileDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissileDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAntiBallisticMissileDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblAntiBallisticMissileDuration.Name = "lblAntiBallisticMissileDuration";
+            this.lblAntiBallisticMissileDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileDuration.TabIndex = 13;
+            this.lblAntiBallisticMissileDuration.Text = "czas";
+            this.lblAntiBallisticMissileDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnAntiBallisticMissileConstruct
+            // 
+            this.btnAntiBallisticMissileConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnAntiBallisticMissileConstruct.Enabled = false;
+            this.btnAntiBallisticMissileConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAntiBallisticMissileConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnAntiBallisticMissileConstruct.Name = "btnAntiBallisticMissileConstruct";
+            this.btnAntiBallisticMissileConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnAntiBallisticMissileConstruct.TabIndex = 12;
+            this.btnAntiBallisticMissileConstruct.Text = "Zbuduj";
+            this.btnAntiBallisticMissileConstruct.UseVisualStyleBackColor = false;
+            this.btnAntiBallisticMissileConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblAntiBallisticMissileDeuteriumCost
+            // 
+            this.lblAntiBallisticMissileDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissileDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAntiBallisticMissileDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblAntiBallisticMissileDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblAntiBallisticMissileDeuteriumCost.Name = "lblAntiBallisticMissileDeuteriumCost";
+            this.lblAntiBallisticMissileDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileDeuteriumCost.TabIndex = 11;
+            this.lblAntiBallisticMissileDeuteriumCost.Text = "deuter";
+            this.lblAntiBallisticMissileDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAntiBallisticMissileCrystalCost
+            // 
+            this.lblAntiBallisticMissileCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissileCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAntiBallisticMissileCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblAntiBallisticMissileCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblAntiBallisticMissileCrystalCost.Name = "lblAntiBallisticMissileCrystalCost";
+            this.lblAntiBallisticMissileCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileCrystalCost.TabIndex = 10;
+            this.lblAntiBallisticMissileCrystalCost.Text = "kryształ";
+            this.lblAntiBallisticMissileCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAntiBallisticMissileMetalCost
+            // 
+            this.lblAntiBallisticMissileMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissileMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAntiBallisticMissileMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblAntiBallisticMissileMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblAntiBallisticMissileMetalCost.Name = "lblAntiBallisticMissileMetalCost";
+            this.lblAntiBallisticMissileMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileMetalCost.TabIndex = 9;
+            this.lblAntiBallisticMissileMetalCost.Text = "metal";
+            this.lblAntiBallisticMissileMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAntiBallisticMissileCount
+            // 
+            this.lblAntiBallisticMissileCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissileCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAntiBallisticMissileCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissileCount.Location = new System.Drawing.Point(320, 10);
+            this.lblAntiBallisticMissileCount.Name = "lblAntiBallisticMissileCount";
+            this.lblAntiBallisticMissileCount.Size = new System.Drawing.Size(130, 30);
+            this.lblAntiBallisticMissileCount.TabIndex = 8;
+            this.lblAntiBallisticMissileCount.Text = "Ilość";
+            this.lblAntiBallisticMissileCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAntiBallisticMissile
+            // 
+            this.lblAntiBallisticMissile.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntiBallisticMissile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAntiBallisticMissile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAntiBallisticMissile.Location = new System.Drawing.Point(10, 10);
+            this.lblAntiBallisticMissile.Name = "lblAntiBallisticMissile";
+            this.lblAntiBallisticMissile.Size = new System.Drawing.Size(300, 30);
+            this.lblAntiBallisticMissile.TabIndex = 7;
+            this.lblAntiBallisticMissile.Text = "Przeciwrakieta";
+            this.lblAntiBallisticMissile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pLargeShieldDome
+            // 
+            this.pLargeShieldDome.BackColor = System.Drawing.Color.Yellow;
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeTimeRemain);
+            this.pLargeShieldDome.Controls.Add(this.tbLargeShieldDomeCount);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeShade);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeDuration);
+            this.pLargeShieldDome.Controls.Add(this.btnLargeShieldDomeConstruct);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeDeuteriumCost);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeCrystalCost);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeMetalCost);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDomeCount);
+            this.pLargeShieldDome.Controls.Add(this.lblLargeShieldDome);
+            this.pLargeShieldDome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pLargeShieldDome.Location = new System.Drawing.Point(3, 453);
+            this.pLargeShieldDome.Name = "pLargeShieldDome";
+            this.pLargeShieldDome.Size = new System.Drawing.Size(1890, 50);
+            this.pLargeShieldDome.TabIndex = 13;
+            // 
+            // lblLargeShieldDomeTimeRemain
+            // 
+            this.lblLargeShieldDomeTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDomeTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblLargeShieldDomeTimeRemain.Name = "lblLargeShieldDomeTimeRemain";
+            this.lblLargeShieldDomeTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeTimeRemain.TabIndex = 15;
+            this.lblLargeShieldDomeTimeRemain.Text = "czas pozostały";
+            this.lblLargeShieldDomeTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbLargeShieldDomeCount
+            // 
+            this.tbLargeShieldDomeCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbLargeShieldDomeCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLargeShieldDomeCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbLargeShieldDomeCount.Name = "tbLargeShieldDomeCount";
+            this.tbLargeShieldDomeCount.Size = new System.Drawing.Size(129, 16);
+            this.tbLargeShieldDomeCount.TabIndex = 4;
+            this.tbLargeShieldDomeCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblLargeShieldDomeShade
+            // 
+            this.lblLargeShieldDomeShade.BackColor = System.Drawing.Color.White;
+            this.lblLargeShieldDomeShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLargeShieldDomeShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLargeShieldDomeShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblLargeShieldDomeShade.Name = "lblLargeShieldDomeShade";
+            this.lblLargeShieldDomeShade.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeShade.TabIndex = 14;
+            this.lblLargeShieldDomeShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeShieldDomeDuration
+            // 
+            this.lblLargeShieldDomeDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDomeDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeShieldDomeDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblLargeShieldDomeDuration.Name = "lblLargeShieldDomeDuration";
+            this.lblLargeShieldDomeDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeDuration.TabIndex = 13;
+            this.lblLargeShieldDomeDuration.Text = "czas";
+            this.lblLargeShieldDomeDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLargeShieldDomeConstruct
+            // 
+            this.btnLargeShieldDomeConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnLargeShieldDomeConstruct.Enabled = false;
+            this.btnLargeShieldDomeConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLargeShieldDomeConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnLargeShieldDomeConstruct.Name = "btnLargeShieldDomeConstruct";
+            this.btnLargeShieldDomeConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnLargeShieldDomeConstruct.TabIndex = 12;
+            this.btnLargeShieldDomeConstruct.Text = "Zbuduj";
+            this.btnLargeShieldDomeConstruct.UseVisualStyleBackColor = false;
+            this.btnLargeShieldDomeConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblLargeShieldDomeDeuteriumCost
+            // 
+            this.lblLargeShieldDomeDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDomeDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeShieldDomeDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLargeShieldDomeDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblLargeShieldDomeDeuteriumCost.Name = "lblLargeShieldDomeDeuteriumCost";
+            this.lblLargeShieldDomeDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeDeuteriumCost.TabIndex = 11;
+            this.lblLargeShieldDomeDeuteriumCost.Text = "deuter";
+            this.lblLargeShieldDomeDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeShieldDomeCrystalCost
+            // 
+            this.lblLargeShieldDomeCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDomeCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeShieldDomeCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLargeShieldDomeCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblLargeShieldDomeCrystalCost.Name = "lblLargeShieldDomeCrystalCost";
+            this.lblLargeShieldDomeCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeCrystalCost.TabIndex = 10;
+            this.lblLargeShieldDomeCrystalCost.Text = "kryształ";
+            this.lblLargeShieldDomeCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeShieldDomeMetalCost
+            // 
+            this.lblLargeShieldDomeMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDomeMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeShieldDomeMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLargeShieldDomeMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblLargeShieldDomeMetalCost.Name = "lblLargeShieldDomeMetalCost";
+            this.lblLargeShieldDomeMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeMetalCost.TabIndex = 9;
+            this.lblLargeShieldDomeMetalCost.Text = "metal";
+            this.lblLargeShieldDomeMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeShieldDomeCount
+            // 
+            this.lblLargeShieldDomeCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDomeCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeShieldDomeCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDomeCount.Location = new System.Drawing.Point(320, 10);
+            this.lblLargeShieldDomeCount.Name = "lblLargeShieldDomeCount";
+            this.lblLargeShieldDomeCount.Size = new System.Drawing.Size(130, 30);
+            this.lblLargeShieldDomeCount.TabIndex = 8;
+            this.lblLargeShieldDomeCount.Text = "Ilość";
+            this.lblLargeShieldDomeCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLargeShieldDome
+            // 
+            this.lblLargeShieldDome.BackColor = System.Drawing.Color.Transparent;
+            this.lblLargeShieldDome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLargeShieldDome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLargeShieldDome.Location = new System.Drawing.Point(10, 10);
+            this.lblLargeShieldDome.Name = "lblLargeShieldDome";
+            this.lblLargeShieldDome.Size = new System.Drawing.Size(300, 30);
+            this.lblLargeShieldDome.TabIndex = 7;
+            this.lblLargeShieldDome.Text = "Duża powłoka ochronna";
+            this.lblLargeShieldDome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pSmallShieldDome
+            // 
+            this.pSmallShieldDome.BackColor = System.Drawing.Color.Gold;
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeTimeRemain);
+            this.pSmallShieldDome.Controls.Add(this.tbSmallShieldDomeCount);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeShade);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeDuration);
+            this.pSmallShieldDome.Controls.Add(this.btnSmallShieldDomeConstruct);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeDeuteriumCost);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeCrystalCost);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeMetalCost);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDomeCount);
+            this.pSmallShieldDome.Controls.Add(this.lblSmallShieldDome);
+            this.pSmallShieldDome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pSmallShieldDome.Location = new System.Drawing.Point(3, 403);
+            this.pSmallShieldDome.Name = "pSmallShieldDome";
+            this.pSmallShieldDome.Size = new System.Drawing.Size(1890, 50);
+            this.pSmallShieldDome.TabIndex = 12;
+            // 
+            // lblSmallShieldDomeTimeRemain
+            // 
+            this.lblSmallShieldDomeTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDomeTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblSmallShieldDomeTimeRemain.Name = "lblSmallShieldDomeTimeRemain";
+            this.lblSmallShieldDomeTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeTimeRemain.TabIndex = 15;
+            this.lblSmallShieldDomeTimeRemain.Text = "czas pozostały";
+            this.lblSmallShieldDomeTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbSmallShieldDomeCount
+            // 
+            this.tbSmallShieldDomeCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbSmallShieldDomeCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbSmallShieldDomeCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbSmallShieldDomeCount.Name = "tbSmallShieldDomeCount";
+            this.tbSmallShieldDomeCount.Size = new System.Drawing.Size(129, 16);
+            this.tbSmallShieldDomeCount.TabIndex = 4;
+            this.tbSmallShieldDomeCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblSmallShieldDomeShade
+            // 
+            this.lblSmallShieldDomeShade.BackColor = System.Drawing.Color.White;
+            this.lblSmallShieldDomeShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSmallShieldDomeShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSmallShieldDomeShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblSmallShieldDomeShade.Name = "lblSmallShieldDomeShade";
+            this.lblSmallShieldDomeShade.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeShade.TabIndex = 14;
+            this.lblSmallShieldDomeShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSmallShieldDomeDuration
+            // 
+            this.lblSmallShieldDomeDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDomeDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallShieldDomeDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblSmallShieldDomeDuration.Name = "lblSmallShieldDomeDuration";
+            this.lblSmallShieldDomeDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeDuration.TabIndex = 13;
+            this.lblSmallShieldDomeDuration.Text = "czas";
+            this.lblSmallShieldDomeDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSmallShieldDomeConstruct
+            // 
+            this.btnSmallShieldDomeConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnSmallShieldDomeConstruct.Enabled = false;
+            this.btnSmallShieldDomeConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSmallShieldDomeConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnSmallShieldDomeConstruct.Name = "btnSmallShieldDomeConstruct";
+            this.btnSmallShieldDomeConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnSmallShieldDomeConstruct.TabIndex = 12;
+            this.btnSmallShieldDomeConstruct.Text = "Zbuduj";
+            this.btnSmallShieldDomeConstruct.UseVisualStyleBackColor = false;
+            this.btnSmallShieldDomeConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblSmallShieldDomeDeuteriumCost
+            // 
+            this.lblSmallShieldDomeDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDomeDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallShieldDomeDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSmallShieldDomeDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblSmallShieldDomeDeuteriumCost.Name = "lblSmallShieldDomeDeuteriumCost";
+            this.lblSmallShieldDomeDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeDeuteriumCost.TabIndex = 11;
+            this.lblSmallShieldDomeDeuteriumCost.Text = "deuter";
+            this.lblSmallShieldDomeDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSmallShieldDomeCrystalCost
+            // 
+            this.lblSmallShieldDomeCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDomeCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallShieldDomeCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSmallShieldDomeCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblSmallShieldDomeCrystalCost.Name = "lblSmallShieldDomeCrystalCost";
+            this.lblSmallShieldDomeCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeCrystalCost.TabIndex = 10;
+            this.lblSmallShieldDomeCrystalCost.Text = "kryształ";
+            this.lblSmallShieldDomeCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSmallShieldDomeMetalCost
+            // 
+            this.lblSmallShieldDomeMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDomeMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallShieldDomeMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSmallShieldDomeMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblSmallShieldDomeMetalCost.Name = "lblSmallShieldDomeMetalCost";
+            this.lblSmallShieldDomeMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeMetalCost.TabIndex = 9;
+            this.lblSmallShieldDomeMetalCost.Text = "metal";
+            this.lblSmallShieldDomeMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSmallShieldDomeCount
+            // 
+            this.lblSmallShieldDomeCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDomeCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallShieldDomeCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDomeCount.Location = new System.Drawing.Point(320, 10);
+            this.lblSmallShieldDomeCount.Name = "lblSmallShieldDomeCount";
+            this.lblSmallShieldDomeCount.Size = new System.Drawing.Size(130, 30);
+            this.lblSmallShieldDomeCount.TabIndex = 8;
+            this.lblSmallShieldDomeCount.Text = "Ilość";
+            this.lblSmallShieldDomeCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSmallShieldDome
+            // 
+            this.lblSmallShieldDome.BackColor = System.Drawing.Color.Transparent;
+            this.lblSmallShieldDome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSmallShieldDome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSmallShieldDome.Location = new System.Drawing.Point(10, 10);
+            this.lblSmallShieldDome.Name = "lblSmallShieldDome";
+            this.lblSmallShieldDome.Size = new System.Drawing.Size(300, 30);
+            this.lblSmallShieldDome.TabIndex = 7;
+            this.lblSmallShieldDome.Text = "Mała powłoka ochronna";
+            this.lblSmallShieldDome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pPlasmaTurret
+            // 
+            this.pPlasmaTurret.BackColor = System.Drawing.Color.Yellow;
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretTimeRemain);
+            this.pPlasmaTurret.Controls.Add(this.tbPlasmaTurretCount);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretShade);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretDuration);
+            this.pPlasmaTurret.Controls.Add(this.btnPlasmaTurretConstruct);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretDeuteriumCost);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretCrystalCost);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretMetalCost);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurretCount);
+            this.pPlasmaTurret.Controls.Add(this.lblPlasmaTurret);
+            this.pPlasmaTurret.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pPlasmaTurret.Location = new System.Drawing.Point(3, 353);
+            this.pPlasmaTurret.Name = "pPlasmaTurret";
+            this.pPlasmaTurret.Size = new System.Drawing.Size(1890, 50);
+            this.pPlasmaTurret.TabIndex = 11;
+            // 
+            // lblPlasmaTurretTimeRemain
+            // 
+            this.lblPlasmaTurretTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurretTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblPlasmaTurretTimeRemain.Name = "lblPlasmaTurretTimeRemain";
+            this.lblPlasmaTurretTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretTimeRemain.TabIndex = 15;
+            this.lblPlasmaTurretTimeRemain.Text = "czas pozostały";
+            this.lblPlasmaTurretTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbPlasmaTurretCount
+            // 
+            this.tbPlasmaTurretCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbPlasmaTurretCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPlasmaTurretCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbPlasmaTurretCount.Name = "tbPlasmaTurretCount";
+            this.tbPlasmaTurretCount.Size = new System.Drawing.Size(129, 16);
+            this.tbPlasmaTurretCount.TabIndex = 4;
+            this.tbPlasmaTurretCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblPlasmaTurretShade
+            // 
+            this.lblPlasmaTurretShade.BackColor = System.Drawing.Color.White;
+            this.lblPlasmaTurretShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPlasmaTurretShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlasmaTurretShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblPlasmaTurretShade.Name = "lblPlasmaTurretShade";
+            this.lblPlasmaTurretShade.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretShade.TabIndex = 14;
+            this.lblPlasmaTurretShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlasmaTurretDuration
+            // 
+            this.lblPlasmaTurretDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurretDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTurretDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblPlasmaTurretDuration.Name = "lblPlasmaTurretDuration";
+            this.lblPlasmaTurretDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretDuration.TabIndex = 13;
+            this.lblPlasmaTurretDuration.Text = "czas";
+            this.lblPlasmaTurretDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPlasmaTurretConstruct
+            // 
+            this.btnPlasmaTurretConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnPlasmaTurretConstruct.Enabled = false;
+            this.btnPlasmaTurretConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPlasmaTurretConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnPlasmaTurretConstruct.Name = "btnPlasmaTurretConstruct";
+            this.btnPlasmaTurretConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnPlasmaTurretConstruct.TabIndex = 12;
+            this.btnPlasmaTurretConstruct.Text = "Zbuduj";
+            this.btnPlasmaTurretConstruct.UseVisualStyleBackColor = false;
+            this.btnPlasmaTurretConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblPlasmaTurretDeuteriumCost
+            // 
+            this.lblPlasmaTurretDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurretDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTurretDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPlasmaTurretDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblPlasmaTurretDeuteriumCost.Name = "lblPlasmaTurretDeuteriumCost";
+            this.lblPlasmaTurretDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretDeuteriumCost.TabIndex = 11;
+            this.lblPlasmaTurretDeuteriumCost.Text = "deuter";
+            this.lblPlasmaTurretDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlasmaTurretCrystalCost
+            // 
+            this.lblPlasmaTurretCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurretCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTurretCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPlasmaTurretCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblPlasmaTurretCrystalCost.Name = "lblPlasmaTurretCrystalCost";
+            this.lblPlasmaTurretCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretCrystalCost.TabIndex = 10;
+            this.lblPlasmaTurretCrystalCost.Text = "kryształ";
+            this.lblPlasmaTurretCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlasmaTurretMetalCost
+            // 
+            this.lblPlasmaTurretMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurretMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTurretMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPlasmaTurretMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblPlasmaTurretMetalCost.Name = "lblPlasmaTurretMetalCost";
+            this.lblPlasmaTurretMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretMetalCost.TabIndex = 9;
+            this.lblPlasmaTurretMetalCost.Text = "metal";
+            this.lblPlasmaTurretMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlasmaTurretCount
+            // 
+            this.lblPlasmaTurretCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurretCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTurretCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurretCount.Location = new System.Drawing.Point(320, 10);
+            this.lblPlasmaTurretCount.Name = "lblPlasmaTurretCount";
+            this.lblPlasmaTurretCount.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTurretCount.TabIndex = 8;
+            this.lblPlasmaTurretCount.Text = "Ilość";
+            this.lblPlasmaTurretCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlasmaTurret
+            // 
+            this.lblPlasmaTurret.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTurret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTurret.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTurret.Location = new System.Drawing.Point(10, 10);
+            this.lblPlasmaTurret.Name = "lblPlasmaTurret";
+            this.lblPlasmaTurret.Size = new System.Drawing.Size(300, 30);
+            this.lblPlasmaTurret.TabIndex = 7;
+            this.lblPlasmaTurret.Text = "Wyrzutnia plazmy";
+            this.lblPlasmaTurret.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pIonCannon
+            // 
+            this.pIonCannon.BackColor = System.Drawing.Color.Gold;
+            this.pIonCannon.Controls.Add(this.lblIonCannonTimeRemain);
+            this.pIonCannon.Controls.Add(this.tbIonCannonCount);
+            this.pIonCannon.Controls.Add(this.lblIonCannonShade);
+            this.pIonCannon.Controls.Add(this.lblIonCannonDuration);
+            this.pIonCannon.Controls.Add(this.btnIonCannonConstruct);
+            this.pIonCannon.Controls.Add(this.lblIonCannonDeuteriumCost);
+            this.pIonCannon.Controls.Add(this.lblIonCannonCrystalCost);
+            this.pIonCannon.Controls.Add(this.lblIonCannonMetalCost);
+            this.pIonCannon.Controls.Add(this.lblIonCannonCount);
+            this.pIonCannon.Controls.Add(this.lblIonCannon);
+            this.pIonCannon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pIonCannon.Location = new System.Drawing.Point(3, 303);
+            this.pIonCannon.Name = "pIonCannon";
+            this.pIonCannon.Size = new System.Drawing.Size(1890, 50);
+            this.pIonCannon.TabIndex = 10;
+            // 
+            // lblIonCannonTimeRemain
+            // 
+            this.lblIonCannonTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannonTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblIonCannonTimeRemain.Name = "lblIonCannonTimeRemain";
+            this.lblIonCannonTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonTimeRemain.TabIndex = 15;
+            this.lblIonCannonTimeRemain.Text = "czas pozostały";
+            this.lblIonCannonTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbIonCannonCount
+            // 
+            this.tbIonCannonCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbIonCannonCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbIonCannonCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbIonCannonCount.Name = "tbIonCannonCount";
+            this.tbIonCannonCount.Size = new System.Drawing.Size(129, 16);
+            this.tbIonCannonCount.TabIndex = 4;
+            this.tbIonCannonCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIonCannonShade
+            // 
+            this.lblIonCannonShade.BackColor = System.Drawing.Color.White;
+            this.lblIonCannonShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblIonCannonShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblIonCannonShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblIonCannonShade.Name = "lblIonCannonShade";
+            this.lblIonCannonShade.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonShade.TabIndex = 14;
+            this.lblIonCannonShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIonCannonDuration
+            // 
+            this.lblIonCannonDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannonDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonCannonDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblIonCannonDuration.Name = "lblIonCannonDuration";
+            this.lblIonCannonDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonDuration.TabIndex = 13;
+            this.lblIonCannonDuration.Text = "czas";
+            this.lblIonCannonDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnIonCannonConstruct
+            // 
+            this.btnIonCannonConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnIonCannonConstruct.Enabled = false;
+            this.btnIonCannonConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnIonCannonConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnIonCannonConstruct.Name = "btnIonCannonConstruct";
+            this.btnIonCannonConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnIonCannonConstruct.TabIndex = 12;
+            this.btnIonCannonConstruct.Text = "Zbuduj";
+            this.btnIonCannonConstruct.UseVisualStyleBackColor = false;
+            this.btnIonCannonConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblIonCannonDeuteriumCost
+            // 
+            this.lblIonCannonDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannonDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonCannonDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblIonCannonDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblIonCannonDeuteriumCost.Name = "lblIonCannonDeuteriumCost";
+            this.lblIonCannonDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonDeuteriumCost.TabIndex = 11;
+            this.lblIonCannonDeuteriumCost.Text = "deuter";
+            this.lblIonCannonDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIonCannonCrystalCost
+            // 
+            this.lblIonCannonCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannonCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonCannonCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblIonCannonCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblIonCannonCrystalCost.Name = "lblIonCannonCrystalCost";
+            this.lblIonCannonCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonCrystalCost.TabIndex = 10;
+            this.lblIonCannonCrystalCost.Text = "kryształ";
+            this.lblIonCannonCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIonCannonMetalCost
+            // 
+            this.lblIonCannonMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannonMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonCannonMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblIonCannonMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblIonCannonMetalCost.Name = "lblIonCannonMetalCost";
+            this.lblIonCannonMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonMetalCost.TabIndex = 9;
+            this.lblIonCannonMetalCost.Text = "metal";
+            this.lblIonCannonMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIonCannonCount
+            // 
+            this.lblIonCannonCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannonCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonCannonCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannonCount.Location = new System.Drawing.Point(320, 10);
+            this.lblIonCannonCount.Name = "lblIonCannonCount";
+            this.lblIonCannonCount.Size = new System.Drawing.Size(130, 30);
+            this.lblIonCannonCount.TabIndex = 8;
+            this.lblIonCannonCount.Text = "Ilość";
+            this.lblIonCannonCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIonCannon
+            // 
+            this.lblIonCannon.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonCannon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonCannon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonCannon.Location = new System.Drawing.Point(10, 10);
+            this.lblIonCannon.Name = "lblIonCannon";
+            this.lblIonCannon.Size = new System.Drawing.Size(300, 30);
+            this.lblIonCannon.TabIndex = 7;
+            this.lblIonCannon.Text = "Działo jonowe";
+            this.lblIonCannon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pGaussCannon
+            // 
+            this.pGaussCannon.BackColor = System.Drawing.Color.Yellow;
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonTimeRemain);
+            this.pGaussCannon.Controls.Add(this.tbGaussCannonCount);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonShade);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonDuration);
+            this.pGaussCannon.Controls.Add(this.btnGaussCannonConstruct);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonDeuteriumCost);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonCrystalCost);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonMetalCost);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannonCount);
+            this.pGaussCannon.Controls.Add(this.lblGaussCannon);
+            this.pGaussCannon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pGaussCannon.Location = new System.Drawing.Point(3, 253);
+            this.pGaussCannon.Name = "pGaussCannon";
+            this.pGaussCannon.Size = new System.Drawing.Size(1890, 50);
+            this.pGaussCannon.TabIndex = 9;
+            // 
+            // lblGaussCannonTimeRemain
+            // 
+            this.lblGaussCannonTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannonTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblGaussCannonTimeRemain.Name = "lblGaussCannonTimeRemain";
+            this.lblGaussCannonTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonTimeRemain.TabIndex = 15;
+            this.lblGaussCannonTimeRemain.Text = "czas pozostały";
+            this.lblGaussCannonTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbGaussCannonCount
+            // 
+            this.tbGaussCannonCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbGaussCannonCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbGaussCannonCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbGaussCannonCount.Name = "tbGaussCannonCount";
+            this.tbGaussCannonCount.Size = new System.Drawing.Size(129, 16);
+            this.tbGaussCannonCount.TabIndex = 4;
+            this.tbGaussCannonCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblGaussCannonShade
+            // 
+            this.lblGaussCannonShade.BackColor = System.Drawing.Color.White;
+            this.lblGaussCannonShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblGaussCannonShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblGaussCannonShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblGaussCannonShade.Name = "lblGaussCannonShade";
+            this.lblGaussCannonShade.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonShade.TabIndex = 14;
+            this.lblGaussCannonShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGaussCannonDuration
+            // 
+            this.lblGaussCannonDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannonDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGaussCannonDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblGaussCannonDuration.Name = "lblGaussCannonDuration";
+            this.lblGaussCannonDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonDuration.TabIndex = 13;
+            this.lblGaussCannonDuration.Text = "czas";
+            this.lblGaussCannonDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnGaussCannonConstruct
+            // 
+            this.btnGaussCannonConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnGaussCannonConstruct.Enabled = false;
+            this.btnGaussCannonConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGaussCannonConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnGaussCannonConstruct.Name = "btnGaussCannonConstruct";
+            this.btnGaussCannonConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnGaussCannonConstruct.TabIndex = 12;
+            this.btnGaussCannonConstruct.Text = "Zbuduj";
+            this.btnGaussCannonConstruct.UseVisualStyleBackColor = false;
+            this.btnGaussCannonConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblGaussCannonDeuteriumCost
+            // 
+            this.lblGaussCannonDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannonDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGaussCannonDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblGaussCannonDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblGaussCannonDeuteriumCost.Name = "lblGaussCannonDeuteriumCost";
+            this.lblGaussCannonDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonDeuteriumCost.TabIndex = 11;
+            this.lblGaussCannonDeuteriumCost.Text = "deuter";
+            this.lblGaussCannonDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGaussCannonCrystalCost
+            // 
+            this.lblGaussCannonCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannonCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGaussCannonCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblGaussCannonCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblGaussCannonCrystalCost.Name = "lblGaussCannonCrystalCost";
+            this.lblGaussCannonCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonCrystalCost.TabIndex = 10;
+            this.lblGaussCannonCrystalCost.Text = "kryształ";
+            this.lblGaussCannonCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGaussCannonMetalCost
+            // 
+            this.lblGaussCannonMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannonMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGaussCannonMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblGaussCannonMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblGaussCannonMetalCost.Name = "lblGaussCannonMetalCost";
+            this.lblGaussCannonMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonMetalCost.TabIndex = 9;
+            this.lblGaussCannonMetalCost.Text = "metal";
+            this.lblGaussCannonMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGaussCannonCount
+            // 
+            this.lblGaussCannonCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannonCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGaussCannonCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannonCount.Location = new System.Drawing.Point(320, 10);
+            this.lblGaussCannonCount.Name = "lblGaussCannonCount";
+            this.lblGaussCannonCount.Size = new System.Drawing.Size(130, 30);
+            this.lblGaussCannonCount.TabIndex = 8;
+            this.lblGaussCannonCount.Text = "Ilość";
+            this.lblGaussCannonCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGaussCannon
+            // 
+            this.lblGaussCannon.BackColor = System.Drawing.Color.Transparent;
+            this.lblGaussCannon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGaussCannon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGaussCannon.Location = new System.Drawing.Point(10, 10);
+            this.lblGaussCannon.Name = "lblGaussCannon";
+            this.lblGaussCannon.Size = new System.Drawing.Size(300, 30);
+            this.lblGaussCannon.TabIndex = 7;
+            this.lblGaussCannon.Text = "Działo Gaussa";
+            this.lblGaussCannon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pHeavyLaser
+            // 
+            this.pHeavyLaser.BackColor = System.Drawing.Color.Gold;
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserTimeRemain);
+            this.pHeavyLaser.Controls.Add(this.tbHeavyLaserCount);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserShade);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserDuration);
+            this.pHeavyLaser.Controls.Add(this.btnHeavyLaserConstruct);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserDeuteriumCost);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserCrystalCost);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserMetalCost);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaserCount);
+            this.pHeavyLaser.Controls.Add(this.lblHeavyLaser);
+            this.pHeavyLaser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pHeavyLaser.Location = new System.Drawing.Point(3, 203);
+            this.pHeavyLaser.Name = "pHeavyLaser";
+            this.pHeavyLaser.Size = new System.Drawing.Size(1890, 50);
+            this.pHeavyLaser.TabIndex = 8;
+            // 
+            // lblHeavyLaserTimeRemain
+            // 
+            this.lblHeavyLaserTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaserTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblHeavyLaserTimeRemain.Name = "lblHeavyLaserTimeRemain";
+            this.lblHeavyLaserTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserTimeRemain.TabIndex = 15;
+            this.lblHeavyLaserTimeRemain.Text = "czas pozostały";
+            this.lblHeavyLaserTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbHeavyLaserCount
+            // 
+            this.tbHeavyLaserCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbHeavyLaserCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbHeavyLaserCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbHeavyLaserCount.Name = "tbHeavyLaserCount";
+            this.tbHeavyLaserCount.Size = new System.Drawing.Size(129, 16);
+            this.tbHeavyLaserCount.TabIndex = 4;
+            this.tbHeavyLaserCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblHeavyLaserShade
+            // 
+            this.lblHeavyLaserShade.BackColor = System.Drawing.Color.White;
+            this.lblHeavyLaserShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblHeavyLaserShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHeavyLaserShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblHeavyLaserShade.Name = "lblHeavyLaserShade";
+            this.lblHeavyLaserShade.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserShade.TabIndex = 14;
+            this.lblHeavyLaserShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyLaserDuration
+            // 
+            this.lblHeavyLaserDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaserDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyLaserDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblHeavyLaserDuration.Name = "lblHeavyLaserDuration";
+            this.lblHeavyLaserDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserDuration.TabIndex = 13;
+            this.lblHeavyLaserDuration.Text = "czas";
+            this.lblHeavyLaserDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnHeavyLaserConstruct
+            // 
+            this.btnHeavyLaserConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnHeavyLaserConstruct.Enabled = false;
+            this.btnHeavyLaserConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHeavyLaserConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnHeavyLaserConstruct.Name = "btnHeavyLaserConstruct";
+            this.btnHeavyLaserConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnHeavyLaserConstruct.TabIndex = 12;
+            this.btnHeavyLaserConstruct.Text = "Zbuduj";
+            this.btnHeavyLaserConstruct.UseVisualStyleBackColor = false;
+            this.btnHeavyLaserConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblHeavyLaserDeuteriumCost
+            // 
+            this.lblHeavyLaserDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaserDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyLaserDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeavyLaserDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblHeavyLaserDeuteriumCost.Name = "lblHeavyLaserDeuteriumCost";
+            this.lblHeavyLaserDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserDeuteriumCost.TabIndex = 11;
+            this.lblHeavyLaserDeuteriumCost.Text = "deuter";
+            this.lblHeavyLaserDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyLaserCrystalCost
+            // 
+            this.lblHeavyLaserCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaserCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyLaserCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeavyLaserCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblHeavyLaserCrystalCost.Name = "lblHeavyLaserCrystalCost";
+            this.lblHeavyLaserCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserCrystalCost.TabIndex = 10;
+            this.lblHeavyLaserCrystalCost.Text = "kryształ";
+            this.lblHeavyLaserCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyLaserMetalCost
+            // 
+            this.lblHeavyLaserMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaserMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyLaserMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeavyLaserMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblHeavyLaserMetalCost.Name = "lblHeavyLaserMetalCost";
+            this.lblHeavyLaserMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserMetalCost.TabIndex = 9;
+            this.lblHeavyLaserMetalCost.Text = "metal";
+            this.lblHeavyLaserMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyLaserCount
+            // 
+            this.lblHeavyLaserCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaserCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyLaserCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaserCount.Location = new System.Drawing.Point(320, 10);
+            this.lblHeavyLaserCount.Name = "lblHeavyLaserCount";
+            this.lblHeavyLaserCount.Size = new System.Drawing.Size(130, 30);
+            this.lblHeavyLaserCount.TabIndex = 8;
+            this.lblHeavyLaserCount.Text = "Ilość";
+            this.lblHeavyLaserCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeavyLaser
+            // 
+            this.lblHeavyLaser.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeavyLaser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHeavyLaser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeavyLaser.Location = new System.Drawing.Point(10, 10);
+            this.lblHeavyLaser.Name = "lblHeavyLaser";
+            this.lblHeavyLaser.Size = new System.Drawing.Size(300, 30);
+            this.lblHeavyLaser.TabIndex = 7;
+            this.lblHeavyLaser.Text = "Ciężkie działo laserowe";
+            this.lblHeavyLaser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pLightLaser
+            // 
+            this.pLightLaser.BackColor = System.Drawing.Color.Yellow;
+            this.pLightLaser.Controls.Add(this.lblLightLaserTimeRemain);
+            this.pLightLaser.Controls.Add(this.tbLightLaserCount);
+            this.pLightLaser.Controls.Add(this.lblLightLaserShade);
+            this.pLightLaser.Controls.Add(this.lblLightLaserDuration);
+            this.pLightLaser.Controls.Add(this.btnLightLaserConstruct);
+            this.pLightLaser.Controls.Add(this.lblLightLaserDeuteriumCost);
+            this.pLightLaser.Controls.Add(this.lblLightLaserCrystalCost);
+            this.pLightLaser.Controls.Add(this.lblLightLaserMetalCost);
+            this.pLightLaser.Controls.Add(this.lblLightLaserCount);
+            this.pLightLaser.Controls.Add(this.lblLightLaser);
+            this.pLightLaser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pLightLaser.Location = new System.Drawing.Point(3, 153);
+            this.pLightLaser.Name = "pLightLaser";
+            this.pLightLaser.Size = new System.Drawing.Size(1890, 50);
+            this.pLightLaser.TabIndex = 7;
+            // 
+            // lblLightLaserTimeRemain
+            // 
+            this.lblLightLaserTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaserTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblLightLaserTimeRemain.Name = "lblLightLaserTimeRemain";
+            this.lblLightLaserTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserTimeRemain.TabIndex = 15;
+            this.lblLightLaserTimeRemain.Text = "czas pozostały";
+            this.lblLightLaserTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbLightLaserCount
+            // 
+            this.tbLightLaserCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbLightLaserCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLightLaserCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbLightLaserCount.Name = "tbLightLaserCount";
+            this.tbLightLaserCount.Size = new System.Drawing.Size(129, 16);
+            this.tbLightLaserCount.TabIndex = 4;
+            this.tbLightLaserCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblLightLaserShade
+            // 
+            this.lblLightLaserShade.BackColor = System.Drawing.Color.White;
+            this.lblLightLaserShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLightLaserShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLightLaserShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblLightLaserShade.Name = "lblLightLaserShade";
+            this.lblLightLaserShade.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserShade.TabIndex = 14;
+            this.lblLightLaserShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightLaserDuration
+            // 
+            this.lblLightLaserDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaserDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightLaserDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblLightLaserDuration.Name = "lblLightLaserDuration";
+            this.lblLightLaserDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserDuration.TabIndex = 13;
+            this.lblLightLaserDuration.Text = "czas";
+            this.lblLightLaserDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLightLaserConstruct
+            // 
+            this.btnLightLaserConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnLightLaserConstruct.Enabled = false;
+            this.btnLightLaserConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLightLaserConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnLightLaserConstruct.Name = "btnLightLaserConstruct";
+            this.btnLightLaserConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnLightLaserConstruct.TabIndex = 12;
+            this.btnLightLaserConstruct.Text = "Zbuduj";
+            this.btnLightLaserConstruct.UseVisualStyleBackColor = false;
+            this.btnLightLaserConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblLightLaserDeuteriumCost
+            // 
+            this.lblLightLaserDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaserDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightLaserDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLightLaserDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblLightLaserDeuteriumCost.Name = "lblLightLaserDeuteriumCost";
+            this.lblLightLaserDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserDeuteriumCost.TabIndex = 11;
+            this.lblLightLaserDeuteriumCost.Text = "deuter";
+            this.lblLightLaserDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightLaserCrystalCost
+            // 
+            this.lblLightLaserCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaserCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightLaserCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLightLaserCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblLightLaserCrystalCost.Name = "lblLightLaserCrystalCost";
+            this.lblLightLaserCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserCrystalCost.TabIndex = 10;
+            this.lblLightLaserCrystalCost.Text = "kryształ";
+            this.lblLightLaserCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightLaserMetalCost
+            // 
+            this.lblLightLaserMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaserMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightLaserMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblLightLaserMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblLightLaserMetalCost.Name = "lblLightLaserMetalCost";
+            this.lblLightLaserMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserMetalCost.TabIndex = 9;
+            this.lblLightLaserMetalCost.Text = "metal";
+            this.lblLightLaserMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightLaserCount
+            // 
+            this.lblLightLaserCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaserCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightLaserCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaserCount.Location = new System.Drawing.Point(320, 10);
+            this.lblLightLaserCount.Name = "lblLightLaserCount";
+            this.lblLightLaserCount.Size = new System.Drawing.Size(130, 30);
+            this.lblLightLaserCount.TabIndex = 8;
+            this.lblLightLaserCount.Text = "Ilość";
+            this.lblLightLaserCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLightLaser
+            // 
+            this.lblLightLaser.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightLaser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLightLaser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLightLaser.Location = new System.Drawing.Point(10, 10);
+            this.lblLightLaser.Name = "lblLightLaser";
+            this.lblLightLaser.Size = new System.Drawing.Size(300, 30);
+            this.lblLightLaser.TabIndex = 7;
+            this.lblLightLaser.Text = "Lekkie działo laserowe";
+            this.lblLightLaser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pRocketLauncher
+            // 
+            this.pRocketLauncher.BackColor = System.Drawing.Color.Gold;
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherTimeRemain);
+            this.pRocketLauncher.Controls.Add(this.tbRocketLauncherCount);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherShade);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherDuration);
+            this.pRocketLauncher.Controls.Add(this.btnRocketLauncherConstruct);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherDeuteriumCost);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherCrystalCost);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherMetalCost);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncherCount);
+            this.pRocketLauncher.Controls.Add(this.lblRocketLauncher);
+            this.pRocketLauncher.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pRocketLauncher.Location = new System.Drawing.Point(3, 103);
+            this.pRocketLauncher.Name = "pRocketLauncher";
+            this.pRocketLauncher.Size = new System.Drawing.Size(1890, 50);
+            this.pRocketLauncher.TabIndex = 6;
+            // 
+            // lblRocketLauncherTimeRemain
+            // 
+            this.lblRocketLauncherTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncherTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblRocketLauncherTimeRemain.Name = "lblRocketLauncherTimeRemain";
+            this.lblRocketLauncherTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherTimeRemain.TabIndex = 15;
+            this.lblRocketLauncherTimeRemain.Text = "czas pozostały";
+            this.lblRocketLauncherTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbRocketLauncherCount
+            // 
+            this.tbRocketLauncherCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbRocketLauncherCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbRocketLauncherCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbRocketLauncherCount.Name = "tbRocketLauncherCount";
+            this.tbRocketLauncherCount.Size = new System.Drawing.Size(129, 16);
+            this.tbRocketLauncherCount.TabIndex = 4;
+            this.tbRocketLauncherCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblRocketLauncherShade
+            // 
+            this.lblRocketLauncherShade.BackColor = System.Drawing.Color.White;
+            this.lblRocketLauncherShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRocketLauncherShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRocketLauncherShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblRocketLauncherShade.Name = "lblRocketLauncherShade";
+            this.lblRocketLauncherShade.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherShade.TabIndex = 14;
+            this.lblRocketLauncherShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRocketLauncherDuration
+            // 
+            this.lblRocketLauncherDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncherDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRocketLauncherDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblRocketLauncherDuration.Name = "lblRocketLauncherDuration";
+            this.lblRocketLauncherDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherDuration.TabIndex = 13;
+            this.lblRocketLauncherDuration.Text = "czas";
+            this.lblRocketLauncherDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRocketLauncherConstruct
+            // 
+            this.btnRocketLauncherConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnRocketLauncherConstruct.Enabled = false;
+            this.btnRocketLauncherConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRocketLauncherConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnRocketLauncherConstruct.Name = "btnRocketLauncherConstruct";
+            this.btnRocketLauncherConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnRocketLauncherConstruct.TabIndex = 12;
+            this.btnRocketLauncherConstruct.Text = "Zbuduj";
+            this.btnRocketLauncherConstruct.UseVisualStyleBackColor = false;
+            this.btnRocketLauncherConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblRocketLauncherDeuteriumCost
+            // 
+            this.lblRocketLauncherDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncherDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRocketLauncherDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRocketLauncherDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblRocketLauncherDeuteriumCost.Name = "lblRocketLauncherDeuteriumCost";
+            this.lblRocketLauncherDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherDeuteriumCost.TabIndex = 11;
+            this.lblRocketLauncherDeuteriumCost.Text = "deuter";
+            this.lblRocketLauncherDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRocketLauncherCrystalCost
+            // 
+            this.lblRocketLauncherCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncherCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRocketLauncherCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRocketLauncherCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblRocketLauncherCrystalCost.Name = "lblRocketLauncherCrystalCost";
+            this.lblRocketLauncherCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherCrystalCost.TabIndex = 10;
+            this.lblRocketLauncherCrystalCost.Text = "kryształ";
+            this.lblRocketLauncherCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRocketLauncherMetalCost
+            // 
+            this.lblRocketLauncherMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncherMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRocketLauncherMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRocketLauncherMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblRocketLauncherMetalCost.Name = "lblRocketLauncherMetalCost";
+            this.lblRocketLauncherMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherMetalCost.TabIndex = 9;
+            this.lblRocketLauncherMetalCost.Text = "metal";
+            this.lblRocketLauncherMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRocketLauncherCount
+            // 
+            this.lblRocketLauncherCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncherCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRocketLauncherCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncherCount.Location = new System.Drawing.Point(320, 10);
+            this.lblRocketLauncherCount.Name = "lblRocketLauncherCount";
+            this.lblRocketLauncherCount.Size = new System.Drawing.Size(130, 30);
+            this.lblRocketLauncherCount.TabIndex = 8;
+            this.lblRocketLauncherCount.Text = "Ilość";
+            this.lblRocketLauncherCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRocketLauncher
+            // 
+            this.lblRocketLauncher.BackColor = System.Drawing.Color.Transparent;
+            this.lblRocketLauncher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRocketLauncher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRocketLauncher.Location = new System.Drawing.Point(10, 10);
+            this.lblRocketLauncher.Name = "lblRocketLauncher";
+            this.lblRocketLauncher.Size = new System.Drawing.Size(300, 30);
+            this.lblRocketLauncher.TabIndex = 7;
+            this.lblRocketLauncher.Text = "Wyrzutnia rakiet";
+            this.lblRocketLauncher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pCrawler
+            // 
+            this.pCrawler.BackColor = System.Drawing.Color.Yellow;
+            this.pCrawler.Controls.Add(this.lblCrawlerTimeRemain);
+            this.pCrawler.Controls.Add(this.tbCrawlerCount);
+            this.pCrawler.Controls.Add(this.lblCrawlerShade);
+            this.pCrawler.Controls.Add(this.lblCrawlerDuration);
+            this.pCrawler.Controls.Add(this.btnCrawlerConstruct);
+            this.pCrawler.Controls.Add(this.lblCrawlerDeuteriumCost);
+            this.pCrawler.Controls.Add(this.lblCrawlerCrystalCost);
+            this.pCrawler.Controls.Add(this.lblCrawlerMetalCost);
+            this.pCrawler.Controls.Add(this.lblCrawlerCount);
+            this.pCrawler.Controls.Add(this.lblCrawler);
+            this.pCrawler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pCrawler.Location = new System.Drawing.Point(3, 53);
+            this.pCrawler.Name = "pCrawler";
+            this.pCrawler.Size = new System.Drawing.Size(1890, 50);
+            this.pCrawler.TabIndex = 5;
+            // 
+            // lblCrawlerTimeRemain
+            // 
+            this.lblCrawlerTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawlerTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblCrawlerTimeRemain.Name = "lblCrawlerTimeRemain";
+            this.lblCrawlerTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerTimeRemain.TabIndex = 15;
+            this.lblCrawlerTimeRemain.Text = "czas pozostały";
+            this.lblCrawlerTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbCrawlerCount
+            // 
+            this.tbCrawlerCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbCrawlerCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCrawlerCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbCrawlerCount.Name = "tbCrawlerCount";
+            this.tbCrawlerCount.Size = new System.Drawing.Size(129, 16);
+            this.tbCrawlerCount.TabIndex = 4;
+            this.tbCrawlerCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblCrawlerShade
+            // 
+            this.lblCrawlerShade.BackColor = System.Drawing.Color.White;
+            this.lblCrawlerShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCrawlerShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCrawlerShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblCrawlerShade.Name = "lblCrawlerShade";
+            this.lblCrawlerShade.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerShade.TabIndex = 14;
+            this.lblCrawlerShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrawlerDuration
+            // 
+            this.lblCrawlerDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawlerDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrawlerDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblCrawlerDuration.Name = "lblCrawlerDuration";
+            this.lblCrawlerDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerDuration.TabIndex = 13;
+            this.lblCrawlerDuration.Text = "czas";
+            this.lblCrawlerDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCrawlerConstruct
+            // 
+            this.btnCrawlerConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnCrawlerConstruct.Enabled = false;
+            this.btnCrawlerConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCrawlerConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnCrawlerConstruct.Name = "btnCrawlerConstruct";
+            this.btnCrawlerConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnCrawlerConstruct.TabIndex = 12;
+            this.btnCrawlerConstruct.Text = "Zbuduj";
+            this.btnCrawlerConstruct.UseVisualStyleBackColor = false;
+            this.btnCrawlerConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblCrawlerDeuteriumCost
+            // 
+            this.lblCrawlerDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawlerDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrawlerDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCrawlerDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblCrawlerDeuteriumCost.Name = "lblCrawlerDeuteriumCost";
+            this.lblCrawlerDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerDeuteriumCost.TabIndex = 11;
+            this.lblCrawlerDeuteriumCost.Text = "deuter";
+            this.lblCrawlerDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrawlerCrystalCost
+            // 
+            this.lblCrawlerCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawlerCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrawlerCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCrawlerCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblCrawlerCrystalCost.Name = "lblCrawlerCrystalCost";
+            this.lblCrawlerCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerCrystalCost.TabIndex = 10;
+            this.lblCrawlerCrystalCost.Text = "kryształ";
+            this.lblCrawlerCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrawlerMetalCost
+            // 
+            this.lblCrawlerMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawlerMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrawlerMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCrawlerMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblCrawlerMetalCost.Name = "lblCrawlerMetalCost";
+            this.lblCrawlerMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerMetalCost.TabIndex = 9;
+            this.lblCrawlerMetalCost.Text = "metal";
+            this.lblCrawlerMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrawlerCount
+            // 
+            this.lblCrawlerCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawlerCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrawlerCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawlerCount.Location = new System.Drawing.Point(320, 10);
+            this.lblCrawlerCount.Name = "lblCrawlerCount";
+            this.lblCrawlerCount.Size = new System.Drawing.Size(130, 30);
+            this.lblCrawlerCount.TabIndex = 8;
+            this.lblCrawlerCount.Text = "Ilość";
+            this.lblCrawlerCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrawler
+            // 
+            this.lblCrawler.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrawler.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrawler.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrawler.Location = new System.Drawing.Point(10, 10);
+            this.lblCrawler.Name = "lblCrawler";
+            this.lblCrawler.Size = new System.Drawing.Size(300, 30);
+            this.lblCrawler.TabIndex = 7;
+            this.lblCrawler.Text = "Pełzacz";
+            this.lblCrawler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pSolarSatellite
+            // 
+            this.pSolarSatellite.BackColor = System.Drawing.Color.Gold;
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteTimeRemain);
+            this.pSolarSatellite.Controls.Add(this.tbSolarSatelliteCount);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteShade);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteDuration);
+            this.pSolarSatellite.Controls.Add(this.btnSolarSatelliteConstruct);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteDeuteriumCost);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteCrystalCost);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteMetalCost);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatelliteCount);
+            this.pSolarSatellite.Controls.Add(this.lblSolarSatellite);
+            this.pSolarSatellite.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pSolarSatellite.Location = new System.Drawing.Point(3, 3);
+            this.pSolarSatellite.Name = "pSolarSatellite";
+            this.pSolarSatellite.Size = new System.Drawing.Size(1890, 50);
+            this.pSolarSatellite.TabIndex = 4;
+            // 
+            // lblSolarSatelliteTimeRemain
+            // 
+            this.lblSolarSatelliteTimeRemain.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatelliteTimeRemain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteTimeRemain.Location = new System.Drawing.Point(1300, 10);
+            this.lblSolarSatelliteTimeRemain.Name = "lblSolarSatelliteTimeRemain";
+            this.lblSolarSatelliteTimeRemain.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteTimeRemain.TabIndex = 15;
+            this.lblSolarSatelliteTimeRemain.Text = "czas pozostały";
+            this.lblSolarSatelliteTimeRemain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbSolarSatelliteCount
+            // 
+            this.tbSolarSatelliteCount.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbSolarSatelliteCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbSolarSatelliteCount.Location = new System.Drawing.Point(1161, 17);
+            this.tbSolarSatelliteCount.Name = "tbSolarSatelliteCount";
+            this.tbSolarSatelliteCount.Size = new System.Drawing.Size(129, 16);
+            this.tbSolarSatelliteCount.TabIndex = 4;
+            this.tbSolarSatelliteCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblSolarSatelliteShade
+            // 
+            this.lblSolarSatelliteShade.BackColor = System.Drawing.Color.White;
+            this.lblSolarSatelliteShade.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSolarSatelliteShade.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteShade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSolarSatelliteShade.Location = new System.Drawing.Point(1160, 10);
+            this.lblSolarSatelliteShade.Name = "lblSolarSatelliteShade";
+            this.lblSolarSatelliteShade.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteShade.TabIndex = 14;
+            this.lblSolarSatelliteShade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSolarSatelliteDuration
+            // 
+            this.lblSolarSatelliteDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatelliteDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSolarSatelliteDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteDuration.Location = new System.Drawing.Point(880, 10);
+            this.lblSolarSatelliteDuration.Name = "lblSolarSatelliteDuration";
+            this.lblSolarSatelliteDuration.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteDuration.TabIndex = 13;
+            this.lblSolarSatelliteDuration.Text = "czas";
+            this.lblSolarSatelliteDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSolarSatelliteConstruct
+            // 
+            this.btnSolarSatelliteConstruct.BackColor = System.Drawing.Color.Silver;
+            this.btnSolarSatelliteConstruct.Enabled = false;
+            this.btnSolarSatelliteConstruct.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSolarSatelliteConstruct.Location = new System.Drawing.Point(1020, 10);
+            this.btnSolarSatelliteConstruct.Name = "btnSolarSatelliteConstruct";
+            this.btnSolarSatelliteConstruct.Size = new System.Drawing.Size(130, 30);
+            this.btnSolarSatelliteConstruct.TabIndex = 12;
+            this.btnSolarSatelliteConstruct.Text = "Zbuduj";
+            this.btnSolarSatelliteConstruct.UseVisualStyleBackColor = false;
+            this.btnSolarSatelliteConstruct.Click += new System.EventHandler(this.BtnConstruct_Click);
+            // 
+            // lblSolarSatelliteDeuteriumCost
+            // 
+            this.lblSolarSatelliteDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatelliteDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSolarSatelliteDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSolarSatelliteDeuteriumCost.Location = new System.Drawing.Point(740, 10);
+            this.lblSolarSatelliteDeuteriumCost.Name = "lblSolarSatelliteDeuteriumCost";
+            this.lblSolarSatelliteDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteDeuteriumCost.TabIndex = 11;
+            this.lblSolarSatelliteDeuteriumCost.Text = "deuter";
+            this.lblSolarSatelliteDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSolarSatelliteCrystalCost
+            // 
+            this.lblSolarSatelliteCrystalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatelliteCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSolarSatelliteCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSolarSatelliteCrystalCost.Location = new System.Drawing.Point(600, 10);
+            this.lblSolarSatelliteCrystalCost.Name = "lblSolarSatelliteCrystalCost";
+            this.lblSolarSatelliteCrystalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteCrystalCost.TabIndex = 10;
+            this.lblSolarSatelliteCrystalCost.Text = "kryształ";
+            this.lblSolarSatelliteCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSolarSatelliteMetalCost
+            // 
+            this.lblSolarSatelliteMetalCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatelliteMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSolarSatelliteMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSolarSatelliteMetalCost.Location = new System.Drawing.Point(460, 10);
+            this.lblSolarSatelliteMetalCost.Name = "lblSolarSatelliteMetalCost";
+            this.lblSolarSatelliteMetalCost.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteMetalCost.TabIndex = 9;
+            this.lblSolarSatelliteMetalCost.Text = "metal";
+            this.lblSolarSatelliteMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSolarSatelliteCount
+            // 
+            this.lblSolarSatelliteCount.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatelliteCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSolarSatelliteCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatelliteCount.Location = new System.Drawing.Point(320, 10);
+            this.lblSolarSatelliteCount.Name = "lblSolarSatelliteCount";
+            this.lblSolarSatelliteCount.Size = new System.Drawing.Size(130, 30);
+            this.lblSolarSatelliteCount.TabIndex = 8;
+            this.lblSolarSatelliteCount.Text = "Ilość";
+            this.lblSolarSatelliteCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSolarSatellite
+            // 
+            this.lblSolarSatellite.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolarSatellite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSolarSatellite.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSolarSatellite.Location = new System.Drawing.Point(10, 10);
+            this.lblSolarSatellite.Name = "lblSolarSatellite";
+            this.lblSolarSatellite.Size = new System.Drawing.Size(300, 30);
+            this.lblSolarSatellite.TabIndex = 7;
+            this.lblSolarSatellite.Text = "Satelita słoneczny";
+            this.lblSolarSatellite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tpRequirements
             // 
@@ -5651,6 +9692,16 @@ namespace MinerGame
             this.tbNewPlanetName.TabIndex = 2;
             this.tbNewPlanetName.Text = "Nazwa planety";
             this.tbNewPlanetName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tpMerchant
+            // 
+            this.tpMerchant.BackColor = System.Drawing.Color.Silver;
+            this.tpMerchant.Location = new System.Drawing.Point(4, 29);
+            this.tpMerchant.Name = "tpMerchant";
+            this.tpMerchant.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMerchant.Size = new System.Drawing.Size(1896, 800);
+            this.tpMerchant.TabIndex = 10;
+            this.tpMerchant.Text = "Handlarz";
             // 
             // pInfo
             // 
@@ -6059,18 +10110,6 @@ namespace MinerGame
             this.cbPlanetSelect.TabIndex = 4;
             this.cbPlanetSelect.SelectedIndexChanged += new System.EventHandler(this.CbPlanetSelect_SelectedIndexChanged);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1300, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 30);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "czas pozostały";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -6134,8 +10173,61 @@ namespace MinerGame
             this.pComputerTechnology.ResumeLayout(false);
             this.pEspionageTechnology.ResumeLayout(false);
             this.tpShipyard.ResumeLayout(false);
+            this.pPathfinder.ResumeLayout(false);
+            this.pPathfinder.PerformLayout();
+            this.pReaper.ResumeLayout(false);
+            this.pReaper.PerformLayout();
+            this.pDeathstar.ResumeLayout(false);
+            this.pDeathstar.PerformLayout();
+            this.pDestroyer.ResumeLayout(false);
+            this.pDestroyer.PerformLayout();
+            this.pBomber.ResumeLayout(false);
+            this.pBomber.PerformLayout();
+            this.pBattlecruiser.ResumeLayout(false);
+            this.pBattlecruiser.PerformLayout();
+            this.pBattleship.ResumeLayout(false);
+            this.pBattleship.PerformLayout();
+            this.pCruiser.ResumeLayout(false);
+            this.pCruiser.PerformLayout();
+            this.pHeavyFighter.ResumeLayout(false);
+            this.pHeavyFighter.PerformLayout();
+            this.pLightFighter.ResumeLayout(false);
+            this.pLightFighter.PerformLayout();
+            this.pEspionageProbe.ResumeLayout(false);
+            this.pEspionageProbe.PerformLayout();
+            this.pRecycler.ResumeLayout(false);
+            this.pRecycler.PerformLayout();
+            this.pColonyShip.ResumeLayout(false);
+            this.pColonyShip.PerformLayout();
+            this.pLargeCargo.ResumeLayout(false);
+            this.pLargeCargo.PerformLayout();
             this.pSmallCargo.ResumeLayout(false);
             this.pSmallCargo.PerformLayout();
+            this.tpDefence.ResumeLayout(false);
+            this.pInterplanetaryMissile.ResumeLayout(false);
+            this.pInterplanetaryMissile.PerformLayout();
+            this.pAntiBallisticMissile.ResumeLayout(false);
+            this.pAntiBallisticMissile.PerformLayout();
+            this.pLargeShieldDome.ResumeLayout(false);
+            this.pLargeShieldDome.PerformLayout();
+            this.pSmallShieldDome.ResumeLayout(false);
+            this.pSmallShieldDome.PerformLayout();
+            this.pPlasmaTurret.ResumeLayout(false);
+            this.pPlasmaTurret.PerformLayout();
+            this.pIonCannon.ResumeLayout(false);
+            this.pIonCannon.PerformLayout();
+            this.pGaussCannon.ResumeLayout(false);
+            this.pGaussCannon.PerformLayout();
+            this.pHeavyLaser.ResumeLayout(false);
+            this.pHeavyLaser.PerformLayout();
+            this.pLightLaser.ResumeLayout(false);
+            this.pLightLaser.PerformLayout();
+            this.pRocketLauncher.ResumeLayout(false);
+            this.pRocketLauncher.PerformLayout();
+            this.pCrawler.ResumeLayout(false);
+            this.pCrawler.PerformLayout();
+            this.pSolarSatellite.ResumeLayout(false);
+            this.pSolarSatellite.PerformLayout();
             this.tpPlanet.ResumeLayout(false);
             this.tpPlanet.PerformLayout();
             this.pInfo.ResumeLayout(false);
@@ -6580,7 +10672,297 @@ namespace MinerGame
         private System.Windows.Forms.TabPage tpPlanet;
         private System.Windows.Forms.Button btnChangePlanetName;
         private System.Windows.Forms.TextBox tbNewPlanetName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSmallCargoTimeRemain;
+        private System.Windows.Forms.Panel pLargeCargo;
+        private System.Windows.Forms.Label lblLargeCargoTimeRemain;
+        private System.Windows.Forms.TextBox tbLargeCargoCount;
+        private System.Windows.Forms.Label lblLargeCargoShade;
+        private System.Windows.Forms.Label lblLargeCargoDuration;
+        private System.Windows.Forms.Button btnLargeCargoConstruct;
+        private System.Windows.Forms.Label lblLargeCargoDeuteriumCost;
+        private System.Windows.Forms.Label lblLargeCargoCrystalCost;
+        private System.Windows.Forms.Label lblLargeCargoMetalCost;
+        private System.Windows.Forms.Label lblLargeCargoCount;
+        private System.Windows.Forms.Label lblLargeCargo;
+        private System.Windows.Forms.Panel pRecycler;
+        private System.Windows.Forms.Label lblRecyclerTimeRemian;
+        private System.Windows.Forms.TextBox tbRecyclerCount;
+        private System.Windows.Forms.Label lblRecyclerShade;
+        private System.Windows.Forms.Label lblRecyclerDuration;
+        private System.Windows.Forms.Button btnRecyclerConstruct;
+        private System.Windows.Forms.Label lblRecyclerDeuteriumCost;
+        private System.Windows.Forms.Label lblRecyclerCrystalCost;
+        private System.Windows.Forms.Label lblRecyclerMetalCost;
+        private System.Windows.Forms.Label lblRecyclerCount;
+        private System.Windows.Forms.Label lblRecycler;
+        private System.Windows.Forms.Panel pColonyShip;
+        private System.Windows.Forms.Label lblColonyShipTimeRemain;
+        private System.Windows.Forms.TextBox tbColonyShipCount;
+        private System.Windows.Forms.Label lblColonyShipShade;
+        private System.Windows.Forms.Label lblColonyShipDuration;
+        private System.Windows.Forms.Button btnColonyShipConstruct;
+        private System.Windows.Forms.Label lblColonyShipDeuteriumCost;
+        private System.Windows.Forms.Label lblColonyShipCrystalCost;
+        private System.Windows.Forms.Label lblColonyShipMetalCost;
+        private System.Windows.Forms.Label lblColonyShipCount;
+        private System.Windows.Forms.Label lblColonyShip;
+        private System.Windows.Forms.Panel pEspionageProbe;
+        private System.Windows.Forms.Label lblEspionageProbeTimeRemain;
+        private System.Windows.Forms.TextBox tbEspionageProbeCount;
+        private System.Windows.Forms.Label lblEspionageProbeShade;
+        private System.Windows.Forms.Label lblEspionageProbeDuration;
+        private System.Windows.Forms.Button btnEspionageProbeConstruct;
+        private System.Windows.Forms.Label lblEspionageProbeDeuteriumCost;
+        private System.Windows.Forms.Label lblEspionageProbeCrystalCost;
+        private System.Windows.Forms.Label lblEspionageProbeMetalCost;
+        private System.Windows.Forms.Label lblEspionageProbeCount;
+        private System.Windows.Forms.Label lblEspionageProbe;
+        private System.Windows.Forms.Panel pLightFighter;
+        private System.Windows.Forms.Label lblLightFighterTimeRemain;
+        private System.Windows.Forms.TextBox tbLightFighterCount;
+        private System.Windows.Forms.Label lblLightFighterShade;
+        private System.Windows.Forms.Label lblLightFighterDuration;
+        private System.Windows.Forms.Button btnLightFighterConstruct;
+        private System.Windows.Forms.Label lblLightFighterDeuteriumCost;
+        private System.Windows.Forms.Label lblLightFighterCrystalCost;
+        private System.Windows.Forms.Label lblLightFighterMetalCost;
+        private System.Windows.Forms.Label lblLightFighterCount;
+        private System.Windows.Forms.Label lblLightFighter;
+        private System.Windows.Forms.Label lblStorageDeuteriumMinTime;
+        private System.Windows.Forms.Label lblStorageCrystalMinTime;
+        private System.Windows.Forms.Label lblStorageMetalMinTime;
+        private System.Windows.Forms.TabPage tpMerchant;
+        private System.Windows.Forms.Panel pDestroyer;
+        private System.Windows.Forms.Label lblDestroyerTimeRemain;
+        private System.Windows.Forms.TextBox tbDestroyerCount;
+        private System.Windows.Forms.Label lblDestroyerShade;
+        private System.Windows.Forms.Label lblDestroyerDuration;
+        private System.Windows.Forms.Button btnDestroyerConstruct;
+        private System.Windows.Forms.Label lblDestroyerDeuteriumCost;
+        private System.Windows.Forms.Label lblDestroyerCrystalCost;
+        private System.Windows.Forms.Label lblDestroyerMetalCost;
+        private System.Windows.Forms.Label lblDestroyerCount;
+        private System.Windows.Forms.Label lblDestroyer;
+        private System.Windows.Forms.Panel pBomber;
+        private System.Windows.Forms.Label lblBomberTimeRemain;
+        private System.Windows.Forms.TextBox tbBomberCount;
+        private System.Windows.Forms.Label lblBomberShade;
+        private System.Windows.Forms.Label lblBomberDuration;
+        private System.Windows.Forms.Button btnBomberConstruct;
+        private System.Windows.Forms.Label lblBomberDeuteriumCost;
+        private System.Windows.Forms.Label lblBomberCrystalCost;
+        private System.Windows.Forms.Label lblBomberMetalCost;
+        private System.Windows.Forms.Label lblBomberCount;
+        private System.Windows.Forms.Label lblBomber;
+        private System.Windows.Forms.Panel pBattlecruiser;
+        private System.Windows.Forms.Label lblBattlecruiserTimeRemain;
+        private System.Windows.Forms.TextBox tbBattlecruiserCount;
+        private System.Windows.Forms.Label lblBattlecruiserShade;
+        private System.Windows.Forms.Label lblBattlecruiserDuration;
+        private System.Windows.Forms.Button btnBattlecruiserConstruct;
+        private System.Windows.Forms.Label lblBattlecruiserDeuteriumCost;
+        private System.Windows.Forms.Label lblBattlecruiserCrystalCost;
+        private System.Windows.Forms.Label lblBattlecruiserMetalCost;
+        private System.Windows.Forms.Label lblBattlecruiserCount;
+        private System.Windows.Forms.Label lblBattlecruiser;
+        private System.Windows.Forms.Panel pBattleship;
+        private System.Windows.Forms.Label lblBattleshipTimeRemain;
+        private System.Windows.Forms.TextBox tbBattleshipCount;
+        private System.Windows.Forms.Label lblBattleshipShade;
+        private System.Windows.Forms.Label lblBattleshipDuration;
+        private System.Windows.Forms.Button btnBattleshipConstruct;
+        private System.Windows.Forms.Label lblBattleshipDeuteriumCost;
+        private System.Windows.Forms.Label lblBattleshipCrystalCost;
+        private System.Windows.Forms.Label lblBattleshipMetalCost;
+        private System.Windows.Forms.Label lblBattleshipCount;
+        private System.Windows.Forms.Label lblBattleship;
+        private System.Windows.Forms.Panel pCruiser;
+        private System.Windows.Forms.Label lblCruiserTimeRemain;
+        private System.Windows.Forms.TextBox tbCruiserCount;
+        private System.Windows.Forms.Label lblCruiserShade;
+        private System.Windows.Forms.Label lblCruiserDuration;
+        private System.Windows.Forms.Button btnCruiserConstruct;
+        private System.Windows.Forms.Label lblCruiserDeuteriumCost;
+        private System.Windows.Forms.Label lblCruiserCrystalCost;
+        private System.Windows.Forms.Label lblCruiserMetalCost;
+        private System.Windows.Forms.Label lblCruiserCount;
+        private System.Windows.Forms.Label lblCruiser;
+        private System.Windows.Forms.Panel pHeavyFighter;
+        private System.Windows.Forms.Label lblHeavyFighterTimeRemain;
+        private System.Windows.Forms.TextBox tbHeavyFighterCount;
+        private System.Windows.Forms.Label lblHeavyFighterShade;
+        private System.Windows.Forms.Label lblHeavyFighterDuration;
+        private System.Windows.Forms.Button btnHeavyFighterConstruct;
+        private System.Windows.Forms.Label lblHeavyFighterDeuteriumCost;
+        private System.Windows.Forms.Label lblHeavyFighterCrystalCost;
+        private System.Windows.Forms.Label lblHeavyFighterMetalCost;
+        private System.Windows.Forms.Label lblHeavyFighterCount;
+        private System.Windows.Forms.Label lblHeavyFighter;
+        private System.Windows.Forms.Panel pReaper;
+        private System.Windows.Forms.Label lblReaperTimeRemain;
+        private System.Windows.Forms.TextBox tbReaperCount;
+        private System.Windows.Forms.Label lblReaperShade;
+        private System.Windows.Forms.Label lblReaperDuration;
+        private System.Windows.Forms.Button btnReaperConstruct;
+        private System.Windows.Forms.Label lblReaperDeuteriumCost;
+        private System.Windows.Forms.Label lblReaperCrystalCost;
+        private System.Windows.Forms.Label lblReaperMetalCost;
+        private System.Windows.Forms.Label lblReaperCount;
+        private System.Windows.Forms.Label lblReaper;
+        private System.Windows.Forms.Panel pDeathstar;
+        private System.Windows.Forms.Label lblDeathstarTimeRemain;
+        private System.Windows.Forms.TextBox tbDeathstarCount;
+        private System.Windows.Forms.Label lblDeathstarShade;
+        private System.Windows.Forms.Label lblDeathstarDuration;
+        private System.Windows.Forms.Button btnDeathstarConstruct;
+        private System.Windows.Forms.Label lblDeathstarDeuteriumCost;
+        private System.Windows.Forms.Label lblDeathstarCrystalCost;
+        private System.Windows.Forms.Label lblDeathstarMetalCost;
+        private System.Windows.Forms.Label lblDeathstarCount;
+        private System.Windows.Forms.Label lblDeathstar;
+        private System.Windows.Forms.Panel pPathfinder;
+        private System.Windows.Forms.Label lblPathfinderTimeRemain;
+        private System.Windows.Forms.TextBox tbPathfinderCount;
+        private System.Windows.Forms.Label lblPathfinderShade;
+        private System.Windows.Forms.Label lblPathfinderDuration;
+        private System.Windows.Forms.Button btnPathfinderConstruct;
+        private System.Windows.Forms.Label lblPathfinderDeuteriumCost;
+        private System.Windows.Forms.Label lblPathfinderCrystalCost;
+        private System.Windows.Forms.Label lblPathfinderMetalCost;
+        private System.Windows.Forms.Label lblPathfinderCount;
+        private System.Windows.Forms.Label lblPathfinder;
+        private System.Windows.Forms.Panel pGaussCannon;
+        private System.Windows.Forms.Label lblGaussCannonTimeRemain;
+        private System.Windows.Forms.TextBox tbGaussCannonCount;
+        private System.Windows.Forms.Label lblGaussCannonShade;
+        private System.Windows.Forms.Label lblGaussCannonDuration;
+        private System.Windows.Forms.Button btnGaussCannonConstruct;
+        private System.Windows.Forms.Label lblGaussCannonDeuteriumCost;
+        private System.Windows.Forms.Label lblGaussCannonCrystalCost;
+        private System.Windows.Forms.Label lblGaussCannonMetalCost;
+        private System.Windows.Forms.Label lblGaussCannonCount;
+        private System.Windows.Forms.Label lblGaussCannon;
+        private System.Windows.Forms.Panel pHeavyLaser;
+        private System.Windows.Forms.Label lblHeavyLaserTimeRemain;
+        private System.Windows.Forms.TextBox tbHeavyLaserCount;
+        private System.Windows.Forms.Label lblHeavyLaserShade;
+        private System.Windows.Forms.Label lblHeavyLaserDuration;
+        private System.Windows.Forms.Button btnHeavyLaserConstruct;
+        private System.Windows.Forms.Label lblHeavyLaserDeuteriumCost;
+        private System.Windows.Forms.Label lblHeavyLaserCrystalCost;
+        private System.Windows.Forms.Label lblHeavyLaserMetalCost;
+        private System.Windows.Forms.Label lblHeavyLaserCount;
+        private System.Windows.Forms.Label lblHeavyLaser;
+        private System.Windows.Forms.Panel pLightLaser;
+        private System.Windows.Forms.Label lblLightLaserTimeRemain;
+        private System.Windows.Forms.TextBox tbLightLaserCount;
+        private System.Windows.Forms.Label lblLightLaserShade;
+        private System.Windows.Forms.Label lblLightLaserDuration;
+        private System.Windows.Forms.Button btnLightLaserConstruct;
+        private System.Windows.Forms.Label lblLightLaserDeuteriumCost;
+        private System.Windows.Forms.Label lblLightLaserCrystalCost;
+        private System.Windows.Forms.Label lblLightLaserMetalCost;
+        private System.Windows.Forms.Label lblLightLaserCount;
+        private System.Windows.Forms.Label lblLightLaser;
+        private System.Windows.Forms.Panel pRocketLauncher;
+        private System.Windows.Forms.Label lblRocketLauncherTimeRemain;
+        private System.Windows.Forms.TextBox tbRocketLauncherCount;
+        private System.Windows.Forms.Label lblRocketLauncherShade;
+        private System.Windows.Forms.Label lblRocketLauncherDuration;
+        private System.Windows.Forms.Button btnRocketLauncherConstruct;
+        private System.Windows.Forms.Label lblRocketLauncherDeuteriumCost;
+        private System.Windows.Forms.Label lblRocketLauncherCrystalCost;
+        private System.Windows.Forms.Label lblRocketLauncherMetalCost;
+        private System.Windows.Forms.Label lblRocketLauncherCount;
+        private System.Windows.Forms.Label lblRocketLauncher;
+        private System.Windows.Forms.Panel pCrawler;
+        private System.Windows.Forms.Label lblCrawlerTimeRemain;
+        private System.Windows.Forms.TextBox tbCrawlerCount;
+        private System.Windows.Forms.Label lblCrawlerShade;
+        private System.Windows.Forms.Label lblCrawlerDuration;
+        private System.Windows.Forms.Button btnCrawlerConstruct;
+        private System.Windows.Forms.Label lblCrawlerDeuteriumCost;
+        private System.Windows.Forms.Label lblCrawlerCrystalCost;
+        private System.Windows.Forms.Label lblCrawlerMetalCost;
+        private System.Windows.Forms.Label lblCrawlerCount;
+        private System.Windows.Forms.Label lblCrawler;
+        private System.Windows.Forms.Panel pSolarSatellite;
+        private System.Windows.Forms.Label lblSolarSatelliteTimeRemain;
+        private System.Windows.Forms.TextBox tbSolarSatelliteCount;
+        private System.Windows.Forms.Label lblSolarSatelliteShade;
+        private System.Windows.Forms.Label lblSolarSatelliteDuration;
+        private System.Windows.Forms.Button btnSolarSatelliteConstruct;
+        private System.Windows.Forms.Label lblSolarSatelliteDeuteriumCost;
+        private System.Windows.Forms.Label lblSolarSatelliteCrystalCost;
+        private System.Windows.Forms.Label lblSolarSatelliteMetalCost;
+        private System.Windows.Forms.Label lblSolarSatelliteCount;
+        private System.Windows.Forms.Label lblSolarSatellite;
+        private System.Windows.Forms.Panel pPlasmaTurret;
+        private System.Windows.Forms.Label lblPlasmaTurretTimeRemain;
+        private System.Windows.Forms.TextBox tbPlasmaTurretCount;
+        private System.Windows.Forms.Label lblPlasmaTurretShade;
+        private System.Windows.Forms.Label lblPlasmaTurretDuration;
+        private System.Windows.Forms.Button btnPlasmaTurretConstruct;
+        private System.Windows.Forms.Label lblPlasmaTurretDeuteriumCost;
+        private System.Windows.Forms.Label lblPlasmaTurretCrystalCost;
+        private System.Windows.Forms.Label lblPlasmaTurretMetalCost;
+        private System.Windows.Forms.Label lblPlasmaTurretCount;
+        private System.Windows.Forms.Label lblPlasmaTurret;
+        private System.Windows.Forms.Panel pIonCannon;
+        private System.Windows.Forms.Label lblIonCannonTimeRemain;
+        private System.Windows.Forms.TextBox tbIonCannonCount;
+        private System.Windows.Forms.Label lblIonCannonShade;
+        private System.Windows.Forms.Label lblIonCannonDuration;
+        private System.Windows.Forms.Button btnIonCannonConstruct;
+        private System.Windows.Forms.Label lblIonCannonDeuteriumCost;
+        private System.Windows.Forms.Label lblIonCannonCrystalCost;
+        private System.Windows.Forms.Label lblIonCannonMetalCost;
+        private System.Windows.Forms.Label lblIonCannonCount;
+        private System.Windows.Forms.Label lblIonCannon;
+        private System.Windows.Forms.Panel pLargeShieldDome;
+        private System.Windows.Forms.Label lblLargeShieldDomeTimeRemain;
+        private System.Windows.Forms.TextBox tbLargeShieldDomeCount;
+        private System.Windows.Forms.Label lblLargeShieldDomeShade;
+        private System.Windows.Forms.Label lblLargeShieldDomeDuration;
+        private System.Windows.Forms.Button btnLargeShieldDomeConstruct;
+        private System.Windows.Forms.Label lblLargeShieldDomeDeuteriumCost;
+        private System.Windows.Forms.Label lblLargeShieldDomeCrystalCost;
+        private System.Windows.Forms.Label lblLargeShieldDomeMetalCost;
+        private System.Windows.Forms.Label lblLargeShieldDomeCount;
+        private System.Windows.Forms.Label lblLargeShieldDome;
+        private System.Windows.Forms.Panel pSmallShieldDome;
+        private System.Windows.Forms.Label lblSmallShieldDomeTimeRemain;
+        private System.Windows.Forms.TextBox tbSmallShieldDomeCount;
+        private System.Windows.Forms.Label lblSmallShieldDomeShade;
+        private System.Windows.Forms.Label lblSmallShieldDomeDuration;
+        private System.Windows.Forms.Button btnSmallShieldDomeConstruct;
+        private System.Windows.Forms.Label lblSmallShieldDomeDeuteriumCost;
+        private System.Windows.Forms.Label lblSmallShieldDomeCrystalCost;
+        private System.Windows.Forms.Label lblSmallShieldDomeMetalCost;
+        private System.Windows.Forms.Label lblSmallShieldDomeCount;
+        private System.Windows.Forms.Label lblSmallShieldDome;
+        private System.Windows.Forms.Panel pAntiBallisticMissile;
+        private System.Windows.Forms.Label lblAntiBallisticMissileTimeRemain;
+        private System.Windows.Forms.TextBox tbAntiBallisticMissileCount;
+        private System.Windows.Forms.Label lblAntiBallisticMissileShade;
+        private System.Windows.Forms.Label lblAntiBallisticMissileDuration;
+        private System.Windows.Forms.Button btnAntiBallisticMissileConstruct;
+        private System.Windows.Forms.Label lblAntiBallisticMissileDeuteriumCost;
+        private System.Windows.Forms.Label lblAntiBallisticMissileCrystalCost;
+        private System.Windows.Forms.Label lblAntiBallisticMissileMetalCost;
+        private System.Windows.Forms.Label lblAntiBallisticMissileCount;
+        private System.Windows.Forms.Label lblAntiBallisticMissile;
+        private System.Windows.Forms.Panel pInterplanetaryMissile;
+        private System.Windows.Forms.Label lblInterplanetaryMissileTimeRemain;
+        private System.Windows.Forms.TextBox tbInterplanetaryMissileCount;
+        private System.Windows.Forms.Label lblInterplanetaryMissileShade;
+        private System.Windows.Forms.Label lblInterplanetaryMissileDuration;
+        private System.Windows.Forms.Button btnInterplanetaryMissileConstruct;
+        private System.Windows.Forms.Label lblInterplanetaryMissileDeuteriumCost;
+        private System.Windows.Forms.Label lblInterplanetaryMissileCrystalCost;
+        private System.Windows.Forms.Label lblInterplanetaryMissileMetalCost;
+        private System.Windows.Forms.Label lblInterplanetaryMissileCount;
+        private System.Windows.Forms.Label lblInterplanetaryMissile;
     }
 }
 
