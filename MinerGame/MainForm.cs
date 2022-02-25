@@ -33,7 +33,7 @@ namespace MinerGame
         private Dictionary<Item, Label> UnitDurationLabelList;
         private Dictionary<Item, Button> UnitConstructButtonList;
         private Dictionary<Item, Label> UnitTimeRemainLabelList;
-        private Dictionary<Item, Label> ConstructShadeLabelList;
+        //private Dictionary<Item, Label> ConstructShadeLabelList;
         private Dictionary<Item, TextBox> UnitCountTextBoxList;
         #endregion
 
@@ -153,7 +153,7 @@ namespace MinerGame
 
                 RemoveTimeEventsAfterRemovePlanet();
 
-                ogame.UpdateResources(DateTime.Now);
+                ogame.UpdateResources(UpdateTimeEventList());
 
                 CreatePlanetsList();
                 activePlanet = ogame.Planets[0];                
@@ -167,7 +167,7 @@ namespace MinerGame
 
         private void BtnNewPlanet_Click(object sender, EventArgs e)
         {
-            ogame.UpdateResources(DateTime.Now);
+            ogame.UpdateResources(UpdateTimeEventList());
 
             activePlanet.Fleet[Item.COLONY_SHIP]--;
 
@@ -184,7 +184,7 @@ namespace MinerGame
 
         private void BtnUpgradeBuilding_Click(object sender, EventArgs e)
         {
-            ogame.UpdateResources(DateTime.Now);
+            ogame.UpdateResources(UpdateTimeEventList());
 
             Item item = BuildingUpgradeButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
             Resources cost = GameHandler.UpgradeCost(item, activePlanet.Buildings[item].Level + 1);
@@ -204,7 +204,7 @@ namespace MinerGame
 
         private void BtnResearchUpgrade_Click(object sender, EventArgs e)
         {
-            ogame.UpdateResources(DateTime.Now);
+            ogame.UpdateResources(UpdateTimeEventList());
 
             Item item = ResearchUpgradeButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
             Resources cost = GameHandler.UpgradeCost(item, OGame.Researches[item].Level + 1);
@@ -225,7 +225,7 @@ namespace MinerGame
 
         private void BtnConstruct_Click(object sender, EventArgs e)
         {
-            ogame.UpdateResources(DateTime.Now);
+            ogame.UpdateResources(UpdateTimeEventList());
 
             Item item = UnitConstructButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
             double count = GetUnitCount(UnitCountTextBoxList[item].Text);
@@ -262,7 +262,7 @@ namespace MinerGame
 
         private void BtnGravitonTechnologyUpgrade_Click(object sender, EventArgs e)
         {
-            ogame.UpdateResources(DateTime.Now);
+            ogame.UpdateResources(UpdateTimeEventList());
             OGame.Researches[Item.GRAVITON_TECHNOLOGY].Level++;
 
             FillInfoPanel();
@@ -306,7 +306,7 @@ namespace MinerGame
 
         private void BtnExchange_Click(object sender, EventArgs e)
         {
-            ogame.UpdateResources(DateTime.Now);
+            ogame.UpdateResources(UpdateTimeEventList());
 
             /*double metalFactor = double.Parse(lblTotalMetalProduction.Text);
             double crystalFactor = double.Parse(lblTotalCrystalProduction.Text);
@@ -377,21 +377,72 @@ namespace MinerGame
             EnableMerchantButton();
         }
 
-        private void CbFleetTarget_SelectedIndexChanged(object sender, EventArgs e)
+        private void BtnSendCargo_Click(object sender, EventArgs e)
         {
             int targetIndex = FindTargetId();
 
-            ogame.UpdateResources(DateTime.Now);
-            Resources cargo = new Resources();
+            ogame.UpdateResources(UpdateTimeEventList());
+
+            double metalCargo = Math.Truncate(double.Parse(tbMetalCargo.Text));
+            double crystalCargo = Math.Truncate(double.Parse(tbCrystalCargo.Text));
+            double deuteriumCargo = Math.Truncate(double.Parse(tbDeuteriumCargo.Text));
+
+            Resources cargo = new(metalCargo, crystalCargo, deuteriumCargo);
             activePlanet.Resources.Subtract(cargo);
             ogame.Planets[targetIndex].Resources.Add(cargo);
 
+            tbMetalCargo.Text = "0";
+            tbCrystalCargo.Text = "0";
+            tbDeuteriumCargo.Text = "0";
 
+            FillInfoPanel();
+            FillTabs();
+            EnableUpgradeButtons();
+            EnableConstructButtons();
         }
 
-        private void BtnSendCargo_Click(object sender, EventArgs e)
+        private void TbMetalCargo_TextChanged(object sender, EventArgs e)
         {
+            if (double.TryParse(((TextBox)sender).Text, out double cargo)) { }
+            else { cargo = 0.0; }
 
+            if (cargo < 0.0) { cargo = 0.0; }
+            if (cargo > activePlanet.Resources.Metal) { cargo = Math.Truncate(activePlanet.Resources.Metal); }
+
+            tbMetalCargo.Text = cargo.ToString("N0");
+
+            EnableSendButton();
+        }
+
+        private void TbCrystalCargo_TextChanged(object sender, EventArgs e)
+        {
+            if (double.TryParse(((TextBox)sender).Text, out double cargo)) { }
+            else { cargo = 0.0; }
+
+            if (cargo < 0.0) { cargo = 0.0; }
+            if (cargo > activePlanet.Resources.Crystal) { cargo = Math.Truncate(activePlanet.Resources.Crystal); }
+
+            tbCrystalCargo.Text = cargo.ToString("N0");
+
+            EnableSendButton();
+        }
+
+        private void TbDeuteriumCargo_TextChanged(object sender, EventArgs e)
+        {
+            if (double.TryParse(((TextBox)sender).Text, out double cargo)) { }
+            else { cargo = 0.0; }
+
+            if (cargo < 0.0) { cargo = 0.0; }
+            if (cargo > activePlanet.Resources.Deuterium) { cargo = Math.Truncate(activePlanet.Resources.Deuterium); }
+
+            tbDeuteriumCargo.Text = cargo.ToString("N0");
+
+            EnableSendButton();
+        }
+
+        private void CbFleetTarget_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EnableSendButton();
         }
         #endregion
 
@@ -421,7 +472,7 @@ namespace MinerGame
             InitResearchTimeRemainLabelList();
             InitUnitTimeRemainLabelList();
 
-            InitConstructShadeLabelList();
+            //InitConstructShadeLabelList();
 
             InitUnitCountTextBoxList();
         }
@@ -940,7 +991,7 @@ namespace MinerGame
             };
         }
 
-        private void InitConstructShadeLabelList()
+        /*private void InitConstructShadeLabelList()
         {
             ConstructShadeLabelList = new Dictionary<Item, Label>()
             {
@@ -973,7 +1024,7 @@ namespace MinerGame
                 { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissileShade },
                 { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileShade }
             };
-        }
+        }*/
 
         private void InitUnitCountTextBoxList()
         {
@@ -1184,6 +1235,7 @@ namespace MinerGame
             FillPlanetTab();
             FillMerchantTab();
             FillFleetTab();
+            FillPointsTab();
         }
 
         private void FillNameLabels()
@@ -1395,6 +1447,103 @@ namespace MinerGame
                     UnitTimeRemainLabelList[item].Text = "";
                 }
             }
+        }
+
+        private void FillPointsTab()
+        {
+            ResetPointsInfo();
+            CountPoints();
+        }
+
+        private void CountPoints()
+        {
+            Resources research = new();
+            foreach (Item item in OGame.Researches.Keys)
+            {
+                research.Add(OGame.Researches[item].TotalCost);
+            }
+
+            Resources buildings = new();
+            Resources fleet = new();
+            Resources defences = new();
+
+            foreach (Planet planet in ogame.Planets)
+            {
+                foreach (Item item in planet.Buildings.Keys)
+                {
+                    buildings.Add(planet.Buildings[item].TotalCost);
+                }
+
+                foreach (Item item in planet.Fleet.Keys)
+                {
+                    Resources unit = new(GameData.COST[item][Item.METAL], GameData.COST[item][Item.CRYSTAL], GameData.COST[item][Item.DEUTERIUM]);
+                    unit.Multiply(planet.Fleet[item]);
+                    fleet.Add(unit);
+                }
+
+                foreach (Item item in planet.Defences.Keys)
+                {
+                    Resources unit = new(GameData.COST[item][Item.METAL], GameData.COST[item][Item.CRYSTAL], GameData.COST[item][Item.DEUTERIUM]);
+                    unit.Multiply(planet.Defences[item]);
+                    defences.Add(unit);
+                }
+            }
+
+            lblTotalMetalCost.Text = (research.Metal + buildings.Metal + fleet.Metal + defences.Metal).ToString("N0");
+            lblTotalCrystalCost.Text = (research.Crystal + buildings.Crystal + fleet.Crystal + defences.Crystal).ToString("N0");
+            lblTotalDeuteriumCost.Text = (research.Deuterium + buildings.Deuterium + fleet.Deuterium + defences.Deuterium).ToString("N0");
+            lblTotalTotalCost.Text = (research.Metal + buildings.Metal + fleet.Metal + defences.Metal
+                                    + research.Crystal + buildings.Crystal + fleet.Crystal + defences.Crystal
+                                    + research.Deuterium + buildings.Deuterium + fleet.Deuterium + defences.Deuterium).ToString("N0");
+
+            lblResearchesMetalCost.Text = research.Metal.ToString("N0");
+            lblResearchesCrystalCost.Text = research.Crystal.ToString("N0");
+            lblResearchesDeuteriumCost.Text = research.Deuterium.ToString("N0");
+            lblResearchesTotalCost.Text = (research.Metal + research.Crystal + research.Deuterium).ToString("N0");
+
+            lblBuildingsMetalCost.Text = buildings.Metal.ToString("N0");
+            lblBuildingsCrystalCost.Text = buildings.Crystal.ToString("N0");
+            lblBuildingsDeuteriumCost.Text = buildings.Deuterium.ToString("N0");
+            lblBuildingsTotalCost.Text = (buildings.Metal + buildings.Crystal + buildings.Deuterium).ToString("N0");
+
+            lblFleetMetalCost.Text = fleet.Metal.ToString("N0");
+            lblFleetCrystalCost.Text = fleet.Crystal.ToString("N0");
+            lblFleetDeuteriumCost.Text = fleet.Deuterium.ToString("N0");
+            lblFleetTotalCost.Text = (fleet.Metal + fleet.Crystal + fleet.Deuterium).ToString("N0");
+
+            lblDefencesMetalCost.Text = defences.Metal.ToString("N0");
+            lblDefencesCrystalCost.Text = defences.Crystal.ToString("N0");
+            lblDefencesDeuteriumCost.Text = defences.Deuterium.ToString("N0");
+            lblDefencesTotalCost.Text = (defences.Metal + defences.Crystal + defences.Deuterium).ToString("N0");
+
+        }
+
+        private void ResetPointsInfo()
+        {
+            lblTotalMetalCost.Text = "0";
+            lblTotalCrystalCost.Text = "0";
+            lblTotalDeuteriumCost.Text = "0";
+            lblTotalTotalCost.Text = "0";
+
+            lblResearchesMetalCost.Text = "0";
+            lblResearchesCrystalCost.Text = "0";
+            lblResearchesDeuteriumCost.Text = "0";
+            lblResearchesTotalCost.Text = "0";
+
+            lblBuildingsMetalCost.Text = "0";
+            lblBuildingsCrystalCost.Text = "0";
+            lblBuildingsDeuteriumCost.Text = "0";
+            lblBuildingsTotalCost.Text = "0";
+
+            lblFleetMetalCost.Text = "0";
+            lblFleetCrystalCost.Text = "0";
+            lblFleetDeuteriumCost.Text = "0";
+            lblFleetTotalCost.Text = "0";
+
+            lblDefencesMetalCost.Text = "0";
+            lblDefencesCrystalCost.Text = "0";
+            lblDefencesDeuteriumCost.Text = "0";
+            lblDefencesTotalCost.Text = "0";
         }
 
         #region Production tab
@@ -1783,6 +1932,21 @@ namespace MinerGame
         
         private void FillFleetTab()
         {
+            if (ogame.Planets.Count > 1)
+            {
+                cbFleetTarget.Enabled = true;
+                tbMetalCargo.Enabled = true;
+                tbCrystalCargo.Enabled = true;
+                tbDeuteriumCargo.Enabled = true;
+            }
+            else
+            {
+                cbFleetTarget.Enabled = false;
+                tbMetalCargo.Enabled = false;
+                tbCrystalCargo.Enabled = false;
+                tbDeuteriumCargo.Enabled = false;
+            }
+
             CreateTargetComboBox();
         }
         
@@ -1802,7 +1966,7 @@ namespace MinerGame
                 }
             }
 
-            cbFleetTarget.SelectedItem = "";
+            cbFleetTarget.SelectedItem = null;
         }
         #endregion
 
@@ -2086,6 +2250,29 @@ namespace MinerGame
             }
             return 0;
         }
+        
+        private void EnableSendButton()
+        {
+            double metalCargo = Math.Truncate(double.Parse(tbMetalCargo.Text));
+            double crystalCargo = Math.Truncate(double.Parse(tbCrystalCargo.Text));
+            double deuteriumCargo = Math.Truncate(double.Parse(tbDeuteriumCargo.Text));
+
+            if (metalCargo >= 0.0 && metalCargo <= activePlanet.Resources.Metal
+             && crystalCargo >=0.0 && crystalCargo <= activePlanet.Resources.Crystal
+             && deuteriumCargo >= 0.0 && deuteriumCargo <= activePlanet.Resources.Deuterium
+             && cbFleetTarget.SelectedItem != null
+             && (metalCargo > 0 || crystalCargo > 0 || deuteriumCargo > 0))
+            {
+                btnSendCargo.BackColor = Color.Lime;
+                btnSendCargo.Enabled = true;
+            }
+            else
+            {
+                btnSendCargo.BackColor = Color.Silver;
+                btnSendCargo.Enabled = false;
+            }
+        }
+        
         #endregion
 
         #region Starter Pack
@@ -2119,6 +2306,9 @@ namespace MinerGame
             //    ogame.Planets.ElementAt(0).UpgradeBuilding(Item.ROBOTICS_FACTORY);
             //}            
         }
+
+
+
 
 
         #endregion

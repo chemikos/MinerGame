@@ -309,6 +309,18 @@ namespace OgameData
                 return Math.Min(inter, Math.Min(metalMin, Math.Min(crystalMin, deuteriumMin)));
             }
 
+            if (item == Item.CRAWLER)
+            {
+                double crawler = Math.Truncate((MetalMineEnergyDemand(planet.Buildings[Item.METAL_MINE].Level)
+                                              + CrystalMineEnergyDemand(planet.Buildings[Item.CRYSTAL_MINE].Level)
+                                              + DeuteriumSynthesizerEnergyDemand(planet.Buildings[Item.DEUTERIUM_SYNTHESIZER].Level)
+                                              - GameData.COST[item][Item.ENERGY] * planet.Defences[item])
+                                              / GameData.COST[item][Item.ENERGY]);
+
+                return Math.Min(crawler, Math.Min(metalMin, Math.Min(crystalMin, deuteriumMin)));
+            }
+
+
             return Math.Min(metalMin, Math.Min(crystalMin, deuteriumMin));
         }
     }

@@ -102,8 +102,8 @@ namespace OgameData
                 Item.SHIPYARD, new()
                 {
                     { Item.METAL, 400.0 },
-                    { Item.CRYSTAL, 120.0 },
-                    { Item.DEUTERIUM, 200.0 },
+                    { Item.CRYSTAL, 200.0 },
+                    { Item.DEUTERIUM, 100.0 },
                     { Item.FACTOR, 2.0 }
                 }
             },
