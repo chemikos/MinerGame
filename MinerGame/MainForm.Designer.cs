@@ -706,11 +706,35 @@ namespace MinerGame
             this.lblSolarSatellite = new System.Windows.Forms.Label();
             this.tpRequirements = new System.Windows.Forms.TabPage();
             this.tpFleet = new System.Windows.Forms.TabPage();
+            this.cbFleetTarget = new System.Windows.Forms.ComboBox();
             this.tpPoints = new System.Windows.Forms.TabPage();
             this.tpPlanet = new System.Windows.Forms.TabPage();
             this.btnChangePlanetName = new System.Windows.Forms.Button();
             this.tbNewPlanetName = new System.Windows.Forms.TextBox();
             this.tpMerchant = new System.Windows.Forms.TabPage();
+            this.pMerchant = new System.Windows.Forms.Panel();
+            this.btnExchange = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblDeuteriumMax = new System.Windows.Forms.Label();
+            this.lblCrystalMax = new System.Windows.Forms.Label();
+            this.lblMetalMax = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tbDeuteriumAmount = new System.Windows.Forms.TextBox();
+            this.tbCrystalAmount = new System.Windows.Forms.TextBox();
+            this.tbMetalAmount = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblDeuteriumMerchant = new System.Windows.Forms.Label();
+            this.lblCrystalMerchant = new System.Windows.Forms.Label();
+            this.lblMetalMerchant = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblDeuteriumFactor = new System.Windows.Forms.Label();
+            this.lblCrystalFactor = new System.Windows.Forms.Label();
+            this.lblMetalFactor = new System.Windows.Forms.Label();
+            this.gbMerchant = new System.Windows.Forms.GroupBox();
+            this.rbDeuterium = new System.Windows.Forms.RadioButton();
+            this.rbCrystal = new System.Windows.Forms.RadioButton();
+            this.rbMetal = new System.Windows.Forms.RadioButton();
             this.pInfo = new System.Windows.Forms.Panel();
             this.gbPlanetCountInfo = new System.Windows.Forms.GroupBox();
             this.btnDeletePlanet = new System.Windows.Forms.Button();
@@ -745,6 +769,7 @@ namespace MinerGame
             this.cbPlanetSelect = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btnSendCargo = new System.Windows.Forms.Button();
             this.pContent.SuspendLayout();
             this.pPlanet.SuspendLayout();
             this.pPlanetStructures.SuspendLayout();
@@ -822,7 +847,16 @@ namespace MinerGame
             this.pRocketLauncher.SuspendLayout();
             this.pCrawler.SuspendLayout();
             this.pSolarSatellite.SuspendLayout();
+            this.tpFleet.SuspendLayout();
             this.tpPlanet.SuspendLayout();
+            this.tpMerchant.SuspendLayout();
+            this.pMerchant.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.gbMerchant.SuspendLayout();
             this.pInfo.SuspendLayout();
             this.gbPlanetCountInfo.SuspendLayout();
             this.gbEnergyInfo.SuspendLayout();
@@ -9644,12 +9678,23 @@ namespace MinerGame
             // tpFleet
             // 
             this.tpFleet.BackColor = System.Drawing.Color.Silver;
+            this.tpFleet.Controls.Add(this.btnSendCargo);
+            this.tpFleet.Controls.Add(this.cbFleetTarget);
             this.tpFleet.Location = new System.Drawing.Point(4, 29);
             this.tpFleet.Name = "tpFleet";
             this.tpFleet.Padding = new System.Windows.Forms.Padding(3);
             this.tpFleet.Size = new System.Drawing.Size(1896, 800);
             this.tpFleet.TabIndex = 7;
             this.tpFleet.Text = "Flota";
+            // 
+            // cbFleetTarget
+            // 
+            this.cbFleetTarget.FormattingEnabled = true;
+            this.cbFleetTarget.Location = new System.Drawing.Point(241, 92);
+            this.cbFleetTarget.Name = "cbFleetTarget";
+            this.cbFleetTarget.Size = new System.Drawing.Size(150, 23);
+            this.cbFleetTarget.TabIndex = 5;
+            this.cbFleetTarget.SelectedIndexChanged += new System.EventHandler(this.CbFleetTarget_SelectedIndexChanged);
             // 
             // tpPoints
             // 
@@ -9695,13 +9740,284 @@ namespace MinerGame
             // 
             // tpMerchant
             // 
-            this.tpMerchant.BackColor = System.Drawing.Color.Silver;
+            this.tpMerchant.BackColor = System.Drawing.Color.Gold;
+            this.tpMerchant.Controls.Add(this.pMerchant);
             this.tpMerchant.Location = new System.Drawing.Point(4, 29);
             this.tpMerchant.Name = "tpMerchant";
             this.tpMerchant.Padding = new System.Windows.Forms.Padding(3);
             this.tpMerchant.Size = new System.Drawing.Size(1896, 800);
             this.tpMerchant.TabIndex = 10;
             this.tpMerchant.Text = "Handlarz";
+            // 
+            // pMerchant
+            // 
+            this.pMerchant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pMerchant.Controls.Add(this.btnExchange);
+            this.pMerchant.Controls.Add(this.panel2);
+            this.pMerchant.Controls.Add(this.gbMerchant);
+            this.pMerchant.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pMerchant.Location = new System.Drawing.Point(3, 3);
+            this.pMerchant.Name = "pMerchant";
+            this.pMerchant.Size = new System.Drawing.Size(1890, 150);
+            this.pMerchant.TabIndex = 1;
+            // 
+            // btnExchange
+            // 
+            this.btnExchange.BackColor = System.Drawing.Color.Silver;
+            this.btnExchange.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnExchange.Enabled = false;
+            this.btnExchange.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExchange.Location = new System.Drawing.Point(650, 0);
+            this.btnExchange.Name = "btnExchange";
+            this.btnExchange.Size = new System.Drawing.Size(215, 148);
+            this.btnExchange.TabIndex = 2;
+            this.btnExchange.Text = "Handluj";
+            this.btnExchange.UseVisualStyleBackColor = false;
+            this.btnExchange.Click += new System.EventHandler(this.BtnExchange_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(450, 148);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.lblDeuteriumMax);
+            this.panel6.Controls.Add(this.lblCrystalMax);
+            this.panel6.Controls.Add(this.lblMetalMax);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 108);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(450, 42);
+            this.panel6.TabIndex = 3;
+            // 
+            // lblDeuteriumMax
+            // 
+            this.lblDeuteriumMax.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumMax.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDeuteriumMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumMax.Location = new System.Drawing.Point(300, 0);
+            this.lblDeuteriumMax.Name = "lblDeuteriumMax";
+            this.lblDeuteriumMax.Size = new System.Drawing.Size(150, 42);
+            this.lblDeuteriumMax.TabIndex = 21;
+            this.lblDeuteriumMax.Text = "max";
+            this.lblDeuteriumMax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCrystalMax
+            // 
+            this.lblCrystalMax.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalMax.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCrystalMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalMax.Location = new System.Drawing.Point(150, 0);
+            this.lblCrystalMax.Name = "lblCrystalMax";
+            this.lblCrystalMax.Size = new System.Drawing.Size(150, 42);
+            this.lblCrystalMax.TabIndex = 20;
+            this.lblCrystalMax.Text = "max";
+            this.lblCrystalMax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblMetalMax
+            // 
+            this.lblMetalMax.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalMax.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMetalMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalMax.Location = new System.Drawing.Point(0, 0);
+            this.lblMetalMax.Name = "lblMetalMax";
+            this.lblMetalMax.Size = new System.Drawing.Size(150, 42);
+            this.lblMetalMax.TabIndex = 19;
+            this.lblMetalMax.Text = "max";
+            this.lblMetalMax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tbDeuteriumAmount);
+            this.panel5.Controls.Add(this.tbCrystalAmount);
+            this.panel5.Controls.Add(this.tbMetalAmount);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 85);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(450, 23);
+            this.panel5.TabIndex = 2;
+            // 
+            // tbDeuteriumAmount
+            // 
+            this.tbDeuteriumAmount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbDeuteriumAmount.Enabled = false;
+            this.tbDeuteriumAmount.Location = new System.Drawing.Point(300, 0);
+            this.tbDeuteriumAmount.Name = "tbDeuteriumAmount";
+            this.tbDeuteriumAmount.Size = new System.Drawing.Size(150, 23);
+            this.tbDeuteriumAmount.TabIndex = 2;
+            this.tbDeuteriumAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbDeuteriumAmount.TextChanged += new System.EventHandler(this.TbAmount_TextChanged);
+            // 
+            // tbCrystalAmount
+            // 
+            this.tbCrystalAmount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbCrystalAmount.Enabled = false;
+            this.tbCrystalAmount.Location = new System.Drawing.Point(150, 0);
+            this.tbCrystalAmount.Name = "tbCrystalAmount";
+            this.tbCrystalAmount.Size = new System.Drawing.Size(150, 23);
+            this.tbCrystalAmount.TabIndex = 1;
+            this.tbCrystalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbCrystalAmount.TextChanged += new System.EventHandler(this.TbAmount_TextChanged);
+            // 
+            // tbMetalAmount
+            // 
+            this.tbMetalAmount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbMetalAmount.Enabled = false;
+            this.tbMetalAmount.Location = new System.Drawing.Point(0, 0);
+            this.tbMetalAmount.Name = "tbMetalAmount";
+            this.tbMetalAmount.Size = new System.Drawing.Size(150, 23);
+            this.tbMetalAmount.TabIndex = 0;
+            this.tbMetalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbMetalAmount.TextChanged += new System.EventHandler(this.TbAmount_TextChanged);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lblDeuteriumMerchant);
+            this.panel4.Controls.Add(this.lblCrystalMerchant);
+            this.panel4.Controls.Add(this.lblMetalMerchant);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 43);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(450, 42);
+            this.panel4.TabIndex = 1;
+            // 
+            // lblDeuteriumMerchant
+            // 
+            this.lblDeuteriumMerchant.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumMerchant.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDeuteriumMerchant.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumMerchant.Location = new System.Drawing.Point(300, 0);
+            this.lblDeuteriumMerchant.Name = "lblDeuteriumMerchant";
+            this.lblDeuteriumMerchant.Size = new System.Drawing.Size(150, 42);
+            this.lblDeuteriumMerchant.TabIndex = 21;
+            this.lblDeuteriumMerchant.Text = "Deuter";
+            this.lblDeuteriumMerchant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrystalMerchant
+            // 
+            this.lblCrystalMerchant.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalMerchant.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCrystalMerchant.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalMerchant.Location = new System.Drawing.Point(150, 0);
+            this.lblCrystalMerchant.Name = "lblCrystalMerchant";
+            this.lblCrystalMerchant.Size = new System.Drawing.Size(150, 42);
+            this.lblCrystalMerchant.TabIndex = 20;
+            this.lblCrystalMerchant.Text = "Kryształ";
+            this.lblCrystalMerchant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMetalMerchant
+            // 
+            this.lblMetalMerchant.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalMerchant.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMetalMerchant.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalMerchant.Location = new System.Drawing.Point(0, 0);
+            this.lblMetalMerchant.Name = "lblMetalMerchant";
+            this.lblMetalMerchant.Size = new System.Drawing.Size(150, 42);
+            this.lblMetalMerchant.TabIndex = 19;
+            this.lblMetalMerchant.Text = "Metal";
+            this.lblMetalMerchant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblDeuteriumFactor);
+            this.panel3.Controls.Add(this.lblCrystalFactor);
+            this.panel3.Controls.Add(this.lblMetalFactor);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(450, 43);
+            this.panel3.TabIndex = 0;
+            // 
+            // lblDeuteriumFactor
+            // 
+            this.lblDeuteriumFactor.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumFactor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDeuteriumFactor.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumFactor.Location = new System.Drawing.Point(300, 0);
+            this.lblDeuteriumFactor.Name = "lblDeuteriumFactor";
+            this.lblDeuteriumFactor.Size = new System.Drawing.Size(150, 43);
+            this.lblDeuteriumFactor.TabIndex = 20;
+            this.lblDeuteriumFactor.Text = "1,00";
+            this.lblDeuteriumFactor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrystalFactor
+            // 
+            this.lblCrystalFactor.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalFactor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCrystalFactor.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalFactor.Location = new System.Drawing.Point(150, 0);
+            this.lblCrystalFactor.Name = "lblCrystalFactor";
+            this.lblCrystalFactor.Size = new System.Drawing.Size(150, 43);
+            this.lblCrystalFactor.TabIndex = 19;
+            this.lblCrystalFactor.Text = "2,00";
+            this.lblCrystalFactor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMetalFactor
+            // 
+            this.lblMetalFactor.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalFactor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMetalFactor.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalFactor.Location = new System.Drawing.Point(0, 0);
+            this.lblMetalFactor.Name = "lblMetalFactor";
+            this.lblMetalFactor.Size = new System.Drawing.Size(150, 43);
+            this.lblMetalFactor.TabIndex = 18;
+            this.lblMetalFactor.Text = "3,00";
+            this.lblMetalFactor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gbMerchant
+            // 
+            this.gbMerchant.BackColor = System.Drawing.Color.Gold;
+            this.gbMerchant.Controls.Add(this.rbDeuterium);
+            this.gbMerchant.Controls.Add(this.rbCrystal);
+            this.gbMerchant.Controls.Add(this.rbMetal);
+            this.gbMerchant.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbMerchant.Location = new System.Drawing.Point(0, 0);
+            this.gbMerchant.Name = "gbMerchant";
+            this.gbMerchant.Size = new System.Drawing.Size(200, 148);
+            this.gbMerchant.TabIndex = 0;
+            this.gbMerchant.TabStop = false;
+            this.gbMerchant.Text = "Wybierz co chcesz sprzedać";
+            // 
+            // rbDeuterium
+            // 
+            this.rbDeuterium.Enabled = false;
+            this.rbDeuterium.Location = new System.Drawing.Point(20, 105);
+            this.rbDeuterium.Name = "rbDeuterium";
+            this.rbDeuterium.Size = new System.Drawing.Size(150, 30);
+            this.rbDeuterium.TabIndex = 2;
+            this.rbDeuterium.Text = "Sprzedaj deuter";
+            this.rbDeuterium.UseVisualStyleBackColor = true;
+            this.rbDeuterium.CheckedChanged += new System.EventHandler(this.RbCheckedChanged);
+            // 
+            // rbCrystal
+            // 
+            this.rbCrystal.Enabled = false;
+            this.rbCrystal.Location = new System.Drawing.Point(20, 65);
+            this.rbCrystal.Name = "rbCrystal";
+            this.rbCrystal.Size = new System.Drawing.Size(150, 30);
+            this.rbCrystal.TabIndex = 1;
+            this.rbCrystal.Text = "Sprzedaj kryształ";
+            this.rbCrystal.UseVisualStyleBackColor = true;
+            this.rbCrystal.CheckedChanged += new System.EventHandler(this.RbCheckedChanged);
+            // 
+            // rbMetal
+            // 
+            this.rbMetal.Enabled = false;
+            this.rbMetal.Location = new System.Drawing.Point(20, 25);
+            this.rbMetal.Name = "rbMetal";
+            this.rbMetal.Size = new System.Drawing.Size(150, 30);
+            this.rbMetal.TabIndex = 0;
+            this.rbMetal.Text = "Sprzedaj metal";
+            this.rbMetal.UseVisualStyleBackColor = true;
+            this.rbMetal.CheckedChanged += new System.EventHandler(this.RbCheckedChanged);
             // 
             // pInfo
             // 
@@ -10110,6 +10426,16 @@ namespace MinerGame
             this.cbPlanetSelect.TabIndex = 4;
             this.cbPlanetSelect.SelectedIndexChanged += new System.EventHandler(this.CbPlanetSelect_SelectedIndexChanged);
             // 
+            // btnSendCargo
+            // 
+            this.btnSendCargo.Location = new System.Drawing.Point(493, 90);
+            this.btnSendCargo.Name = "btnSendCargo";
+            this.btnSendCargo.Size = new System.Drawing.Size(150, 25);
+            this.btnSendCargo.TabIndex = 6;
+            this.btnSendCargo.Text = "Wyślij";
+            this.btnSendCargo.UseVisualStyleBackColor = true;
+            this.btnSendCargo.Click += new System.EventHandler(this.BtnSendCargo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -10228,8 +10554,18 @@ namespace MinerGame
             this.pCrawler.PerformLayout();
             this.pSolarSatellite.ResumeLayout(false);
             this.pSolarSatellite.PerformLayout();
+            this.tpFleet.ResumeLayout(false);
             this.tpPlanet.ResumeLayout(false);
             this.tpPlanet.PerformLayout();
+            this.tpMerchant.ResumeLayout(false);
+            this.pMerchant.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.gbMerchant.ResumeLayout(false);
             this.pInfo.ResumeLayout(false);
             this.gbPlanetCountInfo.ResumeLayout(false);
             this.gbEnergyInfo.ResumeLayout(false);
@@ -10963,6 +11299,31 @@ namespace MinerGame
         private System.Windows.Forms.Label lblInterplanetaryMissileMetalCost;
         private System.Windows.Forms.Label lblInterplanetaryMissileCount;
         private System.Windows.Forms.Label lblInterplanetaryMissile;
+        private System.Windows.Forms.GroupBox gbMerchant;
+        private System.Windows.Forms.RadioButton rbDeuterium;
+        private System.Windows.Forms.RadioButton rbCrystal;
+        private System.Windows.Forms.RadioButton rbMetal;
+        private System.Windows.Forms.Panel pMerchant;
+        private System.Windows.Forms.Button btnExchange;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label lblDeuteriumMax;
+        private System.Windows.Forms.Label lblCrystalMax;
+        private System.Windows.Forms.Label lblMetalMax;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox tbDeuteriumAmount;
+        private System.Windows.Forms.TextBox tbCrystalAmount;
+        private System.Windows.Forms.TextBox tbMetalAmount;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblDeuteriumMerchant;
+        private System.Windows.Forms.Label lblCrystalMerchant;
+        private System.Windows.Forms.Label lblMetalMerchant;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblDeuteriumFactor;
+        private System.Windows.Forms.Label lblCrystalFactor;
+        private System.Windows.Forms.Label lblMetalFactor;
+        private System.Windows.Forms.ComboBox cbFleetTarget;
+        private System.Windows.Forms.Button btnSendCargo;
     }
 }
 

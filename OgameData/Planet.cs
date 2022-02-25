@@ -20,7 +20,7 @@ namespace OgameData
 
         public Planet(int id = 0, string name = "")
         {
-            PlanetName = name.Length == 0 ? $"Kolonia_{id}" : name;
+            PlanetName = name == null || name.Length == 0 ? $"Kolonia_{id}" : name;
             PlanetID = id;
             Position = new Position(GameHandler.GeneratePosition());
             Temperature = GameHandler.RandomTemperature();

@@ -36,8 +36,7 @@ namespace CheckingApp
                 Console.WriteLine("Nie działa");
             }
             */
-            Console.WriteLine("Wyswietl 1:2:3 " + OGame.Positions[1,2,3]);
-            Console.WriteLine("Wymar: " + OGame.Positions.Rank);
+
 
 
         }

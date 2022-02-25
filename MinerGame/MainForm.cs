@@ -66,16 +66,17 @@ namespace MinerGame
         {
             OGame.GameSpeed = GetGameSpeed(tbEcoSpeed.Text);
             ogame = new OGame(GetGameName());
+            CreatePlanetPanels();
 
             tbNewGameName.Text = "";
             tbEcoSpeed.Text = "";
 
             // kod do testu
-            StarterPack();
+            //StarterPack();
             ///
 
             CreatePlanetsList();
-            activePlanet = ogame.Planets[0];
+            activePlanet = ogame.Planets[0];            
 
             FillInfoPanel();
             FillTabs();
@@ -83,6 +84,7 @@ namespace MinerGame
             EnableConstructButtons();
 
             EnableSaveUpdateButtons();
+            EnableMerchantSection();
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
@@ -94,9 +96,10 @@ namespace MinerGame
                     var filePath = openFileDialog.FileName;
                     string deserializedOgame = File.ReadAllText(filePath);
                     ogame = JsonConvert.DeserializeObject<OGame>(deserializedOgame);
+                    CreatePlanetPanels();
 
                     CreatePlanetsList();
-                    activePlanet = ogame.Planets[0];
+                    activePlanet = ogame.Planets[0];                    
 
                     FillInfoPanel();
                     FillTabs();
@@ -104,10 +107,11 @@ namespace MinerGame
                     EnableConstructButtons();
 
                     EnableSaveUpdateButtons();
+                    EnableMerchantSection();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Jakas errora");
+                    MessageBox.Show("Jakas errora " + ex.Message);
                 }
             }
         }
@@ -145,14 +149,14 @@ namespace MinerGame
                 ogame.Planets.Remove(activePlanet);
                 OGame.Positions.Remove(activePlanet.Position);
 
+                CreatePlanetPanels();
+
                 RemoveTimeEventsAfterRemovePlanet();
 
                 ogame.UpdateResources(DateTime.Now);
 
                 CreatePlanetsList();
-                activePlanet = ogame.Planets[0];
-
-                pProductionGeneratedContent.Controls.Clear();
+                activePlanet = ogame.Planets[0];                
 
                 FillInfoPanel();
                 FillTabs();
@@ -170,10 +174,9 @@ namespace MinerGame
             int id = FindPlanetID();
 
             ogame.Planets.Add(new Planet(id));
+            CreatePlanetPanels();
             Planet p = ogame.Planets.ElementAt(ogame.Planets.Count - 1);
-            cbPlanetSelect.Items.Add($"{p.PlanetName} {p.Position}");
-
-            pProductionGeneratedContent.Controls.Clear();
+            cbPlanetSelect.Items.Add($"{p.PlanetName} {p.Position}");            
 
             FillInfoPanel();
             FillTabs();
@@ -227,9 +230,9 @@ namespace MinerGame
             Item item = UnitConstructButtonList.Where(btn => btn.Value == (Button)sender).Select(btn => btn.Key).ToList().ElementAt(0);
             double count = GetUnitCount(UnitCountTextBoxList[item].Text);
 
-            if (count > GameHandler.MaxUnits(item, activePlanet.Resources))
+            if (count > GameHandler.MaxUnits(item, activePlanet))
             {
-                count = GameHandler.MaxUnits(item, activePlanet.Resources);
+                count = GameHandler.MaxUnits(item, activePlanet);
             }
 
             if (item == Item.ANTI_BALLISTIC_MISSILE || item == Item.INTERPLANETARY_MISSILE)
@@ -299,6 +302,96 @@ namespace MinerGame
 
             FillInfoPanel();
             FillTabs();
+        }
+
+        private void BtnExchange_Click(object sender, EventArgs e)
+        {
+            ogame.UpdateResources(DateTime.Now);
+
+            /*double metalFactor = double.Parse(lblTotalMetalProduction.Text);
+            double crystalFactor = double.Parse(lblTotalCrystalProduction.Text);
+            double deuteriumFactor = double.Parse(lblTotalDeuteriumProduction.Text);*/
+
+            double metalFactor = 3.0;
+            double crystalFactor = 2.0;
+            double deuteriumFactor = 1.0;
+
+            if (rbMetal.Checked)
+            {
+                if (double.TryParse(tbCrystalAmount.Text, out double crystalAmount)) { }
+                else { crystalAmount = 0.0; }
+
+                if (double.TryParse(tbDeuteriumAmount.Text, out double deuteriumAmount)) { }
+                else { deuteriumAmount = 0.0; }
+
+                double metalAmount = crystalAmount * metalFactor / crystalFactor + deuteriumAmount * metalFactor / deuteriumFactor;
+
+                activePlanet.Resources.Metal -= metalAmount;
+                activePlanet.Resources.Crystal += crystalAmount;
+                activePlanet.Resources.Deuterium += deuteriumAmount;
+            }
+
+            if (rbCrystal.Checked)
+            {
+                if (double.TryParse(tbMetalAmount.Text, out double metalAmount)) { }
+                else { metalAmount = 0.0; }
+
+                if (double.TryParse(tbDeuteriumAmount.Text, out double deuteriumAmount)) { }
+                else { deuteriumAmount = 0.0; }
+
+                double crystalAmount = metalAmount * crystalFactor / metalFactor + deuteriumAmount * crystalFactor / deuteriumFactor;
+
+                activePlanet.Resources.Metal += metalAmount;
+                activePlanet.Resources.Crystal -= crystalAmount;
+                activePlanet.Resources.Deuterium += deuteriumAmount;
+            }
+
+            if (rbDeuterium.Checked)
+            {
+                if (double.TryParse(tbMetalAmount.Text, out double metalAmount)) { }
+                else { metalAmount = 0.0; }
+
+                if (double.TryParse(tbCrystalAmount.Text, out double crystalAmount)) { }
+                else { crystalAmount = 0.0; }
+
+                double deuteriumAmount = metalAmount * deuteriumFactor / metalFactor + crystalAmount * deuteriumFactor / crystalFactor;
+
+                activePlanet.Resources.Metal += metalAmount;
+                activePlanet.Resources.Crystal += crystalAmount;
+                activePlanet.Resources.Deuterium -= deuteriumAmount;
+            }
+
+            FillInfoPanel();
+            FillTabs();
+            EnableUpgradeButtons();
+            EnableConstructButtons();
+        }
+
+        private void RbCheckedChanged(object sender, EventArgs e)
+        {
+            FillMerchantTab();
+        }
+
+        private void TbAmount_TextChanged(object sender, EventArgs e)
+        {
+            EnableMerchantButton();
+        }
+
+        private void CbFleetTarget_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int targetIndex = FindTargetId();
+
+            ogame.UpdateResources(DateTime.Now);
+            Resources cargo = new Resources();
+            activePlanet.Resources.Subtract(cargo);
+            ogame.Planets[targetIndex].Resources.Add(cargo);
+
+
+        }
+
+        private void BtnSendCargo_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
@@ -1089,6 +1182,8 @@ namespace MinerGame
 
             FillProductionTab();
             FillPlanetTab();
+            FillMerchantTab();
+            FillFleetTab();
         }
 
         private void FillNameLabels()
@@ -1188,7 +1283,7 @@ namespace MinerGame
             foreach (Item item in UnitCountTextBoxList.Keys)
             {
                 UnitCountTextBoxList[item].BackColor = Color.White;
-                UnitCountTextBoxList[item].Text = GameHandler.MaxUnits(item, activePlanet.Resources).ToString("N0");
+                UnitCountTextBoxList[item].Text = GameHandler.MaxUnits(item, activePlanet).ToString("N0");
             }
         }
 
@@ -1315,8 +1410,6 @@ namespace MinerGame
 
             for (int i = 0; i < ogame.Planets.Count; i++)
             {
-                CreatePlanetPanel(i);
-
                 var resourcesPanel = pProductionGeneratedContent.Controls[i].Controls[1].Controls;
 
                 for (int j = 0; j < resourcesPanel.Count; j++)
@@ -1414,18 +1507,23 @@ namespace MinerGame
             lblStorageDeuteriumMinTime.Text = minStorageTime[Item.DEUTERIUM].ToString("d'd 'hh'h 'mm'm 'ss's'");
         }
 
-        private void CreatePlanetPanel(int index)
+        private void CreatePlanetPanels()
         {
-            Panel panel = new();
+            pProductionGeneratedContent.Controls.Clear();
 
-            pProductionGeneratedContent.Controls.Add(panel);
+            for (int index = 0; index < ogame.Planets.Count; index++)
+            {
+                Panel panel = new();
 
-            panel.Controls.Add(CreatePlanetLabel(index));
-            panel.Controls.Add(CreateResourcesPanel());
+                pProductionGeneratedContent.Controls.Add(panel);
 
-            panel.BackColor = index % 2 > 0 ? Color.Gold : Color.Yellow;
-            panel.Location = new Point(0, 75 * index);
-            panel.Size = new Size(1889, 75);
+                panel.Controls.Add(CreatePlanetLabel(index));
+                panel.Controls.Add(CreateResourcesPanel());
+
+                panel.BackColor = index % 2 > 0 ? Color.Gold : Color.Yellow;
+                panel.Location = new Point(0, 75 * index);
+                panel.Size = new Size(1889, 75);
+            }
         }
         
         private Label CreatePlanetLabel(int index)
@@ -1523,6 +1621,189 @@ namespace MinerGame
         {
             tbNewPlanetName.Text = activePlanet.PlanetName;
         }
+        
+        private void FillMerchantTab()
+        {
+            /*double metalFactor = double.Parse(lblTotalMetalProduction.Text);
+            double crystalFactor = double.Parse(lblTotalCrystalProduction.Text);
+            double deuteriumFactor = double.Parse(lblTotalDeuteriumProduction.Text);*/
+
+            double metalFactor = 3.0;
+            double crystalFactor = 2.0;
+            double deuteriumFactor = 1.0;
+
+            if (rbMetal.Checked)
+            {
+                lblMetalFactor.Text = 1.0.ToString("N2");
+                lblCrystalFactor.Text = (crystalFactor / metalFactor).ToString("N2");
+                lblDeuteriumFactor.Text = (deuteriumFactor / metalFactor).ToString("N2");
+
+                tbMetalAmount.Enabled = false;
+                tbCrystalAmount.Enabled = true;
+                tbDeuteriumAmount.Enabled = true;
+
+                lblMetalMax.Text = "-";
+                lblCrystalMax.Text = Math.Floor(Math.Min(double.Parse(lblStorageCrystalPlanetValue.Text) - activePlanet.Resources.Crystal, activePlanet.Resources.Metal * crystalFactor / metalFactor)).ToString("N0");
+                lblDeuteriumMax.Text = Math.Floor(Math.Min(double.Parse(lblStorageDeuteriumPlanetValue.Text) - activePlanet.Resources.Deuterium, activePlanet.Resources.Metal * deuteriumFactor / metalFactor)).ToString("N0");
+            }
+            else if (rbCrystal.Checked)
+            {
+                lblMetalFactor.Text = (metalFactor / crystalFactor).ToString("N2");
+                lblCrystalFactor.Text = 1.0.ToString("N2");
+                lblDeuteriumFactor.Text = (deuteriumFactor / crystalFactor).ToString("N2");
+
+                tbMetalAmount.Enabled = true;
+                tbCrystalAmount.Enabled = false;
+                tbDeuteriumAmount.Enabled = true;
+
+                lblMetalMax.Text = Math.Floor(Math.Min(double.Parse(lblStorageMetalPlanetValue.Text) - activePlanet.Resources.Metal, activePlanet.Resources.Crystal * metalFactor / crystalFactor)).ToString("N0");
+                lblCrystalMax.Text = "-";
+                lblDeuteriumMax.Text = Math.Floor(Math.Min(double.Parse(lblStorageDeuteriumPlanetValue.Text) - activePlanet.Resources.Deuterium, activePlanet.Resources.Crystal * deuteriumFactor / crystalFactor)).ToString("N0");
+            }
+            else if (rbDeuterium.Checked)
+            {
+                lblMetalFactor.Text = (metalFactor / deuteriumFactor).ToString("N2");
+                lblCrystalFactor.Text = (crystalFactor / deuteriumFactor).ToString("N2");
+                lblDeuteriumFactor.Text = 1.0.ToString("N2");
+
+                tbMetalAmount.Enabled = true;
+                tbCrystalAmount.Enabled = true;
+                tbDeuteriumAmount.Enabled = false;
+
+                lblMetalMax.Text = Math.Floor(Math.Min(double.Parse(lblStorageMetalPlanetValue.Text) - activePlanet.Resources.Metal, activePlanet.Resources.Deuterium * metalFactor / deuteriumFactor)).ToString("N0");
+                lblCrystalMax.Text = Math.Floor(Math.Min(double.Parse(lblStorageCrystalPlanetValue.Text) - activePlanet.Resources.Crystal, activePlanet.Resources.Deuterium * crystalFactor / deuteriumFactor)).ToString("N0");
+                lblDeuteriumMax.Text = "-";
+            }
+
+            tbMetalAmount.Text = "";
+            tbCrystalAmount.Text = "";
+            tbDeuteriumAmount.Text = "";
+
+            EnableMerchantButton();
+        }
+        
+        private void EnableMerchantButton()
+        {
+            /*double metalFactor = double.Parse(lblTotalMetalProduction.Text);
+            double crystalFactor = double.Parse(lblTotalCrystalProduction.Text);
+            double deuteriumFactor = double.Parse(lblTotalDeuteriumProduction.Text);*/
+
+            double metalFactor = 3.0;
+            double crystalFactor = 2.0;
+            double deuteriumFactor = 1.0;
+
+            if (rbMetal.Checked)
+            {
+                if (double.TryParse(tbCrystalAmount.Text, out double crystalAmount)) { }
+                else { crystalAmount = 0.0; }
+
+                if (double.TryParse(tbDeuteriumAmount.Text, out double deuteriumAmount)) { }
+                else { deuteriumAmount = 0.0; }
+
+                double metalAmount = crystalAmount * metalFactor / crystalFactor + deuteriumAmount * metalFactor / deuteriumFactor;
+                tbMetalAmount.Text = metalAmount.ToString("N0");
+
+                if (crystalAmount > Math.Floor(Math.Min(double.Parse(lblStorageCrystalPlanetValue.Text) - activePlanet.Resources.Crystal, activePlanet.Resources.Metal * crystalFactor / metalFactor))
+                 || deuteriumAmount > Math.Floor(Math.Min(double.Parse(lblStorageDeuteriumPlanetValue.Text) - activePlanet.Resources.Deuterium, activePlanet.Resources.Metal * deuteriumFactor / metalFactor))
+                 || metalAmount > activePlanet.Resources.Metal)
+                {
+                    btnExchange.Enabled = false;
+                    btnExchange.BackColor = Color.Silver;
+                }
+                else
+                {
+                    btnExchange.Enabled = true;
+                    btnExchange.BackColor = Color.Lime;
+                }
+
+                return;
+            }
+
+            if (rbCrystal.Checked)
+            {
+                if (double.TryParse(tbMetalAmount.Text, out double metalAmount)) { }
+                else { metalAmount = 0.0; }
+
+                if (double.TryParse(tbDeuteriumAmount.Text, out double deuteriumAmount)) { }
+                else { deuteriumAmount = 0.0; }
+
+                double crystalAmount = metalAmount * crystalFactor / metalFactor + deuteriumAmount * crystalFactor / deuteriumFactor;
+                tbCrystalAmount.Text = crystalAmount.ToString("N0");
+
+                if (metalAmount > Math.Floor(Math.Min(double.Parse(lblStorageMetalPlanetValue.Text) - activePlanet.Resources.Metal, activePlanet.Resources.Crystal * metalFactor / crystalFactor))
+                 || deuteriumAmount > Math.Floor(Math.Min(double.Parse(lblStorageDeuteriumPlanetValue.Text) - activePlanet.Resources.Deuterium, activePlanet.Resources.Crystal * deuteriumFactor / crystalFactor))
+                 || crystalAmount > activePlanet.Resources.Crystal)
+                {
+                    btnExchange.Enabled = false;
+                    btnExchange.BackColor = Color.Silver;
+                }
+                else
+                {
+                    btnExchange.Enabled = true;
+                    btnExchange.BackColor = Color.Lime;
+                }
+
+                return;
+            }
+
+            if (rbDeuterium.Checked)
+            {
+                if (double.TryParse(tbMetalAmount.Text, out double metalAmount)) { }
+                else { metalAmount = 0.0; }
+
+                if (double.TryParse(tbCrystalAmount.Text, out double crystalAmount)) { }
+                else { crystalAmount = 0.0; }
+
+                double deuteriumAmount = metalAmount * deuteriumFactor / metalFactor + crystalAmount * deuteriumFactor / crystalFactor;
+                tbDeuteriumAmount.Text = deuteriumAmount.ToString("N0");
+
+                if (metalAmount > Math.Floor(Math.Min(double.Parse(lblStorageMetalPlanetValue.Text) - activePlanet.Resources.Metal, activePlanet.Resources.Deuterium * metalFactor / deuteriumFactor))
+                 || crystalAmount > Math.Floor(Math.Min(double.Parse(lblStorageCrystalPlanetValue.Text) - activePlanet.Resources.Crystal, activePlanet.Resources.Deuterium * crystalFactor / deuteriumFactor))
+                 || deuteriumAmount > activePlanet.Resources.Deuterium)
+                {
+                    btnExchange.Enabled = false;
+                    btnExchange.BackColor = Color.Silver;
+                }
+                else
+                {
+                    btnExchange.Enabled = true;
+                    btnExchange.BackColor = Color.Lime;
+                }
+
+                return;
+            }
+        }
+
+        private void EnableMerchantSection()
+        {
+            rbMetal.Enabled = true;
+            rbCrystal.Enabled = true;
+            rbDeuterium.Enabled = true;
+        }
+        
+        private void FillFleetTab()
+        {
+            CreateTargetComboBox();
+        }
+        
+        private void CreateTargetComboBox()
+        {
+            cbFleetTarget.Items.Clear();
+
+            if (ogame.Planets.Count > 1)
+            {
+                for (int i = 0; i < ogame.Planets.Count; i++)
+                {
+                    if (ogame.Planets[i] == activePlanet)
+                    {
+                        continue;
+                    }
+                    cbFleetTarget.Items.Add($"{ogame.Planets[i].PlanetName} {ogame.Planets[i].Position}");
+                }
+            }
+
+            cbFleetTarget.SelectedItem = "";
+        }
         #endregion
 
         #region Upgrade / Construct Buttons
@@ -1569,7 +1850,7 @@ namespace MinerGame
         private bool IsUpgradeInProgress(Item item)
         {
             if (OGame.Researches.ContainsKey(item)) { return IsAnyResearchInProgress() || AreAnyResearchLabInBuilding(); }
-            return IsAnyBuildingInProgress();
+            return IsAnyBuildingInProgress(item);
         }
 
         private bool IsUpgradeInProgress()
@@ -1577,14 +1858,23 @@ namespace MinerGame
             return activePlanet.Buildings[Item.SHIPYARD].IsProcessing || activePlanet.Buildings[Item.NANITE_FACTORY].IsProcessing;
         }
 
-        private bool IsAnyBuildingInProgress()
+        private bool IsAnyBuildingInProgress(Item item)
         {
-            foreach (Item item in activePlanet.Buildings.Keys)
+            if (activePlanet.Buildings.Where(b => b.Value.IsProcessing).ToList().Count > 0)
             {
-                if (item == Item.RESEARCH_LAB && IsAnyResearchInProgress()) { return true; }
-
-                if (activePlanet.Buildings[item].IsProcessing) { return true; }
+                return true;
             }
+
+            if (item == Item.SHIPYARD || item == Item.NANITE_FACTORY)
+            {
+                return activePlanet.IsShipyardWorking;
+            }
+
+            if (item == Item.RESEARCH_LAB)
+            {
+                return IsAnyResearchInProgress();
+            }
+
             return false;
         }
 
@@ -1784,6 +2074,18 @@ namespace MinerGame
 
             return newLastUpdate;
         }
+        
+        private int FindTargetId()
+        {
+            for (int i = 0; i < cbPlanetSelect.Items.Count; i++)
+            {
+                if (cbPlanetSelect.Items[i].Equals(cbFleetTarget.SelectedItem))
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
         #endregion
 
         #region Starter Pack
@@ -1818,6 +2120,9 @@ namespace MinerGame
             //}            
         }
 
+
         #endregion
+
+
     }
 }

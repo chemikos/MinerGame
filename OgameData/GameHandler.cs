@@ -291,11 +291,23 @@ namespace OgameData
             return false;
         }
 
-        public static double MaxUnits(Item item, Resources resources)
+        public static double MaxUnits(Item item, Planet planet)
         {
-            double metalMin = GameData.COST[item][Item.METAL] == 0.0 ? double.PositiveInfinity : Math.Floor(resources.Metal / GameData.COST[item][Item.METAL]);
-            double crystalMin = GameData.COST[item][Item.CRYSTAL] == 0.0 ? double.PositiveInfinity : Math.Floor(resources.Crystal / GameData.COST[item][Item.CRYSTAL]);
-            double deuteriumMin = GameData.COST[item][Item.DEUTERIUM] == 0.0 ? double.PositiveInfinity : Math.Floor(resources.Deuterium / GameData.COST[item][Item.DEUTERIUM]);
+            double metalMin = GameData.COST[item][Item.METAL] == 0.0 ? double.PositiveInfinity : Math.Floor(planet.Resources.Metal / GameData.COST[item][Item.METAL]);
+            double crystalMin = GameData.COST[item][Item.CRYSTAL] == 0.0 ? double.PositiveInfinity : Math.Floor(planet.Resources.Crystal / GameData.COST[item][Item.CRYSTAL]);
+            double deuteriumMin = GameData.COST[item][Item.DEUTERIUM] == 0.0 ? double.PositiveInfinity : Math.Floor(planet.Resources.Deuterium / GameData.COST[item][Item.DEUTERIUM]);
+
+            if (item == Item.ANTI_BALLISTIC_MISSILE)
+            {
+                double anti = planet.Buildings[Item.MISSILE_SILO].Level * 10 - planet.Defences[item] - planet.Defences[item + 1] * 2;
+                return Math.Min(anti, Math.Min(metalMin, Math.Min(crystalMin, deuteriumMin)));
+            }
+
+            if (item == Item.INTERPLANETARY_MISSILE)
+            {
+                double inter = planet.Buildings[Item.MISSILE_SILO].Level * 5 - Math.Floor((planet.Defences[item - 1] + 1) / 2) - planet.Defences[item];
+                return Math.Min(inter, Math.Min(metalMin, Math.Min(crystalMin, deuteriumMin)));
+            }
 
             return Math.Min(metalMin, Math.Min(crystalMin, deuteriumMin));
         }
