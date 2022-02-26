@@ -1637,7 +1637,7 @@ namespace MinerGame
 
             lblTotalMetalProductionMine.Text = resourcesDataView.Mines.Metal.ToString("N0");
             lblTotalCrystalProductionMine.Text = resourcesDataView.Mines.Crystal.ToString("N0");
-            lblTotalDeuteriumProductionMine.Text = resourcesDataView.Mines.Crystal.ToString("N0");
+            lblTotalDeuteriumProductionMine.Text = resourcesDataView.Mines.Deuterium.ToString("N0");
 
             lblTotalMetalProductionPlasma.Text = resourcesDataView.Plasma.Metal.ToString("N0");
             lblTotalCrystalProductionPlasma.Text = resourcesDataView.Plasma.Crystal.ToString("N0");
