@@ -257,13 +257,15 @@ namespace OgameData
         //temperature
         public static int RandomTemperature()
         {
-            return new Random().Next(-130, -99);
+            //return new Random().Next(-130, -99);
+            return -130;
         }
 
         //diameter
         public static int RandomPlanetSize()
         {
-            return new Random().Next(14500, 16001);
+            //return new Random().Next(14500, 16001);
+            return 20000;
         }
 
         //position

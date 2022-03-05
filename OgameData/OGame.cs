@@ -79,6 +79,9 @@ namespace OgameData
 
         private void UpdateResourcesStorageLimit(Planet p, TimeSpan duration)
         {
+            // zakomentowany kod służy do ograniczenia wydobycia do pojemności magazynów
+            // wyłączyłem to, bo tak
+
             Resources production = GameHandler.PlanetProduction(p);
             production.Multiply(duration.TotalSeconds / 3600);
 

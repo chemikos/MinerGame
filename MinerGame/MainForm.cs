@@ -444,6 +444,13 @@ namespace MinerGame
         {
             EnableSendButton();
         }
+
+        private void BtnAllResources_Click(object sender, EventArgs e)
+        {
+            tbMetalCargo.Text = activePlanet.Resources.Metal.ToString("N0");
+            tbCrystalCargo.Text = activePlanet.Resources.Crystal.ToString("N0");
+            tbDeuteriumCargo.Text = activePlanet.Resources.Deuterium.ToString("N0");
+        }
         #endregion
 
         #region Lists initializers
@@ -715,7 +722,7 @@ namespace MinerGame
                 { Item.HEAVY_FIGHTER, new Label[] { lblHeavyFighterMetalCost, lblHeavyFighterCrystalCost, lblHeavyFighterDeuteriumCost } },
                 { Item.CRUISER, new Label[] { lblCruiserMetalCost, lblCruiserCrystalCost, lblCruiserDeuteriumCost } },
                 { Item.BATTLESHIP, new Label[] { lblBattleshipMetalCost, lblBattleshipCrystalCost, lblBattleshipDeuteriumCost } },
-                { Item.BATTLECRUISER, new Label[] { lblBattlecruiserMetalCost, lblBattlecruiserCrystalCost, lblBattleshipDeuteriumCost } },
+                { Item.BATTLECRUISER, new Label[] { lblBattlecruiserMetalCost, lblBattlecruiserCrystalCost, lblBattlecruiserDeuteriumCost } },
                 { Item.BOMBER, new Label[] { lblBomberMetalCost, lblBomberCrystalCost, lblBomberDeuteriumCost } },
                 { Item.DESTROYER, new Label[] { lblDestroyerMetalCost, lblDestroyerCrystalCost, lblDestroyerDeuteriumCost } },
                 { Item.DEATHSTAR, new Label[] { lblDeathstarMetalCost, lblDeathstarCrystalCost, lblDeathstarDeuteriumCost } },
@@ -1071,6 +1078,7 @@ namespace MinerGame
             FillStorageInfo();
             FillResourceInfo();
             FillPlanetCountInfo();
+            FillTimeEventInfo();
         }
 
         private void FillGameInfoGroupBox()
@@ -1199,6 +1207,66 @@ namespace MinerGame
             {
                 btnDeletePlanet.Enabled = false;
                 btnDeletePlanet.BackColor = Color.Silver;
+            }
+        }
+
+        private void FillTimeEventInfo()
+        {
+            if (OGame.TimeEvents.Count > 0)
+            {
+                Planet planet0 = FindPlanetByID(OGame.TimeEvents[0].PlanetID);
+                Item item0 = OGame.TimeEvents[0].Item;
+
+                double upgarde0;
+                if (OGame.Researches.ContainsKey(item0)) { upgarde0 = OGame.Researches[item0].Level + 1; }
+                else if (planet0.Buildings.ContainsKey(item0)) { upgarde0 = planet0.Buildings[item0].Level + 1; }
+                else { upgarde0 = OGame.TimeEvents[0].UnitCount; }
+
+                var duration0 = OGame.TimeEvents[0].ProcessFinish - ogame.LastUpdate;
+                lblTimeEvent0.Text = planet0.PlanetName.ToString() + " - " + GameData.NAME[item0] + " - " + upgarde0.ToString() + " - " + duration0.ToString("d'd 'hh'h 'mm'm 'ss's'");
+
+                if (OGame.TimeEvents.Count > 1)
+                {
+                    Planet planet1 = FindPlanetByID(OGame.TimeEvents[1].PlanetID);
+                    Item item1 = OGame.TimeEvents[1].Item;
+
+                    double upgarde1;
+                    if (OGame.Researches.ContainsKey(item1)) { upgarde1 = OGame.Researches[item1].Level + 1; }
+                    else if (planet1.Buildings.ContainsKey(item1)) { upgarde1 = planet1.Buildings[item1].Level + 1; }
+                    else { upgarde1 = OGame.TimeEvents[1].UnitCount; }
+
+                    var duration1 = OGame.TimeEvents[1].ProcessFinish - ogame.LastUpdate;
+                    lblTimeEvent1.Text = planet1.PlanetName.ToString() + " - " + GameData.NAME[item1] + " - " + upgarde1.ToString() + " - " + duration1.ToString("d'd 'hh'h 'mm'm 'ss's'");
+
+                    if (OGame.TimeEvents.Count > 2)
+                    {
+                        Planet planet2 = FindPlanetByID(OGame.TimeEvents[2].PlanetID);
+                        Item item2 = OGame.TimeEvents[2].Item;
+
+                        double upgarde2;
+                        if (OGame.Researches.ContainsKey(item2)) { upgarde2 = OGame.Researches[item2].Level + 1; }
+                        else if (planet2.Buildings.ContainsKey(item2)) { upgarde2 = planet2.Buildings[item2].Level + 1; }
+                        else { upgarde2 = OGame.TimeEvents[2].UnitCount; }
+
+                        var duration2 = OGame.TimeEvents[2].ProcessFinish - ogame.LastUpdate;
+                        lblTimeEvent2.Text = planet2.PlanetName.ToString() + " - " + GameData.NAME[item2] + " - " + upgarde2.ToString() + " - " + duration2.ToString("d'd 'hh'h 'mm'm 'ss's'");
+                    }
+                    else
+                    {
+                        lblTimeEvent2.Text = "";
+                    }
+                }
+                else
+                {
+                    lblTimeEvent1.Text = "";
+                    lblTimeEvent2.Text = "";
+                }
+            }
+            else
+            {
+                lblTimeEvent0.Text = "";
+                lblTimeEvent1.Text = "";
+                lblTimeEvent2.Text = "";
             }
         }
         #endregion
@@ -1563,28 +1631,32 @@ namespace MinerGame
 
                 for (int j = 0; j < resourcesPanel.Count; j++)
                 {
-                    int lvl = ogame.Planets.ElementAt(i).Buildings[(Item)(7 + j)].Level;
-                    double mine = GameHandler.MetalMineProduction(lvl);
+                    int lvlMine = ogame.Planets.ElementAt(i).Buildings[(Item)(7 + j)].Level;
+                    int lvlStorage = ogame.Planets.ElementAt(i).Buildings[(Item)(12 + j)].Level;
+
+                    double mine = GameHandler.MetalMineProduction(lvlMine);
                     double plasma = GameHandler.PlasmaProduction(mine, (Item)j, OGame.Researches[Item.PLASMA_TECHNOLOGY].Level);
                     double crawlers = GameHandler.CrawlersProduction(mine, (Item)j, ogame.Planets.ElementAt(i).Defences[Item.CRAWLER]);
                     double basic = OGame.GameSpeed * GameData.BASIC_PRODUCTION[(Item)j];
                     double total = mine + plasma + crawlers + basic;
 
-                    resourcesDataView.MinesLevel[j] += lvl;
+                    resourcesDataView.MinesLevel[j] += lvlMine;
+                    resourcesDataView.StorageLevel[j] += lvlStorage;
                     resourcesDataView.Mines.Add(mine, (Item)j);
                     resourcesDataView.Plasma.Add(plasma, (Item)j);
                     resourcesDataView.Crawlers.Add(crawlers, (Item)j);
                     resourcesDataView.Basic.Add(basic, (Item)j);
 
-                    resourcesPanel[j].Controls[0].Text = lvl.ToString("N0");
-                    resourcesPanel[j].Controls[1].Text = total.ToString("N0");
-                    resourcesPanel[j].Controls[2].Text = mine.ToString("N0");
-                    resourcesPanel[j].Controls[3].Text = plasma.ToString("N0");
-                    resourcesPanel[j].Controls[4].Text = crawlers.ToString("N0");
-                    resourcesPanel[j].Controls[5].Text = basic.ToString("N0");
+                    resourcesPanel[j].Controls[0].Text = lvlMine.ToString("N0");
+                    resourcesPanel[j].Controls[1].Text = lvlStorage.ToString("N0");
+                    resourcesPanel[j].Controls[2].Text = total.ToString("N0");
+                    resourcesPanel[j].Controls[3].Text = mine.ToString("N0");
+                    resourcesPanel[j].Controls[4].Text = plasma.ToString("N0");
+                    resourcesPanel[j].Controls[5].Text = crawlers.ToString("N0");
+                    resourcesPanel[j].Controls[6].Text = basic.ToString("N0");
                     if (total == 0)
                     {
-                        resourcesPanel[j].Controls[6].Text = "";
+                        resourcesPanel[j].Controls[7].Text = "";
                     }
                     else
                     {
@@ -1599,7 +1671,7 @@ namespace MinerGame
                             minStorageTime[(Item)j] = minStorageTime[(Item)j] > time ? time : minStorageTime[(Item)j];
                         }
 
-                        resourcesPanel[j].Controls[6].Text = time.ToString("d'd 'hh'h 'mm'm 'ss's'");
+                        resourcesPanel[j].Controls[7].Text = time.ToString("d'd 'hh'h 'mm'm 'ss's'");
                     }                    
                 }
             }
@@ -1615,8 +1687,10 @@ namespace MinerGame
             if (item == Item.METAL) { resource = ogame.Planets.ElementAt(planetIndex).Resources.Metal; }
             if (item == Item.CRYSTAL) { resource = ogame.Planets.ElementAt(planetIndex).Resources.Crystal; }
             if (item == Item.DEUTERIUM) { resource = ogame.Planets.ElementAt(planetIndex).Resources.Deuterium; }
-            
-            return TimeSpan.FromSeconds((storage - resource) / (production / 3600));
+
+            double space = (storage - resource) > 0 ? storage - resource : 0.0;
+
+            return TimeSpan.FromSeconds(space / (production / 3600));
         }
 
         private void FillTotalResourcesSection(TotalResourcesDataView resourcesDataView, Dictionary<Item, TimeSpan> minStorageTime)
@@ -1630,6 +1704,10 @@ namespace MinerGame
             lblTotalMetalMineLevel.Text = resourcesDataView.MinesLevel[0].ToString("N0");
             lblTotalCrystalMineLevel.Text = resourcesDataView.MinesLevel[1].ToString("N0");
             lblTotalDeuteriumSynthesizerLevel.Text = resourcesDataView.MinesLevel[2].ToString("N0");
+
+            lblTotalMetalStorageLevel.Text = resourcesDataView.StorageLevel[0].ToString("N0");
+            lblTotalCrystalStorageLevel.Text = resourcesDataView.StorageLevel[1].ToString("N0");
+            lblTotalDeuteriumTankLevel.Text = resourcesDataView.StorageLevel[2].ToString("N0");
 
             lblTotalMetalProduction.Text = total.Metal.ToString("N0");
             lblTotalCrystalProduction.Text = total.Crystal.ToString("N0");
@@ -1698,7 +1776,7 @@ namespace MinerGame
             panel.Controls.Add(CreateResourcePanel(Item.DEUTERIUM));
 
             panel.Location = new Point(160, 0);
-            panel.Size = new Size(1010, 75);
+            panel.Size = new Size(1080, 75);
 
             return panel;
         }
@@ -1711,29 +1789,30 @@ namespace MinerGame
             Panel panel = new();
             panel.BackColor = color;
 
-            panel.Controls.Add(CreateLevelLabel());
-            panel.Controls.Add(CreateDetailLabel(50));
-            panel.Controls.Add(CreateDetailLabel(210));
-            panel.Controls.Add(CreateDetailLabel(370));
-            panel.Controls.Add(CreateDetailLabel(530));
-            panel.Controls.Add(CreateDetailLabel(690));
-            panel.Controls.Add(CreateDetailLabel(850));
+            panel.Controls.Add(CreateLevelLabel(0));
+            panel.Controls.Add(CreateLevelLabel(60));
+            panel.Controls.Add(CreateDetailLabel(120));
+            panel.Controls.Add(CreateDetailLabel(280));
+            panel.Controls.Add(CreateDetailLabel(440));
+            panel.Controls.Add(CreateDetailLabel(600));
+            panel.Controls.Add(CreateDetailLabel(760));
+            panel.Controls.Add(CreateDetailLabel(920));
 
             panel.Location = new Point(0, y);
-            panel.Size = new Size(1010, 25);
+            panel.Size = new Size(1080, 25);
 
             return panel;
         }
 
-        private Label CreateLevelLabel()
+        private Label CreateLevelLabel(int x)
         {
             Label label = new();
 
             label.BackColor = Color.Transparent;
             label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label.ForeColor = SystemColors.ControlText;
-            label.Location = new Point(0, 0);
-            label.Size = new Size(50, 25);
+            label.Location = new Point(x, 0);
+            label.Size = new Size(60, 25);
             label.TextAlign = ContentAlignment.MiddleCenter;
 
             return label;
@@ -1928,6 +2007,7 @@ namespace MinerGame
             rbMetal.Enabled = true;
             rbCrystal.Enabled = true;
             rbDeuterium.Enabled = true;
+            btnAllResources.Enabled = true;
         }
         
         private void FillFleetTab()
@@ -2186,6 +2266,10 @@ namespace MinerGame
             return maxPlanetID + 1;
         }
 
+        private Planet FindPlanetByID(int id)
+        {
+            return ogame.Planets.Where(p => p.PlanetID == id).ToList()[0];
+        }
         private void RemoveTimeEventsAfterRemovePlanet()
         {
             List<int> indexes = new();
@@ -2306,6 +2390,7 @@ namespace MinerGame
             //    ogame.Planets.ElementAt(0).UpgradeBuilding(Item.ROBOTICS_FACTORY);
             //}            
         }
+
 
 
 
