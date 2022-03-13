@@ -21,6 +21,7 @@ namespace MinerGame
         private Dictionary<Item, Label> BuildingLevelLabelList;
         private Dictionary<Item, Label[]> ResearchCostLabelsList;
         private Dictionary<Item, Label[]> BuildingCostLabelsList;
+        private Dictionary<Item, Label[]> BuildingResourcesCollectTimeLabelsList;
         private Dictionary<Item, Label> ResearchDurationLabelList;
         private Dictionary<Item, Label> BuildingDurationLabelList;
         private Dictionary<Item, Button> ResearchUpgradeButtonList;
@@ -465,6 +466,7 @@ namespace MinerGame
 
             InitResearchCostLabelList();
             InitBuildingCostLabelList();
+            InitBuildingResourcesCollectTimeLabelsList();
             InitUnitCostLabel();
 
             InitResearchDurationLabelList();
@@ -517,7 +519,7 @@ namespace MinerGame
                 { Item.COMBUSTION_DRIVE, lblCombustionDrive },
                 { Item.IMPULSE_DRIVE, lblImpulseDrive },
                 { Item.HYPERSPACE_DRIVE, lblHyperspaceDrive },
-                { Item.WEAPONS_TECHNOLOGY, lblWeapeonsTechnology },
+                { Item.WEAPONS_TECHNOLOGY, lblWeaponsTechnology },
                 { Item.SHIELDING_TECHNOLOGY, lblShieldingTechnology },
                 { Item.ARMOUR_TECHNOLOGY, lblArmourTechnology },
                 { Item.ENERGY_TECHNOLOGY, lblEnergyTechnology },
@@ -576,7 +578,7 @@ namespace MinerGame
                 { Item.COMBUSTION_DRIVE, lblCombustionDriveLevel },
                 { Item.IMPULSE_DRIVE, lblImpulseDriveLevel },
                 { Item.HYPERSPACE_DRIVE, lblHyperspaceDriveLevel },
-                { Item.WEAPONS_TECHNOLOGY, lblWeapeonsTechnologyLevel },
+                { Item.WEAPONS_TECHNOLOGY, lblWeaponsTechnologyLevel },
                 { Item.SHIELDING_TECHNOLOGY, lblShieldingTechnologyLevel },
                 { Item.ARMOUR_TECHNOLOGY, lblArmourTechnologyLevel },
                 { Item.ENERGY_TECHNOLOGY, lblEnergyTechnologyLevel },
@@ -662,22 +664,22 @@ namespace MinerGame
         {
             ResearchCostLabelsList = new Dictionary<Item, Label[]>()
             {
-                { Item.ESPIONAGE_TECHNOLOGY, new Label[] { lblEspionageTechnologyMetalCost, lblEspionageTechnologyCrystalCost, lblEspionageTechnologyDeuteriumCost } },
-                { Item.COMPUTER_TECHNOLOGY, new Label[] { lblComputerTechnologyMetalCost, lblComputerTechnologyCrystalCost, lblComputerTechnologyDeuteriumCost } },
-                { Item.COMBUSTION_DRIVE, new Label[] { lblCombustionDriveMetalCost, lblCombustionDriveCrystalCost, lblCombustionDriveDeuteriumCost } },
-                { Item.IMPULSE_DRIVE, new Label[] { lblImpulseDriveMetalCost, lblImpulseDriveCrystalCost, lblImpulseDriveDeuteriumCost } },
-                { Item.HYPERSPACE_DRIVE, new Label[] { lblHyperspaceDriveMetalCost, lblHyperspaceDriveCrystalCost, lblHyperspaceDriveDeuteriumCost } },
-                { Item.WEAPONS_TECHNOLOGY, new Label[] { lblWeapeonsTechnologyMetalCost, lblWeapeonsTechnologyCrystalCost, lblWeapeonsTechnologyDeuteriumCost } },
-                { Item.SHIELDING_TECHNOLOGY, new Label[] { lblShieldingTechnologyMetalCost, lblShieldingTechnologyCrystalCost, lblShieldingTechnologyDeuteriumCost } },
-                { Item.ARMOUR_TECHNOLOGY, new Label[] { lblArmourTechnologyMetalCost, lblArmourTechnologyCrystalCost, lblArmourTechnologyDeuteriumCost } },
-                { Item.ENERGY_TECHNOLOGY, new Label[] { lblEnergyTechnologyMetalCost, lblEnergyTechnologyCrystalCost, lblEnergyTechnologyDeuteriumCost } },
-                { Item.LASER_TECHNOLOGY, new Label[] { lblLaserTechnologyMetalCost, lblLaserTechnologyCrystalCost, lblLaserTechnologyDeuteriumCost } },
-                { Item.ION_TECHNOLOGY, new Label[] { lblIonTechnologyMetalCost, lblIonTechnologyCrystalCost, lblIonTechnologyDeuteriumCost } },
-                { Item.HYPERSPACE_TECHNOLOGY, new Label[] { lblHyperspaceTechnologyMetalCost, lblHyperspaceTechnologyCrystalCost, lblHyperspaceTechnologyDeuteriumCost } },
-                { Item.PLASMA_TECHNOLOGY, new Label[] { lblPlasmaTechnologyMetalCost, lblPlasmaTechnologyCrystalCost, lblPlasmaTechnologyDeuteriumCost } },
-                { Item.ASTROPHISICS, new Label[] { lblAstrophisicsMetalCost, lblAstrophisicsCrystalCost, lblAstrophisicsDeuteriumCost } },
-                { Item.IRN, new Label[] { lblIrnMetalCost, lblIrnCrystalCost, lblIrnDeuteriumCost } },
-                { Item.GRAVITON_TECHNOLOGY, new Label[] { lblGravitonTechnologyMetalCost, lblGravitonTechnologyCrystalCost, lblGravitonTechnologyDeuteriumCost } }
+                { Item.ESPIONAGE_TECHNOLOGY, new Label[] { lblEspionageTechnologyMetalCost, lblEspionageTechnologyCrystalCost, lblEspionageTechnologyDeuteriumCost, lblEspionageTechnologyTotalDeuteriumCost, lblEspionageTechnologyTotalCost, lblEspionageTechnologyCollectTime } },
+                { Item.COMPUTER_TECHNOLOGY, new Label[] { lblComputerTechnologyMetalCost, lblComputerTechnologyCrystalCost, lblComputerTechnologyDeuteriumCost, lblComputerTechnologyTotalDeuteriumCost, lblComputerTechnologyTotalCost, lblComputerTechnologyCollectTime } },
+                { Item.COMBUSTION_DRIVE, new Label[] { lblCombustionDriveMetalCost, lblCombustionDriveCrystalCost, lblCombustionDriveDeuteriumCost, lblCombustionDriveTotalDeuteriumCost, lblCombustionDriveTotalCost, lblCombustionDriveCollectTime } },
+                { Item.IMPULSE_DRIVE, new Label[] { lblImpulseDriveMetalCost, lblImpulseDriveCrystalCost, lblImpulseDriveDeuteriumCost, lblImpulseDriveTotalDeuteriumCost, lblImpulseDriveTotalCost, lblImpulseDriveCollectTime } },
+                { Item.HYPERSPACE_DRIVE, new Label[] { lblHyperspaceDriveMetalCost, lblHyperspaceDriveCrystalCost, lblHyperspaceDriveDeuteriumCost, lblHyperspaceDriveTotalDeuteriumCost, lblHyperspaceDriveTotalCost, lblHyperspaceDriveCollectTime } },
+                { Item.WEAPONS_TECHNOLOGY, new Label[] { lblWeaponsTechnologyMetalCost, lblWeaponsTechnologyCrystalCost, lblWeaponsTechnologyDeuteriumCost, lblWeaponsTechnologyTotalDeuteriumCost, lblWeaponsTechnologyTotalCost, lblWeaponsTechnologyCollectTime } },
+                { Item.SHIELDING_TECHNOLOGY, new Label[] { lblShieldingTechnologyMetalCost, lblShieldingTechnologyCrystalCost, lblShieldingTechnologyDeuteriumCost, lblShieldingTechnologyTotalDeuteriumCost, lblShieldingTechnologyTotalCost, lblShieldingTechnologyCollectTime } },
+                { Item.ARMOUR_TECHNOLOGY, new Label[] { lblArmourTechnologyMetalCost, lblArmourTechnologyCrystalCost, lblArmourTechnologyDeuteriumCost, lblArmourTechnologyTotalDeuteriumCost, lblArmourTechnologyTotalCost, lblArmourTechnologyCollectTime } },
+                { Item.ENERGY_TECHNOLOGY, new Label[] { lblEnergyTechnologyMetalCost, lblEnergyTechnologyCrystalCost, lblEnergyTechnologyDeuteriumCost, lblEnergyTechnologyTotalDeuteriumCost, lblEnergyTechnologyTotalCost, lblEnergyTechnologyCollectTime } },
+                { Item.LASER_TECHNOLOGY, new Label[] { lblLaserTechnologyMetalCost, lblLaserTechnologyCrystalCost, lblLaserTechnologyDeuteriumCost, lblLaserTechnologyTotalDeuteriumCost, lblLaserTechnologyTotalCost, lblLaserTechnologyCollectTime } },
+                { Item.ION_TECHNOLOGY, new Label[] { lblIonTechnologyMetalCost, lblIonTechnologyCrystalCost, lblIonTechnologyDeuteriumCost, lblIonTechnologyTotalDeuteriumCost, lblIonTechnologyTotalCost, lblIonTechnologyCollectTime } },
+                { Item.HYPERSPACE_TECHNOLOGY, new Label[] { lblHyperspaceTechnologyMetalCost, lblHyperspaceTechnologyCrystalCost, lblHyperspaceTechnologyDeuteriumCost, lblHyperspaceTechnologyTotalDeuteriumCost, lblHyperspaceTechnologyTotalCost, lblHyperspaceTechnologyCollectTime } },
+                { Item.PLASMA_TECHNOLOGY, new Label[] { lblPlasmaTechnologyMetalCost, lblPlasmaTechnologyCrystalCost, lblPlasmaTechnologyDeuteriumCost, lblPlasmaTechnologyTotalDeuteriumCost, lblPlasmaTechnologyTotalCost, lblPlasmaTechnologyCollectTime } },
+                { Item.ASTROPHISICS, new Label[] { lblAstrophisicsMetalCost, lblAstrophisicsCrystalCost, lblAstrophisicsDeuteriumCost, lblAstrophisicsTotalDeuteriumCost, lblAstrophisicsTotalCost, lblAstrophisicsColletTime } },
+                { Item.IRN, new Label[] { lblIrnMetalCost, lblIrnCrystalCost, lblIrnDeuteriumCost, lblIrnTotalDeuteriumCost, lblIrnTotalCost, lblIrnCollectTime } },
+                //{ Item.GRAVITON_TECHNOLOGY, new Label[] { lblGravitonTechnologyMetalCost, lblGravitonTechnologyCrystalCost, lblGravitonTechnologyDeuteriumCost } }
 
             };
         }
@@ -706,6 +708,17 @@ namespace MinerGame
                 { Item.LUNAR_BASE, new Label[] { lblLunarBaseMetalCost, lblLunarBaseCrystalCost, lblLunarBaseDeuteriumCost } },
                 { Item.SENSOR_PHALANX, new Label[] { lblSensorPhalanxMetalCost, lblSensorPhalanxCrystalCost, lblSensorPhalanxDeuteriumCost } },
                 { Item.JUMP_GATE, new Label[] { lblJumpGateMetalCost, lblJumpGateCrystalCost, lblJumpGateDeuteriumCost } }
+            };
+        }
+
+        private void InitBuildingResourcesCollectTimeLabelsList()
+        {
+            BuildingResourcesCollectTimeLabelsList = new Dictionary<Item, Label[]>()
+            {
+                { Item.METAL_MINE, new Label[] { lblMetalMineTotalDeuteriumCost, lblMetalMineCollectTime } },
+                { Item.CRYSTAL_MINE, new Label[] { lblCrystalMineTotalDeuteriumCost, lblCrystalMineCollectTime } },
+                { Item.DEUTERIUM_SYNTHESIZER, new Label[] { lblDeuteriumSynthesizerTotalDeuteriumCost, lblDeuteriumSyntesizerCollectTime } },
+                { Item.FUSION_REACTOR, new Label[] { lblFusionReactorTotalDeuteriumCost, lblFusionReactorCollectTime } }
             };
         }
 
@@ -753,7 +766,7 @@ namespace MinerGame
                 { Item.COMBUSTION_DRIVE, lblCombustionDriveDuration },
                 { Item.IMPULSE_DRIVE, lblImpulseDriveDuration },
                 { Item.HYPERSPACE_DRIVE, lblHyperspaceDriveDuration },
-                { Item.WEAPONS_TECHNOLOGY, lblWeapeonsTechnologyDuration },
+                { Item.WEAPONS_TECHNOLOGY, lblWeaponsTechnologyDuration },
                 { Item.SHIELDING_TECHNOLOGY, lblShieldingTechnologyDuration },
                 { Item.ARMOUR_TECHNOLOGY, lblArmourTechnologyDuration },
                 { Item.ENERGY_TECHNOLOGY, lblEnergyTechnologyDuration },
@@ -997,41 +1010,6 @@ namespace MinerGame
                 { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileTimeRemain }
             };
         }
-
-        /*private void InitConstructShadeLabelList()
-        {
-            ConstructShadeLabelList = new Dictionary<Item, Label>()
-            {
-                { Item.SMALL_CARGO, lblSmallCargoShade },
-                { Item.LARGE_CARGO, lblLargeCargoShade },
-                { Item.COLONY_SHIP, lblColonyShipShade },
-                { Item.RECYCLER, lblRecyclerShade },
-                { Item.ESPIONAGE_PROBE, lblEspionageProbeShade },
-                { Item.LIGHT_FIGHTER, lblLightFighterShade },
-                { Item.HEAVY_FIGHTER, lblHeavyFighterShade },
-                { Item.CRUISER, lblCruiserShade },
-                { Item.BATTLESHIP, lblBattleshipShade },
-                { Item.BATTLECRUISER, lblBattlecruiserShade },
-                { Item.BOMBER, lblBomberShade },
-                { Item.DESTROYER, lblDestroyerShade },
-                { Item.DEATHSTAR, lblDeathstarShade },
-                { Item.REAPER, lblReaperShade },
-                { Item.PATHFINDER, lblPathfinderShade },
-
-                { Item.SOLAR_SATELLITE, lblSolarSatelliteShade },
-                { Item.CRAWLER, lblCrawlerShade },
-                { Item.ROCKER_LAUNCHER, lblRocketLauncherShade },
-                { Item.LIGHT_LASER, lblLightLaserShade },
-                { Item.HEAVY_LASER, lblHeavyLaserShade },
-                { Item.GAUSS_CANNON, lblGaussCannonShade },
-                { Item.ION_CANNON, lblIonCannonShade },
-                { Item.PLASMA_TURRET, lblPlasmaTurretShade },
-                { Item.SMALL_SHIELD_DOME, lblSmallShieldDomeShade },
-                { Item.LARGE_SHIELD_DOME, lblLargeShieldDomeShade },
-                { Item.ANTI_BALLISTIC_MISSILE, lblAntiBallisticMissileShade },
-                { Item.INTERPLANETARY_MISSILE, lblInterplanetaryMissileShade }
-            };
-        }*/
 
         private void InitUnitCountTextBoxList()
         {
@@ -1283,9 +1261,8 @@ namespace MinerGame
             FillDefenceCountLabel();
 
             FillBuildingCostAndDurationLabels();
-            FillResearchCostAndDurationLabels();
 
-            FillUnitCostLabels();
+            
             FillUnitDurationLabel();
             FillUnitCountTextBox();
 
@@ -1300,6 +1277,9 @@ namespace MinerGame
             FillUnitTimeRemainLabel();
 
             FillProductionTab();
+            FillUnitCostLabels();
+            FillBuildingResourcesLabels();
+            FillResearchCostAndDurationLabels();
             FillPlanetTab();
             FillMerchantTab();
             FillFleetTab();
@@ -1363,20 +1343,72 @@ namespace MinerGame
             }
         }
 
+        private void FillBuildingResourcesLabels()
+        {
+            double metalFactor = 3.0;
+            double crystalFactor = 2.0;
+            double deuteriumFactor = 1.0;
+
+            double totalResourcesDeuterium = double.Parse(lblMetalTotalValue.Text) * deuteriumFactor / metalFactor
+                               + double.Parse(lblCrystalTotalValue.Text) * deuteriumFactor / crystalFactor
+                               + double.Parse(lblDeuteriumTotalValue.Text);
+
+            double metal = double.Parse(lblTotalMetalProduction.Text) * deuteriumFactor / metalFactor;
+            double crystal = double.Parse(lblTotalCrystalProduction.Text) * deuteriumFactor / crystalFactor;
+            double deuterium = double.Parse(lblTotalDeuteriumProduction.Text);
+
+            double totalProductionDeuterium = (metal + crystal + deuterium) / 3600;
+
+            foreach (Item item in BuildingResourcesCollectTimeLabelsList.Keys)
+            {
+                Resources cost = GameHandler.UpgradeCost(item, activePlanet.Buildings[item].Level + 1);
+                cost.Multiply(ogame.Planets.Count);
+                double totalDeuteriumCost = cost.Metal * deuteriumFactor / metalFactor + cost.Crystal * deuteriumFactor / crystalFactor + cost.Deuterium;
+                BuildingResourcesCollectTimeLabelsList[item].ElementAt(0).Text = totalDeuteriumCost.ToString("N0");
+                BuildingResourcesCollectTimeLabelsList[item].ElementAt(1).Text = (totalDeuteriumCost <= totalResourcesDeuterium
+                                                                ? TimeSpan.FromSeconds(0)
+                                                                : TimeSpan.FromSeconds((totalResourcesDeuterium - totalDeuteriumCost) / totalProductionDeuterium))
+                                                                .ToString("d'd 'hh'h 'mm'm 'ss's'");
+            }
+        }
+
         private void FillResearchCostAndDurationLabels()
         {
             foreach (Item item in ResearchCostLabelsList.Keys)
             {
                 Resources cost = GameHandler.UpgradeCost(item, OGame.Researches[item].Level + 1);
+                double metalFactor = 3.0;
+                double crystalFactor = 2.0;
+                double deuteriumFactor = 1.0;
+
+                double totalDeuteriumCost = cost.Metal * deuteriumFactor / metalFactor + cost.Crystal * deuteriumFactor / crystalFactor + cost.Deuterium;
 
                 ResearchCostLabelsList[item].ElementAt(0).Text = cost.Metal.ToString("N0");
                 ResearchCostLabelsList[item].ElementAt(1).Text = cost.Crystal.ToString("N0");
                 ResearchCostLabelsList[item].ElementAt(2).Text = cost.Deuterium.ToString("N0");
+                ResearchCostLabelsList[item].ElementAt(3).Text = totalDeuteriumCost.ToString("N0");
+                ResearchCostLabelsList[item].ElementAt(4).Text = (cost.Metal + cost.Crystal + cost.Deuterium).ToString("N0");
 
                 int lablvl = GameHandler.LabLevel(activePlanet, ogame.Planets, OGame.Researches[Item.IRN].Level, GameData.REQUIREMENTS[item][Item.RESEARCH_LAB]);
-                ResearchDurationLabelList[item].Text
-                       = GameHandler.ResearchTime(cost, lablvl, OGame.Researches[Item.GRAVITON_TECHNOLOGY].Level)
-                       .ToString("d'd 'hh'h 'mm'm 'ss's'");
+
+                ResearchDurationLabelList[item].Text  = GameHandler.ResearchTime(cost, lablvl, OGame.Researches[Item.GRAVITON_TECHNOLOGY].Level)
+                                                       .ToString("d'd 'hh'h 'mm'm 'ss's'");
+
+                double totalResourcesDeuterium = double.Parse(lblMetalTotalValue.Text) * deuteriumFactor / metalFactor
+                                               + double.Parse(lblCrystalTotalValue.Text) * deuteriumFactor / crystalFactor
+                                               + double.Parse(lblDeuteriumTotalValue.Text);
+
+                double metal = double.Parse(lblTotalMetalProduction.Text) * deuteriumFactor / metalFactor;
+                double crystal = double.Parse(lblTotalCrystalProduction.Text) * deuteriumFactor / crystalFactor;
+                double deuterium = double.Parse(lblTotalDeuteriumProduction.Text);
+
+                double totalProductionDeuterium = (metal + crystal + deuterium) / 3600;
+
+                ResearchCostLabelsList[item].ElementAt(5).Text = (totalDeuteriumCost <= totalResourcesDeuterium
+                                                                ? TimeSpan.FromSeconds(0)
+                                                                : TimeSpan.FromSeconds((totalResourcesDeuterium - totalDeuteriumCost) / totalProductionDeuterium))
+                                                                .ToString("d'd 'hh'h 'mm'm 'ss's'");
+
             }
         }
 
