@@ -1362,7 +1362,7 @@ namespace MinerGame
             foreach (Item item in BuildingResourcesCollectTimeLabelsList.Keys)
             {
                 Resources cost = GameHandler.UpgradeCost(item, activePlanet.Buildings[item].Level + 1);
-                cost.Multiply(ogame.Planets.Count);
+                //cost.Multiply(ogame.Planets.Count);
                 double totalDeuteriumCost = cost.Metal * deuteriumFactor / metalFactor + cost.Crystal * deuteriumFactor / crystalFactor + cost.Deuterium;
                 BuildingResourcesCollectTimeLabelsList[item].ElementAt(0).Text = totalDeuteriumCost.ToString("N0");
                 BuildingResourcesCollectTimeLabelsList[item].ElementAt(1).Text = (totalDeuteriumCost <= totalResourcesDeuterium
