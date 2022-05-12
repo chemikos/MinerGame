@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace MinerGame
@@ -1284,6 +1285,8 @@ namespace MinerGame
             FillMerchantTab();
             FillFleetTab();
             FillPointsTab();
+
+            FillRequirements();
         }
 
         private void FillNameLabels()
@@ -2079,6 +2082,51 @@ namespace MinerGame
             }
 
             cbFleetTarget.SelectedItem = null;
+        }
+        
+        private void FillRequirements()
+        {
+            lblRequirements.Text = "";
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Item item in GameData.REQUIREMENTS.Keys)
+            {
+                if(AreRequirements(item))
+                {
+                    sb.Append(GameData.NAME[item] + " -");
+                    foreach(Item element in GameData.REQUIREMENTS[item].Keys)
+                    {
+                        if (GameData.REQUIREMENTS[item][element] > (OGame.Researches.ContainsKey(element) ? OGame.Researches[element].Level : activePlanet.Buildings[element].Level))
+                        {
+                            sb.Append(" " + GameData.NAME[element] + ": " + GameData.REQUIREMENTS[item][element] + "(" + (OGame.Researches.ContainsKey(element) ? OGame.Researches[element].Level : activePlanet.Buildings[element].Level) + ")" + ";");
+                        }
+                    }
+                    sb.AppendLine();
+                }
+            }
+            lblRequirements.Text = sb.ToString();
+        }
+
+        private bool AreRequirements(Item item)
+        {
+            foreach(Item element in GameData.REQUIREMENTS[item].Keys)
+            {
+                if (OGame.Researches.ContainsKey(element))
+                {
+                    if (GameData.REQUIREMENTS[item][element] > OGame.Researches[element].Level)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    if (GameData.REQUIREMENTS[item][element] > activePlanet.Buildings[element].Level)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
         #endregion
 

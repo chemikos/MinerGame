@@ -52,7 +52,7 @@ namespace OgameData
             GameStart = LastUpdate = DateTime.Now;
             Planets = new List<Planet>()
             {
-                new Planet(1, "Planeta matka")
+                new Planet(1, "P1")
             };
         }
 
