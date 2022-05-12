@@ -8,7 +8,7 @@ namespace OgameData
     public class OGame
     {
         [JsonProperty("GameSpeed")]
-        public static double GameSpeed = 1;
+        public static int GameSpeed = 1;
 
         [JsonProperty("Researches")]
         public static Dictionary<Item, Research> Researches = new()
