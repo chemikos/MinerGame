@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace MinerGame
 {
     partial class MainForm
@@ -78,8 +76,6 @@ namespace MinerGame
             this.lblMetalStorageLevel = new System.Windows.Forms.Label();
             this.lblMetalStorage = new System.Windows.Forms.Label();
             this.pFusionReactor = new System.Windows.Forms.Panel();
-            this.lblFusionReactorCollectTime = new System.Windows.Forms.Label();
-            this.lblFusionReactorTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblFusionReactorTimeRemain = new System.Windows.Forms.Label();
             this.lblFusionReactorProductionIncrease = new System.Windows.Forms.Label();
             this.lblFusionReactorDeuteriumDemand = new System.Windows.Forms.Label();
@@ -101,8 +97,6 @@ namespace MinerGame
             this.lblSolarPlantLevel = new System.Windows.Forms.Label();
             this.lblSolarPlant = new System.Windows.Forms.Label();
             this.pDeuteriumSynthesizer = new System.Windows.Forms.Panel();
-            this.lblDeuteriumSyntesizerCollectTime = new System.Windows.Forms.Label();
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizerTimeRemain = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizerProductionIncrease = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizerEnergyDemand = new System.Windows.Forms.Label();
@@ -114,8 +108,6 @@ namespace MinerGame
             this.lblDeuteriumSynthesizerLevel = new System.Windows.Forms.Label();
             this.lblDeuteriumSynthesizer = new System.Windows.Forms.Label();
             this.pCrystalMine = new System.Windows.Forms.Panel();
-            this.lblCrystalMineCollectTime = new System.Windows.Forms.Label();
-            this.lblCrystalMineTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblCrystalMineTimeRemain = new System.Windows.Forms.Label();
             this.lblCrystalMineProductionIncrease = new System.Windows.Forms.Label();
             this.lblCrystalMineEnergyDemand = new System.Windows.Forms.Label();
@@ -127,8 +119,6 @@ namespace MinerGame
             this.lblCrystalMineLevel = new System.Windows.Forms.Label();
             this.lblCrystalMine = new System.Windows.Forms.Label();
             this.pMetalMine = new System.Windows.Forms.Panel();
-            this.lblMetalMineCollectTime = new System.Windows.Forms.Label();
-            this.lblMetalMineTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblMetalMineTimeRemain = new System.Windows.Forms.Label();
             this.lblMetalMineProductionIncrease = new System.Windows.Forms.Label();
             this.lblMetalMineEnergyDemand = new System.Windows.Forms.Label();
@@ -285,7 +275,6 @@ namespace MinerGame
             this.lblGravitonTechnologyLevel = new System.Windows.Forms.Label();
             this.lblGravitonTechnology = new System.Windows.Forms.Label();
             this.pAstrophisics = new System.Windows.Forms.Panel();
-            this.lblAstrophisicsColletTime = new System.Windows.Forms.Label();
             this.lblAstrophisicsTotalCost = new System.Windows.Forms.Label();
             this.lblAstrophisicsTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblAstrophisicsTimeRemain = new System.Windows.Forms.Label();
@@ -297,7 +286,6 @@ namespace MinerGame
             this.lblAstrophisicsLevel = new System.Windows.Forms.Label();
             this.lblAstrophisics = new System.Windows.Forms.Label();
             this.pIrn = new System.Windows.Forms.Panel();
-            this.lblIrnCollectTime = new System.Windows.Forms.Label();
             this.lblIrnTotalCost = new System.Windows.Forms.Label();
             this.lblIrnTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblIrnTimeRemain = new System.Windows.Forms.Label();
@@ -309,7 +297,6 @@ namespace MinerGame
             this.lblIrnLevel = new System.Windows.Forms.Label();
             this.lblIrn = new System.Windows.Forms.Label();
             this.pPlasmaTechnology = new System.Windows.Forms.Panel();
-            this.lblPlasmaTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblPlasmaTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblPlasmaTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblPlasmaTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -321,7 +308,6 @@ namespace MinerGame
             this.lblPlasmaTechnologyLevel = new System.Windows.Forms.Label();
             this.lblPlasmaTechnology = new System.Windows.Forms.Label();
             this.pIonTechnology = new System.Windows.Forms.Panel();
-            this.lblIonTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblIonTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblIonTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblIonTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -333,7 +319,6 @@ namespace MinerGame
             this.lblIonTechnologyLevel = new System.Windows.Forms.Label();
             this.lblIonTechnology = new System.Windows.Forms.Label();
             this.pLaserTechnology = new System.Windows.Forms.Panel();
-            this.lblLaserTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblLaserTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblLaserTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblLaserTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -345,7 +330,6 @@ namespace MinerGame
             this.lblLaserTechnologyLevel = new System.Windows.Forms.Label();
             this.lblLaserTechnology = new System.Windows.Forms.Label();
             this.pHyperspaceTechnology = new System.Windows.Forms.Panel();
-            this.lblHyperspaceTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblHyperspaceTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblHyperspaceTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblHyperspaceTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -357,7 +341,6 @@ namespace MinerGame
             this.lblHyperspaceTechnologyLevel = new System.Windows.Forms.Label();
             this.lblHyperspaceTechnology = new System.Windows.Forms.Label();
             this.pEnergyTechnology = new System.Windows.Forms.Panel();
-            this.lblEnergyTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblEnergyTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblEnergyTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblEnergyTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -369,7 +352,6 @@ namespace MinerGame
             this.lblEnergyTechnologyLevel = new System.Windows.Forms.Label();
             this.lblEnergyTechnology = new System.Windows.Forms.Label();
             this.pArmourTechnology = new System.Windows.Forms.Panel();
-            this.lblArmourTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblArmourTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblArmourTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblArmourTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -381,7 +363,6 @@ namespace MinerGame
             this.lblArmourTechnologyLevel = new System.Windows.Forms.Label();
             this.lblArmourTechnology = new System.Windows.Forms.Label();
             this.pShieldingTechnology = new System.Windows.Forms.Panel();
-            this.lblShieldingTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblShieldingTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblShieldingTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblShieldingTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -393,7 +374,6 @@ namespace MinerGame
             this.lblShieldingTechnologyLevel = new System.Windows.Forms.Label();
             this.lblShieldingTechnology = new System.Windows.Forms.Label();
             this.pWeaponsTechnology = new System.Windows.Forms.Panel();
-            this.lblWeaponsTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblWeaponsTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblWeaponsTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblWeaponsTechnologyTimeRemian = new System.Windows.Forms.Label();
@@ -405,7 +385,6 @@ namespace MinerGame
             this.lblWeaponsTechnologyLevel = new System.Windows.Forms.Label();
             this.lblWeaponsTechnology = new System.Windows.Forms.Label();
             this.pHyperspaceDrive = new System.Windows.Forms.Panel();
-            this.lblHyperspaceDriveCollectTime = new System.Windows.Forms.Label();
             this.lblHyperspaceDriveTotalCost = new System.Windows.Forms.Label();
             this.lblHyperspaceDriveTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblHyperspaceDriveTimeRemain = new System.Windows.Forms.Label();
@@ -417,7 +396,6 @@ namespace MinerGame
             this.lblHyperspaceDriveLevel = new System.Windows.Forms.Label();
             this.lblHyperspaceDrive = new System.Windows.Forms.Label();
             this.pImpulseDrive = new System.Windows.Forms.Panel();
-            this.lblImpulseDriveCollectTime = new System.Windows.Forms.Label();
             this.lblImpulseDriveTotalCost = new System.Windows.Forms.Label();
             this.lblImpulseDriveTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblImpulseDriveTimeRemain = new System.Windows.Forms.Label();
@@ -429,7 +407,6 @@ namespace MinerGame
             this.lblImpulseDriveLevel = new System.Windows.Forms.Label();
             this.lblImpulseDrive = new System.Windows.Forms.Label();
             this.pCombustionDrive = new System.Windows.Forms.Panel();
-            this.lblCombustionDriveCollectTime = new System.Windows.Forms.Label();
             this.lblCombustionDriveTotalCost = new System.Windows.Forms.Label();
             this.lblCombustionDriveTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblCombustionDriveTimeRemain = new System.Windows.Forms.Label();
@@ -441,7 +418,6 @@ namespace MinerGame
             this.lblCombustionDriveLevel = new System.Windows.Forms.Label();
             this.lblCombustionDrive = new System.Windows.Forms.Label();
             this.pComputerTechnology = new System.Windows.Forms.Panel();
-            this.lblComputerTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblComputerTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblComputerTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblComputerTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -453,7 +429,6 @@ namespace MinerGame
             this.lblComputerTechnologyLevel = new System.Windows.Forms.Label();
             this.lblComputerTechnology = new System.Windows.Forms.Label();
             this.pEspionageTechnology = new System.Windows.Forms.Panel();
-            this.lblEspionageTechnologyCollectTime = new System.Windows.Forms.Label();
             this.lblEspionageTechnologyTotalCost = new System.Windows.Forms.Label();
             this.lblEspionageTechnologyTotalDeuteriumCost = new System.Windows.Forms.Label();
             this.lblEspionageTechnologyTimeRemain = new System.Windows.Forms.Label();
@@ -764,7 +739,6 @@ namespace MinerGame
             this.lblSolarSatelliteCount = new System.Windows.Forms.Label();
             this.lblSolarSatellite = new System.Windows.Forms.Label();
             this.tpRequirements = new System.Windows.Forms.TabPage();
-            this.lblRequirements = new System.Windows.Forms.Label();
             this.tpFleet = new System.Windows.Forms.TabPage();
             this.btnAllResources = new System.Windows.Forms.Button();
             this.tbDeuteriumCargo = new System.Windows.Forms.TextBox();
@@ -834,7 +808,6 @@ namespace MinerGame
             this.rbCrystal = new System.Windows.Forms.RadioButton();
             this.rbMetal = new System.Windows.Forms.RadioButton();
             this.pInfo = new System.Windows.Forms.Panel();
-            this.lblStorageFactor = new System.Windows.Forms.Label();
             this.gbTimeEvents = new System.Windows.Forms.GroupBox();
             this.lblTimeEvent2 = new System.Windows.Forms.Label();
             this.lblTimeEvent1 = new System.Windows.Forms.Label();
@@ -872,6 +845,29 @@ namespace MinerGame
             this.cbPlanetSelect = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.lblEspionageTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblComputerTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblCombustionDriveCollectTime = new System.Windows.Forms.Label();
+            this.lblImpulseDriveCollectTime = new System.Windows.Forms.Label();
+            this.lblHyperspaceDriveCollectTime = new System.Windows.Forms.Label();
+            this.lblWeaponsTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblShieldingTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblArmourTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblEnergyTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblHyperspaceTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblLaserTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblIonTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblPlasmaTechnologyCollectTime = new System.Windows.Forms.Label();
+            this.lblIrnCollectTime = new System.Windows.Forms.Label();
+            this.lblAstrophisicsColletTime = new System.Windows.Forms.Label();
+            this.lblMetalMineTotalDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblMetalMineCollectTime = new System.Windows.Forms.Label();
+            this.lblCrystalMineTotalDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblFusionReactorTotalDeuteriumCost = new System.Windows.Forms.Label();
+            this.lblCrystalMineCollectTime = new System.Windows.Forms.Label();
+            this.lblDeuteriumSyntesizerCollectTime = new System.Windows.Forms.Label();
+            this.lblFusionReactorCollectTime = new System.Windows.Forms.Label();
             this.pContent.SuspendLayout();
             this.pPlanet.SuspendLayout();
             this.pPlanetStructures.SuspendLayout();
@@ -949,7 +945,6 @@ namespace MinerGame
             this.pRocketLauncher.SuspendLayout();
             this.pCrawler.SuspendLayout();
             this.pSolarSatellite.SuspendLayout();
-            this.tpRequirements.SuspendLayout();
             this.tpFleet.SuspendLayout();
             this.tpPoints.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -1586,30 +1581,6 @@ namespace MinerGame
             this.pFusionReactor.Size = new System.Drawing.Size(1890, 50);
             this.pFusionReactor.TabIndex = 5;
             // 
-            // lblFusionReactorCollectTime
-            // 
-            this.lblFusionReactorCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblFusionReactorCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFusionReactorCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFusionReactorCollectTime.Location = new System.Drawing.Point(1640, 10);
-            this.lblFusionReactorCollectTime.Name = "lblFusionReactorCollectTime";
-            this.lblFusionReactorCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblFusionReactorCollectTime.TabIndex = 32;
-            this.lblFusionReactorCollectTime.Text = "czas na uzbieranie";
-            this.lblFusionReactorCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblFusionReactorTotalDeuteriumCost
-            // 
-            this.lblFusionReactorTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
-            this.lblFusionReactorTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFusionReactorTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFusionReactorTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
-            this.lblFusionReactorTotalDeuteriumCost.Name = "lblFusionReactorTotalDeuteriumCost";
-            this.lblFusionReactorTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
-            this.lblFusionReactorTotalDeuteriumCost.TabIndex = 31;
-            this.lblFusionReactorTotalDeuteriumCost.Text = "koszt w deuterze";
-            this.lblFusionReactorTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblFusionReactorTimeRemain
             // 
             this.lblFusionReactorTimeRemain.BackColor = System.Drawing.Color.Transparent;
@@ -1888,30 +1859,6 @@ namespace MinerGame
             this.pDeuteriumSynthesizer.Size = new System.Drawing.Size(1890, 50);
             this.pDeuteriumSynthesizer.TabIndex = 3;
             // 
-            // lblDeuteriumSyntesizerCollectTime
-            // 
-            this.lblDeuteriumSyntesizerCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblDeuteriumSyntesizerCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDeuteriumSyntesizerCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDeuteriumSyntesizerCollectTime.Location = new System.Drawing.Point(1640, 10);
-            this.lblDeuteriumSyntesizerCollectTime.Name = "lblDeuteriumSyntesizerCollectTime";
-            this.lblDeuteriumSyntesizerCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblDeuteriumSyntesizerCollectTime.TabIndex = 32;
-            this.lblDeuteriumSyntesizerCollectTime.Text = "czas na uzbieranie";
-            this.lblDeuteriumSyntesizerCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDeuteriumSynthesizerTotalDeuteriumCost
-            // 
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Name = "lblDeuteriumSynthesizerTotalDeuteriumCost";
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.TabIndex = 31;
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Text = "koszt w deuterze";
-            this.lblDeuteriumSynthesizerTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblDeuteriumSynthesizerTimeRemain
             // 
             this.lblDeuteriumSynthesizerTimeRemain.BackColor = System.Drawing.Color.Transparent;
@@ -2059,30 +2006,6 @@ namespace MinerGame
             this.pCrystalMine.Size = new System.Drawing.Size(1890, 50);
             this.pCrystalMine.TabIndex = 2;
             // 
-            // lblCrystalMineCollectTime
-            // 
-            this.lblCrystalMineCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblCrystalMineCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCrystalMineCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCrystalMineCollectTime.Location = new System.Drawing.Point(1640, 10);
-            this.lblCrystalMineCollectTime.Name = "lblCrystalMineCollectTime";
-            this.lblCrystalMineCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblCrystalMineCollectTime.TabIndex = 32;
-            this.lblCrystalMineCollectTime.Text = "czas na uzbieranie";
-            this.lblCrystalMineCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCrystalMineTotalDeuteriumCost
-            // 
-            this.lblCrystalMineTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
-            this.lblCrystalMineTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCrystalMineTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCrystalMineTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
-            this.lblCrystalMineTotalDeuteriumCost.Name = "lblCrystalMineTotalDeuteriumCost";
-            this.lblCrystalMineTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
-            this.lblCrystalMineTotalDeuteriumCost.TabIndex = 31;
-            this.lblCrystalMineTotalDeuteriumCost.Text = "koszt w deuterze";
-            this.lblCrystalMineTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblCrystalMineTimeRemain
             // 
             this.lblCrystalMineTimeRemain.BackColor = System.Drawing.Color.Transparent;
@@ -2229,30 +2152,6 @@ namespace MinerGame
             this.pMetalMine.Name = "pMetalMine";
             this.pMetalMine.Size = new System.Drawing.Size(1890, 50);
             this.pMetalMine.TabIndex = 1;
-            // 
-            // lblMetalMineCollectTime
-            // 
-            this.lblMetalMineCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblMetalMineCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMetalMineCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMetalMineCollectTime.Location = new System.Drawing.Point(1640, 10);
-            this.lblMetalMineCollectTime.Name = "lblMetalMineCollectTime";
-            this.lblMetalMineCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblMetalMineCollectTime.TabIndex = 31;
-            this.lblMetalMineCollectTime.Text = "czas na uzbieranie";
-            this.lblMetalMineCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblMetalMineTotalDeuteriumCost
-            // 
-            this.lblMetalMineTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
-            this.lblMetalMineTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMetalMineTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMetalMineTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
-            this.lblMetalMineTotalDeuteriumCost.Name = "lblMetalMineTotalDeuteriumCost";
-            this.lblMetalMineTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
-            this.lblMetalMineTotalDeuteriumCost.TabIndex = 30;
-            this.lblMetalMineTotalDeuteriumCost.Text = "koszt w deuterze";
-            this.lblMetalMineTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMetalMineTimeRemain
             // 
@@ -4338,18 +4237,6 @@ namespace MinerGame
             this.pAstrophisics.Size = new System.Drawing.Size(1890, 50);
             this.pAstrophisics.TabIndex = 15;
             // 
-            // lblAstrophisicsColletTime
-            // 
-            this.lblAstrophisicsColletTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblAstrophisicsColletTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblAstrophisicsColletTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblAstrophisicsColletTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblAstrophisicsColletTime.Name = "lblAstrophisicsColletTime";
-            this.lblAstrophisicsColletTime.Size = new System.Drawing.Size(130, 30);
-            this.lblAstrophisicsColletTime.TabIndex = 44;
-            this.lblAstrophisicsColletTime.Text = "koszt w deuterze";
-            this.lblAstrophisicsColletTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblAstrophisicsTotalCost
             // 
             this.lblAstrophisicsTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -4494,18 +4381,6 @@ namespace MinerGame
             this.pIrn.Name = "pIrn";
             this.pIrn.Size = new System.Drawing.Size(1890, 50);
             this.pIrn.TabIndex = 14;
-            // 
-            // lblIrnCollectTime
-            // 
-            this.lblIrnCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblIrnCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblIrnCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblIrnCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblIrnCollectTime.Name = "lblIrnCollectTime";
-            this.lblIrnCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblIrnCollectTime.TabIndex = 43;
-            this.lblIrnCollectTime.Text = "koszt w deuterze";
-            this.lblIrnCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIrnTotalCost
             // 
@@ -4655,18 +4530,6 @@ namespace MinerGame
             this.pPlasmaTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pPlasmaTechnology.TabIndex = 13;
             // 
-            // lblPlasmaTechnologyCollectTime
-            // 
-            this.lblPlasmaTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlasmaTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPlasmaTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlasmaTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblPlasmaTechnologyCollectTime.Name = "lblPlasmaTechnologyCollectTime";
-            this.lblPlasmaTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblPlasmaTechnologyCollectTime.TabIndex = 42;
-            this.lblPlasmaTechnologyCollectTime.Text = "koszt w deuterze";
-            this.lblPlasmaTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblPlasmaTechnologyTotalCost
             // 
             this.lblPlasmaTechnologyTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -4811,18 +4674,6 @@ namespace MinerGame
             this.pIonTechnology.Name = "pIonTechnology";
             this.pIonTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pIonTechnology.TabIndex = 12;
-            // 
-            // lblIonTechnologyCollectTime
-            // 
-            this.lblIonTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblIonTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblIonTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblIonTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblIonTechnologyCollectTime.Name = "lblIonTechnologyCollectTime";
-            this.lblIonTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblIonTechnologyCollectTime.TabIndex = 41;
-            this.lblIonTechnologyCollectTime.Text = "koszt w deuterze";
-            this.lblIonTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIonTechnologyTotalCost
             // 
@@ -4972,18 +4823,6 @@ namespace MinerGame
             this.pLaserTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pLaserTechnology.TabIndex = 11;
             // 
-            // lblLaserTechnologyCollectTime
-            // 
-            this.lblLaserTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblLaserTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLaserTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLaserTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblLaserTechnologyCollectTime.Name = "lblLaserTechnologyCollectTime";
-            this.lblLaserTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblLaserTechnologyCollectTime.TabIndex = 40;
-            this.lblLaserTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblLaserTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblLaserTechnologyTotalCost
             // 
             this.lblLaserTechnologyTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -5128,18 +4967,6 @@ namespace MinerGame
             this.pHyperspaceTechnology.Name = "pHyperspaceTechnology";
             this.pHyperspaceTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pHyperspaceTechnology.TabIndex = 10;
-            // 
-            // lblHyperspaceTechnologyCollectTime
-            // 
-            this.lblHyperspaceTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblHyperspaceTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblHyperspaceTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblHyperspaceTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblHyperspaceTechnologyCollectTime.Name = "lblHyperspaceTechnologyCollectTime";
-            this.lblHyperspaceTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblHyperspaceTechnologyCollectTime.TabIndex = 39;
-            this.lblHyperspaceTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblHyperspaceTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceTechnologyTotalCost
             // 
@@ -5289,18 +5116,6 @@ namespace MinerGame
             this.pEnergyTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pEnergyTechnology.TabIndex = 9;
             // 
-            // lblEnergyTechnologyCollectTime
-            // 
-            this.lblEnergyTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblEnergyTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEnergyTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEnergyTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblEnergyTechnologyCollectTime.Name = "lblEnergyTechnologyCollectTime";
-            this.lblEnergyTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblEnergyTechnologyCollectTime.TabIndex = 38;
-            this.lblEnergyTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblEnergyTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblEnergyTechnologyTotalCost
             // 
             this.lblEnergyTechnologyTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -5445,18 +5260,6 @@ namespace MinerGame
             this.pArmourTechnology.Name = "pArmourTechnology";
             this.pArmourTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pArmourTechnology.TabIndex = 8;
-            // 
-            // lblArmourTechnologyCollectTime
-            // 
-            this.lblArmourTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblArmourTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblArmourTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblArmourTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblArmourTechnologyCollectTime.Name = "lblArmourTechnologyCollectTime";
-            this.lblArmourTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblArmourTechnologyCollectTime.TabIndex = 37;
-            this.lblArmourTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblArmourTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblArmourTechnologyTotalCost
             // 
@@ -5606,18 +5409,6 @@ namespace MinerGame
             this.pShieldingTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pShieldingTechnology.TabIndex = 7;
             // 
-            // lblShieldingTechnologyCollectTime
-            // 
-            this.lblShieldingTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblShieldingTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblShieldingTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblShieldingTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblShieldingTechnologyCollectTime.Name = "lblShieldingTechnologyCollectTime";
-            this.lblShieldingTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblShieldingTechnologyCollectTime.TabIndex = 36;
-            this.lblShieldingTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblShieldingTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblShieldingTechnologyTotalCost
             // 
             this.lblShieldingTechnologyTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -5763,18 +5554,6 @@ namespace MinerGame
             this.pWeaponsTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pWeaponsTechnology.TabIndex = 6;
             // 
-            // lblWeaponsTechnologyCollectTime
-            // 
-            this.lblWeaponsTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblWeaponsTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWeaponsTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWeaponsTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblWeaponsTechnologyCollectTime.Name = "lblWeaponsTechnologyCollectTime";
-            this.lblWeaponsTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblWeaponsTechnologyCollectTime.TabIndex = 35;
-            this.lblWeaponsTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblWeaponsTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblWeaponsTechnologyTotalCost
             // 
             this.lblWeaponsTechnologyTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -5811,14 +5590,14 @@ namespace MinerGame
             this.lblWeaponsTechnologyTimeRemian.Text = "czas pozostały";
             this.lblWeaponsTechnologyTimeRemian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblWeaponsTechnologyDuration
+            // lblWeapeonsTechnologyDuration
             // 
             this.lblWeaponsTechnologyDuration.BackColor = System.Drawing.Color.Transparent;
             this.lblWeaponsTechnologyDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWeaponsTechnologyDuration.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeaponsTechnologyDuration.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblWeaponsTechnologyDuration.Location = new System.Drawing.Point(800, 10);
-            this.lblWeaponsTechnologyDuration.Name = "lblWeaponsTechnologyDuration";
+            this.lblWeaponsTechnologyDuration.Name = "lblWeapeonsTechnologyDuration";
             this.lblWeaponsTechnologyDuration.Size = new System.Drawing.Size(130, 30);
             this.lblWeaponsTechnologyDuration.TabIndex = 13;
             this.lblWeaponsTechnologyDuration.Text = "czas";
@@ -5838,66 +5617,66 @@ namespace MinerGame
             this.btnWeapeonsTechnologyUpgrade.UseVisualStyleBackColor = false;
             this.btnWeapeonsTechnologyUpgrade.Click += new System.EventHandler(this.BtnResearchUpgrade_Click);
             // 
-            // lblWeaponsTechnologyDeuteriumCost
+            // lblWeapeonsTechnologyDeuteriumCost
             // 
             this.lblWeaponsTechnologyDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
             this.lblWeaponsTechnologyDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWeaponsTechnologyDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeaponsTechnologyDeuteriumCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblWeaponsTechnologyDeuteriumCost.Location = new System.Drawing.Point(660, 10);
-            this.lblWeaponsTechnologyDeuteriumCost.Name = "lblWeaponsTechnologyDeuteriumCost";
+            this.lblWeaponsTechnologyDeuteriumCost.Name = "lblWeapeonsTechnologyDeuteriumCost";
             this.lblWeaponsTechnologyDeuteriumCost.Size = new System.Drawing.Size(130, 30);
             this.lblWeaponsTechnologyDeuteriumCost.TabIndex = 11;
             this.lblWeaponsTechnologyDeuteriumCost.Text = "deuter";
             this.lblWeaponsTechnologyDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblWeaponsTechnologyCrystalCost
+            // lblWeapeonsTechnologyCrystalCost
             // 
             this.lblWeaponsTechnologyCrystalCost.BackColor = System.Drawing.Color.Transparent;
             this.lblWeaponsTechnologyCrystalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWeaponsTechnologyCrystalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeaponsTechnologyCrystalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblWeaponsTechnologyCrystalCost.Location = new System.Drawing.Point(520, 10);
-            this.lblWeaponsTechnologyCrystalCost.Name = "lblWeaponsTechnologyCrystalCost";
+            this.lblWeaponsTechnologyCrystalCost.Name = "lblWeapeonsTechnologyCrystalCost";
             this.lblWeaponsTechnologyCrystalCost.Size = new System.Drawing.Size(130, 30);
             this.lblWeaponsTechnologyCrystalCost.TabIndex = 10;
             this.lblWeaponsTechnologyCrystalCost.Text = "kryształ";
             this.lblWeaponsTechnologyCrystalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblWeaponsTechnologyMetalCost
+            // lblWeapeonsTechnologyMetalCost
             // 
             this.lblWeaponsTechnologyMetalCost.BackColor = System.Drawing.Color.Transparent;
             this.lblWeaponsTechnologyMetalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWeaponsTechnologyMetalCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeaponsTechnologyMetalCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblWeaponsTechnologyMetalCost.Location = new System.Drawing.Point(380, 10);
-            this.lblWeaponsTechnologyMetalCost.Name = "lblWeaponsTechnologyMetalCost";
+            this.lblWeaponsTechnologyMetalCost.Name = "lblWeapeonsTechnologyMetalCost";
             this.lblWeaponsTechnologyMetalCost.Size = new System.Drawing.Size(130, 30);
             this.lblWeaponsTechnologyMetalCost.TabIndex = 9;
             this.lblWeaponsTechnologyMetalCost.Text = "metal";
             this.lblWeaponsTechnologyMetalCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblWeaponsTechnologyLevel
+            // lblWeapeonsTechnologyLevel
             // 
             this.lblWeaponsTechnologyLevel.BackColor = System.Drawing.Color.Transparent;
             this.lblWeaponsTechnologyLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWeaponsTechnologyLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeaponsTechnologyLevel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblWeaponsTechnologyLevel.Location = new System.Drawing.Point(320, 10);
-            this.lblWeaponsTechnologyLevel.Name = "lblWeaponsTechnologyLevel";
+            this.lblWeaponsTechnologyLevel.Name = "lblWeapeonsTechnologyLevel";
             this.lblWeaponsTechnologyLevel.Size = new System.Drawing.Size(50, 30);
             this.lblWeaponsTechnologyLevel.TabIndex = 8;
             this.lblWeaponsTechnologyLevel.Text = "level";
             this.lblWeaponsTechnologyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblWeaponsTechnology
+            // lblWeapeonsTechnology
             // 
             this.lblWeaponsTechnology.BackColor = System.Drawing.Color.Transparent;
             this.lblWeaponsTechnology.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWeaponsTechnology.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeaponsTechnology.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblWeaponsTechnology.Location = new System.Drawing.Point(10, 10);
-            this.lblWeaponsTechnology.Name = "lblWeaponsTechnology";
+            this.lblWeaponsTechnology.Name = "lblWeapeonsTechnology";
             this.lblWeaponsTechnology.Size = new System.Drawing.Size(300, 30);
             this.lblWeaponsTechnology.TabIndex = 7;
             this.lblWeaponsTechnology.Text = "Technologia bojowa";
@@ -5922,18 +5701,6 @@ namespace MinerGame
             this.pHyperspaceDrive.Name = "pHyperspaceDrive";
             this.pHyperspaceDrive.Size = new System.Drawing.Size(1890, 50);
             this.pHyperspaceDrive.TabIndex = 5;
-            // 
-            // lblHyperspaceDriveCollectTime
-            // 
-            this.lblHyperspaceDriveCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblHyperspaceDriveCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblHyperspaceDriveCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblHyperspaceDriveCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblHyperspaceDriveCollectTime.Name = "lblHyperspaceDriveCollectTime";
-            this.lblHyperspaceDriveCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblHyperspaceDriveCollectTime.TabIndex = 34;
-            this.lblHyperspaceDriveCollectTime.Text = "czas na uzbieranie";
-            this.lblHyperspaceDriveCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblHyperspaceDriveTotalCost
             // 
@@ -6079,18 +5846,6 @@ namespace MinerGame
             this.pImpulseDrive.Name = "pImpulseDrive";
             this.pImpulseDrive.Size = new System.Drawing.Size(1890, 50);
             this.pImpulseDrive.TabIndex = 4;
-            // 
-            // lblImpulseDriveCollectTime
-            // 
-            this.lblImpulseDriveCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblImpulseDriveCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblImpulseDriveCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblImpulseDriveCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblImpulseDriveCollectTime.Name = "lblImpulseDriveCollectTime";
-            this.lblImpulseDriveCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblImpulseDriveCollectTime.TabIndex = 33;
-            this.lblImpulseDriveCollectTime.Text = "czas na uzbieranie";
-            this.lblImpulseDriveCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblImpulseDriveTotalCost
             // 
@@ -6240,18 +5995,6 @@ namespace MinerGame
             this.pCombustionDrive.Size = new System.Drawing.Size(1890, 50);
             this.pCombustionDrive.TabIndex = 3;
             // 
-            // lblCombustionDriveCollectTime
-            // 
-            this.lblCombustionDriveCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblCombustionDriveCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCombustionDriveCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCombustionDriveCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblCombustionDriveCollectTime.Name = "lblCombustionDriveCollectTime";
-            this.lblCombustionDriveCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblCombustionDriveCollectTime.TabIndex = 32;
-            this.lblCombustionDriveCollectTime.Text = "czas na uzbieranie";
-            this.lblCombustionDriveCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblCombustionDriveTotalCost
             // 
             this.lblCombustionDriveTotalCost.BackColor = System.Drawing.Color.Transparent;
@@ -6396,18 +6139,6 @@ namespace MinerGame
             this.pComputerTechnology.Name = "pComputerTechnology";
             this.pComputerTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pComputerTechnology.TabIndex = 2;
-            // 
-            // lblComputerTechnologyCollectTime
-            // 
-            this.lblComputerTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblComputerTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblComputerTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblComputerTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblComputerTechnologyCollectTime.Name = "lblComputerTechnologyCollectTime";
-            this.lblComputerTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblComputerTechnologyCollectTime.TabIndex = 31;
-            this.lblComputerTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblComputerTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblComputerTechnologyTotalCost
             // 
@@ -6556,18 +6287,6 @@ namespace MinerGame
             this.pEspionageTechnology.Name = "pEspionageTechnology";
             this.pEspionageTechnology.Size = new System.Drawing.Size(1890, 50);
             this.pEspionageTechnology.TabIndex = 0;
-            // 
-            // lblEspionageTechnologyCollectTime
-            // 
-            this.lblEspionageTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblEspionageTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEspionageTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEspionageTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
-            this.lblEspionageTechnologyCollectTime.Name = "lblEspionageTechnologyCollectTime";
-            this.lblEspionageTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
-            this.lblEspionageTechnologyCollectTime.TabIndex = 30;
-            this.lblEspionageTechnologyCollectTime.Text = "czas na uzbieranie";
-            this.lblEspionageTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEspionageTechnologyTotalCost
             // 
@@ -10522,27 +10241,13 @@ namespace MinerGame
             // 
             // tpRequirements
             // 
-            this.tpRequirements.AutoScroll = true;
             this.tpRequirements.BackColor = System.Drawing.Color.Silver;
-            this.tpRequirements.Controls.Add(this.lblRequirements);
             this.tpRequirements.Location = new System.Drawing.Point(4, 29);
             this.tpRequirements.Name = "tpRequirements";
             this.tpRequirements.Padding = new System.Windows.Forms.Padding(3);
             this.tpRequirements.Size = new System.Drawing.Size(1896, 800);
             this.tpRequirements.TabIndex = 6;
             this.tpRequirements.Text = "Wymagania";
-            // 
-            // lblRequirements
-            // 
-            this.lblRequirements.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblRequirements.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRequirements.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblRequirements.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRequirements.Location = new System.Drawing.Point(3, 3);
-            this.lblRequirements.Name = "lblRequirements";
-            this.lblRequirements.Size = new System.Drawing.Size(1890, 794);
-            this.lblRequirements.TabIndex = 20;
-            this.lblRequirements.Text = "0";
             // 
             // tpFleet
             // 
@@ -11400,7 +11105,6 @@ namespace MinerGame
             // pInfo
             // 
             this.pInfo.BackColor = System.Drawing.Color.Silver;
-            this.pInfo.Controls.Add(this.lblStorageFactor);
             this.pInfo.Controls.Add(this.gbTimeEvents);
             this.pInfo.Controls.Add(this.gbPlanetCountInfo);
             this.pInfo.Controls.Add(this.gbEnergyInfo);
@@ -11415,19 +11119,6 @@ namespace MinerGame
             this.pInfo.Name = "pInfo";
             this.pInfo.Size = new System.Drawing.Size(1904, 140);
             this.pInfo.TabIndex = 1;
-            // 
-            // lblStorageFactor
-            // 
-            this.lblStorageFactor.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblStorageFactor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblStorageFactor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblStorageFactor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStorageFactor.Location = new System.Drawing.Point(1610, 0);
-            this.lblStorageFactor.Name = "lblStorageFactor";
-            this.lblStorageFactor.Size = new System.Drawing.Size(124, 30);
-            this.lblStorageFactor.TabIndex = 14;
-            this.lblStorageFactor.Text = "3,14";
-            this.lblStorageFactor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbTimeEvents
             // 
@@ -11868,6 +11559,282 @@ namespace MinerGame
             this.cbPlanetSelect.TabIndex = 4;
             this.cbPlanetSelect.SelectedIndexChanged += new System.EventHandler(this.CbPlanetSelect_SelectedIndexChanged);
             // 
+            // lblEspionageTechnologyCollectTime
+            // 
+            this.lblEspionageTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblEspionageTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEspionageTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEspionageTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblEspionageTechnologyCollectTime.Name = "lblEspionageTechnologyCollectTime";
+            this.lblEspionageTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblEspionageTechnologyCollectTime.TabIndex = 30;
+            this.lblEspionageTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblEspionageTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblComputerTechnologyCollectTime
+            // 
+            this.lblComputerTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblComputerTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblComputerTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblComputerTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblComputerTechnologyCollectTime.Name = "lblComputerTechnologyCollectTime";
+            this.lblComputerTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblComputerTechnologyCollectTime.TabIndex = 31;
+            this.lblComputerTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblComputerTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCombustionDriveCollectTime
+            // 
+            this.lblCombustionDriveCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblCombustionDriveCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCombustionDriveCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCombustionDriveCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblCombustionDriveCollectTime.Name = "lblCombustionDriveCollectTime";
+            this.lblCombustionDriveCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblCombustionDriveCollectTime.TabIndex = 32;
+            this.lblCombustionDriveCollectTime.Text = "czas na uzbieranie";
+            this.lblCombustionDriveCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblImpulseDriveCollectTime
+            // 
+            this.lblImpulseDriveCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblImpulseDriveCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblImpulseDriveCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblImpulseDriveCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblImpulseDriveCollectTime.Name = "lblImpulseDriveCollectTime";
+            this.lblImpulseDriveCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblImpulseDriveCollectTime.TabIndex = 33;
+            this.lblImpulseDriveCollectTime.Text = "czas na uzbieranie";
+            this.lblImpulseDriveCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHyperspaceDriveCollectTime
+            // 
+            this.lblHyperspaceDriveCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblHyperspaceDriveCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHyperspaceDriveCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHyperspaceDriveCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblHyperspaceDriveCollectTime.Name = "lblHyperspaceDriveCollectTime";
+            this.lblHyperspaceDriveCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblHyperspaceDriveCollectTime.TabIndex = 34;
+            this.lblHyperspaceDriveCollectTime.Text = "czas na uzbieranie";
+            this.lblHyperspaceDriveCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblWeaponsTechnologyCollectTime
+            // 
+            this.lblWeaponsTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblWeaponsTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblWeaponsTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWeaponsTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblWeaponsTechnologyCollectTime.Name = "lblWeaponsTechnologyCollectTime";
+            this.lblWeaponsTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblWeaponsTechnologyCollectTime.TabIndex = 35;
+            this.lblWeaponsTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblWeaponsTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblShieldingTechnologyCollectTime
+            // 
+            this.lblShieldingTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblShieldingTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblShieldingTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblShieldingTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblShieldingTechnologyCollectTime.Name = "lblShieldingTechnologyCollectTime";
+            this.lblShieldingTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblShieldingTechnologyCollectTime.TabIndex = 36;
+            this.lblShieldingTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblShieldingTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblArmourTechnologyCollectTime
+            // 
+            this.lblArmourTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblArmourTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblArmourTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblArmourTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblArmourTechnologyCollectTime.Name = "lblArmourTechnologyCollectTime";
+            this.lblArmourTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblArmourTechnologyCollectTime.TabIndex = 37;
+            this.lblArmourTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblArmourTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEnergyTechnologyCollectTime
+            // 
+            this.lblEnergyTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblEnergyTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEnergyTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEnergyTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblEnergyTechnologyCollectTime.Name = "lblEnergyTechnologyCollectTime";
+            this.lblEnergyTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblEnergyTechnologyCollectTime.TabIndex = 38;
+            this.lblEnergyTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblEnergyTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHyperspaceTechnologyCollectTime
+            // 
+            this.lblHyperspaceTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblHyperspaceTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHyperspaceTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHyperspaceTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblHyperspaceTechnologyCollectTime.Name = "lblHyperspaceTechnologyCollectTime";
+            this.lblHyperspaceTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblHyperspaceTechnologyCollectTime.TabIndex = 39;
+            this.lblHyperspaceTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblHyperspaceTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLaserTechnologyCollectTime
+            // 
+            this.lblLaserTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblLaserTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLaserTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLaserTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblLaserTechnologyCollectTime.Name = "lblLaserTechnologyCollectTime";
+            this.lblLaserTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblLaserTechnologyCollectTime.TabIndex = 40;
+            this.lblLaserTechnologyCollectTime.Text = "czas na uzbieranie";
+            this.lblLaserTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIonTechnologyCollectTime
+            // 
+            this.lblIonTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblIonTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIonTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIonTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblIonTechnologyCollectTime.Name = "lblIonTechnologyCollectTime";
+            this.lblIonTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblIonTechnologyCollectTime.TabIndex = 41;
+            this.lblIonTechnologyCollectTime.Text = "koszt w deuterze";
+            this.lblIonTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlasmaTechnologyCollectTime
+            // 
+            this.lblPlasmaTechnologyCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlasmaTechnologyCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlasmaTechnologyCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlasmaTechnologyCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblPlasmaTechnologyCollectTime.Name = "lblPlasmaTechnologyCollectTime";
+            this.lblPlasmaTechnologyCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblPlasmaTechnologyCollectTime.TabIndex = 42;
+            this.lblPlasmaTechnologyCollectTime.Text = "koszt w deuterze";
+            this.lblPlasmaTechnologyCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIrnCollectTime
+            // 
+            this.lblIrnCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblIrnCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIrnCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIrnCollectTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblIrnCollectTime.Name = "lblIrnCollectTime";
+            this.lblIrnCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblIrnCollectTime.TabIndex = 43;
+            this.lblIrnCollectTime.Text = "koszt w deuterze";
+            this.lblIrnCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAstrophisicsColletTime
+            // 
+            this.lblAstrophisicsColletTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblAstrophisicsColletTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAstrophisicsColletTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAstrophisicsColletTime.Location = new System.Drawing.Point(1500, 10);
+            this.lblAstrophisicsColletTime.Name = "lblAstrophisicsColletTime";
+            this.lblAstrophisicsColletTime.Size = new System.Drawing.Size(130, 30);
+            this.lblAstrophisicsColletTime.TabIndex = 44;
+            this.lblAstrophisicsColletTime.Text = "koszt w deuterze";
+            this.lblAstrophisicsColletTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMetalMineTotalDeuteriumCost
+            // 
+            this.lblMetalMineTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalMineTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMetalMineTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalMineTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
+            this.lblMetalMineTotalDeuteriumCost.Name = "lblMetalMineTotalDeuteriumCost";
+            this.lblMetalMineTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblMetalMineTotalDeuteriumCost.TabIndex = 30;
+            this.lblMetalMineTotalDeuteriumCost.Text = "koszt w deuterze";
+            this.lblMetalMineTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMetalMineCollectTime
+            // 
+            this.lblMetalMineCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblMetalMineCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMetalMineCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMetalMineCollectTime.Location = new System.Drawing.Point(1640, 10);
+            this.lblMetalMineCollectTime.Name = "lblMetalMineCollectTime";
+            this.lblMetalMineCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblMetalMineCollectTime.TabIndex = 31;
+            this.lblMetalMineCollectTime.Text = "czas na uzbieranie";
+            this.lblMetalMineCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrystalMineTotalDeuteriumCost
+            // 
+            this.lblCrystalMineTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalMineTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrystalMineTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalMineTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
+            this.lblCrystalMineTotalDeuteriumCost.Name = "lblCrystalMineTotalDeuteriumCost";
+            this.lblCrystalMineTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblCrystalMineTotalDeuteriumCost.TabIndex = 31;
+            this.lblCrystalMineTotalDeuteriumCost.Text = "koszt w deuterze";
+            this.lblCrystalMineTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeuteriumSynthesizerTotalDeuteriumCost
+            // 
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Name = "lblDeuteriumSynthesizerTotalDeuteriumCost";
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.TabIndex = 31;
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.Text = "koszt w deuterze";
+            this.lblDeuteriumSynthesizerTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFusionReactorTotalDeuteriumCost
+            // 
+            this.lblFusionReactorTotalDeuteriumCost.BackColor = System.Drawing.Color.Transparent;
+            this.lblFusionReactorTotalDeuteriumCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblFusionReactorTotalDeuteriumCost.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFusionReactorTotalDeuteriumCost.Location = new System.Drawing.Point(1500, 10);
+            this.lblFusionReactorTotalDeuteriumCost.Name = "lblFusionReactorTotalDeuteriumCost";
+            this.lblFusionReactorTotalDeuteriumCost.Size = new System.Drawing.Size(130, 30);
+            this.lblFusionReactorTotalDeuteriumCost.TabIndex = 31;
+            this.lblFusionReactorTotalDeuteriumCost.Text = "koszt w deuterze";
+            this.lblFusionReactorTotalDeuteriumCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCrystalMineCollectTime
+            // 
+            this.lblCrystalMineCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblCrystalMineCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCrystalMineCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCrystalMineCollectTime.Location = new System.Drawing.Point(1640, 10);
+            this.lblCrystalMineCollectTime.Name = "lblCrystalMineCollectTime";
+            this.lblCrystalMineCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblCrystalMineCollectTime.TabIndex = 32;
+            this.lblCrystalMineCollectTime.Text = "czas na uzbieranie";
+            this.lblCrystalMineCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeuteriumSyntesizerCollectTime
+            // 
+            this.lblDeuteriumSyntesizerCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeuteriumSyntesizerCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeuteriumSyntesizerCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeuteriumSyntesizerCollectTime.Location = new System.Drawing.Point(1640, 10);
+            this.lblDeuteriumSyntesizerCollectTime.Name = "lblDeuteriumSyntesizerCollectTime";
+            this.lblDeuteriumSyntesizerCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblDeuteriumSyntesizerCollectTime.TabIndex = 32;
+            this.lblDeuteriumSyntesizerCollectTime.Text = "czas na uzbieranie";
+            this.lblDeuteriumSyntesizerCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFusionReactorCollectTime
+            // 
+            this.lblFusionReactorCollectTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblFusionReactorCollectTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblFusionReactorCollectTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFusionReactorCollectTime.Location = new System.Drawing.Point(1640, 10);
+            this.lblFusionReactorCollectTime.Name = "lblFusionReactorCollectTime";
+            this.lblFusionReactorCollectTime.Size = new System.Drawing.Size(130, 30);
+            this.lblFusionReactorCollectTime.TabIndex = 32;
+            this.lblFusionReactorCollectTime.Text = "czas na uzbieranie";
+            this.lblFusionReactorCollectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -11986,7 +11953,6 @@ namespace MinerGame
             this.pCrawler.PerformLayout();
             this.pSolarSatellite.ResumeLayout(false);
             this.pSolarSatellite.PerformLayout();
-            this.tpRequirements.ResumeLayout(false);
             this.tpFleet.ResumeLayout(false);
             this.tpFleet.PerformLayout();
             this.tpPoints.ResumeLayout(false);
@@ -12863,8 +12829,6 @@ namespace MinerGame
         private System.Windows.Forms.Label lblCombustionDriveCollectTime;
         private System.Windows.Forms.Label lblComputerTechnologyCollectTime;
         private System.Windows.Forms.Label lblEspionageTechnologyCollectTime;
-        private System.Windows.Forms.Label lblStorageFactor;
-        private System.Windows.Forms.Label lblRequirements;
     }
 }
 
