@@ -31,6 +31,7 @@ namespace MinerGame
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -872,6 +873,7 @@ namespace MinerGame
             this.cbPlanetSelect = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.ttTotalDeuteriumConsumption = new System.Windows.Forms.ToolTip(this.components);
             this.pContent.SuspendLayout();
             this.pPlanet.SuspendLayout();
             this.pPlanetStructures.SuspendLayout();
@@ -2525,6 +2527,7 @@ namespace MinerGame
             this.lblTotalDeuteriumProduction.TabIndex = 11;
             this.lblTotalDeuteriumProduction.Text = "0";
             this.lblTotalDeuteriumProduction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalDeuteriumProduction.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTotalDeuteriumProduction_MouseMove);
             // 
             // lblTotalDeuteriumTankLevel
             // 
@@ -12865,6 +12868,7 @@ namespace MinerGame
         private System.Windows.Forms.Label lblEspionageTechnologyCollectTime;
         private System.Windows.Forms.Label lblStorageFactor;
         private System.Windows.Forms.Label lblRequirements;
+        private System.Windows.Forms.ToolTip ttTotalDeuteriumConsumption;
     }
 }
 

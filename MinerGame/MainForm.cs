@@ -16,6 +16,7 @@ namespace MinerGame
         #region Private Fields
         private OGame ogame;
         private Planet activePlanet;
+        private double totalDeuteriumConsumption;
 
         private Dictionary<Item, Label> NameLabelList;
         private Dictionary<Item, Label> ResearchLevelLabelList;
@@ -68,6 +69,7 @@ namespace MinerGame
         {
             OGame.GameSpeed = GetGameSpeed(tbEcoSpeed.Text);
             ogame = new OGame(GetGameName());
+            totalDeuteriumConsumption = 0.0;
             CreatePlanetPanels();
 
             tbNewGameName.Text = "";
@@ -1662,6 +1664,9 @@ namespace MinerGame
             for (int i = 0; i < ogame.Planets.Count; i++)
             {
                 var resourcesPanel = pProductionGeneratedContent.Controls[i].Controls[1].Controls;
+                int fusionReactorLevel = ogame.Planets.ElementAt(i).Buildings[Item.FUSION_REACTOR].Level;
+                double dfrc = GameHandler.FusionReactorDeuteriumDemand(fusionReactorLevel);
+                resourcesDataView.DeuteriumFRC += dfrc;
 
                 for (int j = 0; j < resourcesPanel.Count; j++)
                 {
@@ -1672,7 +1677,7 @@ namespace MinerGame
                     double plasma = GameHandler.PlasmaProduction(mine, (Item)j, OGame.Researches[Item.PLASMA_TECHNOLOGY].Level);
                     double crawlers = GameHandler.CrawlersProduction(mine, (Item)j, ogame.Planets.ElementAt(i).Defences[Item.CRAWLER]);
                     double basic = OGame.GameSpeed * GameData.BASIC_PRODUCTION[(Item)j];
-                    double total = mine + plasma + crawlers + basic;
+                    double total = mine + plasma + crawlers + basic - (j == 2 ? dfrc : 0);
 
                     resourcesDataView.MinesLevel[j] += lvlMine;
                     resourcesDataView.StorageLevel[j] += lvlStorage;
@@ -1745,7 +1750,7 @@ namespace MinerGame
 
             lblTotalMetalProduction.Text = total.Metal.ToString("N0");
             lblTotalCrystalProduction.Text = total.Crystal.ToString("N0");
-            lblTotalDeuteriumProduction.Text = total.Deuterium.ToString("N0");
+            lblTotalDeuteriumProduction.Text = (total.Deuterium - resourcesDataView.DeuteriumFRC).ToString("N0");
 
             lblTotalMetalProductionMine.Text = resourcesDataView.Mines.Metal.ToString("N0");
             lblTotalCrystalProductionMine.Text = resourcesDataView.Mines.Crystal.ToString("N0");
@@ -1766,6 +1771,8 @@ namespace MinerGame
             lblStorageMetalMinTime.Text = minStorageTime[Item.METAL].ToString("d'd 'hh'h 'mm'm 'ss's'");
             lblStorageCrystalMinTime.Text = minStorageTime[Item.CRYSTAL].ToString("d'd 'hh'h 'mm'm 'ss's'");
             lblStorageDeuteriumMinTime.Text = minStorageTime[Item.DEUTERIUM].ToString("d'd 'hh'h 'mm'm 'ss's'");
+
+            totalDeuteriumConsumption = resourcesDataView.DeuteriumFRC;
         }
 
         private void CreatePlanetPanels()
@@ -2475,8 +2482,12 @@ namespace MinerGame
 
 
 
+
         #endregion
 
-
+        private void lblTotalDeuteriumProduction_MouseMove(object sender, MouseEventArgs e)
+        {
+            ttTotalDeuteriumConsumption.SetToolTip(lblTotalDeuteriumProduction, "+" + totalDeuteriumConsumption.ToString("N0"));
+        }
     }
 }
