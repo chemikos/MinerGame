@@ -2311,9 +2311,9 @@ namespace MinerGame
                 return tbNewGameName.Text;
         }
 
-        private static double GetGameSpeed(string factor)
+        private static int GetGameSpeed(string factor)
         {
-            if (!double.TryParse(factor, out double temp) && temp < 0){ return 1; }
+            if (!int.TryParse(factor, out int temp) && temp < 1){ return 1; }
             return temp;
         }
 
