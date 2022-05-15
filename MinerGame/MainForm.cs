@@ -1262,7 +1262,6 @@ namespace MinerGame
             FillDefenceCountLabel();
 
             FillBuildingCostAndDurationLabels();
-
             
             FillUnitDurationLabel();
             FillUnitCountTextBox();
