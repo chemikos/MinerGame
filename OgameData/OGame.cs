@@ -8,7 +8,7 @@ namespace OgameData
     public class OGame
     {
         [JsonProperty("GameSpeed")]
-        public static int GameSpeed = 1;
+        public static int GameSpeed = 1; //jakie dziwne rzeczy przy cofaniu zmian, nie wiem jak to ogarnąć
 
         [JsonProperty("Researches")]
         public static Dictionary<Item, Research> Researches = new()
