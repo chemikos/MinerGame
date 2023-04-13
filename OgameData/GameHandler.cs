@@ -177,14 +177,14 @@ namespace OgameData
         }
         
         //storage
-        public static double StorageCapacity(int level, double basis = Math.PI)
+        public static double StorageCapacity(int level, double basis = 6.0)
         {
             return Math.Truncate(2.5 * Math.Pow(basis, 20.0 * level / 33)) * 5000;
             // original basis is Math.E
             // Math.PI my first basis for speed 100
             // maybe change 'basis' into 10.0 / 3 for 1000
             // 4 for 10_000
-            // 8 for speed 1_000_000
+            // 6 for speed 1_000_000
         }
 
         #region Time
