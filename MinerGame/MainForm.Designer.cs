@@ -11422,6 +11422,7 @@ namespace MinerGame
             // lblStorageFactor
             // 
             this.lblStorageFactor.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblStorageFactor.BackColor = System.Drawing.Color.FromArgb(0, 0, 255);
             this.lblStorageFactor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStorageFactor.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblStorageFactor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -11429,7 +11430,7 @@ namespace MinerGame
             this.lblStorageFactor.Name = "lblStorageFactor";
             this.lblStorageFactor.Size = new System.Drawing.Size(124, 30);
             this.lblStorageFactor.TabIndex = 14;
-            this.lblStorageFactor.Text = "3,14";
+            this.lblStorageFactor.Text = "6,00";
             this.lblStorageFactor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbTimeEvents
